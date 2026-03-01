@@ -107,15 +107,9 @@ export const HeritageDetail = ({ object }: Props) => {
 						label={t.heritage.year_built}
 						value={object.yearRange ?? String(object.yearBuilt)}
 					/>
-					<InfoRow
-						label={t.heritage.style}
-						value={object.architecturalStyle[loc]}
-					/>
+					<InfoRow label={t.heritage.style} value={object.architecturalStyle[loc]} />
 					{object.architect && (
-						<InfoRow
-							label={t.heritage.architect}
-							value={object.architect[loc]}
-						/>
+						<InfoRow label={t.heritage.architect} value={object.architect[loc]} />
 					)}
 				</div>
 			</Section>
@@ -136,10 +130,7 @@ export const HeritageDetail = ({ object }: Props) => {
 							{t.heritage.architecture_details}
 						</p>
 						{object.architectureDetails.map((detail, i) => (
-							<div
-								key={i}
-								className="border border-gold-400/15 bg-sepia-800/30 p-5"
-							>
+							<div key={i} className="border border-gold-400/15 bg-sepia-800/30 p-5">
 								<h4 className="font-display text-gold-300 text-lg mb-2">
 									{detail.title[loc]}
 								</h4>

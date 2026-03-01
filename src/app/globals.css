@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-sepia-900 text-parchment-100;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(61, 43, 31, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(90, 61, 43, 0.15) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-gold-400/30 text-parchment-50;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-sepia-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-400/30 hover:bg-gold-400/50;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

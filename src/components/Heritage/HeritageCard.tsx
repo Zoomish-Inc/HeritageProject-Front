@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const HeritageCard = ({ item, index }: Props) => {
-  const { locale } = useLocale();
+  const { t, locale } = useLocale();
 
   return (
     <Link
@@ -50,7 +50,7 @@ export const HeritageCard = ({ item, index }: Props) => {
 
         {/* Arrow */}
         <div className="mt-4 flex items-center gap-2 text-gold-400/50 group-hover:text-gold-400 transition-colors duration-300">
-          <span className="font-ui text-[10px] tracking-[0.2em] uppercase">Открыть</span>
+          <span className="font-ui text-[10px] tracking-[0.2em] uppercase">{t.home.readMore}</span>
           <span className="text-xs group-hover:translate-x-1 transition-transform duration-300">→</span>
         </div>
 

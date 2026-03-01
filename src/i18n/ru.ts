@@ -12,6 +12,7 @@ export const ru = {
     explore_button: "Начать путешествие",
     objects_title: "Объекты культурного наследия",
     objects_subtitle: "Шесть памятников, переживших столетия",
+    readMore: "Открыть",
   },
   heritage: {
     year_built: "Год постройки",

@@ -12,6 +12,7 @@ export const uz = {
     explore_button: "Sayohatni boshlash",
     objects_title: "Madaniy meros ob'ektlari",
     objects_subtitle: "Asrlarni yashagan olti yodgorlik",
+    readMore: "Ochiq",
   },
   heritage: {
     year_built: "Qurilgan yil",

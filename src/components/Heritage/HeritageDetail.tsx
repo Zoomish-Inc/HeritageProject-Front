@@ -21,7 +21,7 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 const InfoRow = ({ label, value }: { label: string; value: string }) => (
   <div className="flex gap-4 py-3 border-b border-gold-400/10 last:border-0">
     <span className="text-gold-400/60 font-ui text-xs tracking-wider uppercase min-w-36 flex-shrink-0">{label}</span>
-    <span className="text-parchment-100 font-body text-sm leading-relaxed">{value}</span>
+    <span className="text-parchment-100 font-ui text-sm leading-relaxed">{value}</span>
   </div>
 );
 

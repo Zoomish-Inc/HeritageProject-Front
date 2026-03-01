@@ -1,0 +1,7 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
+  "plugins": ["react"],
+  "rules": {
+    // Add any custom rules here
+  }
+}

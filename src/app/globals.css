@@ -5,9 +5,17 @@
 @layer base {
   body {
     @apply bg-sepia-900 text-parchment-100;
-    background-image: 
-      radial-gradient(ellipse at 20% 50%, rgba(61, 43, 31, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(90, 61, 43, 0.15) 0%, transparent 50%);
+    background-image:
+      radial-gradient(
+        ellipse at 20% 50%,
+        rgba(61, 43, 31, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        rgba(90, 61, 43, 0.15) 0%,
+        transparent 50%
+      );
     min-height: 100vh;
   }
 

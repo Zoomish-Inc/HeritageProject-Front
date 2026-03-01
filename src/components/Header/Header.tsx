@@ -1,8 +1,8 @@
-"use client";
-import Link from "next/link";
-import { useLocale } from "@/i18n";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { NavDropdown } from "./NavDropdown";
+'use client';
+import Link from 'next/link';
+import { useLocale } from '@/i18n';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { NavDropdown } from './NavDropdown';
 
 export const Header = () => {
   const { locale, t } = useLocale();

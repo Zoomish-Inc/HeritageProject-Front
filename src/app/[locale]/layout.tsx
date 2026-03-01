@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import type { Locale } from "@/types/heritage";
-import { Header } from "@/components/Header/Header";
-import { Providers } from "./providers";
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import type { Locale } from '@/types/heritage';
+import { Header } from '@/components/Header/Header';
+import { Providers } from './providers';
 
 type Props = {
   children: React.ReactNode;
   params: { locale: string };
 };
 
-const VALID_LOCALES: Locale[] = ["ru", "uz"];
+const VALID_LOCALES: Locale[] = ['ru', 'uz'];
 
 export async function generateStaticParams() {
   return VALID_LOCALES.map((locale) => ({ locale }));

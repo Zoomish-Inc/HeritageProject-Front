@@ -1,8 +1,8 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale } from "@/i18n";
-import type { HeritageListItem } from "@/types/heritage";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale } from '@/i18n';
+import type { HeritageListItem } from '@/types/heritage';
 
 interface Props {
   item: HeritageListItem;
@@ -22,11 +22,16 @@ export const HeritageCard = ({ item, index }: Props) => {
         <div className="absolute inset-0 bg-sepia-900/40 z-10 group-hover:bg-sepia-900/20 transition-all duration-500" />
         <div
           className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-          style={{ backgroundImage: `url(${item.coverImageUrl})`, filter: "sepia(0.4)" }}
+          style={{
+            backgroundImage: `url(${item.coverImageUrl})`,
+            filter: 'sepia(0.4)',
+          }}
         />
         {/* Order number */}
         <div className="absolute top-3 left-3 z-20 w-8 h-8 border border-gold-400/60 flex items-center justify-center bg-sepia-900/80">
-          <span className="text-gold-400 font-ui text-xs">{String(index + 1).padStart(2, "0")}</span>
+          <span className="text-gold-400 font-ui text-xs">
+            {String(index + 1).padStart(2, '0')}
+          </span>
         </div>
         {/* Year badge */}
         <div className="absolute bottom-3 right-3 z-20 bg-sepia-900/80 border border-gold-400/30 px-2 py-1">
@@ -50,8 +55,12 @@ export const HeritageCard = ({ item, index }: Props) => {
 
         {/* Arrow */}
         <div className="mt-4 flex items-center gap-2 text-gold-400/50 group-hover:text-gold-400 transition-colors duration-300">
-          <span className="font-ui text-[10px] tracking-[0.2em] uppercase">{t.home.readMore}</span>
-          <span className="text-xs group-hover:translate-x-1 transition-transform duration-300">→</span>
+          <span className="font-ui text-[10px] tracking-[0.2em] uppercase">
+            {t.home.readMore}
+          </span>
+          <span className="text-xs group-hover:translate-x-1 transition-transform duration-300">
+            →
+          </span>
         </div>
 
         {/* Corner ornament */}

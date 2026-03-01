@@ -1,8 +1,8 @@
-"use client";
-import { useLocale } from "@/i18n";
-import { useHeritageListQuery } from "@/hooks/useHeritageListQuery";
-import { HeritageCard } from "@/components/Heritage/HeritageCard";
-import { LoadingSpinner } from "@/components/UI/LoadingSpinner";
+'use client';
+import { useLocale } from '@/i18n';
+import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
+import { HeritageCard } from '@/components/Heritage/HeritageCard';
+import { LoadingSpinner } from '@/components/UI/LoadingSpinner';
 
 export default function HomePage() {
   const { t, locale } = useLocale();
@@ -14,15 +14,18 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         {/* Background ornament */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
               45deg,
               transparent,
               transparent 30px,
               rgba(201,168,76,0.3) 30px,
               rgba(201,168,76,0.3) 31px
-            )`
-          }} />
+            )`,
+            }}
+          />
         </div>
 
         <div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
@@ -72,8 +75,12 @@ export default function HomePage() {
             <span className="text-gold-400 text-sm">✦</span>
             <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gold-400/30" />
           </div>
-          <h2 className="font-display text-parchment-100 text-2xl mb-2">{t.home.objects_title}</h2>
-          <p className="text-parchment-200/50 font-body italic text-sm">{t.home.objects_subtitle}</p>
+          <h2 className="font-display text-parchment-100 text-2xl mb-2">
+            {t.home.objects_title}
+          </h2>
+          <p className="text-parchment-200/50 font-body italic text-sm">
+            {t.home.objects_subtitle}
+          </p>
         </div>
 
         {isLoading && <LoadingSpinner label={t.heritage.loading} />}

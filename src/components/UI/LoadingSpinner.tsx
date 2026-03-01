@@ -4,6 +4,10 @@ export const LoadingSpinner = ({ label }: { label?: string }) => (
       <div className="absolute inset-0 border-t border-gold-400 animate-spin" />
       <span className="text-gold-400 font-ui text-sm">Ф</span>
     </div>
-    {label && <p className="text-gold-400/60 font-ui text-xs tracking-widest uppercase">{label}</p>}
+    {label && (
+      <p className="text-gold-400/60 font-ui text-xs tracking-widest uppercase">
+        {label}
+      </p>
+    )}
   </div>
 );

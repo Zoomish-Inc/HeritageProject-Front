@@ -30,12 +30,22 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f1ddb0; }
-::-webkit-scrollbar-thumb { background: var(--imperial); border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ddb0;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--imperial);
+  border-radius: 3px;
+}
 
 /* Selection */
-::selection { background: rgba(200,151,58,0.3); color: var(--ink); }
+::selection {
+  background: rgba(200, 151, 58, 0.3);
+  color: var(--ink);
+}
 
 /* Ornamental divider */
 .ornament-divider {
@@ -69,20 +79,28 @@ body {
 
 /* Heritage card hover */
 .heritage-card {
-  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
 }
 .heritage-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 56px rgba(44,24,16,0.18);
+  box-shadow: 0 16px 56px rgba(44, 24, 16, 0.18);
 }
 
 /* Section fade-in animation */
 @keyframes sectionReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .section-reveal {
-  animation: sectionReveal 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+  animation: sectionReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Prose styling for heritage descriptions */

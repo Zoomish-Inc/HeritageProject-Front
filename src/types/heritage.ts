@@ -1,4 +1,4 @@
-export type Locale = "ru" | "uz";
+export type Locale = 'ru' | 'uz';
 
 export interface LocalizedString {
   ru: string;

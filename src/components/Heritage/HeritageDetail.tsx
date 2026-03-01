@@ -1,18 +1,26 @@
-"use client";
-import Link from "next/link";
-import { useLocale } from "@/i18n";
-import type { HeritageObject } from "@/types/heritage";
-import { OrnamentalDivider } from "@/components/UI/OrnamentalDivider";
+'use client';
+import Link from 'next/link';
+import { useLocale } from '@/i18n';
+import type { HeritageObject } from '@/types/heritage';
+import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
 
 interface Props {
   object: HeritageObject;
 }
 
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+const Section = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => (
   <section className="mb-16">
     <div className="flex items-center gap-4 mb-6">
       <div className="w-1 h-6 bg-gold-400" />
-      <h2 className="font-ui text-gold-400 text-xs tracking-[0.3em] uppercase">{title}</h2>
+      <h2 className="font-ui text-gold-400 text-xs tracking-[0.3em] uppercase">
+        {title}
+      </h2>
     </div>
     {children}
   </section>
@@ -20,8 +28,12 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 
 const InfoRow = ({ label, value }: { label: string; value: string }) => (
   <div className="flex gap-4 py-3 border-b border-gold-400/10 last:border-0">
-    <span className="text-gold-400/60 font-ui text-xs tracking-wider uppercase min-w-36 flex-shrink-0">{label}</span>
-    <span className="text-parchment-100 font-ui text-sm leading-relaxed">{value}</span>
+    <span className="text-gold-400/60 font-ui text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
+      {label}
+    </span>
+    <span className="text-parchment-100 font-ui text-sm leading-relaxed">
+      {value}
+    </span>
   </div>
 );
 
@@ -36,7 +48,9 @@ export const HeritageDetail = ({ object }: Props) => {
         href={`/${locale}`}
         className="inline-flex items-center gap-2 text-gold-400/60 hover:text-gold-400 transition-colors font-ui text-xs tracking-widest uppercase mb-10 group"
       >
-        <span className="group-hover:-translate-x-1 transition-transform duration-200">←</span>
+        <span className="group-hover:-translate-x-1 transition-transform duration-200">
+          ←
+        </span>
         <span>{t.heritage.back}</span>
       </Link>
 
@@ -62,7 +76,10 @@ export const HeritageDetail = ({ object }: Props) => {
         {/* Cover image */}
         <div
           className="w-full h-72 md:h-96 bg-cover bg-center mb-6 border border-gold-400/20 relative overflow-hidden"
-          style={{ backgroundImage: `url(${object.coverImageUrl})`, filter: "sepia(0.3)" }}
+          style={{
+            backgroundImage: `url(${object.coverImageUrl})`,
+            filter: 'sepia(0.3)',
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-sepia-900/60 to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
@@ -77,13 +94,28 @@ export const HeritageDetail = ({ object }: Props) => {
       {/* Passport data */}
       <Section title={t.heritage.current_purpose}>
         <div className="bg-sepia-800/50 border border-gold-400/15 p-6">
-          <InfoRow label={t.heritage.current_purpose} value={object.currentPurpose[loc]} />
-          <InfoRow label={t.heritage.historical_purpose} value={object.historicalPurpose[loc]} />
+          <InfoRow
+            label={t.heritage.current_purpose}
+            value={object.currentPurpose[loc]}
+          />
+          <InfoRow
+            label={t.heritage.historical_purpose}
+            value={object.historicalPurpose[loc]}
+          />
           <InfoRow label={t.heritage.address} value={object.address[loc]} />
-          <InfoRow label={t.heritage.year_built} value={object.yearRange ?? String(object.yearBuilt)} />
-          <InfoRow label={t.heritage.style} value={object.architecturalStyle[loc]} />
+          <InfoRow
+            label={t.heritage.year_built}
+            value={object.yearRange ?? String(object.yearBuilt)}
+          />
+          <InfoRow
+            label={t.heritage.style}
+            value={object.architecturalStyle[loc]}
+          />
           {object.architect && (
-            <InfoRow label={t.heritage.architect} value={object.architect[loc]} />
+            <InfoRow
+              label={t.heritage.architect}
+              value={object.architect[loc]}
+            />
           )}
         </div>
       </Section>
@@ -104,8 +136,13 @@ export const HeritageDetail = ({ object }: Props) => {
               {t.heritage.architecture_details}
             </p>
             {object.architectureDetails.map((detail, i) => (
-              <div key={i} className="border border-gold-400/15 bg-sepia-800/30 p-5">
-                <h4 className="font-display text-gold-300 text-lg mb-2">{detail.title[loc]}</h4>
+              <div
+                key={i}
+                className="border border-gold-400/15 bg-sepia-800/30 p-5"
+              >
+                <h4 className="font-display text-gold-300 text-lg mb-2">
+                  {detail.title[loc]}
+                </h4>
                 <p className="text-parchment-200/80 font-body text-sm leading-relaxed">
                   {detail.description[loc]}
                 </p>
@@ -175,8 +212,13 @@ export const HeritageDetail = ({ object }: Props) => {
           <OrnamentalDivider label={t.heritage.figures} />
           <Section title={t.heritage.figures}>
             {object.historicalFigures.map((figure, i) => (
-              <div key={i} className="border border-gold-400/20 bg-sepia-800/30 p-6 mb-4">
-                <h4 className="font-display text-parchment-100 text-xl mb-1">{figure.name[loc]}</h4>
+              <div
+                key={i}
+                className="border border-gold-400/20 bg-sepia-800/30 p-6 mb-4"
+              >
+                <h4 className="font-display text-parchment-100 text-xl mb-1">
+                  {figure.name[loc]}
+                </h4>
                 <p className="text-gold-400/70 font-ui text-xs tracking-wider uppercase mb-4">
                   {figure.role[loc]}
                 </p>
@@ -187,8 +229,12 @@ export const HeritageDetail = ({ object }: Props) => {
                   <div className="border-t border-gold-400/10 pt-4 space-y-2">
                     {figure.milestones.map((m, j) => (
                       <div key={j} className="flex gap-4">
-                        <span className="text-gold-400 font-ui text-xs w-12 flex-shrink-0">{m.year}</span>
-                        <span className="text-parchment-200/70 font-body text-xs">{m.event[loc]}</span>
+                        <span className="text-gold-400 font-ui text-xs w-12 flex-shrink-0">
+                          {m.year}
+                        </span>
+                        <span className="text-parchment-200/70 font-body text-xs">
+                          {m.event[loc]}
+                        </span>
                       </div>
                     ))}
                   </div>

@@ -1,8 +1,8 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-import { useLocale } from "@/i18n";
-import { useHeritageListQuery } from "@/hooks/useHeritageListQuery";
+'use client';
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { useLocale } from '@/i18n';
+import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
 
 export const NavDropdown = () => {
   const [open, setOpen] = useState(false);
@@ -12,10 +12,11 @@ export const NavDropdown = () => {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
   }, []);
 
   return (
@@ -26,7 +27,7 @@ export const NavDropdown = () => {
       >
         <span>{t.nav.landmarks}</span>
         <span
-          className={`inline-block transition-transform duration-300 text-gold-400 ${open ? "rotate-180" : ""}`}
+          className={`inline-block transition-transform duration-300 text-gold-400 ${open ? 'rotate-180' : ''}`}
         >
           ▾
         </span>
@@ -45,14 +46,17 @@ export const NavDropdown = () => {
             ) : (
               <ul>
                 {items?.map((item, idx) => (
-                  <li key={item.id} className="border-b border-gold-400/10 last:border-0">
+                  <li
+                    key={item.id}
+                    className="border-b border-gold-400/10 last:border-0"
+                  >
                     <Link
                       href={`/${locale}/heritage/${item.slug}`}
                       onClick={() => setOpen(false)}
                       className="flex items-start gap-3 px-4 py-3 hover:bg-gold-400/10 transition-colors duration-150 group"
                     >
                       <span className="text-gold-400/50 font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-gold-400 transition-colors">
-                        {String(idx + 1).padStart(2, "0")}
+                        {String(idx + 1).padStart(2, '0')}
                       </span>
                       <div className="min-w-0">
                         <p className="text-parchment-100 text-xs font-body leading-snug group-hover:text-gold-300 transition-colors">

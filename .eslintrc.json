@@ -2,6 +2,59 @@
 	"extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
 	"plugins": ["react"],
 	"rules": {
-		// Add any custom rules here
+		"prettier/prettier": "warn",
+		"arrow-body-style": "off",
+		"camelcase": "error",
+		"prefer-arrow-callback": "off",
+		"react/jsx-filename-extension": [
+			2,
+			{
+				"extensions": [".js", ".jsx", ".tsx"]
+			}
+		],
+		"no-use-before-define": [
+			"warn",
+			{
+				"functions": true,
+				"classes": true,
+				"variables": true,
+				"allowNamedExports": false
+			}
+		],
+		"no-plusplus": "off",
+		"@typescript-eslint/no-use-before-define": "off",
+		"react/self-closing-comp": "off",
+		"import/no-unresolved": "off",
+		"import/prefer-default-export": "off",
+		"no-unused-vars": "off",
+		"no-continue": "warn",
+		"@typescript-eslint/no-unused-vars": "warn",
+		"eqeqeq": "warn",
+		"react/require-default-props": "off",
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/function-component-definition": "off",
+		"no-shadow": "off",
+		"import/extensions": "off",
+		"import/no-extraneous-dependencies": "off",
+		"no-underscore-dangle": "off",
+		"max-len": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "error",
+		"no-param-reassign": "off",
+		"react/prop-types": "off",
+		"guard-for-in": "warn",
+		"consistent-return": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"no-restricted-syntax": "warn",
+		"no-nested-ternary": "off",
+		"react/no-unstable-nested-components": "warn",
+		"react/jsx-no-bind": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/anchor-is-valid": "off",
+		"react/no-array-index-key": "warn",
+		"@typescript-eslint/ban-ts-comment": "warn",
+		"react/button-has-type": "warn"
 	}
 }

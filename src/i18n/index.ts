@@ -8,13 +8,13 @@ import type { Locale } from '@/types/heritage';
 export const translations: Record<Locale, Translations> = { ru, uz };
 
 export const LocaleContext = createContext<{
-  locale: Locale;
-  t: Translations;
-  setLocale: (l: Locale) => void;
+	locale: Locale;
+	t: Translations;
+	setLocale: (l: Locale) => void;
 }>({
-  locale: 'ru',
-  t: ru,
-  setLocale: () => {},
+	locale: 'ru',
+	t: ru,
+	setLocale: () => {},
 });
 
 export const useLocale = () => useContext(LocaleContext);

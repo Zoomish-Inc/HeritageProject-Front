@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 	title: "Наследие Ферганы | Farg'ona Merosi",
 };
 
-export default function LocaleLayout({ children, params }: Props) {
+export default function LocaleLayout({ children, params }: Readonly<Props>) {
 	const locale = params.locale as Locale;
 	if (!VALID_LOCALES.includes(locale)) notFound();
 

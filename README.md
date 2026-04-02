@@ -28,8 +28,7 @@ src/
 │   ├── routing.ts, request.ts, navigation.ts
 │   └── index.ts
 ├── mocks/
-│   ├── heritage.ts
-│   └── heritage.test.ts
+│   └── heritage.ts
 ├── hooks/
 │   └── useHeritageListQuery.ts
 ├── components/
@@ -56,6 +55,11 @@ src/
         ├── error.tsx / not-found.tsx
         └── heritage/[id]/
             └── page.tsx        # Деталь ОКН (RSC)
+
+tests/                    # Vitest (отдельно от src)
+├── setup.ts
+├── lib/, i18n/, components/, mocks/  # зеркально по смыслу
+└── *.test.ts / *.test.tsx
 ```
 
 ## Запуск
@@ -65,6 +69,16 @@ cp .env.local.example .env.local
 npm install
 npm run dev
 ```
+
+## Тесты
+
+```bash
+npm test
+```
+
+Vitest (jsdom): unit-тесты в каталоге [`tests/`](tests/) — Zod-схемы, `loadHeritageList` / `loadHeritageById`, `buildLocaleMetadata`, `getHeritageSlugsForStaticParams`, `routing`, моки и часть UI (`DecorativeFlourish`, `HeritageObjectsSection`). После каждого теста вызывается `cleanup`: [`tests/setup.ts`](tests/setup.ts).
+
+На push/PR в `main` или `master` в GitHub Actions выполняются `npm ci`, `npm test`, `npm run lint` (workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
 ## Моки и API
 

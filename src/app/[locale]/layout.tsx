@@ -7,15 +7,16 @@ import {
 	setRequestLocale,
 } from 'next-intl/server';
 import { dehydrate } from '@tanstack/react-query';
-import type { Locale } from '@/types/heritage';
+import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
+import { Header } from '@/components/Header/Header';
 import { routing } from '@/i18n/routing';
-import { getHeritageList } from '@/lib/heritage/getHeritageList';
+import { heritageListQueryFn } from '@/lib/heritage/getHeritageList';
 import {
 	heritageListQueryKey,
 	heritageListStaleTime,
 } from '@/lib/heritage/listQuery';
 import { createQueryClient } from '@/lib/queryClient';
-import { Header } from '@/components/Header/Header';
+import type { Locale } from '@/types/heritage';
 import { Providers } from './providers';
 
 type Props = {
@@ -47,10 +48,14 @@ export default async function LocaleLayout({
 	try {
 		await queryClient.prefetchQuery({
 			queryKey: heritageListQueryKey,
-			queryFn: getHeritageList,
+			queryFn: heritageListQueryFn,
 			staleTime: heritageListStaleTime,
 		});
-	} catch {}
+	} catch (err) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn('[heritage] list prefetch failed', err);
+		}
+	}
 
 	const dehydratedState = dehydrate(queryClient);
 
@@ -60,11 +65,7 @@ export default async function LocaleLayout({
 				<Header />
 				<main className="pt-16 min-h-screen">{children}</main>
 				<footer className="border-t border-gold-400/15 mt-16 py-8 text-center">
-					<div className="flex items-center justify-center gap-4 mb-3">
-						<div className="flex-1 max-w-24 h-px bg-gradient-to-r from-transparent to-gold-400/30" />
-						<span className="text-gold-400/50 text-xs">✦</span>
-						<div className="flex-1 max-w-24 h-px bg-gradient-to-l from-transparent to-gold-400/30" />
-					</div>
+					<DecorativeFlourish variant="footer" className="justify-center mb-3" />
 					<p className="text-parchment-300/40 font-ui text-xs tracking-[0.2em] uppercase">
 						{tLayout('footer_line')}
 					</p>

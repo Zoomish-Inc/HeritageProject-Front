@@ -1,8 +1,8 @@
-import { cache } from 'react';
 import { getApiBaseUrl } from '@/env';
 import { MOCK_HERITAGE_LIST } from '@/mocks/heritage';
-import type { ApiResponse, HeritageListItem } from '@/types/heritage';
+import type { HeritageListItem } from '@/types/heritage';
 import { isHeritageMockEnabled } from './config';
+import { heritageListApiResponseSchema } from './schemas';
 
 export async function loadHeritageList(cacheOptions?: {
 	next?: { revalidate: number };
@@ -17,10 +17,15 @@ export async function loadHeritageList(cacheOptions?: {
 	if (!res.ok) {
 		throw new Error(`Heritage list fetch failed: ${res.status}`);
 	}
-	const json = (await res.json()) as ApiResponse<HeritageListItem[]>;
-	return json.data;
+	const json: unknown = await res.json();
+	const parsed = heritageListApiResponseSchema.safeParse(json);
+	if (!parsed.success) {
+		throw new Error(`Heritage list response invalid: ${parsed.error.message}`);
+	}
+	return parsed.data.data;
 }
 
-export const getHeritageList = cache(() =>
-	loadHeritageList({ next: { revalidate: 3600 } })
-);
+export async function heritageListQueryFn(): Promise<HeritageListItem[]> {
+	const isServer = typeof window === 'undefined';
+	return loadHeritageList(isServer ? { next: { revalidate: 3600 } } : undefined);
+}

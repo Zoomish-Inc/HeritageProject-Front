@@ -9,7 +9,7 @@
 - **Tailwind CSS** (дизайн-система 19 века)
 - **React Query** (клиентский кэш, гидратация списка)
 - **next-intl** (локализация `ru` / `uz`)
-- **Zod** (валидация публичных env)
+- **Zod** (env и ответы API heritage)
 
 ## Структура проекта
 
@@ -20,7 +20,8 @@ src/
 │   └── api.ts          # Типы API
 ├── env.ts              # NEXT_PUBLIC_* (Zod)
 ├── lib/
-│   ├── heritage/       # getHeritageList, getHeritageById, query key
+│   ├── heritage/       # load*, queryFn, Zod-схемы, slugs для SSG
+│   ├── seo/            # buildLocaleMetadata
 │   └── queryClient.ts
 ├── i18n/
 │   ├── ru.ts / uz.ts   # Сообщения next-intl
@@ -37,10 +38,13 @@ src/
 │   │   ├── NavDropdown.tsx     # Dropdown с ОКН
 │   │   └── LanguageSwitcher.tsx
 │   ├── Heritage/
-│   │   ├── HeritageCard.tsx    # Карточка ОКН
-│   │   └── HeritageDetail.tsx  # Детальная страница
+│   │   ├── HeritageCard.tsx
+│   │   ├── HeritageObjectsSection.tsx  # список (React Query)
+│   │   ├── HeritageDetail.tsx
+│   │   └── heritageDetail/     # секции карточки объекта
 │   └── UI/
 │       ├── OrnamentalDivider.tsx
+│       ├── DecorativeFlourish.tsx
 │       └── LoadingSpinner.tsx
 └── app/
     ├── layout.tsx              # Root layout, metadataBase, lang
@@ -48,7 +52,7 @@ src/
     ├── globals.css
     └── [locale]/
         ├── layout.tsx          # next-intl + prefetch списка
-        ├── page.tsx            # Главная (RSC)
+        ├── page.tsx            # Главная: герой RSC + сетка (клиент)
         ├── error.tsx / not-found.tsx
         └── heritage/[id]/
             └── page.tsx        # Деталь ОКН (RSC)
@@ -62,11 +66,10 @@ npm install
 npm run dev
 ```
 
-## Подключение бекенда
+## Моки и API
 
-1. В `.env.local` установить `NEXT_PUBLIC_USE_MOCK=false`
-2. В `NEXT_PUBLIC_API_URL` указать URL бекенда
-3. Раскомментировать API-вызовы в хуках и SSR-странице
+- **Моки включены только при** `NEXT_PUBLIC_USE_MOCK=true` (так в `.env.local.example`).
+- Для работы с бекендом: уберите переменную или установите любое значение, кроме `true`, и задайте `NEXT_PUBLIC_API_URL`. Ответы `/api/v1/heritage/` валидируются Zod-схемами в `src/lib/heritage/schemas.ts`.
 
 ## Локализация
 

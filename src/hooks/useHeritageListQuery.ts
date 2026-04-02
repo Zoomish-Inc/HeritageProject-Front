@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { loadHeritageList } from '@/lib/heritage/getHeritageList';
+import { heritageListQueryFn } from '@/lib/heritage/getHeritageList';
 import {
 	heritageListQueryKey,
 	heritageListStaleTime,
@@ -8,7 +8,7 @@ import {
 export const useHeritageListQuery = () => {
 	return useQuery({
 		queryKey: heritageListQueryKey,
-		queryFn: () => loadHeritageList(),
+		queryFn: heritageListQueryFn,
 		staleTime: heritageListStaleTime,
 	});
 };

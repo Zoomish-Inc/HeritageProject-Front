@@ -1,5 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { getMockHeritageById } from './heritage';
+import { heritageListApiResponseSchema } from '@/lib/heritage/schemas';
+import { getMockHeritageById, MOCK_HERITAGE_LIST } from './heritage';
+
+describe('heritageListApiResponseSchema', () => {
+	it('accepts API-shaped list payload', () => {
+		const parsed = heritageListApiResponseSchema.safeParse({
+			success: true,
+			data: MOCK_HERITAGE_LIST,
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data).toHaveLength(MOCK_HERITAGE_LIST.length);
+		}
+	});
+});
 
 describe('getMockHeritageById', () => {
 	it('resolves by slug', () => {

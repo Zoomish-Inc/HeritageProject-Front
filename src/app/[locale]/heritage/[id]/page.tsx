@@ -3,9 +3,9 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
-import { MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
+import { getHeritageSlugsForStaticParams } from '@/lib/heritage/getHeritageSlugs';
+import { buildLocaleMetadata } from '@/lib/seo/buildLocaleMetadata';
 import { routing } from '@/i18n/routing';
-import { getMetadataBaseUrl } from '@/env';
 import type { Locale } from '@/types/heritage';
 
 type Props = {
@@ -13,8 +13,9 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-	return MOCK_HERITAGE_OBJECTS.flatMap((obj) =>
-		routing.locales.map((locale) => ({ locale, id: obj.slug }))
+	const slugs = await getHeritageSlugsForStaticParams();
+	return slugs.flatMap((id) =>
+		routing.locales.map((locale) => ({ locale, id }))
 	);
 }
 
@@ -27,34 +28,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
 	const title = `${obj.name[locale]} | ${tCommon('project_name')}`;
 	const description = obj.shortDescription[locale];
-	const base = getMetadataBaseUrl();
-	const path = `/${locale}/heritage/${obj.slug}`;
+	const slug = obj.slug;
 
-	return {
+	return buildLocaleMetadata({
+		locale,
 		title,
 		description,
-		alternates: {
-			canonical: path,
-			languages: Object.fromEntries(
-				routing.locales.map((l) => [l, `/${l}/heritage/${obj.slug}`])
-			),
-		},
-		openGraph: {
-			title,
-			description,
-			url: new URL(path, base).toString(),
-			siteName: tCommon('project_name'),
-			locale: locale === 'uz' ? 'uz_UZ' : 'ru_RU',
-			type: 'website',
-			images: [{ url: obj.coverImageUrl, alt: obj.name[locale] }],
-		},
-		twitter: {
-			card: 'summary_large_image',
-			title,
-			description,
-			images: [obj.coverImageUrl],
-		},
-	};
+		projectName: tCommon('project_name'),
+		pathForLocale: (loc) => `/${loc}/heritage/${slug}`,
+		ogImages: [{ url: obj.coverImageUrl, alt: obj.name[locale] }],
+		twitterImages: [obj.coverImageUrl],
+	});
 }
 
 export default async function HeritagePage({ params }: Props) {

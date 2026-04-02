@@ -78,7 +78,7 @@ npm test
 
 Vitest (jsdom): unit-тесты в каталоге [`tests/`](tests/) — Zod-схемы, `loadHeritageList` / `loadHeritageById`, `buildLocaleMetadata`, `getHeritageSlugsForStaticParams`, `routing`, моки и часть UI (`DecorativeFlourish`, `HeritageObjectsSection`). После каждого теста вызывается `cleanup`: [`tests/setup.ts`](tests/setup.ts).
 
-На push/PR в `main` или `master` в GitHub Actions выполняются `npm ci`, `npm test`, `npm run lint` (workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml)). После изменения зависимостей в `package.json` нужно выполнить `npm install` и закоммитить обновлённый `package-lock.json`, иначе `npm ci` на CI упадёт.
+На push/PR в `main` или `master` в GitHub Actions выполняются `npm ci`, `npm test`, `npm run lint` (workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml)). После изменения зависимостей в `package.json` нужно выполнить `npm install` и закоммитить обновлённый `package-lock.json`, иначе `npm ci` на CI упадёт. **Не вырезай** из lock-файла поля `resolved` и `integrity` — без них дерево зависимостей перестаёт совпадать с тем, что проверяет `npm ci`. В CI перед `npm ci` ставится **npm 11**, как у типичной локальной установки Node 20+; если у тебя npm 10, обнови (`npm i -g npm@11`) и снова `npm install`, затем коммит lock.
 
 ## Моки и API
 

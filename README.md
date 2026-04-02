@@ -7,8 +7,9 @@
 - **Next.js 14** (App Router, SSR/SSG)
 - **TypeScript** (строгая типизация)
 - **Tailwind CSS** (дизайн-система 19 века)
-- **React Query + Axios** (работа с API)
-- **Framer Motion** (анимации)
+- **React Query** (клиентский кэш, гидратация списка)
+- **next-intl** (локализация `ru` / `uz`)
+- **Zod** (валидация публичных env)
 
 ## Структура проекта
 
@@ -17,18 +18,19 @@ src/
 ├── types/
 │   ├── heritage.ts     # Типы ОКН, локализация
 │   └── api.ts          # Типы API
+├── env.ts              # NEXT_PUBLIC_* (Zod)
 ├── lib/
-│   ├── axios.ts        # Axios instance
-│   └── queryClient.ts  # React Query config
+│   ├── heritage/       # getHeritageList, getHeritageById, query key
+│   └── queryClient.ts
 ├── i18n/
-│   ├── ru.ts           # Русские переводы
-│   ├── uz.ts           # Узбекские переводы
-│   └── index.ts        # Context провайдер
+│   ├── ru.ts / uz.ts   # Сообщения next-intl
+│   ├── routing.ts, request.ts, navigation.ts
+│   └── index.ts
 ├── mocks/
-│   └── heritage.ts     # Моковые данные 6 ОКН
+│   ├── heritage.ts
+│   └── heritage.test.ts
 ├── hooks/
-│   ├── useHeritageListQuery.ts
-│   └── useHeritageQuery.ts
+│   └── useHeritageListQuery.ts
 ├── components/
 │   ├── Header/
 │   │   ├── Header.tsx          # Шапка с выпадающим меню
@@ -41,15 +43,15 @@ src/
 │       ├── OrnamentalDivider.tsx
 │       └── LoadingSpinner.tsx
 └── app/
-    ├── layout.tsx              # Root layout (шрифты)
-    ├── page.tsx                # Редирект → /ru
+    ├── layout.tsx              # Root layout, metadataBase, lang
+    ├── page.tsx                # Редирект / → /ru или локаль из cookie
     ├── globals.css
     └── [locale]/
-        ├── layout.tsx          # Locale layout + Providers
-        ├── page.tsx            # Главная страница
+        ├── layout.tsx          # next-intl + prefetch списка
+        ├── page.tsx            # Главная (RSC)
+        ├── error.tsx / not-found.tsx
         └── heritage/[id]/
-            ├── page.tsx        # SSR страница ОКН
-            └── HeritageDetailClient.tsx
+            └── page.tsx        # Деталь ОКН (RSC)
 ```
 
 ## Запуск

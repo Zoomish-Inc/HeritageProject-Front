@@ -45,6 +45,18 @@ export const ru = {
 		project_name: 'Наследие Ферганы',
 		tagline: 'Виртуальный тур · XIX–XX вв.',
 	},
+	layout: {
+		footer_line: 'Наследие Ферганы · XIX–XX вв.',
+	},
+	errors: {
+		title: 'Что-то пошло не так',
+		description: 'Попробуйте снова или вернитесь на главную.',
+		retry: 'Повторить',
+		back_home: 'На главную',
+		not_found_title: 'Страница не найдена',
+		not_found_description:
+			'Запрошенная страница не существует или была перенесена.',
+	},
 };
 
 export type Translations = typeof ru;

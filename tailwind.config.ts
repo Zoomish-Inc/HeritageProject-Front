@@ -27,9 +27,9 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				display: ['Playfair Display', 'Georgia', 'serif'],
-				body: ['Cormorant Garamond', 'Georgia', 'serif'],
-				ui: ['Cinzel', 'Georgia', 'serif'],
+				display: ['var(--font-display)', 'Georgia', 'serif'],
+				body: ['var(--font-body)', 'Georgia', 'serif'],
+				ui: ['var(--font-ui)', 'Georgia', 'serif'],
 			},
 			backgroundImage: {
 				'parchment-texture': "url('/textures/parchment.svg')",

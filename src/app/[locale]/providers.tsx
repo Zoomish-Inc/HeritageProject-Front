@@ -1,48 +1,27 @@
 'use client';
-import { LocaleContext, translations } from '@/i18n';
-import type { Locale } from '@/types/heritage';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createQueryClient } from '@/lib/queryClient';
+import {
+	HydrationBoundary,
+	QueryClientProvider,
+	type DehydratedState,
+} from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 
-export const Providers = ({
-	children,
-	initialLocale,
-}: {
+type Props = {
 	children: React.ReactNode;
-	initialLocale: Locale;
-}) => {
-	const [queryClient] = useState(
-		() =>
-			new QueryClient({
-				defaultOptions: {
-					queries: {
-						staleTime: 1000 * 60 * 5,
-						retry: 1,
-						refetchOnWindowFocus: false,
-					},
-				},
-			})
-	);
-	const [locale, setLocaleState] = useState<Locale>(initialLocale);
+	dehydratedState?: DehydratedState;
+};
 
-	const setLocale = (l: Locale) => {
-		setLocaleState(l);
-		window.history.replaceState(
-			{},
-			'',
-			window.location.pathname.replace(/^\/(ru|uz)/, `/${l}`)
-		);
-	};
+export const Providers = ({ children, dehydratedState }: Props) => {
+	const [queryClient] = useState(createQueryClient);
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<LocaleContext.Provider
-				value={{ locale, t: translations[locale], setLocale }}
-			>
-				{children}
-			</LocaleContext.Provider>
-			<ReactQueryDevtools initialIsOpen={false} />
+			<HydrationBoundary state={dehydratedState}>{children}</HydrationBoundary>
+			{process.env.NODE_ENV === 'development' && (
+				<ReactQueryDevtools initialIsOpen={false} />
+			)}
 		</QueryClientProvider>
 	);
 };

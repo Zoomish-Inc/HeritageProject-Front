@@ -1,12 +1,15 @@
 'use client';
-import { useLocale } from '@/i18n';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import type { Locale } from '@/types/heritage';
 
 export const LanguageSwitcher = () => {
-	const { locale, setLocale, t } = useLocale();
+	const locale = useLocale() as Locale;
+	const router = useRouter();
+	const pathname = usePathname();
 
 	const toggle = (l: Locale) => {
-		if (l !== locale) setLocale(l);
+		if (l !== locale) router.replace(pathname, { locale: l });
 	};
 
 	return (
@@ -14,6 +17,7 @@ export const LanguageSwitcher = () => {
 			{(['ru', 'uz'] as Locale[]).map((l) => (
 				<button
 					key={l}
+					type="button"
 					onClick={() => toggle(l)}
 					className={`px-2 py-1 border transition-all duration-200 uppercase ${
 						locale === l

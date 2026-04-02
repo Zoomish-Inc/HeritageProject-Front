@@ -1,42 +1,65 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { getMockHeritageById, MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
+import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
+import { getHeritageById } from '@/lib/heritage/getHeritageById';
+import { MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
+import { routing } from '@/i18n/routing';
+import { getMetadataBaseUrl } from '@/env';
 import type { Locale } from '@/types/heritage';
-import { HeritageDetailClient } from './HeritageDetailClient';
 
 type Props = {
 	params: { locale: string; id: string };
 };
 
-// SSR: generate static params for all objects
 export async function generateStaticParams() {
-	const locales: Locale[] = ['ru', 'uz'];
 	return MOCK_HERITAGE_OBJECTS.flatMap((obj) =>
-		locales.map((locale) => ({ locale, id: obj.slug }))
+		routing.locales.map((locale) => ({ locale, id: obj.slug }))
 	);
 }
 
-// SSR: generate metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const obj = getMockHeritageById(params.id);
-	if (!obj) return { title: 'Not Found' };
+	const obj = await getHeritageById(params.id);
+	if (!obj) {
+		return { title: 'Not Found' };
+	}
 	const locale = params.locale as Locale;
+	const tCommon = await getTranslations({ locale, namespace: 'common' });
+	const title = `${obj.name[locale]} | ${tCommon('project_name')}`;
+	const description = obj.shortDescription[locale];
+	const base = getMetadataBaseUrl();
+	const path = `/${locale}/heritage/${obj.slug}`;
+
 	return {
-		title: `${obj.name[locale]} | Наследие Ферганы`,
-		description: obj.shortDescription[locale],
+		title,
+		description,
+		alternates: {
+			canonical: path,
+			languages: Object.fromEntries(
+				routing.locales.map((l) => [l, `/${l}/heritage/${obj.slug}`])
+			),
+		},
+		openGraph: {
+			title,
+			description,
+			url: new URL(path, base).toString(),
+			siteName: tCommon('project_name'),
+			locale: locale === 'uz' ? 'uz_UZ' : 'ru_RU',
+			type: 'website',
+			images: [{ url: obj.coverImageUrl, alt: obj.name[locale] }],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description,
+			images: [obj.coverImageUrl],
+		},
 	};
 }
 
-// SSR Page component — data fetched on server
 export default async function HeritagePage({ params }: Props) {
-	// In production: fetch from backend
-	// const res = await fetch(`${process.env.API_URL}/api/v1/heritage/${params.id}/`, { next: { revalidate: 3600 } });
-	// if (!res.ok) notFound();
-	// const data = await res.json();
-
-	// Using mock data for now
-	const obj = getMockHeritageById(params.id);
+	const obj = await getHeritageById(params.id);
 	if (!obj) notFound();
 
-	return <HeritageDetailClient initialData={obj} />;
+	return <HeritageDetail object={obj} />;
 }

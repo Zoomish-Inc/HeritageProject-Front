@@ -45,4 +45,15 @@ export const uz = {
 		project_name: "Farg'ona merosi",
 		tagline: 'Virtual sayohat · XIX–XX asrlar',
 	},
+	layout: {
+		footer_line: "Farg'ona merosi · XIX–XX asrlar",
+	},
+	errors: {
+		title: 'Xatolik yuz berdi',
+		description: 'Qayta urinib ko‘ring yoki bosh sahifaga qayting.',
+		retry: 'Qayta urinish',
+		back_home: 'Bosh sahifa',
+		not_found_title: 'Sahifa topilmadi',
+		not_found_description: 'So‘ralgan sahifa mavjud emas yoki ko‘chirilgan.',
+	},
 };

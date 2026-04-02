@@ -2,8 +2,9 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import type { HeritageObject, Locale } from '@/types/heritage';
+import { BeforeAfterSlider } from '@/components/Heritage/BeforeAfterSlider';
 import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
+import type { HeritageObject, Locale } from '@/types/heritage';
 
 interface Props {
 	object: HeritageObject;
@@ -91,6 +92,31 @@ export const HeritageDetail = ({ object }: Props) => {
 				</div>
 				<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent" />
 			</div>
+
+			{object.beforeAfterPairs.length > 0 && (
+				<>
+					<OrnamentalDivider label={t('before_after')} />
+					<Section title={t('before_after')}>
+						<div className="space-y-14">
+							{object.beforeAfterPairs.map((pair) => (
+								<BeforeAfterSlider
+									key={`${object.slug}-ba-${pair.label.ru}`}
+									beforeSrc={pair.before.url}
+									afterSrc={pair.after.url}
+									beforeAlt={pair.before.caption?.[loc] ?? t('historical_photos')}
+									afterAlt={pair.after.caption?.[loc] ?? t('modern_photos')}
+									beforeLabel={t('historical_photos')}
+									afterLabel={t('modern_photos')}
+									pairLabel={pair.label[loc]}
+									ariaLabel={t('compare_slider_aria')}
+									hint={t('compare_hint')}
+								/>
+							))}
+						</div>
+					</Section>
+					<OrnamentalDivider />
+				</>
+			)}
 
 			<Section title={t('current_purpose')}>
 				<div className="bg-sepia-800/50 border border-gold-400/15 p-6">

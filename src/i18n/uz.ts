@@ -26,6 +26,9 @@ export const uz = {
 		history: 'Tarix',
 		gallery: 'Foto-galereya',
 		before_after: "O'tgan va hozir",
+		compare_hint:
+			"Suratdagi ajratuvchini torting yoki slayderni harakatlantiring — chapda tarixiy ko'rinish, o'ngda zamonaviy.",
+		compare_slider_aria: "Tarixiy va zamonaviy ko'rinishni solishtirish",
 		audio_guide: 'Audio gid',
 		figures: 'Tarixdagi shaxslar',
 		architect_bio: "Me'mor tarjimai holi",

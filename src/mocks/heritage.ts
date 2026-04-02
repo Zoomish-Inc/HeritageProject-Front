@@ -108,7 +108,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 				isHistorical: false,
 			},
 		],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fergana_-_old_city.jpg/1200px-Fergana_-_old_city.jpg',
+					caption: {
+						ru: 'Фергана, историческая фотография',
+						uz: "Farg'ona, tarixiy fotosurat",
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+					caption: {
+						ru: 'Современный вид',
+						uz: "Zamonaviy ko'rinish",
+					},
+				},
+				label: {
+					ru: 'Городской пейзаж',
+					uz: 'Shahar manzarasi',
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Историк Рустам Назаров',
@@ -201,7 +223,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 		},
 		historicalFigures: [],
 		photos: [],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
+					caption: {
+						ru: 'Учебное здание, начало XX в.',
+						uz: "O'quv binosi, XX asr boshlari",
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
+					caption: {
+						ru: 'Здание областной администрации сегодня',
+						uz: 'Viloyat hokimiyati binosi bugun',
+					},
+				},
+				label: {
+					ru: 'Административный центр',
+					uz: 'Maʼmuriy markaz',
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Историк Наргиза Юсупова',
@@ -279,7 +323,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 		},
 		historicalFigures: [],
 		photos: [],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
+					caption: {
+						ru: 'Женская гимназия, архивный снимок',
+						uz: 'Qizlar gimnaziyasi, arxiv surati',
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fergana_gymnasium_historical.jpg/1200px-Fergana_gymnasium_historical.jpg',
+					caption: {
+						ru: 'Мужская гимназия, для сравнения застройки',
+						uz: 'Erkaklar gimnaziyasi, qurilishni solishtirish uchun',
+					},
+				},
+				label: {
+					ru: 'Просветительские здания эпохи',
+					uz: "Ma'rifat davri binolari",
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Историк Камола Рашидова',
@@ -363,7 +429,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 		},
 		historicalFigures: [],
 		photos: [],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Russian_Orthodox_chapel_Central_Asia.jpg/800px-Russian_Orthodox_chapel_Central_Asia.jpg',
+					caption: {
+						ru: 'Часовня, архивный снимок',
+						uz: 'Ibodatxona, arxiv surati',
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Russian_church_Fergana.jpg/1200px-Russian_church_Fergana.jpg',
+					caption: {
+						ru: 'Городской храм — масштаб культовой застройки',
+						uz: 'Shahar cherkovi — diniy qurilish miqyosi',
+					},
+				},
+				label: {
+					ru: 'От часовни к собору',
+					uz: 'Ibodatxonadan soborgacha',
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Историк Антон Великанов',
@@ -479,7 +567,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 			},
 		],
 		photos: [],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Russian_church_Fergana.jpg/1200px-Russian_church_Fergana.jpg',
+					caption: {
+						ru: 'Храм, исторический ракурс',
+						uz: 'Ibodatxona, tarixiy rakurs',
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
+					caption: {
+						ru: 'Площадь и административный фасад сегодня',
+						uz: 'Maydon va maʼmuriy fasad bugun',
+					},
+				},
+				label: {
+					ru: 'Духовный и гражданский центр',
+					uz: 'Maʼnaviy va fuqarolik markazi',
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Настоятель протоиерей Николай',
@@ -556,7 +666,29 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 		},
 		historicalFigures: [],
 		photos: [],
-		beforeAfterPairs: [],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fergana_gymnasium_historical.jpg/1200px-Fergana_gymnasium_historical.jpg',
+					caption: {
+						ru: 'Мужская гимназия, 1902 г.',
+						uz: 'Erkaklar gimnaziyasi, 1902 y.',
+					},
+					isHistorical: true,
+				},
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
+					caption: {
+						ru: 'Соседняя школьная застройка той же эпохи',
+						uz: "Shu davrning qo'shni maktab qurilishi",
+					},
+				},
+				label: {
+					ru: 'Учебные корпуса Новой Ферганы',
+					uz: "Yangi Farg'ona o'quv binolari",
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
 				ru: 'Краевед Тимур Хамидов',

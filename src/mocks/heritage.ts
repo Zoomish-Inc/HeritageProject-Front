@@ -13,8 +13,8 @@ const withPlaceholderImage = (url: string, seed: string) => {
 
 const RAW_MOCK_HERITAGE_OBJECTS: HeritageObject[] = [
 	{
-		id: '1',
-		slug: 'voennoye-sobranie',
+		id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+		slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
 		order: 1,
 		name: {
 			ru: 'Здание военного собрания (Дом офицеров)',

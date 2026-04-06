@@ -4,16 +4,69 @@ import {
 	heritageObjectApiResponseSchema,
 } from '@/lib/heritage/schemas';
 import { MOCK_HERITAGE_LIST, MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
+import type { HeritageListItem } from '@/types/heritage';
+
+function listItemsToApiPayload(items: HeritageListItem[]) {
+	return items.map((item) => ({
+		id: item.id,
+		slug: item.slug,
+		name: item.name,
+		year_built: item.yearBuilt,
+		year_range: item.yearRange ?? '',
+		address: item.address,
+		short_description: item.shortDescription,
+		cover: item.coverImageUrl,
+		order: item.order,
+	}));
+}
 
 describe('heritageListApiResponseSchema', () => {
-	it('accepts valid list envelope', () => {
+	it('accepts valid list envelope and normalizes API rows', () => {
 		const parsed = heritageListApiResponseSchema.safeParse({
 			success: true,
-			data: MOCK_HERITAGE_LIST,
+			message: null,
+			data: listItemsToApiPayload(MOCK_HERITAGE_LIST),
 		});
 		expect(parsed.success).toBe(true);
 		if (parsed.success) {
-			expect(parsed.data.data.length).toBe(MOCK_HERITAGE_LIST.length);
+			expect(parsed.data.data).toEqual(MOCK_HERITAGE_LIST);
+		}
+	});
+
+	it('accepts backend sample shape', () => {
+		const parsed = heritageListApiResponseSchema.safeParse({
+			success: true,
+			data: [
+				{
+					id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+					slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
+					name: {
+						ru: 'Здание военного собрания (Дом офицеров)',
+						uz: "Harbiy yig'ilish binosi (Ofitserlar uyi)",
+					},
+					year_built: 1878,
+					year_range: '',
+					address: {
+						ru: 'г. Фергана, ул. Мустақиллик, 12',
+						uz: "Farg'ona sh., Mustaqillik ko'ch., 12",
+					},
+					short_description: {
+						ru: 'Одно из первых капитальных зданий.',
+						uz: 'Qisqa.',
+					},
+					cover: 'https://example.com/cover.jpg',
+					order: 1,
+				},
+			],
+			message: null,
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			const row = parsed.data.data[0];
+			expect(row.yearBuilt).toBe(1878);
+			expect(row.yearRange).toBeUndefined();
+			expect(row.coverImageUrl).toBe('https://example.com/cover.jpg');
+			expect(row.shortDescription.ru).toContain('капитальных');
 		}
 	});
 
@@ -33,10 +86,10 @@ describe('heritageListApiResponseSchema', () => {
 					id: 'x',
 					slug: 'x',
 					name: { ru: 'only-ru' },
-					yearBuilt: 1,
+					year_built: 1,
 					address: { ru: 'a', uz: 'a' },
-					coverImageUrl: 'https://example.com/x.jpg',
-					shortDescription: { ru: 's', uz: 's' },
+					cover: 'https://example.com/x.jpg',
+					short_description: { ru: 's', uz: 's' },
 					order: 1,
 				},
 			],
@@ -56,6 +109,16 @@ describe('heritageObjectApiResponseSchema', () => {
 		if (parsed.success) {
 			expect(parsed.data.data.slug).toBe(obj.slug);
 		}
+	});
+
+	it('accepts null message', () => {
+		const obj = MOCK_HERITAGE_OBJECTS[0];
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: obj,
+		});
+		expect(parsed.success).toBe(true);
 	});
 
 	it('rejects object missing required audioGuide', () => {

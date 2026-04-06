@@ -45,17 +45,34 @@ const audioGuideSchema = z.object({
 	musicSuggestion: localizedStringSchema,
 });
 
-export const heritageListItemSchema = z.object({
-	id: z.string(),
-	slug: z.string(),
-	name: localizedStringSchema,
-	yearBuilt: z.number(),
-	yearRange: z.string().optional(),
-	address: localizedStringSchema,
-	coverImageUrl: z.string(),
-	shortDescription: localizedStringSchema,
-	order: z.number(),
-});
+export const heritageListItemApiSchema = z
+	.object({
+		id: z.string(),
+		slug: z.string(),
+		name: localizedStringSchema,
+		year_built: z.number(),
+		year_range: z.string().nullable().optional(),
+		address: localizedStringSchema,
+		short_description: localizedStringSchema,
+		cover: z.string(),
+		order: z.number(),
+	})
+	.transform((row) => ({
+		id: row.id,
+		slug: row.slug,
+		name: row.name,
+		yearBuilt: row.year_built,
+		yearRange:
+			row.year_range !== undefined &&
+			row.year_range !== null &&
+			row.year_range !== ''
+				? row.year_range
+				: undefined,
+		address: row.address,
+		shortDescription: row.short_description,
+		coverImageUrl: row.cover,
+		order: row.order,
+	}));
 
 export const heritageObjectSchema = z.object({
 	id: z.string(),
@@ -85,12 +102,12 @@ export const heritageObjectSchema = z.object({
 
 export const heritageListApiResponseSchema = z.object({
 	success: z.boolean(),
-	message: z.string().optional(),
-	data: z.array(heritageListItemSchema),
+	message: z.string().nullable().optional(),
+	data: z.array(heritageListItemApiSchema),
 });
 
 export const heritageObjectApiResponseSchema = z.object({
 	success: z.boolean(),
-	message: z.string().optional(),
+	message: z.string().nullable().optional(),
 	data: heritageObjectSchema,
 });

@@ -9,8 +9,8 @@ type Props = {
 
 export const HeritageDetailHistory = ({ object, locale, title }: Props) => (
 	<HeritageDetailSection title={title}>
-		<div className="relative">
-			<blockquote className="text-parchment-100 font-body text-base leading-loose pl-6 border-l-2 border-gold-400/40">
+		<div className="theme-content-panel p-6">
+			<blockquote className="theme-content-panel-body m-0 font-body text-base leading-loose">
 				{object.history[locale]}
 			</blockquote>
 		</div>

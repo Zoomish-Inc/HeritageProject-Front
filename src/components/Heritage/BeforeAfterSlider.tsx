@@ -79,11 +79,11 @@ export const BeforeAfterSlider = ({
 	const clipRight = 100 - pct;
 
 	return (
-		<figure className="border border-gold-400/20 bg-sepia-900/40 rounded-xl p-4 md:p-5">
-			<figcaption className="font-display text-parchment-100 text-lg mb-3 text-center">
+		<figure className="theme-content-panel p-4 md:p-5">
+			<figcaption className="font-display theme-content-panel-heading text-lg mb-3 text-center">
 				{pairLabel}
 			</figcaption>
-			<p className="text-parchment-200/55 font-body text-xs text-center mb-4 max-w-xl mx-auto leading-relaxed">
+			<p className="theme-content-panel-body font-body text-xs text-center mb-4 max-w-xl mx-auto leading-relaxed">
 				{hint}
 			</p>
 

@@ -23,11 +23,11 @@ export const HeritageDetailInfoRow = ({
 	label: string;
 	value: string;
 }) => (
-	<div className="grid grid-cols-2 gap-4 py-3 border-b border-gold-400/10 last:border-0">
-		<span className="text-gold-400/60 font-ui text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
+	<div className="grid grid-cols-2 gap-4 py-3 border-b theme-content-panel-divider last:border-0">
+		<span className="theme-content-panel-heading font-ui text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
 			{label}
 		</span>
-		<span className="text-parchment-100 font-ui text-sm leading-relaxed">
+		<span className="theme-content-panel-body font-ui text-sm leading-relaxed">
 			{value}
 		</span>
 	</div>

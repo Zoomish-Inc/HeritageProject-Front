@@ -17,28 +17,28 @@ export const HeritageDetailFigures = ({ object, locale, title }: Props) => {
 				{object.historicalFigures.map((figure) => (
 					<div
 						key={`${object.slug}-figure-${figure.name.ru}`}
-						className="border border-gold-400/20 bg-sepia-800/30 rounded-xl p-6 mb-4"
+						className="theme-content-panel p-6 mb-4"
 					>
-						<h4 className="font-display text-parchment-100 text-xl mb-1">
+						<h4 className="font-display theme-content-panel-heading text-xl mb-1">
 							{figure.name[locale]}
 						</h4>
-						<p className="text-gold-400/70 font-ui text-xs tracking-wider uppercase mb-4">
+						<p className="theme-content-panel-heading font-ui text-xs tracking-wider uppercase mb-4">
 							{figure.role[locale]}
 						</p>
-						<p className="text-parchment-200/80 font-body text-sm leading-relaxed mb-4">
+						<p className="theme-content-panel-body font-body text-sm leading-relaxed mb-4">
 							{figure.bio[locale]}
 						</p>
 						{figure.milestones && figure.milestones.length > 0 && (
-							<div className="border-t border-gold-400/10 pt-4 space-y-2">
+							<div className="border-t theme-content-panel-divider pt-4 space-y-2">
 								{figure.milestones.map((m) => (
 									<div
 										key={`${object.slug}-fig-${figure.name.ru}-y${m.year}`}
 										className="flex gap-4"
 									>
-										<span className="text-gold-400 font-ui text-xs w-12 flex-shrink-0">
+										<span className="theme-content-panel-heading font-ui text-xs w-12 flex-shrink-0">
 											{m.year}
 										</span>
-										<span className="text-parchment-200/70 font-body text-xs">
+										<span className="theme-content-panel-body font-body text-xs">
 											{m.event[locale]}
 										</span>
 									</div>

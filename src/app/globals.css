@@ -21,6 +21,9 @@
 	--scrollbar-track: #1a0f08;
 	--overlay-a: rgba(61, 43, 31, 0.3);
 	--overlay-b: rgba(90, 61, 43, 0.15);
+	--content-panel-bg: rgb(45 26 14 / 0.55);
+	--content-panel-heading: #e8cc7a;
+	--content-panel-body: rgb(245 237 224 / 0.92);
 }
 
 html.light {
@@ -42,6 +45,9 @@ html.light {
 	--scrollbar-track: #e8d8bf;
 	--overlay-a: rgba(209, 183, 142, 0.35);
 	--overlay-b: rgba(161, 120, 60, 0.16);
+	--content-panel-bg: #dcc9a8;
+	--content-panel-heading: #5e3b0f;
+	--content-panel-body: #2b1b0f;
 }
 
 @layer base {
@@ -154,6 +160,34 @@ html.light {
 			var(--accent-soft) 50%,
 			transparent 100%
 		);
+	}
+
+	.theme-content-panel {
+		background-color: var(--content-panel-bg);
+		border: 1px solid
+			color-mix(in srgb, var(--content-panel-heading) 22%, transparent);
+		border-radius: 0.75rem;
+	}
+
+	.theme-content-panel-heading {
+		color: var(--content-panel-heading);
+	}
+
+	.theme-content-panel-body {
+		color: var(--content-panel-body);
+	}
+
+	.theme-content-panel-divider {
+		border-color: color-mix(
+			in srgb,
+			var(--content-panel-heading) 18%,
+			transparent
+		);
+	}
+
+	.theme-content-panel-outline {
+		border: 1px solid
+			color-mix(in srgb, var(--content-panel-heading) 32%, transparent);
 	}
 
 	html.light .bg-sepia-900 {

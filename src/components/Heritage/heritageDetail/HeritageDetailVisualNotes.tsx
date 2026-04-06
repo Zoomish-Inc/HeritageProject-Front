@@ -14,9 +14,11 @@ export const HeritageDetailVisualNotes = ({ object, locale, title }: Props) => {
 		<>
 			<OrnamentalDivider />
 			<HeritageDetailSection title={title}>
-				<p className="text-parchment-200/60 font-body italic text-sm">
-					{object.visualStyleNotes[locale]}
-				</p>
+				<div className="theme-content-panel p-5">
+					<p className="theme-content-panel-body font-body italic text-sm">
+						{object.visualStyleNotes[locale]}
+					</p>
+				</div>
 			</HeritageDetailSection>
 		</>
 	);

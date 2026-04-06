@@ -3,7 +3,6 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
-import { getHeritageSlugsForStaticParams } from '@/lib/heritage/getHeritageSlugs';
 import { buildLocaleMetadata } from '@/lib/seo/buildLocaleMetadata';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
@@ -12,19 +11,17 @@ type Props = {
 	params: { locale: string; id: string };
 };
 
-export async function generateStaticParams() {
-	const slugs = await getHeritageSlugsForStaticParams();
-	return slugs.flatMap((id) =>
-		routing.locales.map((locale) => ({ locale, id }))
-	);
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const locale = params.locale as Locale;
+	if (!routing.locales.includes(locale)) {
+		return { title: 'Not Found' };
+	}
 	const obj = await getHeritageById(params.id);
 	if (!obj) {
 		return { title: 'Not Found' };
 	}
-	const locale = params.locale as Locale;
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
 	const title = `${obj.name[locale]} | ${tCommon('project_name')}`;
 	const description = obj.shortDescription[locale];
@@ -42,6 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function HeritagePage({ params }: Props) {
+	const locale = params.locale as Locale;
+	if (!routing.locales.includes(locale)) notFound();
 	const obj = await getHeritageById(params.id);
 	if (!obj) notFound();
 

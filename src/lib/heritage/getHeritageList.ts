@@ -4,6 +4,8 @@ import type { HeritageListItem } from '@/types/heritage';
 import { isHeritageMockEnabled } from './config';
 import { heritageListApiResponseSchema } from './schemas';
 
+const heritageFetchTimeoutMs = 15000;
+
 export async function loadHeritageList(cacheOptions?: {
 	next?: { revalidate: number };
 }): Promise<HeritageListItem[]> {
@@ -12,6 +14,7 @@ export async function loadHeritageList(cacheOptions?: {
 	}
 	const res = await fetch(`${getApiBaseUrl()}/api/v1/heritage/`, {
 		headers: { Accept: 'application/json' },
+		signal: AbortSignal.timeout(heritageFetchTimeoutMs),
 		...(cacheOptions ?? {}),
 	});
 	if (!res.ok) {

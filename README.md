@@ -87,7 +87,10 @@ src
 │   │   ├── getHeritageById.ts
 │   │   ├── getHeritageList.ts
 │   │   ├── getHeritageSlugs.ts
+│   │   ├── heritageListSchemas.ts
 │   │   ├── heritageListWire.ts
+│   │   ├── heritageObjectSchema.ts
+│   │   ├── heritageSchemaPrimitives.ts
 │   │   ├── listQuery.ts
 │   │   └── schemas.ts
 │   ├── seo
@@ -102,6 +105,8 @@ src
 │   │   └── types.ts
 │   └── queryClient.ts
 ├── mocks
+│   ├── heritage
+│   │   └── rawMockHeritageObjects.ts
 │   └── heritage.ts
 ├── styles
 │   └── globals.css

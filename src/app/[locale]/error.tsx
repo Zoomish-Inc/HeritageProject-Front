@@ -44,6 +44,22 @@ export default function LocaleError({ error, reset }: Props) {
 				{t('description')}
 			</p>
 
+			{error.digest ? (
+				<div className="text-left max-w-xl mx-auto mb-8 rounded border border-gold-400/20 bg-parchment-950/25 px-4 py-4 space-y-3">
+					<p className="text-parchment-200/85 font-body text-xs leading-relaxed">
+						{t('error_rsc_explanation')}
+					</p>
+					<p className="text-parchment-200/85 font-body text-xs leading-relaxed">
+						{t('error_digest_hint')}
+					</p>
+					{process.env.NODE_ENV === 'development' ? (
+						<p className="text-gold-400/70 font-body text-xs leading-relaxed">
+							{t('error_dev_hint')}
+						</p>
+					) : null}
+				</div>
+			) : null}
+
 			<div className="text-left max-w-xl mx-auto mb-8">
 				<p className="font-ui text-[10px] tracking-[0.25em] uppercase text-gold-400/60 mb-3">
 					{t('error_details')}

@@ -60,6 +60,8 @@ src
 │   │   ├── HeritageCard.tsx
 │   │   ├── HeritageDetail.tsx
 │   │   └── HeritageObjectsSection.tsx
+│   ├── i18n
+│   │   └── DocumentLangSync.tsx
 │   ├── SEO
 │   │   ├── HeritageJsonLd.tsx
 │   │   ├── HomeJsonLd.tsx

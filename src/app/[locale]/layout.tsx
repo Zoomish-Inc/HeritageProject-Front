@@ -7,6 +7,7 @@ import {
 	setRequestLocale,
 } from 'next-intl/server';
 import { dehydrate } from '@tanstack/react-query';
+import { DocumentLangSync } from '@/components/i18n/DocumentLangSync';
 import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
 import { Header } from '@/components/Header/Header';
 import { routing } from '@/i18n/routing';
@@ -64,6 +65,7 @@ export default async function LocaleLayout({
 
 	return (
 		<NextIntlClientProvider messages={messages}>
+			<DocumentLangSync />
 			<Providers dehydratedState={dehydratedState}>
 				<Header />
 				<main className="pt-16 min-h-screen">{children}</main>

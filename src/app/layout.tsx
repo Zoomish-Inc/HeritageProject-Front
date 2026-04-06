@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Cinzel, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
 import { getMetadataBaseUrl } from '@/env';
-import { getLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -32,15 +32,13 @@ export const metadata: Metadata = {
 		'Виртуальный тур по историко-архитектурному наследию г. Фергана XIX–XX вв.',
 };
 
-export default async function RootLayout({
+export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	const locale = await getLocale();
-
 	return (
-		<html lang={locale} suppressHydrationWarning>
+		<html lang={routing.defaultLocale} suppressHydrationWarning>
 			<head>
 				<script
 					dangerouslySetInnerHTML={{

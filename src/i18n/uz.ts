@@ -67,6 +67,12 @@ export const uz = {
 		copied: 'Nusxa olindi',
 		error_details: 'Xatolik haqida',
 		error_unknown: 'Xabar matnsiz xatolik.',
+		error_rsc_explanation:
+			'Production rejimida Next.js serverdagi xatolikning aniq matnini ko‘rsatmaydi — ichki ma’lumotlar (yo‘llar, so‘rovlar, stack) oshkor bo‘lmasin.',
+		error_digest_hint:
+			'Digest kodi server jurnallaridagi yozuv bilan mos keladi. Uni hosting konsolida (Vercel, Render va hokazo) yoki server ishga tushirilgan terminalda qidiring — haqiqiy sabab u yerda.',
+		error_dev_hint:
+			'`next dev` paytida to‘liq xabar odatda terminalda ham chiqadi.',
 		not_found_title: 'Sahifa topilmadi',
 		not_found_description: 'So‘ralgan sahifa mavjud emas yoki ko‘chirilgan.',
 	},

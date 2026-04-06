@@ -14,7 +14,7 @@
 
 ## Структура проекта
 
-Раздел ниже генерируется автоматически командой `npm run docs:structure`. Корни и исключения задаются в [`docs/structure.config.json`](docs/structure.config.json).
+Раздел ниже генерируется автоматически командой `npm run docs:sync` (алиас к `docs:structure`, с тем же форматированием README). Корни и исключения задаются в [`docs/structure.config.json`](docs/structure.config.json).
 
 <!-- docs:structure:start -->
 
@@ -122,6 +122,7 @@ npm run lint
 npm run check-lint
 npm run check-format
 npm run fix
+npm run docs:sync
 npm run docs:structure
 npm run docs:check
 npm test

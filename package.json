@@ -18,6 +18,7 @@
 		"check-lint": "eslint .",
 		"test": "vitest run",
 		"docs:structure": "node scripts/updateReadmeStructure.mjs",
+		"docs:sync": "npm run docs:structure",
 		"docs:check": "node scripts/updateReadmeStructure.mjs --check"
 	},
 	"dependencies": {

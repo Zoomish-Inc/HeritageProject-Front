@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import prettier from 'prettier';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -114,6 +115,11 @@ async function buildStructureBlock(config) {
 	return `${blockStart}\n\`\`\`text\n${allLines.join('\n')}\n\`\`\`\n${blockEnd}`;
 }
 
+async function formatReadme(content) {
+	const options = (await prettier.resolveConfig(readmePath)) ?? {};
+	return prettier.format(content, { ...options, filepath: readmePath });
+}
+
 async function main() {
 	const checkMode = process.argv.includes('--check');
 	const config = await loadConfig();
@@ -125,10 +131,12 @@ async function main() {
 
 	const blockPattern = new RegExp(`${blockStart}[\\s\\S]*?${blockEnd}`, 'm');
 	const nextBlock = await buildStructureBlock(config);
-	const updatedReadme = currentReadme.replace(blockPattern, nextBlock);
+	const updatedReadmeRaw = currentReadme.replace(blockPattern, nextBlock);
+	const currentFormatted = await formatReadme(currentReadme);
+	const updatedFormatted = await formatReadme(updatedReadmeRaw);
 
 	if (checkMode) {
-		if (updatedReadme !== currentReadme) {
+		if (updatedFormatted !== currentFormatted) {
 			console.error(
 				'README structure block is outdated. Run: npm run docs:structure'
 			);
@@ -137,8 +145,8 @@ async function main() {
 		return;
 	}
 
-	if (updatedReadme !== currentReadme) {
-		await writeFile(readmePath, updatedReadme, 'utf8');
+	if (updatedFormatted !== currentFormatted) {
+		await writeFile(readmePath, updatedFormatted, 'utf8');
 	}
 }
 

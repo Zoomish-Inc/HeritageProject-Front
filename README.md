@@ -92,6 +92,7 @@ src
 │   │   ├── heritageObjectSchema.ts
 │   │   ├── heritageSchemaPrimitives.ts
 │   │   ├── listQuery.ts
+│   │   ├── listVisibility.ts
 │   │   └── schemas.ts
 │   ├── seo
 │   │   ├── absolutizeMediaUrl.ts
@@ -102,6 +103,9 @@ src
 │   │   ├── buildPageMetadata.ts
 │   │   ├── index.ts
 │   │   ├── paths.ts
+│   │   ├── serverSeoEnv.ts
+│   │   ├── sitemapConfig.ts
+│   │   ├── sitemapEntries.ts
 │   │   └── types.ts
 │   └── queryClient.ts
 ├── mocks
@@ -129,6 +133,7 @@ tests
 │   │   └── schemas.test.ts
 │   └── seo
 │       ├── buildHeritageGraph.test.ts
+│       ├── buildHomeGraph.test.ts
 │       └── buildPageMetadata.test.ts
 ├── mocks
 │   └── heritage.test.ts

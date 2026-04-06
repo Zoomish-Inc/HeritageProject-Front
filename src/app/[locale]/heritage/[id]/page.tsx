@@ -13,8 +13,6 @@ type Props = {
 	params: { locale: string; id: string };
 };
 
-export const dynamic = 'force-dynamic';
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const locale = params.locale as Locale;
 	if (!routing.locales.includes(locale)) {

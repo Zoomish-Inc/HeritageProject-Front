@@ -1,10 +1,13 @@
 import { getApiBaseUrl } from '@/env';
 import { MOCK_HERITAGE_LIST_RESPONSE } from '@/mocks/heritage';
 import type { HeritageListItem } from '@/types/heritage';
+import * as React from 'react';
 import { isHeritageMockEnabled } from './config';
 import { parseHeritageListResponseJson } from './schemas';
 
 const heritageFetchTimeoutMs = 15000;
+
+const heritageListNextRevalidate = { next: { revalidate: 3600 } } as const;
 
 export async function loadHeritageList(cacheOptions?: {
 	next?: { revalidate: number };
@@ -24,7 +27,18 @@ export async function loadHeritageList(cacheOptions?: {
 	return parseHeritageListResponseJson(json);
 }
 
+const cacheFn =
+	typeof React.cache === 'function'
+		? React.cache
+		: <A extends unknown[], R>(fn: (...args: A) => R) => fn;
+
+export const loadHeritageListForRequest = cacheFn(async () =>
+	loadHeritageList(heritageListNextRevalidate)
+);
+
 export async function heritageListQueryFn(): Promise<HeritageListItem[]> {
-	const isServer = typeof window === 'undefined';
-	return loadHeritageList(isServer ? { next: { revalidate: 3600 } } : undefined);
+	if (typeof window === 'undefined') {
+		return loadHeritageListForRequest();
+	}
+	return loadHeritageList();
 }

@@ -1,17 +1,67 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
-import { HeritageDetailArchitecture } from '@/components/Heritage/heritageDetail/HeritageDetailArchitecture';
-import { HeritageDetailAudio } from '@/components/Heritage/heritageDetail/HeritageDetailAudio';
-import { HeritageDetailBeforeAfter } from '@/components/Heritage/heritageDetail/HeritageDetailBeforeAfter';
 import { HeritageDetailClosingRule } from '@/components/Heritage/heritageDetail/HeritageDetailClosingRule';
-import { HeritageDetailFigures } from '@/components/Heritage/heritageDetail/HeritageDetailFigures';
 import { HeritageDetailHero } from '@/components/Heritage/heritageDetail/HeritageDetailHero';
-import { HeritageDetailHistory } from '@/components/Heritage/heritageDetail/HeritageDetailHistory';
 import { HeritageDetailPurpose } from '@/components/Heritage/heritageDetail/HeritageDetailPurpose';
-import { HeritageDetailVisualNotes } from '@/components/Heritage/heritageDetail/HeritageDetailVisualNotes';
+import { LoadingSpinner } from '@/components/UI/LoadingSpinner';
 import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
 import type { HeritageObject, Locale } from '@/types/heritage';
+import dynamic from 'next/dynamic';
+import { useLocale, useTranslations } from 'next-intl';
+
+const sectionLoading = () => (
+	<div className="py-10 flex justify-center">
+		<LoadingSpinner />
+	</div>
+);
+
+const HeritageDetailBeforeAfter = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailBeforeAfter').then(
+			(m) => ({ default: m.HeritageDetailBeforeAfter })
+		),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailArchitecture = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailArchitecture').then(
+			(m) => ({ default: m.HeritageDetailArchitecture })
+		),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailHistory = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailHistory').then(
+			(m) => ({ default: m.HeritageDetailHistory })
+		),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailAudio = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailAudio').then(
+			(m) => ({ default: m.HeritageDetailAudio })
+		),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailFigures = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailFigures').then(
+			(m) => ({ default: m.HeritageDetailFigures })
+		),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailVisualNotes = dynamic(
+	() =>
+		import('@/components/Heritage/heritageDetail/HeritageDetailVisualNotes').then(
+			(m) => ({ default: m.HeritageDetailVisualNotes })
+		),
+	{ loading: sectionLoading }
+);
 
 interface Props {
 	object: HeritageObject;

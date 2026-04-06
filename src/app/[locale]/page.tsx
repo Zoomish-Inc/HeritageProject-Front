@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { HeritageObjectsSection } from '@/components/Heritage/HeritageObjectsSection';
 import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
 import { HomeJsonLd } from '@/components/SEO/HomeJsonLd';
-import { loadHeritageList } from '@/lib/heritage/getHeritageList';
+import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
 import { buildHomeMetadata } from '@/lib/seo/buildHomeMetadata';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
@@ -39,9 +39,9 @@ export default async function HomePage({ params }: Props) {
 
 	const t = await getTranslations({ locale, namespace: 'home' });
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
-	let listItems: Awaited<ReturnType<typeof loadHeritageList>> = [];
+	let listItems: Awaited<ReturnType<typeof loadHeritageListForRequest>> = [];
 	try {
-		listItems = await loadHeritageList({ next: { revalidate: 3600 } });
+		listItems = await loadHeritageListForRequest();
 	} catch {
 		listItems = [];
 	}

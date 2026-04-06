@@ -3,17 +3,28 @@ import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import type { Locale } from '@/types/heritage';
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = ({
+	className,
+	onAfterLocaleChange,
+}: {
+	className?: string;
+	onAfterLocaleChange?: () => void;
+}) => {
 	const locale = useLocale() as Locale;
 	const router = useRouter();
 	const pathname = usePathname();
 
 	const toggle = (l: Locale) => {
-		if (l !== locale) router.replace(pathname, { locale: l });
+		if (l !== locale) {
+			router.replace(pathname, { locale: l });
+			onAfterLocaleChange?.();
+		}
 	};
 
 	return (
-		<div className="flex items-center gap-1 text-xs font-ui tracking-widest">
+		<div
+			className={`flex items-center gap-1 text-xs font-ui tracking-widest${className ? ` ${className}` : ''}`}
+		>
 			{(['ru', 'uz'] as Locale[]).map((l) => (
 				<button
 					key={l}

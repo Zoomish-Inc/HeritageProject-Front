@@ -39,7 +39,9 @@ src
 ├── components
 │   ├── Header
 │   │   ├── Header.tsx
+│   │   ├── LandmarksNavList.tsx
 │   │   ├── LanguageSwitcher.tsx
+│   │   ├── MobileNavDrawer.tsx
 │   │   ├── NavDropdown.tsx
 │   │   └── ThemeToggle.tsx
 │   ├── Heritage

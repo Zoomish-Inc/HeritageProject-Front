@@ -2,14 +2,13 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
 import type { Locale } from '@/types/heritage';
+import { LandmarksNavList } from './LandmarksNavList';
 
 export const NavDropdown = () => {
 	const [open, setOpen] = useState(false);
 	const tNav = useTranslations('nav');
-	const tHeritage = useTranslations('heritage');
 	const locale = useLocale() as Locale;
 	const { data: items, isLoading } = useHeritageListQuery();
 	const ref = useRef<HTMLDivElement>(null);
@@ -62,40 +61,12 @@ export const NavDropdown = () => {
 					<div className="h-px bg-gradient-theme-accent" />
 					<div className="bg-theme-surface border border-theme-soft shadow-2xl rounded-xl overflow-hidden">
 						<div className="h-px bg-gradient-theme-accent-soft" />
-						{isLoading ? (
-							<div className="p-4 text-center text-theme-accent-soft text-xs font-body italic">
-								{tHeritage('loading')}
-							</div>
-						) : (
-							<ul role="none">
-								{items?.map((item, idx) => (
-									<li
-										key={item.id}
-										role="none"
-										className="border-b border-theme-soft last:border-0"
-									>
-										<Link
-											href={`/heritage/${item.slug}`}
-											role="menuitem"
-											onClick={() => setOpen(false)}
-											className="flex items-start gap-3 px-4 py-3 hover:bg-theme-accent-faint transition-colors duration-150 group"
-										>
-											<span className="text-theme-accent-soft font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-theme-accent-strong transition-colors">
-												{String(idx + 1).padStart(2, '0')}
-											</span>
-											<div className="min-w-0">
-												<p className="text-theme-primary text-xs font-body leading-snug group-hover:text-theme-accent transition-colors">
-													{item.name[locale]}
-												</p>
-												<p className="text-theme-accent-soft text-xs font-ui mt-0.5">
-													{item.yearRange ?? item.yearBuilt}
-												</p>
-											</div>
-										</Link>
-									</li>
-								))}
-							</ul>
-						)}
+						<LandmarksNavList
+							items={items}
+							isLoading={isLoading}
+							locale={locale}
+							onItemNavigate={() => setOpen(false)}
+						/>
 						<div className="h-px bg-gradient-theme-accent-soft" />
 					</div>
 					<div className="h-px bg-gradient-theme-accent" />

@@ -48,6 +48,11 @@ export const ru = {
 		project_name: 'Наследие Ферганы',
 		tagline: 'Виртуальный тур · XIX–XX вв.',
 		theme_toggle: 'Сменить тему',
+		mobile_nav_title: 'Меню',
+		open_menu: 'Открыть меню навигации',
+		close_menu: 'Закрыть меню',
+		language_label: 'Язык',
+		desktop_nav_label: 'Основная навигация',
 	},
 	layout: {
 		footer_line: 'Наследие Ферганы · XIX–XX вв.',

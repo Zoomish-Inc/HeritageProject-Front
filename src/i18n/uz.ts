@@ -48,6 +48,11 @@ export const uz = {
 		project_name: "Farg'ona merosi",
 		tagline: 'Virtual sayohat · XIX–XX asrlar',
 		theme_toggle: 'Mavzuni almashtirish',
+		mobile_nav_title: 'Menyu',
+		open_menu: 'Navigatsiya menyusini ochish',
+		close_menu: 'Menyuni yopish',
+		language_label: 'Til',
+		desktop_nav_label: 'Asosiy navigatsiya',
 	},
 	layout: {
 		footer_line: "Farg'ona merosi · XIX–XX asrlar",

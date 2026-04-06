@@ -1,7 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { loadHeritageList } from '@/lib/heritage/getHeritageList';
-import { heritageListItemsToApiWire } from '@/lib/heritage/heritageListWire';
-import { MOCK_HERITAGE_LIST } from '@/mocks/heritage';
+import {
+	MOCK_HERITAGE_LIST,
+	MOCK_HERITAGE_LIST_RESPONSE,
+} from '@/mocks/heritage';
 
 vi.mock('@/lib/heritage/config', () => ({
 	isHeritageMockEnabled: vi.fn(),
@@ -13,16 +15,12 @@ describe('loadHeritageList', () => {
 	it('returns mock list when mock mode is on', async () => {
 		vi.mocked(isHeritageMockEnabled).mockReturnValue(true);
 		const list = await loadHeritageList();
-		expect(list).toBe(MOCK_HERITAGE_LIST);
+		expect(list).toEqual(MOCK_HERITAGE_LIST);
 	});
 
 	it('fetches and parses API response when mock mode is off', async () => {
 		vi.mocked(isHeritageMockEnabled).mockReturnValue(false);
-		const payload = {
-			success: true,
-			message: null,
-			data: heritageListItemsToApiWire(MOCK_HERITAGE_LIST),
-		};
+		const payload = MOCK_HERITAGE_LIST_RESPONSE;
 		global.fetch = vi.fn().mockResolvedValue({
 			ok: true,
 			json: async () => payload,
@@ -59,6 +57,6 @@ describe('heritageListQueryFn', () => {
 		const { heritageListQueryFn } =
 			await import('@/lib/heritage/getHeritageList');
 		const list = await heritageListQueryFn();
-		expect(list).toBe(MOCK_HERITAGE_LIST);
+		expect(list).toEqual(MOCK_HERITAGE_LIST);
 	});
 });

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { HeritageListItem } from '@/types/heritage';
 
 const localizedStringSchema = z.object({
 	ru: z.string(),
@@ -111,3 +112,13 @@ export const heritageObjectApiResponseSchema = z.object({
 	message: z.string().nullable().optional(),
 	data: heritageObjectSchema,
 });
+
+export function parseHeritageListResponseJson(
+	json: unknown
+): HeritageListItem[] {
+	const parsed = heritageListApiResponseSchema.safeParse(json);
+	if (!parsed.success) {
+		throw new Error(`Heritage list response invalid: ${parsed.error.message}`);
+	}
+	return parsed.data.data;
+}

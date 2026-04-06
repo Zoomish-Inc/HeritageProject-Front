@@ -1,4 +1,9 @@
-import type { HeritageObject, HeritageListItem } from '@/types/heritage';
+import {
+	heritageListItemsToApiWire,
+	type HeritageListApiResponseWire,
+} from '@/lib/heritage/heritageListWire';
+import { parseHeritageListResponseJson } from '@/lib/heritage/schemas';
+import type { HeritageListItem, HeritageObject } from '@/types/heritage';
 
 const buildPlaceholderUrl = (seed: string, width = 1400, height = 900) =>
 	`https://placehold.co/${width}x${height}/3d2b1f/f5ede0.webp?text=${encodeURIComponent(
@@ -762,8 +767,8 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
 		},
 	}));
 
-export const MOCK_HERITAGE_LIST: HeritageListItem[] = MOCK_HERITAGE_OBJECTS.map(
-	(obj) => ({
+function heritageObjectToListItem(obj: HeritageObject): HeritageListItem {
+	return {
 		id: obj.id,
 		slug: obj.slug,
 		name: obj.name,
@@ -773,8 +778,19 @@ export const MOCK_HERITAGE_LIST: HeritageListItem[] = MOCK_HERITAGE_OBJECTS.map(
 		coverImageUrl: obj.coverImageUrl,
 		shortDescription: obj.shortDescription,
 		order: obj.order,
-	})
-);
+	};
+}
+
+export const MOCK_HERITAGE_LIST_RESPONSE: HeritageListApiResponseWire = {
+	success: true,
+	message: null,
+	data: heritageListItemsToApiWire(
+		MOCK_HERITAGE_OBJECTS.map(heritageObjectToListItem)
+	),
+};
+
+export const MOCK_HERITAGE_LIST: HeritageListItem[] =
+	parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE);
 
 export const getMockHeritageById = (id: string): HeritageObject | undefined =>
 	MOCK_HERITAGE_OBJECTS.find((o) => o.id === id || o.slug === id);

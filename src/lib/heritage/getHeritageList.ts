@@ -1,8 +1,8 @@
 import { getApiBaseUrl } from '@/env';
-import { MOCK_HERITAGE_LIST } from '@/mocks/heritage';
+import { MOCK_HERITAGE_LIST_RESPONSE } from '@/mocks/heritage';
 import type { HeritageListItem } from '@/types/heritage';
 import { isHeritageMockEnabled } from './config';
-import { heritageListApiResponseSchema } from './schemas';
+import { parseHeritageListResponseJson } from './schemas';
 
 const heritageFetchTimeoutMs = 15000;
 
@@ -10,7 +10,7 @@ export async function loadHeritageList(cacheOptions?: {
 	next?: { revalidate: number };
 }): Promise<HeritageListItem[]> {
 	if (isHeritageMockEnabled()) {
-		return MOCK_HERITAGE_LIST;
+		return parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE);
 	}
 	const res = await fetch(`${getApiBaseUrl()}/api/v1/heritage/`, {
 		headers: { Accept: 'application/json' },
@@ -21,11 +21,7 @@ export async function loadHeritageList(cacheOptions?: {
 		throw new Error(`Heritage list fetch failed: ${res.status}`);
 	}
 	const json: unknown = await res.json();
-	const parsed = heritageListApiResponseSchema.safeParse(json);
-	if (!parsed.success) {
-		throw new Error(`Heritage list response invalid: ${parsed.error.message}`);
-	}
-	return parsed.data.data;
+	return parseHeritageListResponseJson(json);
 }
 
 export async function heritageListQueryFn(): Promise<HeritageListItem[]> {

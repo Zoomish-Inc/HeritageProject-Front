@@ -12,6 +12,12 @@ export type HeritageListItemApiWire = {
 	order: number;
 };
 
+export type HeritageListApiResponseWire = {
+	success: boolean;
+	message?: string | null;
+	data: HeritageListItemApiWire[];
+};
+
 export function heritageListItemsToApiWire(
 	items: HeritageListItem[]
 ): HeritageListItemApiWire[] {

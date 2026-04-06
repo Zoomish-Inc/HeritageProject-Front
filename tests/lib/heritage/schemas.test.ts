@@ -1,18 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { heritageListItemsToApiWire } from '@/lib/heritage/heritageListWire';
 import {
 	heritageListApiResponseSchema,
 	heritageObjectApiResponseSchema,
 } from '@/lib/heritage/schemas';
-import { MOCK_HERITAGE_LIST, MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
+import {
+	MOCK_HERITAGE_LIST,
+	MOCK_HERITAGE_LIST_RESPONSE,
+	MOCK_HERITAGE_OBJECTS,
+} from '@/mocks/heritage';
 
 describe('heritageListApiResponseSchema', () => {
 	it('accepts valid list envelope and normalizes API rows', () => {
-		const parsed = heritageListApiResponseSchema.safeParse({
-			success: true,
-			message: null,
-			data: heritageListItemsToApiWire(MOCK_HERITAGE_LIST),
-		});
+		const parsed = heritageListApiResponseSchema.safeParse(
+			MOCK_HERITAGE_LIST_RESPONSE
+		);
 		expect(parsed.success).toBe(true);
 		if (parsed.success) {
 			expect(parsed.data.data).toEqual(MOCK_HERITAGE_LIST);

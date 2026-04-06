@@ -108,13 +108,73 @@ describe('heritageObjectApiResponseSchema', () => {
 		expect(parsed.success).toBe(true);
 	});
 
-	it('rejects object missing required audioGuide', () => {
+	it('fills defaults when audioGuide and rich fields are omitted', () => {
 		const obj = MOCK_HERITAGE_OBJECTS[0];
 		const broken = { ...obj, audioGuide: undefined };
 		const parsed = heritageObjectApiResponseSchema.safeParse({
 			success: true,
 			data: broken,
 		});
-		expect(parsed.success).toBe(false);
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.audioGuide.transcript.ru).toBe('');
+		}
+	});
+
+	it('accepts API payload with audio_guides array (empty)', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+				slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
+				name: { ru: 'Здание', uz: 'Bino' },
+				address: { ru: 'ул', uz: 'k' },
+				order: 1,
+				year_built: 1878,
+				year_range: '',
+				short_description: { ru: 's', uz: 's' },
+				current_purpose: { ru: 'a', uz: 'b' },
+				historical_purpose: { ru: 'c', uz: 'd' },
+				architectural_style: { ru: 'e', uz: 'f' },
+				architectural_description: { ru: 'g', uz: 'h' },
+				history: { ru: 'i', uz: 'j' },
+				cover: 'https://example.com/x.png',
+				architecture_details: [],
+				before_after_pairs: [],
+				historical_figures: [],
+				audio_guides: [],
+				is_published: true,
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.audioGuide.transcript.ru).toBe('');
+		}
+	});
+
+	it('accepts minimal snake_case detail payload from API', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+				slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
+				name: { ru: 'Здание', uz: 'Bino' },
+				address: { ru: 'ул. 1', uz: "Ko'cha 1" },
+				order: 1,
+				year_built: 1878,
+				year_range: '',
+				short_description: { ru: 'Кратко', uz: 'Qisqa' },
+				cover: 'https://example.com/c.jpg',
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.yearBuilt).toBe(1878);
+			expect(parsed.data.data.coverImageUrl).toBe('https://example.com/c.jpg');
+			expect(parsed.data.data.architectureDetails).toEqual([]);
+			expect(parsed.data.data.audioGuide.narratorLabel.ru).toBe('');
+		}
 	});
 });

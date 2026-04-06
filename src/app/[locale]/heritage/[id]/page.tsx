@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
 import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
 import { HeritageJsonLd } from '@/components/SEO/HeritageJsonLd';
+import { routing } from '@/i18n/routing';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
 import { buildHeritageMetadata } from '@/lib/seo/buildHeritageMetadata';
 import { absolutePageUrl, heritagePathForLocale } from '@/lib/seo/paths';
-import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 type Props = {
 	params: { locale: string; id: string };

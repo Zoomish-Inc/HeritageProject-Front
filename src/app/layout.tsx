@@ -41,7 +41,6 @@ export default async function RootLayout({
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<Analytics />
 			<head>
 				<script
 					dangerouslySetInnerHTML={{
@@ -53,6 +52,7 @@ export default async function RootLayout({
 				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${cinzel.variable}`}
 			>
 				{children}
+				<Analytics />
 			</body>
 		</html>
 	);

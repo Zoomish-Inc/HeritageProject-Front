@@ -47,6 +47,7 @@ export const ru = {
 		lang_uz: "O'zbek",
 		project_name: 'Наследие Ферганы',
 		tagline: 'Виртуальный тур · XIX–XX вв.',
+		theme_toggle: 'Сменить тему',
 	},
 	layout: {
 		footer_line: 'Наследие Ферганы · XIX–XX вв.',
@@ -56,6 +57,11 @@ export const ru = {
 		description: 'Попробуйте снова или вернитесь на главную.',
 		retry: 'Повторить',
 		back_home: 'На главную',
+		go_back: 'Назад',
+		copy_error: 'Скопировать текст ошибки',
+		copied: 'Скопировано',
+		error_details: 'Сведения об ошибке',
+		error_unknown: 'Ошибка без текста сообщения.',
 		not_found_title: 'Страница не найдена',
 		not_found_description:
 			'Запрошенная страница не существует или была перенесена.',

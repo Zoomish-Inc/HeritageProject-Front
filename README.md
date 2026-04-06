@@ -4,65 +4,130 @@
 
 ## Стек
 
-- **Next.js 14** (App Router, SSR/SSG)
-- **TypeScript** (строгая типизация)
-- **Tailwind CSS** (дизайн-система 19 века)
-- **React Query** (клиентский кэш, гидратация списка)
-- **next-intl** (локализация `ru` / `uz`)
-- **Zod** (env и ответы API heritage)
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **@tanstack/react-query**
+- **next-intl** (`ru`, `uz`)
+- **Zod** (валидация env и API-ответов)
+- **Vitest + Testing Library**
 
 ## Структура проекта
 
-```
-src/
-├── types/
-│   ├── heritage.ts     # Типы ОКН, локализация
-│   └── api.ts          # Типы API
-├── env.ts              # NEXT_PUBLIC_* (Zod)
-├── lib/
-│   ├── heritage/       # load*, queryFn, Zod-схемы, slugs для SSG
-│   ├── seo/            # buildLocaleMetadata
-│   └── queryClient.ts
-├── i18n/
-│   ├── ru.ts / uz.ts   # Сообщения next-intl
-│   ├── routing.ts, request.ts, navigation.ts
-│   └── index.ts
-├── mocks/
-│   └── heritage.ts
-├── hooks/
-│   └── useHeritageListQuery.ts
-├── components/
-│   ├── Header/
-│   │   ├── Header.tsx          # Шапка с выпадающим меню
-│   │   ├── NavDropdown.tsx     # Dropdown с ОКН
-│   │   └── LanguageSwitcher.tsx
-│   ├── Heritage/
+Раздел ниже генерируется автоматически командой `npm run docs:structure`. Корни и исключения задаются в [`docs/structure.config.json`](docs/structure.config.json).
+
+<!-- docs:structure:start -->
+
+```text
+src
+├── app
+│   ├── [locale]
+│   │   ├── heritage
+│   │   │   └── [id]
+│   │   │       └── page.tsx
+│   │   ├── error.tsx
+│   │   ├── layout.tsx
+│   │   ├── not-found.tsx
+│   │   ├── page.tsx
+│   │   └── providers.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   └── page.tsx
+├── components
+│   ├── Header
+│   │   ├── Header.tsx
+│   │   ├── LanguageSwitcher.tsx
+│   │   ├── NavDropdown.tsx
+│   │   └── ThemeToggle.tsx
+│   ├── Heritage
+│   │   ├── heritageDetail
+│   │   │   ├── HeritageDetailArchitecture.tsx
+│   │   │   ├── HeritageDetailAudio.tsx
+│   │   │   ├── HeritageDetailBeforeAfter.tsx
+│   │   │   ├── HeritageDetailClosingRule.tsx
+│   │   │   ├── HeritageDetailFigures.tsx
+│   │   │   ├── HeritageDetailHero.tsx
+│   │   │   ├── HeritageDetailHistory.tsx
+│   │   │   ├── HeritageDetailPurpose.tsx
+│   │   │   ├── HeritageDetailSection.tsx
+│   │   │   └── HeritageDetailVisualNotes.tsx
+│   │   ├── BeforeAfterSlider.tsx
 │   │   ├── HeritageCard.tsx
-│   │   ├── HeritageObjectsSection.tsx  # список (React Query)
 │   │   ├── HeritageDetail.tsx
-│   │   └── heritageDetail/     # секции карточки объекта
-│   └── UI/
-│       ├── OrnamentalDivider.tsx
+│   │   └── HeritageObjectsSection.tsx
+│   └── UI
 │       ├── DecorativeFlourish.tsx
-│       └── LoadingSpinner.tsx
-└── app/
-    ├── layout.tsx              # Root layout, metadataBase, lang
-    ├── page.tsx                # Редирект / → /ru или локаль из cookie
-    ├── globals.css
-    └── [locale]/
-        ├── layout.tsx          # next-intl + prefetch списка
-        ├── page.tsx            # Главная: герой RSC + сетка (клиент)
-        ├── error.tsx / not-found.tsx
-        └── heritage/[id]/
-            └── page.tsx        # Деталь ОКН (RSC)
+│       ├── ErrorOrNotFoundShell.tsx
+│       ├── LoadingSpinner.tsx
+│       ├── NavigatorBackButton.tsx
+│       └── OrnamentalDivider.tsx
+├── hooks
+│   └── useHeritageListQuery.ts
+├── i18n
+│   ├── index.ts
+│   ├── navigation.ts
+│   ├── request.ts
+│   ├── routing.ts
+│   ├── ru.ts
+│   └── uz.ts
+├── lib
+│   ├── heritage
+│   │   ├── config.ts
+│   │   ├── getHeritageById.ts
+│   │   ├── getHeritageList.ts
+│   │   ├── getHeritageSlugs.ts
+│   │   ├── listQuery.ts
+│   │   └── schemas.ts
+│   ├── seo
+│   │   └── buildLocaleMetadata.ts
+│   └── queryClient.ts
+├── mocks
+│   └── heritage.ts
+├── styles
+│   └── globals.css
+├── types
+│   ├── api.ts
+│   └── heritage.ts
+└── env.ts
 
-tests/                    # Vitest (отдельно от src)
-├── setup.ts
-├── lib/, i18n/, components/, mocks/  # зеркально по смыслу
-└── *.test.ts / *.test.tsx
+tests
+├── components
+│   ├── DecorativeFlourish.test.tsx
+│   └── HeritageObjectsSection.test.tsx
+├── i18n
+│   └── routing.test.ts
+├── lib
+│   ├── heritage
+│   │   ├── getHeritageById.test.ts
+│   │   ├── getHeritageList.test.ts
+│   │   ├── getHeritageSlugs.test.ts
+│   │   └── schemas.test.ts
+│   └── seo
+│       └── buildLocaleMetadata.test.ts
+├── mocks
+│   └── heritage.test.ts
+└── setup.ts
 ```
 
-## Запуск
+<!-- docs:structure:end -->
+
+## Скрипты
+
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run check-lint
+npm run check-format
+npm run fix
+npm run docs:structure
+npm run docs:check
+npm test
+```
+
+## Локальный запуск
 
 ```bash
 cp .env.local.example .env.local
@@ -70,23 +135,20 @@ npm install
 npm run dev
 ```
 
-## Тесты
+## Роутинг и рендеринг
 
-```bash
-npm test
-```
-
-Vitest (jsdom): unit-тесты в каталоге [`tests/`](tests/) — Zod-схемы, `loadHeritageList` / `loadHeritageById`, `buildLocaleMetadata`, `getHeritageSlugsForStaticParams`, `routing`, моки и часть UI (`DecorativeFlourish`, `HeritageObjectsSection`). После каждого теста вызывается `cleanup`: [`tests/setup.ts`](tests/setup.ts).
-
-На push/PR в `main` или `master` в GitHub Actions выполняются `npm ci`, `npm test`, `npm run lint` (workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml)). После изменения зависимостей в `package.json` нужно выполнить `npm install` и закоммитить обновлённый `package-lock.json`, иначе `npm ci` на CI упадёт. **Не вырезай** из lock-файла поля `resolved` и `integrity` — без них дерево зависимостей перестаёт совпадать с тем, что проверяет `npm ci`. В CI перед `npm ci` ставится **npm 11**, как у типичной локальной установки Node 20+; если у тебя npm 10, обнови (`npm i -g npm@11`) и снова `npm install`, затем коммит lock.
+- `/` — редирект на локализованный маршрут.
+- `/{locale}` — главная страница (`ru` или `uz`).
+- `/{locale}/heritage/{id}` — страница объекта наследия, рендерится динамически на запрос.
+- `middleware.ts` обрабатывает локаль и перенаправления.
 
 ## Моки и API
 
-- **Моки включены только при** `NEXT_PUBLIC_USE_MOCK=true` (так в `.env.local.example`).
-- Для работы с бекендом: уберите переменную или установите любое значение, кроме `true`, и задайте `NEXT_PUBLIC_API_URL`. Ответы `/api/v1/heritage/` валидируются Zod-схемами в `src/lib/heritage/schemas.ts`.
+- Моки активируются только при `NEXT_PUBLIC_USE_MOCK=true`.
+- Для backend-режима укажите `NEXT_PUBLIC_API_URL`.
+- API-ответы валидируются в `src/lib/heritage/schemas.ts`.
 
-## Локализация
+## Тесты и CI
 
-- Маршруты: `/ru/...` и `/uz/...`
-- Middleware автоматически определяет язык из `Accept-Language`
-- Переключение языка меняет URL без перезагрузки страницы
+- Unit-тесты лежат в `tests/`, окружение и cleanup — `tests/setup.ts`.
+- В CI (`.github/workflows/ci.yml`) выполняются `npm ci`, `npm test`, `npm run lint`, `npm run docs:check`.

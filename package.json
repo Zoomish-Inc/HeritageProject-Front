@@ -7,6 +7,7 @@
 		"url": "https://github.com/Zoomish"
 	},
 	"scripts": {
+		"clean": "node scripts/cleanNext.mjs",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
@@ -15,7 +16,9 @@
 		"prepare": "husky",
 		"check-format": "prettier --check .",
 		"check-lint": "eslint .",
-		"test": "vitest run"
+		"test": "vitest run",
+		"docs:structure": "node scripts/updateReadmeStructure.mjs",
+		"docs:check": "node scripts/updateReadmeStructure.mjs --check"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.51.11",

@@ -20,7 +20,7 @@ type Props = {
 
 export const HeritageDetailPurpose = ({ object, locale, labels }: Props) => (
 	<HeritageDetailSection title={labels.title}>
-		<div className="bg-sepia-800/50 border border-gold-400/15 p-6">
+		<div className="bg-sepia-800/50 border border-gold-400/15 rounded-xl p-6">
 			<HeritageDetailInfoRow
 				label={labels.currentPurpose}
 				value={object.currentPurpose[locale]}

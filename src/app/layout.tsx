@@ -39,7 +39,14 @@ export default async function RootLayout({
 	const locale = await getLocale();
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} suppressHydrationWarning>
+			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){try{var key='theme-preference';var saved=localStorage.getItem(key);var prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;var theme=saved==='light'||saved==='dark'?saved:(prefersLight?'light':'dark');var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(theme);}catch(e){document.documentElement.classList.add('dark');}})();`,
+					}}
+				/>
+			</head>
 			<body
 				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${cinzel.variable}`}
 			>

@@ -17,7 +17,7 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => (
 	<>
 		<OrnamentalDivider label={labels.title} />
 		<HeritageDetailSection title={labels.title}>
-			<div className="bg-sepia-800/50 border border-gold-400/20 p-6 space-y-4">
+			<div className="bg-sepia-800/50 border border-gold-400/20 rounded-xl p-6 space-y-4">
 				<div className="flex items-center gap-3 mb-4">
 					<div className="w-8 h-8 border border-gold-400/40 flex items-center justify-center">
 						<span className="text-gold-400 text-sm">♪</span>

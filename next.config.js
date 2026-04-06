@@ -27,6 +27,16 @@ const baseRemotePatterns = [
 		hostname: 'upload.wikimedia.org',
 		pathname: '/wikipedia/**',
 	},
+	{
+		protocol: 'https',
+		hostname: 'picsum.photos',
+		pathname: '/**',
+	},
+	{
+		protocol: 'https',
+		hostname: 'placehold.co',
+		pathname: '/**',
+	},
 ];
 
 const apiPattern = tryRemotePatternFromEnvUrl('NEXT_PUBLIC_API_URL');
@@ -35,6 +45,7 @@ const cdnPattern = tryRemotePatternFromEnvUrl('NEXT_PUBLIC_IMAGE_CDN_URL');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
+		unoptimized: true,
 		remotePatterns: [
 			...baseRemotePatterns,
 			...(apiPattern ? [apiPattern] : []),

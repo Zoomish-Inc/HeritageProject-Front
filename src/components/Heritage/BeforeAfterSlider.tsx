@@ -79,7 +79,7 @@ export const BeforeAfterSlider = ({
 	const clipRight = 100 - pct;
 
 	return (
-		<figure className="border border-gold-400/20 bg-sepia-900/40 p-4 md:p-5">
+		<figure className="border border-gold-400/20 bg-sepia-900/40 rounded-xl p-4 md:p-5">
 			<figcaption className="font-display text-parchment-100 text-lg mb-3 text-center">
 				{pairLabel}
 			</figcaption>
@@ -89,7 +89,7 @@ export const BeforeAfterSlider = ({
 
 			<div
 				ref={containerRef}
-				className="relative w-full aspect-[16/10] max-h-[min(70vh,520px)] overflow-hidden border border-gold-400/25 select-none touch-none cursor-ew-resize"
+				className="relative w-full aspect-[16/10] max-h-[min(70vh,520px)] overflow-hidden rounded-lg border border-gold-400/25 select-none touch-none cursor-ew-resize"
 				style={{ touchAction: 'none' }}
 				onPointerDown={onPointerDown}
 				onPointerMove={onPointerMove}

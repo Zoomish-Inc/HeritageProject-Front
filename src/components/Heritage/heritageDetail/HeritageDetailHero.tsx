@@ -38,7 +38,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 				</div>
 			</div>
 
-			<div className="relative w-full h-72 md:h-96 mb-6 border border-gold-400/20 overflow-hidden">
+			<div className="relative w-full h-72 md:h-96 mb-6 border border-gold-400/20 rounded-xl overflow-hidden">
 				<Image
 					src={object.coverImageUrl}
 					alt={object.name[locale]}

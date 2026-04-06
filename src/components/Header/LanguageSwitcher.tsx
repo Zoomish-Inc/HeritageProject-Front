@@ -21,8 +21,8 @@ export const LanguageSwitcher = () => {
 					onClick={() => toggle(l)}
 					className={`px-2 py-1 border transition-all duration-200 uppercase ${
 						locale === l
-							? 'bg-gold-400 border-gold-400 text-sepia-900 font-bold'
-							: 'border-gold-400/40 text-gold-300 hover:border-gold-400 hover:text-gold-400'
+							? 'bg-theme-accent border-theme-strong text-sepia-900 font-bold'
+							: 'border-theme-soft text-theme-accent hover:border-theme-strong hover:text-theme-accent-strong'
 					}`}
 				>
 					{l === 'ru' ? 'RU' : 'UZ'}

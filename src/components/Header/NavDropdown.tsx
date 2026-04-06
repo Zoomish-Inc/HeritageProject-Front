@@ -41,11 +41,11 @@ export const NavDropdown = () => {
 				aria-expanded={open}
 				aria-controls={open ? `${menuId}-menu` : undefined}
 				onClick={() => setOpen((p) => !p)}
-				className="flex items-center gap-2 font-ui text-xs tracking-[0.2em] uppercase text-gold-300 hover:text-gold-400 transition-colors duration-200 py-2"
+				className="flex items-center gap-2 font-ui text-xs tracking-[0.2em] uppercase text-theme-accent hover:text-theme-accent-strong transition-colors duration-200 py-2"
 			>
 				<span>{tNav('landmarks')}</span>
 				<span
-					className={`inline-block transition-transform duration-300 text-gold-400 ${open ? 'rotate-180' : ''}`}
+					className={`inline-block transition-transform duration-300 text-theme-accent ${open ? 'rotate-180' : ''}`}
 					aria-hidden
 				>
 					▾
@@ -59,11 +59,11 @@ export const NavDropdown = () => {
 					aria-labelledby={`${menuId}-trigger`}
 					className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 z-50"
 				>
-					<div className="h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
-					<div className="bg-sepia-800 border border-gold-400/30 shadow-2xl">
-						<div className="h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+					<div className="h-px bg-gradient-theme-accent" />
+					<div className="bg-theme-surface border border-theme-soft shadow-2xl rounded-xl overflow-hidden">
+						<div className="h-px bg-gradient-theme-accent-soft" />
 						{isLoading ? (
-							<div className="p-4 text-center text-gold-300/60 text-xs font-body italic">
+							<div className="p-4 text-center text-theme-accent-soft text-xs font-body italic">
 								{tHeritage('loading')}
 							</div>
 						) : (
@@ -72,22 +72,22 @@ export const NavDropdown = () => {
 									<li
 										key={item.id}
 										role="none"
-										className="border-b border-gold-400/10 last:border-0"
+										className="border-b border-theme-soft last:border-0"
 									>
 										<Link
 											href={`/heritage/${item.slug}`}
 											role="menuitem"
 											onClick={() => setOpen(false)}
-											className="flex items-start gap-3 px-4 py-3 hover:bg-gold-400/10 transition-colors duration-150 group"
+											className="flex items-start gap-3 px-4 py-3 hover:bg-theme-accent-faint transition-colors duration-150 group"
 										>
-											<span className="text-gold-400/50 font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-gold-400 transition-colors">
+											<span className="text-theme-accent-soft font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-theme-accent-strong transition-colors">
 												{String(idx + 1).padStart(2, '0')}
 											</span>
 											<div className="min-w-0">
-												<p className="text-parchment-100 text-xs font-body leading-snug group-hover:text-gold-300 transition-colors">
+												<p className="text-theme-primary text-xs font-body leading-snug group-hover:text-theme-accent transition-colors">
 													{item.name[locale]}
 												</p>
-												<p className="text-gold-400/50 text-xs font-ui mt-0.5">
+												<p className="text-theme-accent-soft text-xs font-ui mt-0.5">
 													{item.yearRange ?? item.yearBuilt}
 												</p>
 											</div>
@@ -96,9 +96,9 @@ export const NavDropdown = () => {
 								))}
 							</ul>
 						)}
-						<div className="h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+						<div className="h-px bg-gradient-theme-accent-soft" />
 					</div>
-					<div className="h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+					<div className="h-px bg-gradient-theme-accent" />
 				</div>
 			)}
 		</div>

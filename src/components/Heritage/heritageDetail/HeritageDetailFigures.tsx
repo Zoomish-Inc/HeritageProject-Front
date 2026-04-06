@@ -17,7 +17,7 @@ export const HeritageDetailFigures = ({ object, locale, title }: Props) => {
 				{object.historicalFigures.map((figure) => (
 					<div
 						key={`${object.slug}-figure-${figure.name.ru}`}
-						className="border border-gold-400/20 bg-sepia-800/30 p-6 mb-4"
+						className="border border-gold-400/20 bg-sepia-800/30 rounded-xl p-6 mb-4"
 					>
 						<h4 className="font-display text-parchment-100 text-xl mb-1">
 							{figure.name[locale]}

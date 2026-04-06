@@ -27,12 +27,12 @@ export const HeritageDetailArchitecture = ({
 				{object.architectureDetails.map((detail) => (
 					<div
 						key={`${object.slug}-arch-${detail.title.ru}`}
-						className="border border-gold-400/15 bg-sepia-800/30 p-5"
+						className="border border-gold-400/15 bg-sepia-800/30 rounded-xl p-5"
 					>
 						<h4 className="font-display text-gold-300 text-lg mb-2">
 							{detail.title[locale]}
 						</h4>
-						<p className="text-parchment-200/80 font-body text-sm leading-relaxed">
+						<p className="text-theme-muted font-body text-sm leading-relaxed">
 							{detail.description[locale]}
 						</p>
 					</div>

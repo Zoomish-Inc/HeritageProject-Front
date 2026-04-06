@@ -13,7 +13,7 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 	return (
 		<Link
 			href={`/heritage/${item.slug}`}
-			className="group relative block overflow-hidden border border-gold-400/20 hover:border-gold-400/60 transition-all duration-500 bg-sepia-800"
+			className="group relative block overflow-hidden rounded-xl border border-gold-400/20 hover:border-gold-400/60 transition-all duration-500 bg-sepia-800"
 		>
 			<div className="relative h-56 overflow-hidden">
 				<Image

@@ -16,12 +16,18 @@ const clientSchema = z.object({
 		emptyToUndefined,
 		z.string().url().optional()
 	),
+	NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE: z.preprocess(
+		emptyToUndefined,
+		z.string().min(1).optional()
+	),
 });
 
 const parsed = clientSchema.safeParse({
 	NEXT_PUBLIC_USE_MOCK: process.env.NEXT_PUBLIC_USE_MOCK,
 	NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
 	NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+	NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE:
+		process.env.NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE,
 });
 
 export type ClientEnv = z.infer<typeof clientSchema>;

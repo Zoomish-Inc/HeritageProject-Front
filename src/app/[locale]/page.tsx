@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { HeritageObjectsSection } from '@/components/Heritage/HeritageObjectsSection';
 import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
-import { buildLocaleMetadata } from '@/lib/seo/buildLocaleMetadata';
+import { HomeJsonLd } from '@/components/SEO/HomeJsonLd';
+import { loadHeritageList } from '@/lib/heritage/getHeritageList';
+import { buildHomeMetadata } from '@/lib/seo/buildHomeMetadata';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
 
@@ -21,12 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const title = `${tCommon('project_name')} · ${tHome('hero_subtitle')}`;
 	const description = tHome('hero_description');
 
-	return buildLocaleMetadata({
+	return buildHomeMetadata({
 		locale,
 		title,
 		description,
 		projectName: tCommon('project_name'),
-		pathForLocale: (loc) => `/${loc}`,
 	});
 }
 
@@ -37,9 +38,22 @@ export default async function HomePage({ params }: Props) {
 	}
 
 	const t = await getTranslations({ locale, namespace: 'home' });
+	const tCommon = await getTranslations({ locale, namespace: 'common' });
+	let listItems: Awaited<ReturnType<typeof loadHeritageList>> = [];
+	try {
+		listItems = await loadHeritageList({ next: { revalidate: 3600 } });
+	} catch {
+		listItems = [];
+	}
 
 	return (
 		<>
+			<HomeJsonLd
+				items={listItems}
+				locale={locale}
+				projectName={tCommon('project_name')}
+				description={t('hero_description')}
+			/>
 			<section className="relative overflow-hidden">
 				<div className="absolute inset-0 opacity-5">
 					<div

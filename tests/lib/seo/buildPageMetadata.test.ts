@@ -1,13 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
-import { buildLocaleMetadata } from '@/lib/seo/buildLocaleMetadata';
+import { buildPageMetadata } from '@/lib/seo/buildPageMetadata';
 
 vi.mock('@/env', () => ({
 	getMetadataBaseUrl: () => new URL('https://example.com'),
 }));
 
-describe('buildLocaleMetadata', () => {
+describe('buildPageMetadata', () => {
 	it('builds canonical and language alternates from pathForLocale', () => {
-		const meta = buildLocaleMetadata({
+		const meta = buildPageMetadata({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',
@@ -16,13 +16,14 @@ describe('buildLocaleMetadata', () => {
 		});
 		expect(meta.alternates?.canonical).toBe('/ru/heritage/item');
 		expect(meta.alternates?.languages).toEqual({
-			ru: '/ru/heritage/item',
-			uz: '/uz/heritage/item',
+			ru: 'https://example.com/ru/heritage/item',
+			uz: 'https://example.com/uz/heritage/item',
+			'x-default': 'https://example.com/ru/heritage/item',
 		});
 	});
 
 	it('sets OpenGraph url from base and path', () => {
-		const meta = buildLocaleMetadata({
+		const meta = buildPageMetadata({
 			locale: 'uz',
 			title: 'T',
 			description: 'D',
@@ -34,7 +35,7 @@ describe('buildLocaleMetadata', () => {
 	});
 
 	it('includes og and twitter images when provided', () => {
-		const meta = buildLocaleMetadata({
+		const meta = buildPageMetadata({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',

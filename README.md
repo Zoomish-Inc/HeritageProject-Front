@@ -33,7 +33,9 @@ src
 │   ├── globals.css
 │   ├── layout.tsx
 │   ├── not-found.tsx
-│   └── page.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
 ├── components
 │   ├── Header
 │   │   ├── Header.tsx
@@ -56,6 +58,10 @@ src
 │   │   ├── HeritageCard.tsx
 │   │   ├── HeritageDetail.tsx
 │   │   └── HeritageObjectsSection.tsx
+│   ├── SEO
+│   │   ├── HeritageJsonLd.tsx
+│   │   ├── HomeJsonLd.tsx
+│   │   └── JsonLdScript.tsx
 │   └── UI
 │       ├── DecorativeFlourish.tsx
 │       ├── ErrorOrNotFoundShell.tsx
@@ -80,7 +86,15 @@ src
 │   │   ├── listQuery.ts
 │   │   └── schemas.ts
 │   ├── seo
-│   │   └── buildLocaleMetadata.ts
+│   │   ├── absolutizeMediaUrl.ts
+│   │   ├── buildHeritageGraph.ts
+│   │   ├── buildHeritageMetadata.ts
+│   │   ├── buildHomeGraph.ts
+│   │   ├── buildHomeMetadata.ts
+│   │   ├── buildPageMetadata.ts
+│   │   ├── index.ts
+│   │   ├── paths.ts
+│   │   └── types.ts
 │   └── queryClient.ts
 ├── mocks
 │   └── heritage.ts
@@ -104,7 +118,8 @@ tests
 │   │   ├── getHeritageSlugs.test.ts
 │   │   └── schemas.test.ts
 │   └── seo
-│       └── buildLocaleMetadata.test.ts
+│       ├── buildHeritageGraph.test.ts
+│       └── buildPageMetadata.test.ts
 ├── mocks
 │   └── heritage.test.ts
 └── setup.ts

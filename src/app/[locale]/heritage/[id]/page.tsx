@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
+import { HeritageJsonLd } from '@/components/SEO/HeritageJsonLd';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
-import { buildLocaleMetadata } from '@/lib/seo/buildLocaleMetadata';
+import { buildHeritageMetadata } from '@/lib/seo/buildHeritageMetadata';
+import { absolutePageUrl, heritagePathForLocale } from '@/lib/seo/paths';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
 
@@ -27,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const description = obj.shortDescription[locale];
 	const slug = obj.slug;
 
-	return buildLocaleMetadata({
+	return buildHeritageMetadata({
 		locale,
 		title,
 		description,
 		projectName: tCommon('project_name'),
-		pathForLocale: (loc) => `/${loc}/heritage/${slug}`,
+		slug,
 		ogImages: [{ url: obj.coverImageUrl, alt: obj.name[locale] }],
 		twitterImages: [obj.coverImageUrl],
 	});
@@ -44,5 +46,12 @@ export default async function HeritagePage({ params }: Props) {
 	const obj = await getHeritageById(params.id);
 	if (!obj) notFound();
 
-	return <HeritageDetail object={obj} />;
+	const pageUrl = absolutePageUrl(heritagePathForLocale(locale, obj.slug));
+
+	return (
+		<>
+			<HeritageJsonLd object={obj} locale={locale} pageUrl={pageUrl} />
+			<HeritageDetail object={obj} />
+		</>
+	);
 }

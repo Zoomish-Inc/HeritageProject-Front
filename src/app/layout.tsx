@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cinzel, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
 import { getMetadataBaseUrl } from '@/env';
 import { getLocale } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const playfairDisplay = Playfair_Display({
@@ -40,6 +41,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
+			<Analytics />
 			<head>
 				<script
 					dangerouslySetInnerHTML={{

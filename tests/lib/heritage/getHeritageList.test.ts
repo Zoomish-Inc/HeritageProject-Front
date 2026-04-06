@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { loadHeritageList } from '@/lib/heritage/getHeritageList';
+import { heritageListItemsToApiWire } from '@/lib/heritage/heritageListWire';
 import { MOCK_HERITAGE_LIST } from '@/mocks/heritage';
 
 vi.mock('@/lib/heritage/config', () => ({
@@ -17,7 +18,11 @@ describe('loadHeritageList', () => {
 
 	it('fetches and parses API response when mock mode is off', async () => {
 		vi.mocked(isHeritageMockEnabled).mockReturnValue(false);
-		const payload = { success: true, data: MOCK_HERITAGE_LIST };
+		const payload = {
+			success: true,
+			message: null,
+			data: heritageListItemsToApiWire(MOCK_HERITAGE_LIST),
+		};
 		global.fetch = vi.fn().mockResolvedValue({
 			ok: true,
 			json: async () => payload,

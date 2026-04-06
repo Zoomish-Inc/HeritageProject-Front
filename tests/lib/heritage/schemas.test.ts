@@ -1,31 +1,17 @@
 import { describe, expect, it } from 'vitest';
+import { heritageListItemsToApiWire } from '@/lib/heritage/heritageListWire';
 import {
 	heritageListApiResponseSchema,
 	heritageObjectApiResponseSchema,
 } from '@/lib/heritage/schemas';
 import { MOCK_HERITAGE_LIST, MOCK_HERITAGE_OBJECTS } from '@/mocks/heritage';
-import type { HeritageListItem } from '@/types/heritage';
-
-function listItemsToApiPayload(items: HeritageListItem[]) {
-	return items.map((item) => ({
-		id: item.id,
-		slug: item.slug,
-		name: item.name,
-		year_built: item.yearBuilt,
-		year_range: item.yearRange ?? '',
-		address: item.address,
-		short_description: item.shortDescription,
-		cover: item.coverImageUrl,
-		order: item.order,
-	}));
-}
 
 describe('heritageListApiResponseSchema', () => {
 	it('accepts valid list envelope and normalizes API rows', () => {
 		const parsed = heritageListApiResponseSchema.safeParse({
 			success: true,
 			message: null,
-			data: listItemsToApiPayload(MOCK_HERITAGE_LIST),
+			data: heritageListItemsToApiWire(MOCK_HERITAGE_LIST),
 		});
 		expect(parsed.success).toBe(true);
 		if (parsed.success) {

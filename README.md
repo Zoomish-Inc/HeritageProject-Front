@@ -85,6 +85,7 @@ src
 │   │   ├── getHeritageById.ts
 │   │   ├── getHeritageList.ts
 │   │   ├── getHeritageSlugs.ts
+│   │   ├── heritageListWire.ts
 │   │   ├── listQuery.ts
 │   │   └── schemas.ts
 │   ├── seo

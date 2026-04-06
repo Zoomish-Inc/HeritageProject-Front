@@ -1,9 +1,14 @@
 import { HeritageDetail } from '@/components/Heritage/HeritageDetail';
 import { HeritageJsonLd } from '@/components/SEO/HeritageJsonLd';
+import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
 import { buildHeritageMetadata } from '@/lib/seo/buildHeritageMetadata';
-import { absolutePageUrl, heritagePathForLocale } from '@/lib/seo/paths';
+import {
+	absolutePageUrl,
+	heritagePathForLocale,
+	homePathForLocale,
+} from '@/lib/seo/paths';
 import type { Locale } from '@/types/heritage';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -35,6 +40,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		slug,
 		ogImages: [{ url: obj.coverImageUrl, alt: obj.name[locale] }],
 		twitterImages: [obj.coverImageUrl],
+		openGraphArticleTimes: {
+			...(obj.createdAt ? { publishedTime: obj.createdAt } : {}),
+			...(obj.updatedAt ? { modifiedTime: obj.updatedAt } : {}),
+		},
 	});
 }
 
@@ -45,10 +54,25 @@ export default async function HeritagePage({ params }: Props) {
 	if (!obj) notFound();
 
 	const pageUrl = absolutePageUrl(heritagePathForLocale(locale, obj.slug));
+	const base = getMetadataBaseUrl();
+	const homeUrl = new URL(homePathForLocale(locale), base).toString();
+	const catalogUrl = `${homeUrl}#objects`;
+	const tNav = await getTranslations({ locale, namespace: 'nav' });
+	const tHome = await getTranslations({ locale, namespace: 'home' });
 
 	return (
 		<>
-			<HeritageJsonLd object={obj} locale={locale} pageUrl={pageUrl} />
+			<HeritageJsonLd
+				object={obj}
+				locale={locale}
+				pageUrl={pageUrl}
+				breadcrumb={{
+					homeLabel: tNav('home'),
+					catalogLabel: tHome('objects_title'),
+					homeUrl,
+					catalogUrl,
+				}}
+			/>
 			<HeritageDetail object={obj} />
 		</>
 	);

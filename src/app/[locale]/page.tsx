@@ -5,6 +5,7 @@ import { HeritageObjectsSection } from '@/components/Heritage/HeritageObjectsSec
 import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
 import { HomeJsonLd } from '@/components/SEO/HomeJsonLd';
 import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
+import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
 import { buildHomeMetadata } from '@/lib/seo/buildHomeMetadata';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types/heritage';
@@ -41,7 +42,8 @@ export default async function HomePage({ params }: Props) {
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
 	let listItems: Awaited<ReturnType<typeof loadHeritageListForRequest>> = [];
 	try {
-		listItems = await loadHeritageListForRequest();
+		const raw = await loadHeritageListForRequest();
+		listItems = raw.filter(isHeritageListItemPublic);
 	} catch {
 		listItems = [];
 	}

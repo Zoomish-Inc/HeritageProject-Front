@@ -105,3 +105,11 @@ export function coalesceAudioGuideRaw(row: Record<string, unknown>): unknown {
 	if (Array.isArray(guides) && guides.length > 0) return guides[0];
 	return undefined;
 }
+
+export function parseIsoDateOptional(v: unknown): string | undefined {
+	if (v === undefined || v === null) return undefined;
+	if (typeof v !== 'string' || v.trim() === '') return undefined;
+	const d = new Date(v);
+	if (Number.isNaN(d.getTime())) return undefined;
+	return d.toISOString();
+}

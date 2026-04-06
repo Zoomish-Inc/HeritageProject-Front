@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { HeritageCard } from '@/components/Heritage/HeritageCard';
 import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
+import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
 import type { Locale } from '@/types/heritage';
 
 export const HeritageObjectsSection = () => {
@@ -27,13 +28,15 @@ export const HeritageObjectsSection = () => {
 		);
 	}
 
-	if (!items?.length) {
+	const visible = items?.filter(isHeritageListItemPublic) ?? [];
+
+	if (!visible.length) {
 		return null;
 	}
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{items.map((item, idx) => (
+			{visible.map((item, idx) => (
 				<HeritageCard
 					key={item.id}
 					item={item}

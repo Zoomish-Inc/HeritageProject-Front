@@ -1,8 +1,18 @@
+import type { Metadata } from 'next';
 import { describe, expect, it, vi } from 'vitest';
 import { buildPageMetadata } from '@/lib/seo/buildPageMetadata';
 
+type OpenGraphArticle = Extract<
+	NonNullable<Metadata['openGraph']>,
+	{ type: 'article' }
+>;
+
 vi.mock('@/env', () => ({
 	getMetadataBaseUrl: () => new URL('https://example.com'),
+}));
+
+vi.mock('@/lib/seo/serverSeoEnv', () => ({
+	getMetadataVerification: () => undefined,
 }));
 
 describe('buildPageMetadata', () => {
@@ -48,5 +58,24 @@ describe('buildPageMetadata', () => {
 			{ url: 'https://cdn.example/img.jpg', alt: 'A' },
 		]);
 		expect(meta.twitter?.images).toEqual(['https://cdn.example/img.jpg']);
+	});
+
+	it('sets OpenGraph article times when type is article', () => {
+		const meta = buildPageMetadata({
+			locale: 'ru',
+			title: 'T',
+			description: 'D',
+			projectName: 'P',
+			pathForLocale: () => '/ru/x',
+			openGraphType: 'article',
+			openGraphArticleTimes: {
+				publishedTime: '2026-01-01T00:00:00.000Z',
+				modifiedTime: '2026-01-02T00:00:00.000Z',
+			},
+		});
+		const og = meta.openGraph as OpenGraphArticle | null | undefined;
+		expect(og?.type).toBe('article');
+		expect(og?.publishedTime).toBe('2026-01-01T00:00:00.000Z');
+		expect(og?.modifiedTime).toBe('2026-01-02T00:00:00.000Z');
 	});
 });

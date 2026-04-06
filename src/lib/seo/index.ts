@@ -3,6 +3,7 @@ export type { BuildHeritageMetadataInput } from '@/lib/seo/buildHeritageMetadata
 export {
 	buildHeritageStructuredDataGraph,
 	collectHeritageImageUrls,
+	type HeritageJsonLdBreadcrumb,
 } from '@/lib/seo/buildHeritageGraph';
 export { buildHomeStructuredDataGraph } from '@/lib/seo/buildHomeGraph';
 export { buildHomeMetadata } from '@/lib/seo/buildHomeMetadata';

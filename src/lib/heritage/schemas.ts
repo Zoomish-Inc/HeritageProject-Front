@@ -9,6 +9,7 @@ export {
 	historicalFigureSchema,
 	localizedStringSchema,
 	parseArrayFlexible,
+	parseIsoDateOptional,
 	parseLocalizedFlexible,
 	parseLocalizedOptional,
 	parseNumberFlexible,

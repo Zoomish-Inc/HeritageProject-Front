@@ -69,6 +69,9 @@ export interface HeritageObject {
 	coverImageUrl: string;
 	visualStyleNotes?: LocalizedString;
 	order: number;
+	createdAt?: string;
+	updatedAt?: string;
+	isPublished?: boolean;
 }
 
 export interface HeritageListItem {
@@ -81,6 +84,9 @@ export interface HeritageListItem {
 	coverImageUrl: string;
 	shortDescription: LocalizedString;
 	order: number;
+	createdAt?: string;
+	updatedAt?: string;
+	isPublished?: boolean;
 }
 
 export interface ApiResponse<T> {

@@ -10,6 +10,7 @@ import {
 	historicalFigureSchema,
 	localizedStringSchema,
 	parseArrayFlexible,
+	parseIsoDateOptional,
 	parseLocalizedFlexible,
 	parseLocalizedOptional,
 	parseNumberFlexible,
@@ -97,6 +98,18 @@ export const heritageObjectApiDataSchema = z
 		if (architect) core.architect = architect;
 		if (architectBioParsed.success) core.architectBio = architectBioParsed.data;
 		if (visualNotes) core.visualStyleNotes = visualNotes;
+
+		const publishedRaw = coalesceKey(r, 'isPublished', 'is_published');
+		if (publishedRaw === false) core.isPublished = false;
+
+		const createdAt = parseIsoDateOptional(
+			coalesceKey(r, 'createdAt', 'created_at')
+		);
+		const updatedAt = parseIsoDateOptional(
+			coalesceKey(r, 'updatedAt', 'updated_at')
+		);
+		if (createdAt) core.createdAt = createdAt;
+		if (updatedAt) core.updatedAt = updatedAt;
 
 		return core;
 	});

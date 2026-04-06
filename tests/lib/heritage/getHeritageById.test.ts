@@ -52,6 +52,19 @@ describe('loadHeritageById', () => {
 		expect(obj?.slug).toBe(first.slug);
 	});
 
+	it('returns null when API marks object as unpublished', async () => {
+		vi.mocked(isHeritageMockEnabled).mockReturnValue(false);
+		global.fetch = vi.fn().mockResolvedValue({
+			ok: true,
+			status: 200,
+			json: async () => ({
+				success: true,
+				data: { ...first, is_published: false },
+			}),
+		});
+		expect(await loadHeritageById(first.slug)).toBeNull();
+	});
+
 	it('throws when envelope fails validation', async () => {
 		vi.mocked(isHeritageMockEnabled).mockReturnValue(false);
 		global.fetch = vi.fn().mockResolvedValue({

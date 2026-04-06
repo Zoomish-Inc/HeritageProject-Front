@@ -31,7 +31,11 @@ export async function loadHeritageById(
 	if (!parsed.success) {
 		throw new Error(`Heritage object response invalid: ${parsed.error.message}`);
 	}
-	return parsed.data.data;
+	const obj = parsed.data.data;
+	if (obj.isPublished === false) {
+		return null;
+	}
+	return obj;
 }
 
 export const getHeritageById = cache((id: string) =>

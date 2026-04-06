@@ -3,6 +3,7 @@ import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
 import { absolutizeMediaUrl } from '@/lib/seo/absolutizeMediaUrl';
 import type { Locale } from '@/types/heritage';
+import { getMetadataVerification } from '@/lib/seo/serverSeoEnv';
 import type { OgImage, PageSeoMedia } from '@/lib/seo/types';
 
 function ogLocaleTag(loc: Locale): string {
@@ -26,6 +27,7 @@ export function buildPageMetadata({
 	ogImages,
 	twitterImages,
 	openGraphType = 'website',
+	openGraphArticleTimes,
 	robots,
 }: BuildPageMetadataInput): Metadata {
 	const base = getMetadataBaseUrl();
@@ -46,24 +48,39 @@ export function buildPageMetadata({
 		? twitterImages.map((u) => absolutizeMediaUrl(u, base))
 		: undefined;
 
-	const openGraph: Metadata['openGraph'] = {
+	const openGraphShared = {
 		title,
 		description,
 		url: pageUrl,
 		siteName: projectName,
 		locale: ogLocaleTag(locale),
 		...(alternateLocales.length ? { alternateLocale: alternateLocales } : {}),
-		type: openGraphType,
-		...(resolvedOgImages?.length
-			? {
-					images: resolvedOgImages,
-				}
-			: {}),
+		...(resolvedOgImages?.length ? { images: resolvedOgImages } : {}),
 	};
+
+	const openGraph: Metadata['openGraph'] =
+		openGraphType === 'article'
+			? {
+					...openGraphShared,
+					type: 'article',
+					...(openGraphArticleTimes?.publishedTime
+						? { publishedTime: openGraphArticleTimes.publishedTime }
+						: {}),
+					...(openGraphArticleTimes?.modifiedTime
+						? { modifiedTime: openGraphArticleTimes.modifiedTime }
+						: {}),
+				}
+			: {
+					...openGraphShared,
+					type: openGraphType,
+				};
+
+	const verification = getMetadataVerification();
 
 	return {
 		title,
 		description,
+		...(verification ? { verification } : {}),
 		robots: robots ?? {
 			index: true,
 			follow: true,

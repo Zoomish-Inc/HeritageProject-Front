@@ -1,6 +1,8 @@
 import { clientEnv, getMetadataBaseUrl } from '@/env';
 import { absolutizeMediaUrl } from '@/lib/seo/absolutizeMediaUrl';
 import { heritagePathForLocale } from '@/lib/seo/paths';
+import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
+import { getOrganizationSameAsUrls } from '@/lib/seo/serverSeoEnv';
 import type { HeritageListItem, Locale } from '@/types/heritage';
 
 function siteSearchTemplate(): string | undefined {
@@ -22,14 +24,29 @@ export function buildHomeStructuredDataGraph({
 	const base = getMetadataBaseUrl();
 	const origin = base.origin;
 	const inLanguage = locale === 'uz' ? 'uz' : 'ru';
+	const pagePath = `/${locale}`;
+	const webPageUrl = new URL(pagePath, base).toString();
+	const organizationId = `${origin}/#organization`;
+	const websiteId = `${origin}/#website`;
+	const itemListId = `${webPageUrl}#heritage-itemlist`;
+
+	const sameAs = getOrganizationSameAsUrls();
+	const organization: Record<string, unknown> = {
+		'@type': 'Organization',
+		'@id': organizationId,
+		name: projectName,
+		url: origin,
+		...(sameAs.length ? { sameAs } : {}),
+	};
 
 	const website: Record<string, unknown> = {
 		'@type': 'WebSite',
-		'@id': `${origin}/#website`,
+		'@id': websiteId,
 		name: projectName,
 		url: origin,
 		description,
 		inLanguage,
+		publisher: { '@id': organizationId },
 	};
 
 	const template = siteSearchTemplate();
@@ -44,7 +61,9 @@ export function buildHomeStructuredDataGraph({
 		};
 	}
 
-	const itemListElement = [...items]
+	const visibleItems = items.filter(isHeritageListItemPublic);
+
+	const itemListElement = [...visibleItems]
 		.sort((a, b) => a.order - b.order)
 		.map((item, index) => ({
 			'@type': 'ListItem',
@@ -60,13 +79,26 @@ export function buildHomeStructuredDataGraph({
 
 	const itemList: Record<string, unknown> = {
 		'@type': 'ItemList',
+		'@id': itemListId,
 		name: projectName,
 		numberOfItems: itemListElement.length,
 		itemListElement,
 	};
 
+	const webPage: Record<string, unknown> = {
+		'@type': 'WebPage',
+		'@id': `${webPageUrl}#webpage`,
+		url: webPageUrl,
+		name: projectName,
+		description,
+		inLanguage,
+		isPartOf: { '@id': websiteId },
+		publisher: { '@id': organizationId },
+		mainEntity: { '@id': itemListId },
+	};
+
 	return {
 		'@context': 'https://schema.org',
-		'@graph': [website, itemList],
+		'@graph': [organization, website, webPage, itemList],
 	};
 }

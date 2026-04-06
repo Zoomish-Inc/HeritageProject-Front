@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import type { HeritageListItem } from '@/types/heritage';
-import { localizedStringSchema } from './heritageSchemaPrimitives';
+import {
+	localizedStringSchema,
+	parseIsoDateOptional,
+} from './heritageSchemaPrimitives';
 
 export const heritageListItemApiSchema = z
 	.object({
@@ -13,23 +16,36 @@ export const heritageListItemApiSchema = z
 		short_description: localizedStringSchema,
 		cover: z.string(),
 		order: z.number(),
+		is_published: z.boolean().optional(),
+		created_at: z.string().optional(),
+		updated_at: z.string().optional(),
 	})
-	.transform((row) => ({
-		id: row.id,
-		slug: row.slug,
-		name: row.name,
-		yearBuilt: row.year_built,
-		yearRange:
-			row.year_range !== undefined &&
-			row.year_range !== null &&
-			row.year_range !== ''
-				? row.year_range
-				: undefined,
-		address: row.address,
-		shortDescription: row.short_description,
-		coverImageUrl: row.cover,
-		order: row.order,
-	}));
+	.transform((row): HeritageListItem => {
+		const base: HeritageListItem = {
+			id: row.id,
+			slug: row.slug,
+			name: row.name,
+			yearBuilt: row.year_built,
+			yearRange:
+				row.year_range !== undefined &&
+				row.year_range !== null &&
+				row.year_range !== ''
+					? row.year_range
+					: undefined,
+			address: row.address,
+			shortDescription: row.short_description,
+			coverImageUrl: row.cover,
+			order: row.order,
+		};
+		if (row.is_published === false) {
+			base.isPublished = false;
+		}
+		const createdAt = parseIsoDateOptional(row.created_at);
+		const updatedAt = parseIsoDateOptional(row.updated_at);
+		if (createdAt) base.createdAt = createdAt;
+		if (updatedAt) base.updatedAt = updatedAt;
+		return base;
+	});
 
 export const heritageListApiResponseSchema = z.object({
 	success: z.boolean(),

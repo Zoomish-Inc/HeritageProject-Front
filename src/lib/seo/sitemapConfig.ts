@@ -1,0 +1,3 @@
+export const SITEMAP_MAX_URLS = 50000;
+
+export const SITEMAP_WARN_THRESHOLD = 45000;

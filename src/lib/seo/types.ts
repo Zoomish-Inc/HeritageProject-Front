@@ -16,5 +16,9 @@ export type PageSeoMedia = {
 	ogImages?: OgImage[];
 	twitterImages?: string[];
 	openGraphType?: OpenGraphPageType;
+	openGraphArticleTimes?: {
+		publishedTime?: string;
+		modifiedTime?: string;
+	};
 	robots?: Metadata['robots'];
 };

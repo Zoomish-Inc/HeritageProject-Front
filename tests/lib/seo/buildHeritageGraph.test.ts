@@ -35,6 +35,13 @@ const minimalObject = (): HeritageObject => ({
 	coverImageUrl: '/covers/a.webp',
 });
 
+const breadcrumb = {
+	homeLabel: 'Главная',
+	catalogLabel: 'Объекты',
+	homeUrl: 'https://example.com/ru',
+	catalogUrl: 'https://example.com/ru#objects',
+};
+
 describe('collectHeritageImageUrls', () => {
 	it('absolutizes relative cover url against base', () => {
 		const base = new URL('https://example.com');
@@ -44,21 +51,44 @@ describe('collectHeritageImageUrls', () => {
 });
 
 describe('buildHeritageStructuredDataGraph', () => {
-	it('builds LandmarksOrHistoricalBuildings with locale fields and page url', () => {
+	it('builds @graph with BreadcrumbList and LandmarksOrHistoricalBuildings', () => {
 		const graph = buildHeritageStructuredDataGraph({
 			object: minimalObject(),
 			locale: 'ru',
 			pageUrl: 'https://example.com/ru/heritage/test-slug',
+			breadcrumb,
 		});
 		expect(graph['@context']).toBe('https://schema.org');
-		expect(graph['@type']).toBe('LandmarksOrHistoricalBuildings');
-		expect(graph.name).toBe('Название');
-		expect(graph.description).toBe('Кратко');
-		expect(graph.url).toBe('https://example.com/ru/heritage/test-slug');
-		expect(graph.address).toEqual({
+		const nodes = graph['@graph'] as Record<string, unknown>[];
+		expect(Array.isArray(nodes)).toBe(true);
+		const landmark = nodes.find(
+			(n) => n['@type'] === 'LandmarksOrHistoricalBuildings'
+		);
+		expect(landmark?.name).toBe('Название');
+		expect(landmark?.description).toBe('Кратко');
+		expect(landmark?.url).toBe('https://example.com/ru/heritage/test-slug');
+		expect(landmark?.address).toEqual({
 			'@type': 'PostalAddress',
 			streetAddress: 'Улица 1',
 		});
-		expect(Array.isArray(graph.image)).toBe(true);
+		expect(Array.isArray(landmark?.image)).toBe(true);
+		const crumbs = nodes.find((n) => n['@type'] === 'BreadcrumbList');
+		expect(Array.isArray(crumbs?.itemListElement)).toBe(true);
+	});
+
+	it('adds dateModified when updatedAt is set', () => {
+		const obj = minimalObject();
+		obj.updatedAt = '2026-01-02T00:00:00.000Z';
+		const graph = buildHeritageStructuredDataGraph({
+			object: obj,
+			locale: 'ru',
+			pageUrl: 'https://example.com/ru/heritage/test-slug',
+			breadcrumb,
+		});
+		const nodes = graph['@graph'] as Record<string, unknown>[];
+		const landmark = nodes.find(
+			(n) => n['@type'] === 'LandmarksOrHistoricalBuildings'
+		);
+		expect(landmark?.dateModified).toBe('2026-01-02T00:00:00.000Z');
 	});
 });

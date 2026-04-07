@@ -1,0 +1,63 @@
+name: README structure check
+description: Update or verify README structure block for relevant tree changes
+inputs:
+  event_name:
+    description: GitHub event name
+    required: true
+  before_sha:
+    description: SHA before push
+    required: false
+    default: ""
+  head_sha:
+    description: Current head SHA
+    required: false
+    default: ""
+  base_ref:
+    description: Base branch ref for pull requests
+    required: false
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Handle README structure
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        event_name="${{ inputs.event_name }}"
+        changed_files=""
+
+        if [ "$event_name" = "push" ]; then
+          before_sha="${{ inputs.before_sha }}"
+          head_sha="${{ inputs.head_sha }}"
+          if [ -n "$before_sha" ] && [ -n "$head_sha" ]; then
+            changed_files="$(git diff --name-only "$before_sha...$head_sha" || true)"
+          fi
+        elif [ "$event_name" = "pull_request" ]; then
+          base_ref="${{ inputs.base_ref }}"
+          if [ -n "$base_ref" ]; then
+            changed_files="$(git diff --name-only "origin/$base_ref...HEAD" || true)"
+          fi
+        fi
+
+        if ! echo "$changed_files" | grep -E '^(src/|tests/|docs/structure.config.json|README\.md)' >/dev/null; then
+          echo "No structure-related changes, skipping README structure action."
+          exit 0
+        fi
+
+        npm run docs:update
+
+        if [ "$event_name" = "push" ]; then
+          if ! git diff --quiet -- README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore(docs): auto-update README structure"
+            git push
+          fi
+          exit 0
+        fi
+
+        if [ "$event_name" = "pull_request" ]; then
+          git diff --exit-code README.md
+        fi

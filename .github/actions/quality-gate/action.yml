@@ -1,0 +1,8 @@
+name: Quality gate
+description: Run project quality checks (lint boundaries, import graph, tests)
+runs:
+  using: composite
+  steps:
+    - name: Run check:ci
+      shell: bash
+      run: npm run check:ci

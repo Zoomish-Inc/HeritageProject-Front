@@ -16,7 +16,11 @@
 		"prepare": "husky",
 		"check-format": "prettier --check .",
 		"check-lint": "eslint .",
+		"lint:boundaries": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
+		"check:imports": "node scripts/checkImportGraph.mjs",
 		"test": "vitest run",
+		"test:e2e": "playwright test",
+		"test:e2e:ui": "playwright test --ui",
 		"docs:structure": "node scripts/updateReadmeStructure.mjs",
 		"docs:sync": "npm run docs:structure",
 		"docs:check": "node scripts/updateReadmeStructure.mjs --check"
@@ -33,6 +37,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.3",
+		"@playwright/test": "^1.59.1",
 		"@testing-library/dom": "^10.4.1",
 		"@testing-library/react": "^16.3.2",
 		"@types/node": "^20.14.11",
@@ -55,6 +60,7 @@
 		"jiti": "^2.6.1",
 		"jsdom": "^29.0.1",
 		"lint-staged": "^16.3.1",
+		"madge": "^8.0.0",
 		"postcss": "^8.4.39",
 		"prettier": "^3.8.1",
 		"tailwindcss": "^3.4.6",

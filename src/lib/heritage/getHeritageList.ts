@@ -1,6 +1,6 @@
 import { getApiBaseUrl } from '@/env';
 import { MOCK_HERITAGE_LIST_RESPONSE } from '@/mocks/heritage';
-import type { HeritageListItem } from '@/types/heritage';
+import type { HeritageListItem } from '@/entities/heritage';
 import * as React from 'react';
 import { isHeritageMockEnabled } from './config';
 import { parseHeritageListResponseJson } from './schemas';

@@ -21,3 +21,5 @@ prisma/migrations/dev.db
 .DS_Store
 *.pem
 .vercel
+test-results/
+playwright-report/

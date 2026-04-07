@@ -3,9 +3,12 @@
 import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { ErrorOrNotFoundShell } from '@/components/UI/ErrorOrNotFoundShell';
-import { NavigatorBackButton } from '@/components/UI/NavigatorBackButton';
-import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
+import { runtimeConfig } from '@/shared/config';
+import {
+	ErrorOrNotFoundShell,
+	NavigatorBackButton,
+	OrnamentalDivider,
+} from '@/shared/ui';
 
 type Props = {
 	error: Error & { digest?: string };
@@ -52,7 +55,7 @@ export default function LocaleError({ error, reset }: Props) {
 					<p className="text-parchment-200/85 font-body text-xs leading-relaxed">
 						{t('error_digest_hint')}
 					</p>
-					{process.env.NODE_ENV === 'development' ? (
+					{runtimeConfig.isDev ? (
 						<p className="text-gold-400/70 font-body text-xs leading-relaxed">
 							{t('error_dev_hint')}
 						</p>

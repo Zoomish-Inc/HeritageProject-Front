@@ -1,5 +1,6 @@
 'use client';
 import { createQueryClient } from '@/lib/queryClient';
+import { runtimeConfig } from '@/shared/config';
 import {
 	HydrationBoundary,
 	QueryClientProvider,
@@ -19,9 +20,7 @@ export const Providers = ({ children, dehydratedState }: Props) => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<HydrationBoundary state={dehydratedState}>{children}</HydrationBoundary>
-			{process.env.NODE_ENV === 'development' && (
-				<ReactQueryDevtools initialIsOpen={false} />
-			)}
+			{runtimeConfig.isDev && <ReactQueryDevtools initialIsOpen={false} />}
 		</QueryClientProvider>
 	);
 };

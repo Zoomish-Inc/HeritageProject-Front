@@ -36,42 +36,46 @@ src
 │   ├── page.tsx
 │   ├── robots.ts
 │   └── sitemap.ts
-├── components
-│   ├── Header
-│   │   ├── Header.tsx
-│   │   ├── LandmarksNavList.tsx
-│   │   ├── LanguageSwitcher.tsx
-│   │   ├── MobileNavDrawer.tsx
-│   │   ├── NavDropdown.tsx
-│   │   └── ThemeToggle.tsx
-│   ├── Heritage
-│   │   ├── heritageDetail
-│   │   │   ├── HeritageDetailArchitecture.tsx
-│   │   │   ├── HeritageDetailAudio.tsx
-│   │   │   ├── HeritageDetailBeforeAfter.tsx
-│   │   │   ├── HeritageDetailClosingRule.tsx
-│   │   │   ├── HeritageDetailFigures.tsx
-│   │   │   ├── HeritageDetailHero.tsx
-│   │   │   ├── HeritageDetailHistory.tsx
-│   │   │   ├── HeritageDetailPurpose.tsx
-│   │   │   ├── HeritageDetailSection.tsx
-│   │   │   └── HeritageDetailVisualNotes.tsx
-│   │   ├── BeforeAfterSlider.tsx
-│   │   ├── HeritageCard.tsx
-│   │   ├── HeritageDetail.tsx
-│   │   └── HeritageObjectsSection.tsx
-│   ├── i18n
-│   │   └── DocumentLangSync.tsx
-│   ├── SEO
-│   │   ├── HeritageJsonLd.tsx
-│   │   ├── HomeJsonLd.tsx
-│   │   └── JsonLdScript.tsx
-│   └── UI
-│       ├── DecorativeFlourish.tsx
-│       ├── ErrorOrNotFoundShell.tsx
-│       ├── LoadingSpinner.tsx
-│       ├── NavigatorBackButton.tsx
-│       └── OrnamentalDivider.tsx
+├── entities
+│   ├── heritage
+│   │   ├── model
+│   │   │   └── types.ts
+│   │   └── index.ts
+│   └── seo
+│       ├── model
+│       │   ├── factories
+│       │   │   ├── buildHeritageMetadata.ts
+│       │   │   ├── buildHeritageStructuredData.ts
+│       │   │   ├── buildHomeMetadata.ts
+│       │   │   ├── buildHomeStructuredData.ts
+│       │   │   └── buildPageMetadata.ts
+│       │   ├── contentPlan.ts
+│       │   ├── sitemapEntries.ts
+│       │   └── types.ts
+│       └── index.ts
+├── features
+│   ├── heritageNavigation
+│   │   ├── ui
+│   │   │   ├── HeritageNavDropdown.tsx
+│   │   │   └── LandmarksNavList.tsx
+│   │   └── index.ts
+│   ├── languageSwitch
+│   │   ├── ui
+│   │   │   └── LanguageSwitch.tsx
+│   │   └── index.ts
+│   ├── mobileMenu
+│   │   ├── model
+│   │   │   └── useMobileMenu.ts
+│   │   └── index.ts
+│   ├── seo
+│   │   ├── ui
+│   │   │   ├── HeritageJsonLdFeature.tsx
+│   │   │   └── HomeJsonLdFeature.tsx
+│   │   └── index.ts
+│   └── themeToggle
+│       ├── ui
+│       │   └── ThemeToggle.tsx
+│       └── index.ts
 ├── hooks
 │   └── useHeritageListQuery.ts
 ├── i18n
@@ -99,47 +103,110 @@ src
 │   │   ├── listVisibility.ts
 │   │   └── schemas.ts
 │   ├── seo
-│   │   ├── absolutizeMediaUrl.ts
-│   │   ├── buildHeritageGraph.ts
-│   │   ├── buildHeritageMetadata.ts
-│   │   ├── buildHomeGraph.ts
-│   │   ├── buildHomeMetadata.ts
-│   │   ├── buildPageMetadata.ts
-│   │   ├── index.ts
-│   │   ├── keywords.ts
-│   │   ├── paths.ts
-│   │   ├── serverSeoEnv.ts
-│   │   ├── sitemapConfig.ts
-│   │   ├── sitemapEntries.ts
-│   │   └── types.ts
 │   └── queryClient.ts
 ├── mocks
 │   ├── heritage
 │   │   └── rawMockHeritageObjects.ts
 │   └── heritage.ts
+├── pages
+│   ├── heritageDetail
+│   │   ├── model
+│   │   │   └── metadata.ts
+│   │   ├── ui
+│   │   │   ├── HeritageDetailPageView.tsx
+│   │   │   └── NextHeritagePrefetch.tsx
+│   │   └── index.ts
+│   └── home
+│       ├── model
+│       │   └── metadata.ts
+│       ├── ui
+│       │   └── HomePageView.tsx
+│       └── index.ts
+├── processes
+├── shared
+│   ├── config
+│   │   └── index.ts
+│   ├── lib
+│   │   ├── analytics
+│   │   │   ├── core.ts
+│   │   │   ├── events.ts
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
+│   │   ├── i18n
+│   │   │   ├── DocumentLangSync.tsx
+│   │   │   └── index.ts
+│   │   ├── image
+│   │   │   └── placeholder.ts
+│   │   └── seo
+│   │       ├── absolutizeMediaUrl.ts
+│   │       ├── paths.ts
+│   │       ├── serverSeoEnv.ts
+│   │       └── sitemapConfig.ts
+│   └── ui
+│       ├── DecorativeFlourish.tsx
+│       ├── ErrorOrNotFoundShell.tsx
+│       ├── index.ts
+│       ├── JsonLdScript.tsx
+│       ├── LoadingSpinner.tsx
+│       ├── NavigatorBackButton.tsx
+│       ├── OrnamentalDivider.tsx
+│       └── RenderOnView.tsx
 ├── styles
 │   └── globals.css
 ├── types
-│   ├── api.ts
-│   └── heritage.ts
+│   └── api.ts
+├── widgets
+│   ├── header
+│   │   ├── ui
+│   │   │   ├── Header.tsx
+│   │   │   ├── HeaderWidget.tsx
+│   │   │   └── MobileNavDrawer.tsx
+│   │   └── index.ts
+│   └── heritage
+│       ├── ui
+│       │   ├── heritageDetail
+│       │   │   ├── HeritageDetailArchitecture.tsx
+│       │   │   ├── HeritageDetailAudio.tsx
+│       │   │   ├── HeritageDetailBeforeAfter.tsx
+│       │   │   ├── HeritageDetailClosingRule.tsx
+│       │   │   ├── HeritageDetailFigures.tsx
+│       │   │   ├── HeritageDetailHero.tsx
+│       │   │   ├── HeritageDetailHistory.tsx
+│       │   │   ├── HeritageDetailPurpose.tsx
+│       │   │   ├── HeritageDetailSection.tsx
+│       │   │   └── HeritageDetailVisualNotes.tsx
+│       │   ├── BeforeAfterSlider.tsx
+│       │   ├── HeritageCard.tsx
+│       │   ├── HeritageDetail.tsx
+│       │   ├── HeritageDetailWidget.tsx
+│       │   └── HeritageObjectsSection.tsx
+│       └── index.ts
 └── env.ts
 
 tests
 ├── components
 │   ├── DecorativeFlourish.test.tsx
 │   └── HeritageObjectsSection.test.tsx
+├── e2e
+│   └── smoke.spec.ts
 ├── i18n
 │   └── routing.test.ts
 ├── lib
+│   ├── analytics
+│   │   └── analyticsFacade.test.ts
 │   ├── heritage
 │   │   ├── getHeritageById.test.ts
 │   │   ├── getHeritageList.test.ts
 │   │   ├── getHeritageSlugs.test.ts
 │   │   └── schemas.test.ts
 │   └── seo
+│       ├── __snapshots__
+│       │   └── seoSnapshots.test.ts.snap
 │       ├── buildHeritageGraph.test.ts
 │       ├── buildHomeGraph.test.ts
-│       └── buildPageMetadata.test.ts
+│       ├── buildPageMetadata.test.ts
+│       ├── criticalSeo.test.ts
+│       └── seoSnapshots.test.ts
 ├── mocks
 │   └── heritage.test.ts
 └── setup.ts

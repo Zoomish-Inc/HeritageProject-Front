@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
+import { DecorativeFlourish } from '@/shared/ui';
 
 describe('DecorativeFlourish', () => {
 	it('renders central marker', () => {

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { HeritageListItem } from '@/types/heritage';
+import type { HeritageListItem } from '@/entities/heritage';
 import {
 	localizedStringSchema,
 	parseIsoDateOptional,

@@ -2,10 +2,10 @@
 import { render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { HeritageObjectsSection } from '@/components/Heritage/HeritageObjectsSection';
+import { HeritageObjectsSection } from '@/widgets/heritage';
 import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
 import { MOCK_HERITAGE_LIST } from '@/mocks/heritage';
-import type { HeritageListItem } from '@/types/heritage';
+import type { HeritageListItem } from '@/entities/heritage';
 
 function heritageListQueryStub(
 	partial: Record<string, unknown>

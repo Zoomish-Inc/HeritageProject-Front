@@ -7,9 +7,9 @@ import {
 	setRequestLocale,
 } from 'next-intl/server';
 import { dehydrate } from '@tanstack/react-query';
-import { DocumentLangSync } from '@/components/i18n/DocumentLangSync';
-import { DecorativeFlourish } from '@/components/UI/DecorativeFlourish';
-import { Header } from '@/components/Header/Header';
+import { DocumentLangSync } from '@/shared/lib/i18n';
+import { runtimeConfig } from '@/shared/config';
+import { DecorativeFlourish } from '@/shared/ui';
 import { routing } from '@/i18n/routing';
 import { heritageListQueryFn } from '@/lib/heritage/getHeritageList';
 import {
@@ -17,7 +17,8 @@ import {
 	heritageListStaleTime,
 } from '@/lib/heritage/listQuery';
 import { createQueryClient } from '@/lib/queryClient';
-import type { Locale } from '@/types/heritage';
+import type { Locale } from '@/entities/heritage';
+import { HeaderWidget } from '@/widgets/header';
 import { Providers } from './providers';
 
 type Props = {
@@ -26,7 +27,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-	if (process.env.NODE_ENV === 'development') {
+	if (runtimeConfig.isDev) {
 		return [];
 	}
 	return routing.locales.map((locale) => ({ locale }));
@@ -56,7 +57,7 @@ export default async function LocaleLayout({
 			staleTime: heritageListStaleTime,
 		});
 	} catch (err) {
-		if (process.env.NODE_ENV === 'development') {
+		if (runtimeConfig.isDev) {
 			console.warn('[heritage] list prefetch failed', err);
 		}
 	}
@@ -67,7 +68,7 @@ export default async function LocaleLayout({
 		<NextIntlClientProvider messages={messages}>
 			<DocumentLangSync />
 			<Providers dehydratedState={dehydratedState}>
-				<Header />
+				<HeaderWidget />
 				<main className="pt-16 min-h-screen">{children}</main>
 				<footer className="border-t border-gold-400/15 mt-16 py-8 text-center">
 					<DecorativeFlourish variant="footer" className="justify-center mb-3" />

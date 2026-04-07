@@ -1,5 +1,7 @@
+import { analyticsConfig } from '@/shared/config';
+
 export function GoogleAnalytics() {
-	const gaId = process.env.NEXT_PUBLIC_GA_ID;
+	const gaId = analyticsConfig.gaId;
 	if (!gaId) return null;
 
 	return (

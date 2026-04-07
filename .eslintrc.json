@@ -60,6 +60,93 @@
 		"jsx-a11y/anchor-is-valid": "off",
 		"react/no-array-index-key": "warn",
 		"@typescript-eslint/ban-ts-comment": "warn",
-		"react/button-has-type": "warn"
-	}
+		"react/button-has-type": "warn",
+		"no-restricted-imports": [
+			"error",
+			{
+				"patterns": [
+					{
+						"group": ["@/entities/*/*"],
+						"message": "Use entities public API entrypoint."
+					},
+					{
+						"group": ["@/features/*/*"],
+						"message": "Use features public API entrypoint."
+					},
+					{
+						"group": ["@/widgets/*/*"],
+						"message": "Use widgets public API entrypoint."
+					},
+					{
+						"group": ["@/app/*"],
+						"message": "Do not import app layer from lower layers."
+					},
+					{
+						"group": ["@/widgets/*"],
+						"importNames": ["*"],
+						"message": "Features/entities/shared must not depend on widgets."
+					}
+				]
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": ["src/shared/**/*.{ts,tsx}"],
+			"rules": {
+				"no-restricted-imports": [
+					"error",
+					{
+						"patterns": [
+							"@/entities/*",
+							"@/features/*",
+							"@/widgets/*",
+							"@/app/*",
+							"@/pages/*",
+							"@/processes/*"
+						]
+					}
+				]
+			}
+		},
+		{
+			"files": ["src/entities/**/*.{ts,tsx}"],
+			"rules": {
+				"no-restricted-imports": [
+					"error",
+					{
+						"patterns": [
+							"@/features/*",
+							"@/widgets/*",
+							"@/app/*",
+							"@/pages/*",
+							"@/processes/*"
+						]
+					}
+				]
+			}
+		},
+		{
+			"files": ["src/features/**/*.{ts,tsx}"],
+			"rules": {
+				"no-restricted-imports": [
+					"error",
+					{
+						"patterns": ["@/widgets/*", "@/app/*", "@/pages/*", "@/processes/*"]
+					}
+				]
+			}
+		},
+		{
+			"files": ["src/widgets/**/*.{ts,tsx}"],
+			"rules": {
+				"no-restricted-imports": [
+					"error",
+					{
+						"patterns": ["@/app/*", "@/pages/*", "@/processes/*"]
+					}
+				]
+			}
+		}
+	]
 }

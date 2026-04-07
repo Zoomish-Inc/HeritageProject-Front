@@ -28,5 +28,11 @@ jobs:
    - name: Lint
      run: npm run lint
 
+   - name: Check FSD boundaries
+     run: npm run lint:boundaries
+
+   - name: Check import graph
+     run: npm run check:imports
+
    - name: Check README structure block
      run: npm run docs:check

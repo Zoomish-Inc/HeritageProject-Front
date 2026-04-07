@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { describe, expect, it, vi } from 'vitest';
-import { buildPageMetadata } from '@/lib/seo/buildPageMetadata';
+import { buildPageMetadataFactory } from '@/entities/seo';
 
 type OpenGraphArticle = Extract<
 	NonNullable<Metadata['openGraph']>,
@@ -11,13 +11,13 @@ vi.mock('@/env', () => ({
 	getMetadataBaseUrl: () => new URL('https://example.com'),
 }));
 
-vi.mock('@/lib/seo/serverSeoEnv', () => ({
+vi.mock('@/shared/lib/seo/serverSeoEnv', () => ({
 	getMetadataVerification: () => undefined,
 }));
 
-describe('buildPageMetadata', () => {
+describe('buildPageMetadataFactory', () => {
 	it('builds canonical and language alternates from pathForLocale', () => {
-		const meta = buildPageMetadata({
+		const meta = buildPageMetadataFactory({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',
@@ -33,7 +33,7 @@ describe('buildPageMetadata', () => {
 	});
 
 	it('sets OpenGraph url from base and path', () => {
-		const meta = buildPageMetadata({
+		const meta = buildPageMetadataFactory({
 			locale: 'uz',
 			title: 'T',
 			description: 'D',
@@ -45,7 +45,7 @@ describe('buildPageMetadata', () => {
 	});
 
 	it('includes og and twitter images when provided', () => {
-		const meta = buildPageMetadata({
+		const meta = buildPageMetadataFactory({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',
@@ -61,7 +61,7 @@ describe('buildPageMetadata', () => {
 	});
 
 	it('includes extra head fields when provided', () => {
-		const meta = buildPageMetadata({
+		const meta = buildPageMetadataFactory({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',
@@ -81,7 +81,7 @@ describe('buildPageMetadata', () => {
 	});
 
 	it('sets OpenGraph article times when type is article', () => {
-		const meta = buildPageMetadata({
+		const meta = buildPageMetadataFactory({
 			locale: 'ru',
 			title: 'T',
 			description: 'D',

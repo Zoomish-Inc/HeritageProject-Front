@@ -1,13 +1,17 @@
 import type { MetadataRoute } from 'next';
+import { getHeritageListForSitemap } from '@/entities/seo';
 import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
-import { heritagePathForLocale, homePathForLocale } from '@/lib/seo/paths';
+import { runtimeConfig } from '@/shared/config';
+import {
+	heritagePathForLocale,
+	homePathForLocale,
+} from '@/shared/lib/seo/paths';
 import {
 	SITEMAP_MAX_URLS,
 	SITEMAP_WARN_THRESHOLD,
-} from '@/lib/seo/sitemapConfig';
-import { getHeritageListForSitemap } from '@/lib/seo/sitemapEntries';
-import type { HeritageListItem } from '@/types/heritage';
+} from '@/shared/lib/seo/sitemapConfig';
+import type { HeritageListItem } from '@/entities/heritage';
 
 export const revalidate = 3600;
 
@@ -44,10 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}
 	}
 
-	if (
-		process.env.NODE_ENV === 'development' &&
-		entries.length > SITEMAP_WARN_THRESHOLD
-	) {
+	if (runtimeConfig.isDev && entries.length > SITEMAP_WARN_THRESHOLD) {
 		console.warn(
 			`[seo] sitemap has ${entries.length} URLs (warn at ${SITEMAP_WARN_THRESHOLD}, max ~${SITEMAP_MAX_URLS}); consider splitting`
 		);

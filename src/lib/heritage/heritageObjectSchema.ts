@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { HeritageObject } from '@/types/heritage';
+import type { HeritageObject } from '@/entities/heritage';
 import {
 	architectureDetailSchema,
 	audioGuideSchema,

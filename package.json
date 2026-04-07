@@ -15,6 +15,7 @@
 		"lint:boundaries": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
 		"check:imports": "node scripts/checkImportGraph.mjs",
 		"check:all": "npm run lint:boundaries && npm run check:imports && npm run test",
+		"check:ci": "npm run check:all && npm run docs:check",
 		"test": "vitest run",
 		"test:e2e": "playwright test",
 		"docs:update": "node scripts/updateReadmeStructure.mjs",

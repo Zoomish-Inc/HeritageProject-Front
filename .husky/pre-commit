@@ -1,13 +1,5 @@
 #! /bin/sh
 
-# Auto-refresh README structure block when tracked tree changes.
-structure_changes="$(git diff --cached --name-only --diff-filter=ACDR -- src tests)"
-if [ -n "$structure_changes" ]; then
-  echo "Detected structural changes in src/tests, updating README structure..."
-  npm run docs:update || exit 1
-  git add README.md
-fi
-
 npm run check:all
 
 status="$?"

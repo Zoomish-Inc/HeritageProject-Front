@@ -102,7 +102,6 @@ src
 │   │   ├── listQuery.ts
 │   │   ├── listVisibility.ts
 │   │   └── schemas.ts
-│   ├── seo
 │   └── queryClient.ts
 ├── mocks
 │   ├── heritage

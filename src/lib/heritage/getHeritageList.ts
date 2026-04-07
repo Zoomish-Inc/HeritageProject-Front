@@ -1,7 +1,7 @@
 import { getApiBaseUrl } from '@/env';
 import { MOCK_HERITAGE_LIST_RESPONSE } from '@/mocks/heritage';
 import type { HeritageListItem } from '@/entities/heritage';
-import * as React from 'react';
+import { reactCache } from '@/shared/lib/react/cache';
 import { isHeritageMockEnabled } from './config';
 import { parseHeritageListResponseJson } from './schemas';
 
@@ -27,12 +27,7 @@ export async function loadHeritageList(cacheOptions?: {
 	return parseHeritageListResponseJson(json);
 }
 
-const cacheFn =
-	typeof React.cache === 'function'
-		? React.cache
-		: <A extends unknown[], R>(fn: (...args: A) => R) => fn;
-
-export const loadHeritageListForRequest = cacheFn(async () =>
+export const loadHeritageListForRequest = reactCache(async () =>
 	loadHeritageList(heritageListNextRevalidate)
 );
 

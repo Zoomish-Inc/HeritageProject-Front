@@ -1,7 +1,7 @@
-import { cache } from 'react';
 import { getApiBaseUrl } from '@/env';
 import { getMockHeritageById } from '@/mocks/heritage';
 import type { HeritageObject } from '@/entities/heritage';
+import { reactCache } from '@/shared/lib/react/cache';
 import { isHeritageMockEnabled } from './config';
 import { heritageObjectApiResponseSchema } from './schemas';
 
@@ -38,6 +38,6 @@ export async function loadHeritageById(
 	return obj;
 }
 
-export const getHeritageById = cache((id: string) =>
+export const getHeritageById = reactCache((id: string) =>
 	loadHeritageById(id, { next: { revalidate: 3600 } })
 );

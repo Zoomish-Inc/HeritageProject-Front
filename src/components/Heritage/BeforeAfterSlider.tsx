@@ -7,6 +7,7 @@ import {
 	useState,
 	type PointerEvent as ReactPointerEvent,
 } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 type Props = {
 	beforeSrc: string;
@@ -34,6 +35,19 @@ export const BeforeAfterSlider = ({
 	const [pct, setPct] = useState(50);
 	const dragging = useRef(false);
 	const containerRef = useRef<HTMLDivElement>(null);
+	const trackedInteraction = useRef(false);
+
+	const trackInteraction = useCallback(
+		(source: 'drag' | 'range') => {
+			if (trackedInteraction.current) return;
+			trackedInteraction.current = true;
+			trackEvent('before_after_interact', {
+				label: pairLabel,
+				source,
+			});
+		},
+		[pairLabel]
+	);
 
 	const setFromClientX = useCallback((clientX: number) => {
 		const el = containerRef.current;
@@ -62,6 +76,7 @@ export const BeforeAfterSlider = ({
 		dragging.current = true;
 		containerRef.current?.setPointerCapture(e.pointerId);
 		setFromClientX(e.clientX);
+		trackInteraction('drag');
 	};
 
 	const onPointerMove = (e: ReactPointerEvent) => {
@@ -152,7 +167,10 @@ export const BeforeAfterSlider = ({
 					className="w-full h-2 rounded-full appearance-none cursor-pointer bg-sepia-800 border border-gold-400/25 accent-gold-400
 						[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gold-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-sepia-900
 						[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-gold-400 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-sepia-900"
-					onChange={(e) => setPct(Number(e.target.value))}
+					onChange={(e) => {
+						setPct(Number(e.target.value));
+						trackInteraction('range');
+					}}
 				/>
 			</div>
 		</figure>

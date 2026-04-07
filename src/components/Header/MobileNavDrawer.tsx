@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useId, useState } from 'react';
+import { useCallback, useEffect, useId, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocale, useTranslations } from 'next-intl';
 import { useHeritageListQuery } from '@/hooks/useHeritageListQuery';
+import { trackEvent } from '@/lib/analytics';
 import type { Locale } from '@/types/heritage';
 import { LandmarksNavList } from './LandmarksNavList';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -21,6 +22,14 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 	const titleId = useId();
 	const [mounted, setMounted] = useState(false);
 
+	const closeDrawer = useCallback(
+		(reason: string) => {
+			trackEvent('mobile_menu_close', { reason });
+			onClose();
+		},
+		[onClose]
+	);
+
 	useEffect(() => {
 		setMounted(true);
 	}, []);
@@ -28,11 +37,11 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 	useEffect(() => {
 		if (!open) return undefined;
 		const onKey = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') onClose();
+			if (e.key === 'Escape') closeDrawer('escape');
 		};
 		document.addEventListener('keydown', onKey);
 		return () => document.removeEventListener('keydown', onKey);
-	}, [open, onClose]);
+	}, [open, closeDrawer]);
 
 	useEffect(() => {
 		if (open) document.body.style.overflow = 'hidden';
@@ -60,7 +69,7 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 					open ? 'opacity-100' : 'opacity-0'
 				}`}
 				aria-label={tCommon('close_menu')}
-				onClick={onClose}
+				onClick={() => closeDrawer('backdrop')}
 				tabIndex={open ? 0 : -1}
 			/>
 			<aside
@@ -79,7 +88,7 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 					</span>
 					<button
 						type="button"
-						onClick={onClose}
+						onClick={() => closeDrawer('close_button')}
 						aria-label={tCommon('close_menu')}
 						className="flex h-10 w-10 items-center justify-center text-theme-accent transition-colors hover:text-theme-accent-strong"
 					>
@@ -97,7 +106,7 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 							items={items}
 							isLoading={isLoading}
 							locale={locale}
-							onItemNavigate={onClose}
+							onItemNavigate={() => closeDrawer('item_navigate')}
 							presentation="list"
 						/>
 					</div>
@@ -106,7 +115,10 @@ export const MobileNavDrawer = ({ open, onClose }: Props) => {
 						{tCommon('language_label')}
 					</p>
 					<div className="px-2 [&_button]:min-h-[44px] [&_button]:min-w-[44px]">
-						<LanguageSwitcher className="gap-2" onAfterLocaleChange={onClose} />
+						<LanguageSwitcher
+							className="gap-2"
+							onAfterLocaleChange={() => closeDrawer('language_change')}
+						/>
 					</div>
 				</div>
 			</aside>

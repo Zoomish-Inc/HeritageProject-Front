@@ -27,6 +27,10 @@ const clientSchema = z.object({
 			.regex(/^G-[A-Z0-9]+$/)
 			.optional()
 	),
+	NEXT_PUBLIC_ANALYTICS_PROVIDER: z.preprocess(
+		emptyToUndefined,
+		z.enum(['ga', 'plausible', 'posthog']).optional()
+	),
 });
 
 const parsed = clientSchema.safeParse({
@@ -36,6 +40,7 @@ const parsed = clientSchema.safeParse({
 	NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE:
 		process.env.NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE,
 	NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+	NEXT_PUBLIC_ANALYTICS_PROVIDER: process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER,
 });
 
 export type ClientEnv = z.infer<typeof clientSchema>;

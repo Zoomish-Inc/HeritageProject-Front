@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { trackEvent } from '@/lib/analytics';
 
 type Theme = 'light' | 'dark';
 
@@ -24,6 +25,7 @@ export const ThemeToggle = () => {
 		root.classList.add(nextTheme);
 		localStorage.setItem(storageKey, nextTheme);
 		setTheme(nextTheme);
+		trackEvent('theme_toggle', { theme: nextTheme });
 	};
 
 	return (

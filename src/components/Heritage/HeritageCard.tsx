@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
+import { trackEvent } from '@/lib/analytics';
 import type { HeritageListItem, Locale } from '@/types/heritage';
 
 interface Props {
@@ -13,6 +14,13 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 	return (
 		<Link
 			href={`/heritage/${item.slug}`}
+			onClick={() =>
+				trackEvent('heritage_card_click', {
+					slug: item.slug,
+					locale,
+					index: index + 1,
+				})
+			}
 			className="group relative block overflow-hidden rounded-xl border border-gold-400/20 hover:border-gold-400/60 transition-all duration-500 bg-sepia-800"
 		>
 			<div className="relative h-56 overflow-hidden">

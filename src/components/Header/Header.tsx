@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { trackEvent } from '@/lib/analytics';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileNavDrawer } from './MobileNavDrawer';
 import { NavDropdown } from './NavDropdown';
@@ -50,7 +51,10 @@ export const Header = () => {
 						aria-expanded={mobileNavOpen}
 						aria-controls="mobile-nav-panel"
 						aria-label={t('open_menu')}
-						onClick={() => setMobileNavOpen(true)}
+						onClick={() => {
+							trackEvent('mobile_menu_open');
+							setMobileNavOpen(true);
+						}}
 						className="flex h-10 w-10 items-center justify-center rounded border border-theme-soft text-theme-accent transition-colors hover:border-theme-strong hover:text-theme-accent-strong"
 					>
 						<svg

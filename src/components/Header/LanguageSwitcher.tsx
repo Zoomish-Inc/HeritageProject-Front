@@ -1,6 +1,7 @@
 'use client';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
+import { trackEvent } from '@/lib/analytics';
 import type { Locale } from '@/types/heritage';
 
 export const LanguageSwitcher = ({
@@ -16,6 +17,11 @@ export const LanguageSwitcher = ({
 
 	const toggle = (l: Locale) => {
 		if (l !== locale) {
+			trackEvent('language_switch', {
+				from_locale: locale,
+				to_locale: l,
+				path: pathname,
+			});
 			router.replace(pathname, { locale: l });
 			onAfterLocaleChange?.();
 		}

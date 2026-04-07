@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { trackEvent } from '@/lib/analytics';
 import type { HeritageListItem, Locale } from '@/types/heritage';
 
 type Props = {
@@ -44,7 +45,15 @@ export function LandmarksNavList({
 					<Link
 						href={`/heritage/${item.slug}`}
 						{...(linkRole ? { role: linkRole } : {})}
-						onClick={onItemNavigate}
+						onClick={() => {
+							trackEvent('landmark_nav_click', {
+								slug: item.slug,
+								locale,
+								placement: presentation,
+								index: idx + 1,
+							});
+							onItemNavigate?.();
+						}}
 						className="flex items-start gap-3 px-4 py-3 hover:bg-theme-accent-faint transition-colors duration-150 group"
 					>
 						<span className="text-theme-accent-soft font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-theme-accent-strong transition-colors">

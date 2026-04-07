@@ -83,7 +83,9 @@ src
 │   └── uz.ts
 ├── lib
 │   ├── analytics
-│   │   └── GoogleAnalytics.tsx
+│   │   ├── AnalyticsPageTracker.tsx
+│   │   ├── GoogleAnalytics.tsx
+│   │   └── index.ts
 │   ├── heritage
 │   │   ├── config.ts
 │   │   ├── getHeritageById.ts

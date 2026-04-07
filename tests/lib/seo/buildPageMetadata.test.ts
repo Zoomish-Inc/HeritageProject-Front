@@ -60,6 +60,26 @@ describe('buildPageMetadata', () => {
 		expect(meta.twitter?.images).toEqual(['https://cdn.example/img.jpg']);
 	});
 
+	it('includes extra head fields when provided', () => {
+		const meta = buildPageMetadata({
+			locale: 'ru',
+			title: 'T',
+			description: 'D',
+			projectName: 'P',
+			pathForLocale: () => '/ru/x',
+			keywords: ['a', 'b'],
+		});
+		expect(meta.keywords).toEqual(['a', 'b']);
+		expect(meta.applicationName).toBe('P');
+		expect(meta.publisher).toBe('P');
+		expect(meta.referrer).toBe('origin-when-cross-origin');
+		expect(meta.formatDetection).toEqual({
+			email: false,
+			address: false,
+			telephone: false,
+		});
+	});
+
 	it('sets OpenGraph article times when type is article', () => {
 		const meta = buildPageMetadata({
 			locale: 'ru',

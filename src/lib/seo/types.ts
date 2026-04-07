@@ -15,6 +15,7 @@ export type PageSeoBase = {
 export type PageSeoMedia = {
 	ogImages?: OgImage[];
 	twitterImages?: string[];
+	keywords?: string[];
 	openGraphType?: OpenGraphPageType;
 	openGraphArticleTimes?: {
 		publishedTime?: string;

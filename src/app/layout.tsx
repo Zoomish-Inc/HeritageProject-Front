@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cinzel, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
 import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
+import { GoogleAnalytics } from '@/lib/analytics/GoogleAnalytics';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -49,6 +50,7 @@ export default function RootLayout({
 			<body
 				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${cinzel.variable}`}
 			>
+				<GoogleAnalytics />
 				{children}
 				<Analytics />
 			</body>

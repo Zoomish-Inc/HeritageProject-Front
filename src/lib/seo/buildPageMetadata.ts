@@ -26,6 +26,7 @@ export function buildPageMetadata({
 	pathForLocale,
 	ogImages,
 	twitterImages,
+	keywords,
 	openGraphType = 'website',
 	openGraphArticleTimes,
 	robots,
@@ -80,6 +81,15 @@ export function buildPageMetadata({
 	return {
 		title,
 		description,
+		...(keywords?.length ? { keywords } : {}),
+		applicationName: projectName,
+		publisher: projectName,
+		referrer: 'origin-when-cross-origin',
+		formatDetection: {
+			email: false,
+			address: false,
+			telephone: false,
+		},
 		...(verification ? { verification } : {}),
 		robots: robots ?? {
 			index: true,

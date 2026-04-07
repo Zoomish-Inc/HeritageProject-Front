@@ -23,6 +23,15 @@ jobs:
           echo "quality:       ${{ inputs.quality_result }}"
           echo "readme:        ${{ inputs.readme_result }}"
 
+      - name: Write final CI summary
+        uses: ./.github/actions/job-summary
+        with:
+          title: CI final summary
+          lines: |
+            - workflow_lint: ${{ inputs.workflow_lint_result }}
+            - quality: ${{ inputs.quality_result }}
+            - readme: ${{ inputs.readme_result }}
+
       - name: Fail if any stage failed
         if: inputs.workflow_lint_result != 'success' || inputs.quality_result != 'success' || inputs.readme_result != 'success'
         run: |

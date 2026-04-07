@@ -29,6 +29,15 @@ jobs:
    - name: Run quality action
      uses: ./.github/actions/quality-gate
 
+   - name: Write quality summary
+     if: always()
+     uses: ./.github/actions/job-summary
+     with:
+      title: Quality summary
+      lines: |
+       - check:ci executed (reserved-dirs, lint boundaries, import graph, unit tests)
+       - result: ${{ job.status }}
+
  readme:
   needs: [workflow_lint]
   runs-on: ubuntu-latest
@@ -55,6 +64,16 @@ jobs:
    - name: Verify README is committed on PR
      if: github.event_name == 'pull_request' && steps.readme_check.outputs.should_verify == 'true'
      run: git diff --exit-code README.md
+
+   - name: Write readme summary
+     if: always()
+     uses: ./.github/actions/job-summary
+     with:
+      title: README summary
+      lines: |
+       - should_run: ${{ steps.readme_check.outputs.should_run }}
+       - should_verify: ${{ steps.readme_check.outputs.should_verify }}
+       - result: ${{ job.status }}
 
  summary:
   if: always()

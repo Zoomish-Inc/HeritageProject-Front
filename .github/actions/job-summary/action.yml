@@ -1,0 +1,22 @@
+name: Job summary
+description: Write a compact markdown summary block
+inputs:
+  title:
+    description: Summary section title
+    required: true
+  lines:
+    description: Multiline markdown lines for the section body
+    required: false
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Write summary section
+      shell: bash
+      run: |
+        {
+          echo "## ${{ inputs.title }}"
+          if [ -n "${{ inputs.lines }}" ]; then
+            printf '%s\n' "${{ inputs.lines }}"
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"

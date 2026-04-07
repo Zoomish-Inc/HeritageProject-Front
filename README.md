@@ -82,6 +82,8 @@ src
 │   ├── ru.ts
 │   └── uz.ts
 ├── lib
+│   ├── analytics
+│   │   └── GoogleAnalytics.tsx
 │   ├── heritage
 │   │   ├── config.ts
 │   │   ├── getHeritageById.ts
@@ -102,6 +104,7 @@ src
 │   │   ├── buildHomeMetadata.ts
 │   │   ├── buildPageMetadata.ts
 │   │   ├── index.ts
+│   │   ├── keywords.ts
 │   │   ├── paths.ts
 │   │   ├── serverSeoEnv.ts
 │   │   ├── sitemapConfig.ts

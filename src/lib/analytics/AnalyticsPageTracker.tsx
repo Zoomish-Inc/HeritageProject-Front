@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { trackEvent, trackPageView } from '@/lib/analytics';
+import { trackHeritageView, trackPageView } from '@/shared/lib/analytics';
 
 export function AnalyticsPageTracker() {
 	const pathname = usePathname();
@@ -20,11 +20,7 @@ export function AnalyticsPageTracker() {
 
 		const match = pathname.match(/^\/(ru|uz)\/heritage\/([^/?#]+)/);
 		if (match) {
-			trackEvent('view_heritage', {
-				locale: match[1],
-				slug: decodeURIComponent(match[2]),
-				page_path: pagePath,
-			});
+			trackHeritageView(match[1], decodeURIComponent(match[2]), pagePath);
 		}
 	}, [pathname]);
 

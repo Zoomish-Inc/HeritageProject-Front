@@ -1,4 +1,4 @@
-import type { HeritageListItem } from '@/types/heritage';
+import type { HeritageListItem } from '@/entities/heritage';
 
 export type HeritageListItemApiWire = {
 	id: string;

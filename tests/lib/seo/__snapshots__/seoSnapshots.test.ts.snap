@@ -1,0 +1,573 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`seo snapshots > matches heritage metadata snapshot for ru and uz > heritage-metadata-ru 1`] = `
+{
+  "alternates": {
+    "canonical": "/ru/heritage/sample-slug",
+    "languages": {
+      "ru": "https://example.com/ru/heritage/sample-slug",
+      "uz": "https://example.com/uz/heritage/sample-slug",
+      "x-default": "https://example.com/ru/heritage/sample-slug",
+    },
+  },
+  "applicationName": "Project",
+  "description": "D",
+  "formatDetection": {
+    "address": false,
+    "email": false,
+    "telephone": false,
+  },
+  "keywords": [
+    "Project",
+    "Наследие Ферганы",
+    "Фергана",
+    "архитектурное наследие",
+    "исторические здания",
+    "достопримечательности Ферганы",
+    "виртуальный тур",
+    "памятник архитектуры",
+    "история здания",
+    "аудиогид",
+  ],
+  "openGraph": {
+    "alternateLocale": [
+      "uz_UZ",
+    ],
+    "description": "D",
+    "locale": "ru_RU",
+    "siteName": "Project",
+    "title": "T",
+    "type": "article",
+    "url": "https://example.com/ru/heritage/sample-slug",
+  },
+  "publisher": "Project",
+  "referrer": "origin-when-cross-origin",
+  "robots": {
+    "follow": true,
+    "googleBot": {
+      "follow": true,
+      "index": true,
+    },
+    "index": true,
+  },
+  "title": "T",
+  "twitter": {
+    "card": "summary_large_image",
+    "description": "D",
+    "title": "T",
+  },
+}
+`;
+
+exports[`seo snapshots > matches heritage metadata snapshot for ru and uz > heritage-metadata-uz 1`] = `
+{
+  "alternates": {
+    "canonical": "/uz/heritage/sample-slug",
+    "languages": {
+      "ru": "https://example.com/ru/heritage/sample-slug",
+      "uz": "https://example.com/uz/heritage/sample-slug",
+      "x-default": "https://example.com/ru/heritage/sample-slug",
+    },
+  },
+  "applicationName": "Project",
+  "description": "D",
+  "formatDetection": {
+    "address": false,
+    "email": false,
+    "telephone": false,
+  },
+  "keywords": [
+    "Project",
+    "Farg'ona merosi",
+    "Farg'ona",
+    "me'moriy meros",
+    "tarixiy binolar",
+    "Farg'ona diqqatga sazovor joylari",
+    "virtual sayohat",
+    "me'moriy yodgorlik",
+    "bino tarixi",
+    "audio guide",
+  ],
+  "openGraph": {
+    "alternateLocale": [
+      "ru_RU",
+    ],
+    "description": "D",
+    "locale": "uz_UZ",
+    "siteName": "Project",
+    "title": "T",
+    "type": "article",
+    "url": "https://example.com/uz/heritage/sample-slug",
+  },
+  "publisher": "Project",
+  "referrer": "origin-when-cross-origin",
+  "robots": {
+    "follow": true,
+    "googleBot": {
+      "follow": true,
+      "index": true,
+    },
+    "index": true,
+  },
+  "title": "T",
+  "twitter": {
+    "card": "summary_large_image",
+    "description": "D",
+    "title": "T",
+  },
+}
+`;
+
+exports[`seo snapshots > matches home metadata snapshot for ru and uz > home-metadata-ru 1`] = `
+{
+  "alternates": {
+    "canonical": "/ru",
+    "languages": {
+      "ru": "https://example.com/ru",
+      "uz": "https://example.com/uz",
+      "x-default": "https://example.com/ru",
+    },
+  },
+  "applicationName": "Project",
+  "description": "D",
+  "formatDetection": {
+    "address": false,
+    "email": false,
+    "telephone": false,
+  },
+  "keywords": [
+    "Project",
+    "Наследие Ферганы",
+    "Фергана",
+    "архитектурное наследие",
+    "исторические здания",
+    "достопримечательности Ферганы",
+    "виртуальный тур",
+    "культурное наследие",
+    "XIX век",
+    "XX век",
+  ],
+  "openGraph": {
+    "alternateLocale": [
+      "uz_UZ",
+    ],
+    "description": "D",
+    "locale": "ru_RU",
+    "siteName": "Project",
+    "title": "T",
+    "type": "website",
+    "url": "https://example.com/ru",
+  },
+  "publisher": "Project",
+  "referrer": "origin-when-cross-origin",
+  "robots": {
+    "follow": true,
+    "googleBot": {
+      "follow": true,
+      "index": true,
+    },
+    "index": true,
+  },
+  "title": "T",
+  "twitter": {
+    "card": "summary_large_image",
+    "description": "D",
+    "title": "T",
+  },
+}
+`;
+
+exports[`seo snapshots > matches home metadata snapshot for ru and uz > home-metadata-uz 1`] = `
+{
+  "alternates": {
+    "canonical": "/uz",
+    "languages": {
+      "ru": "https://example.com/ru",
+      "uz": "https://example.com/uz",
+      "x-default": "https://example.com/ru",
+    },
+  },
+  "applicationName": "Project",
+  "description": "D",
+  "formatDetection": {
+    "address": false,
+    "email": false,
+    "telephone": false,
+  },
+  "keywords": [
+    "Project",
+    "Farg'ona merosi",
+    "Farg'ona",
+    "me'moriy meros",
+    "tarixiy binolar",
+    "Farg'ona diqqatga sazovor joylari",
+    "virtual sayohat",
+    "madaniy meros",
+    "XIX asr",
+    "XX asr",
+  ],
+  "openGraph": {
+    "alternateLocale": [
+      "ru_RU",
+    ],
+    "description": "D",
+    "locale": "uz_UZ",
+    "siteName": "Project",
+    "title": "T",
+    "type": "website",
+    "url": "https://example.com/uz",
+  },
+  "publisher": "Project",
+  "referrer": "origin-when-cross-origin",
+  "robots": {
+    "follow": true,
+    "googleBot": {
+      "follow": true,
+      "index": true,
+    },
+    "index": true,
+  },
+  "title": "T",
+  "twitter": {
+    "card": "summary_large_image",
+    "description": "D",
+    "title": "T",
+  },
+}
+`;
+
+exports[`seo snapshots > matches structured data snapshots for ru and uz > detail-jsonld-ru 1`] = `
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://example.com/ru/heritage/sample-slug#breadcrumb",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/ru",
+          "name": "Главная",
+          "position": 1,
+        },
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/ru#objects",
+          "name": "Объекты",
+          "position": 2,
+        },
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/ru/heritage/sample-slug",
+          "name": "Здание военного собрания (Дом офицеров)",
+          "position": 3,
+        },
+      ],
+    },
+    {
+      "@id": "https://example.com/ru/heritage/sample-slug#heritage",
+      "@type": "LandmarksOrHistoricalBuildings",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "г. Фергана, ул. Мустақиллик, 12",
+      },
+      "description": "Одно из первых капитальных зданий Новой Маргиланы (Ферганы), возведённое в год основания города. Центр офицерской жизни гарнизона.",
+      "image": [
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-photo-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-before-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-after-0",
+      ],
+      "isPartOf": {
+        "@id": "https://example.com/#website",
+      },
+      "name": "Здание военного собрания (Дом офицеров)",
+      "url": "https://example.com/ru/heritage/sample-slug",
+    },
+  ],
+}
+`;
+
+exports[`seo snapshots > matches structured data snapshots for ru and uz > detail-jsonld-uz 1`] = `
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://example.com/uz/heritage/sample-slug#breadcrumb",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/uz",
+          "name": "Bosh sahifa",
+          "position": 1,
+        },
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/uz#objects",
+          "name": "Ob'ektlar",
+          "position": 2,
+        },
+        {
+          "@type": "ListItem",
+          "item": "https://example.com/uz/heritage/sample-slug",
+          "name": "Harbiy yig'ilish binosi (Ofitserlar uyi)",
+          "position": 3,
+        },
+      ],
+    },
+    {
+      "@id": "https://example.com/uz/heritage/sample-slug#heritage",
+      "@type": "LandmarksOrHistoricalBuildings",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Farg'ona sh., Mustaqillik ko'ch., 12",
+      },
+      "description": "Shahar tashkil etilgan yilda qurilgan Yangi Marg'ilon (Farg'ona) ning birinchi yirik binolaridan biri. Garnizoning ofitserlik hayotining markazi.",
+      "image": [
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-photo-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-before-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-after-0",
+      ],
+      "isPartOf": {
+        "@id": "https://example.com/#website",
+      },
+      "name": "Harbiy yig'ilish binosi (Ofitserlar uyi)",
+      "url": "https://example.com/uz/heritage/sample-slug",
+    },
+  ],
+}
+`;
+
+exports[`seo snapshots > matches structured data snapshots for ru and uz > home-jsonld-ru 1`] = `
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://example.com/#organization",
+      "@type": "Organization",
+      "name": "Project",
+      "url": "https://example.com",
+    },
+    {
+      "@id": "https://example.com/#website",
+      "@type": "WebSite",
+      "description": "D",
+      "inLanguage": "ru",
+      "name": "Project",
+      "publisher": {
+        "@id": "https://example.com/#organization",
+      },
+      "url": "https://example.com",
+    },
+    {
+      "@id": "https://example.com/ru#webpage",
+      "@type": "WebPage",
+      "description": "D",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://example.com/#website",
+      },
+      "mainEntity": {
+        "@id": "https://example.com/ru#heritage-itemlist",
+      },
+      "name": "Project",
+      "publisher": {
+        "@id": "https://example.com/#organization",
+      },
+      "url": "https://example.com/ru",
+    },
+    {
+      "@id": "https://example.com/ru#heritage-itemlist",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Одно из первых капитальных зданий Новой Маргиланы (Ферганы), возведённое в год основания города. Центр офицерской жизни гарнизона.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
+            "name": "Здание военного собрания (Дом офицеров)",
+            "url": "https://example.com/ru/heritage/zdanie-voennogo-sobraniya-dom-oficerov",
+          },
+          "position": 1,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Главное административное здание Ферганской области, строившееся поэтапно с 1879 по 1899 год. Архитектурный центр имперского Нового Маргилана.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=gubernatorskiy-dom-cover",
+            "name": "Здание военного губернатора",
+            "url": "https://example.com/ru/heritage/gubernatorskiy-dom",
+          },
+          "position": 2,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Первое светское женское учебное заведение Ферганской долины. Здание стало символом просвещения и «цивилизаторской миссии» в Средней Азии.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zhenskaya-gimnaziya-cover",
+            "name": "Здание женской гимназии (Дом культуры №1)",
+            "url": "https://example.com/ru/heritage/zhenskaya-gimnaziya",
+          },
+          "position": 3,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Небольшая православная часовня, возведённая в память о воинах, павших при завоевании Средней Азии. Единственный сохранившийся православный культовый объект города.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=chasovnya-aleksandra-nevskogo-cover",
+            "name": "Часовня Святого Александра Невского",
+            "url": "https://example.com/ru/heritage/chasovnya-aleksandra-nevskogo",
+          },
+          "position": 4,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Главная православная церковь дореволюционной Ферганы. Крупнейший храм города, освящённый в память о преподобном Сергии Радонежском.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=khram-sergiya-radonezhskogo-cover",
+            "name": "Храм Сергия Радонежского",
+            "url": "https://example.com/ru/heritage/khram-sergiya-radonezhskogo",
+          },
+          "position": 5,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Крупнейшее учебное заведение дореволюционной Ферганы. Здание с элементами стиля модерн стало последним значительным архитектурным сооружением имперского периода в городе.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=muzhskaya-gimnaziya-cover",
+            "name": "Здание мужской гимназии",
+            "url": "https://example.com/ru/heritage/muzhskaya-gimnaziya",
+          },
+          "position": 6,
+        },
+      ],
+      "name": "Project",
+      "numberOfItems": 6,
+    },
+  ],
+}
+`;
+
+exports[`seo snapshots > matches structured data snapshots for ru and uz > home-jsonld-uz 1`] = `
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://example.com/#organization",
+      "@type": "Organization",
+      "name": "Project",
+      "url": "https://example.com",
+    },
+    {
+      "@id": "https://example.com/#website",
+      "@type": "WebSite",
+      "description": "D",
+      "inLanguage": "uz",
+      "name": "Project",
+      "publisher": {
+        "@id": "https://example.com/#organization",
+      },
+      "url": "https://example.com",
+    },
+    {
+      "@id": "https://example.com/uz#webpage",
+      "@type": "WebPage",
+      "description": "D",
+      "inLanguage": "uz",
+      "isPartOf": {
+        "@id": "https://example.com/#website",
+      },
+      "mainEntity": {
+        "@id": "https://example.com/uz#heritage-itemlist",
+      },
+      "name": "Project",
+      "publisher": {
+        "@id": "https://example.com/#organization",
+      },
+      "url": "https://example.com/uz",
+    },
+    {
+      "@id": "https://example.com/uz#heritage-itemlist",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Shahar tashkil etilgan yilda qurilgan Yangi Marg'ilon (Farg'ona) ning birinchi yirik binolaridan biri. Garnizoning ofitserlik hayotining markazi.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
+            "name": "Harbiy yig'ilish binosi (Ofitserlar uyi)",
+            "url": "https://example.com/uz/heritage/zdanie-voennogo-sobraniya-dom-oficerov",
+          },
+          "position": 1,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "1879 yildan 1899 yilgacha bosqichma-bosqich qurilgan Farg'ona viloyatining asosiy ma'muriy binosi. Imperial Yangi Marg'ilonning me'moriy markazi.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=gubernatorskiy-dom-cover",
+            "name": "Harbiy gubernator binosi",
+            "url": "https://example.com/uz/heritage/gubernatorskiy-dom",
+          },
+          "position": 2,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Farg'ona vodiysining birinchi dunyoviy qizlar ta'lim muassasasi. Bino O'rta Osiyoda ma'rifat va "sivilizatorlik missiyasi" ramziga aylandi.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zhenskaya-gimnaziya-cover",
+            "name": "Qizlar gimnaziyasi binosi (№1 Madaniyat uyi)",
+            "url": "https://example.com/uz/heritage/zhenskaya-gimnaziya",
+          },
+          "position": 3,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "O'rta Osiyoni fath etishda halok bo'lgan jangchilar xotirasiga qurilgan kichik pravoslav ibodatxonasi. Shaharning yagona saqlanib qolgan pravoslav diniy ob'ekti.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=chasovnya-aleksandra-nevskogo-cover",
+            "name": "Muqaddas Aleksandr Nevskiy ibodatxonasi",
+            "url": "https://example.com/uz/heritage/chasovnya-aleksandra-nevskogo",
+          },
+          "position": 4,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Inqilobdan avvalgi Farg'onaning asosiy pravoslav cherkovi. Muqaddas Sergiy Radonezhskiy xotirasiga muqaddaslashtirilgan shahardagi eng yirik ibodatxona.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=khram-sergiya-radonezhskogo-cover",
+            "name": "Sergiy Radonezhskiy ibodatxonasi",
+            "url": "https://example.com/uz/heritage/khram-sergiya-radonezhskogo",
+          },
+          "position": 5,
+        },
+        {
+          "@type": "ListItem",
+          "item": {
+            "@type": "LandmarksOrHistoricalBuildings",
+            "description": "Inqilobdan avvalgi Farg'onaning eng yirik ta'lim muassasasi. Modern uslubi elementlari bo'lgan bino shahardagi imperial davrning so'nggi muhim me'moriy inshootiga aylandi.",
+            "image": "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=muzhskaya-gimnaziya-cover",
+            "name": "Erkaklar gimnaziyasi binosi",
+            "url": "https://example.com/uz/heritage/muzhskaya-gimnaziya",
+          },
+          "position": 6,
+        },
+      ],
+      "name": "Project",
+      "numberOfItems": 6,
+    },
+  ],
+}
+`;

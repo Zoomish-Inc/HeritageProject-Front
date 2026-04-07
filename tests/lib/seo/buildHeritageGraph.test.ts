@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
-	buildHeritageStructuredDataGraph,
+	buildHeritageStructuredDataFactory,
 	collectHeritageImageUrls,
-} from '@/lib/seo/buildHeritageGraph';
-import type { HeritageObject } from '@/types/heritage';
+} from '@/entities/seo';
+import type { HeritageObject } from '@/entities/heritage';
 
 vi.mock('@/env', () => ({
 	getMetadataBaseUrl: () => new URL('https://example.com'),
@@ -50,9 +50,9 @@ describe('collectHeritageImageUrls', () => {
 	});
 });
 
-describe('buildHeritageStructuredDataGraph', () => {
+describe('buildHeritageStructuredDataFactory', () => {
 	it('builds @graph with BreadcrumbList and LandmarksOrHistoricalBuildings', () => {
-		const graph = buildHeritageStructuredDataGraph({
+		const graph = buildHeritageStructuredDataFactory({
 			object: minimalObject(),
 			locale: 'ru',
 			pageUrl: 'https://example.com/ru/heritage/test-slug',
@@ -79,7 +79,7 @@ describe('buildHeritageStructuredDataGraph', () => {
 	it('adds dateModified when updatedAt is set', () => {
 		const obj = minimalObject();
 		obj.updatedAt = '2026-01-02T00:00:00.000Z';
-		const graph = buildHeritageStructuredDataGraph({
+		const graph = buildHeritageStructuredDataFactory({
 			object: obj,
 			locale: 'ru',
 			pageUrl: 'https://example.com/ru/heritage/test-slug',

@@ -4,7 +4,7 @@ import {
 } from '@/lib/heritage/heritageListWire';
 import { parseHeritageListResponseJson } from '@/lib/heritage/schemas';
 import { rawMockHeritageObjects } from '@/mocks/heritage/rawMockHeritageObjects';
-import type { HeritageListItem, HeritageObject } from '@/types/heritage';
+import type { HeritageListItem, HeritageObject } from '@/entities/heritage';
 
 const buildPlaceholderUrl = (seed: string, width = 1400, height = 900) =>
 	`https://placehold.co/${width}x${height}/3d2b1f/f5ede0.webp?text=${encodeURIComponent(

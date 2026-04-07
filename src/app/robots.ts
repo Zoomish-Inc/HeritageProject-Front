@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { getMetadataBaseUrl } from '@/env';
+import { seoConfig } from '@/shared/config';
 
 function additionalSitemapUrls(origin: string): string[] {
-	const raw = process.env.ADDITIONAL_SITEMAP_URLS?.trim();
+	const raw = seoConfig.additionalSitemapUrls;
 	if (!raw) return [];
 	return raw
 		.split(',')

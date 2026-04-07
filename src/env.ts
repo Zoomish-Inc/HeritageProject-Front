@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { runtimeConfig } from '@/shared/config';
 
 const emptyToUndefined = (v: unknown) =>
 	v === '' || v === undefined ? undefined : v;
@@ -66,8 +67,8 @@ export function getMetadataBaseUrl(): URL {
 	if (clientEnv.NEXT_PUBLIC_SITE_URL) {
 		return new URL(clientEnv.NEXT_PUBLIC_SITE_URL);
 	}
-	if (process.env.VERCEL_URL) {
-		return new URL(`https://${process.env.VERCEL_URL}`);
+	if (runtimeConfig.vercelUrl) {
+		return new URL(`https://${runtimeConfig.vercelUrl}`);
 	}
 	return new URL('http://localhost:3000');
 }

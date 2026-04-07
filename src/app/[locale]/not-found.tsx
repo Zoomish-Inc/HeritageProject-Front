@@ -1,8 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { ErrorOrNotFoundShell } from '@/components/UI/ErrorOrNotFoundShell';
-import { NavigatorBackButton } from '@/components/UI/NavigatorBackButton';
-import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
+import {
+	ErrorOrNotFoundShell,
+	NavigatorBackButton,
+	OrnamentalDivider,
+} from '@/shared/ui';
 
 export default async function LocaleNotFound() {
 	const t = await getTranslations('errors');

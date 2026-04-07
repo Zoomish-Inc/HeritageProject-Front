@@ -1,13 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
-import { buildHomeStructuredDataGraph } from '@/lib/seo/buildHomeGraph';
-import type { HeritageListItem } from '@/types/heritage';
+import { buildHomeStructuredDataFactory } from '@/entities/seo';
+import type { HeritageListItem } from '@/entities/heritage';
 
 vi.mock('@/env', () => ({
 	getMetadataBaseUrl: () => new URL('https://example.com'),
 	clientEnv: {},
 }));
 
-vi.mock('@/lib/seo/serverSeoEnv', () => ({
+vi.mock('@/shared/lib/seo/serverSeoEnv', () => ({
 	getOrganizationSameAsUrls: () => ['https://example.com/profile'],
 }));
 
@@ -22,9 +22,9 @@ const item = (slug: string, order: number): HeritageListItem => ({
 	order,
 });
 
-describe('buildHomeStructuredDataGraph', () => {
+describe('buildHomeStructuredDataFactory', () => {
 	it('includes Organization, WebSite, WebPage and ItemList in @graph', () => {
-		const graph = buildHomeStructuredDataGraph({
+		const graph = buildHomeStructuredDataFactory({
 			items: [item('a', 1)],
 			locale: 'ru',
 			projectName: 'P',
@@ -41,7 +41,7 @@ describe('buildHomeStructuredDataGraph', () => {
 	});
 
 	it('drops unpublished items from ItemList', () => {
-		const graph = buildHomeStructuredDataGraph({
+		const graph = buildHomeStructuredDataFactory({
 			items: [item('pub', 1), { ...item('hid', 2), isPublished: false }],
 			locale: 'ru',
 			projectName: 'P',

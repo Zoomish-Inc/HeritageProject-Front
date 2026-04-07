@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import { getApiBaseUrl } from '@/env';
 import { getMockHeritageById } from '@/mocks/heritage';
-import type { HeritageObject } from '@/types/heritage';
+import type { HeritageObject } from '@/entities/heritage';
 import { isHeritageMockEnabled } from './config';
 import { heritageObjectApiResponseSchema } from './schemas';
 

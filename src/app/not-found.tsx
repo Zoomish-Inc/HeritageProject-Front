@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { ErrorOrNotFoundShell } from '@/components/UI/ErrorOrNotFoundShell';
-import { NavigatorBackButton } from '@/components/UI/NavigatorBackButton';
-import { OrnamentalDivider } from '@/components/UI/OrnamentalDivider';
+import {
+	ErrorOrNotFoundShell,
+	NavigatorBackButton,
+	OrnamentalDivider,
+} from '@/shared/ui';
 
 export default async function RootNotFound() {
 	const t = await getTranslations('errors');

@@ -1,4 +1,4 @@
-import type { HeritageObject } from '@/types/heritage';
+import type { HeritageObject } from '@/entities/heritage';
 
 export const rawMockHeritageObjects: HeritageObject[] = [
 	{

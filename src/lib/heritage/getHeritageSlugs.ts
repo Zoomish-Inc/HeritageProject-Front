@@ -1,4 +1,4 @@
-import { getHeritageListForSitemap } from '@/lib/seo/sitemapEntries';
+import { getHeritageListForSitemap } from '@/entities/seo';
 
 export async function getHeritageSlugsForStaticParams(): Promise<string[]> {
 	const items = await getHeritageListForSitemap();

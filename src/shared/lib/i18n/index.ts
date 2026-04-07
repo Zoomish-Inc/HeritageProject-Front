@@ -1,0 +1,1 @@
+export { DocumentLangSync } from './DocumentLangSync';

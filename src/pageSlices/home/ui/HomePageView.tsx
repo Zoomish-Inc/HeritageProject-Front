@@ -1,12 +1,12 @@
-import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
-import { HeritageObjectsSection } from '@/widgets/heritage';
-import { DecorativeFlourish } from '@/shared/ui';
+import type { Locale } from '@/entities/heritage';
 import { HomeJsonLdFeature } from '@/features/seo';
 import { routing } from '@/i18n/routing';
 import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
 import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
-import type { Locale } from '@/entities/heritage';
+import { DecorativeFlourish } from '@/shared/ui';
+import { HeritageObjectsSection } from '@/widgets/heritage';
+import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 
 export async function HomePageView({ locale }: { locale: Locale }) {
 	if (!routing.locales.includes(locale)) {

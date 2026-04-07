@@ -1,5 +1,4 @@
-import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import type { Locale } from '@/entities/heritage';
 import { HeritageJsonLdFeature } from '@/features/seo';
 import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
@@ -11,8 +10,9 @@ import {
 	heritagePathForLocale,
 	homePathForLocale,
 } from '@/shared/lib/seo/paths';
-import type { Locale } from '@/entities/heritage';
 import { HeritageDetailWidget } from '@/widgets/heritage';
+import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { NextHeritagePrefetch } from './NextHeritagePrefetch';
 
 export async function HeritageDetailPageView({

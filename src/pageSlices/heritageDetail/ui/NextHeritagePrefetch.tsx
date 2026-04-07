@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import type { Locale } from '@/entities/heritage';
 import { heritagePathForLocale } from '@/shared/lib/seo/paths';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export function NextHeritagePrefetch({
 	locale,

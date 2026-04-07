@@ -1,7 +1,7 @@
 import { buildHeritageMetadataFactory } from '@/entities/seo';
+import type { Locale } from '@/entities/heritage';
 import { routing } from '@/i18n/routing';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
-import type { Locale } from '@/entities/heritage';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 

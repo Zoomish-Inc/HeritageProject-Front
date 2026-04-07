@@ -1,4 +1,11 @@
 {
 	"roots": ["src", "tests"],
-	"excludePaths": ["src/components/sections"]
+	"excludePaths": ["src/components/sections"],
+	"reservedDirectoryRules": {
+		"src": {
+			"forbiddenTopLevelDirs": ["pages", "api"],
+			"allowedApiDirs": ["app/api"],
+			"preferredPageLayerDir": "pageSlices"
+		}
+	}
 }

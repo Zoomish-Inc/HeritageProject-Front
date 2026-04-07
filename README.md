@@ -107,7 +107,7 @@ src
 │   ├── heritage
 │   │   └── rawMockHeritageObjects.ts
 │   └── heritage.ts
-├── pages
+├── pageSlices
 │   ├── heritageDetail
 │   │   ├── model
 │   │   │   └── metadata.ts
@@ -136,6 +136,8 @@ src
 │   │   │   └── index.ts
 │   │   ├── image
 │   │   │   └── placeholder.ts
+│   │   ├── react
+│   │   │   └── cache.ts
 │   │   └── seo
 │   │       ├── absolutizeMediaUrl.ts
 │   │       ├── paths.ts
@@ -212,6 +214,15 @@ tests
 ```
 
 <!-- docs:structure:end -->
+
+## Architectural guardrails
+
+<!-- docs:guardrails:start -->
+Reserved Next.js directory rules (from docs/structure.config.json):
+- forbidden top-level dirs in src: pages, api
+- preferred FSD page layer dir: pageSlices
+- allowed API dirs: app/api
+<!-- docs:guardrails:end -->
 
 ## Скрипты
 

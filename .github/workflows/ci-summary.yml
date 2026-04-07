@@ -17,6 +17,10 @@ jobs:
   summary:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Print CI stage results
         run: |
           echo "workflow_lint: ${{ inputs.workflow_lint_result }}"
@@ -27,6 +31,7 @@ jobs:
         uses: ./.github/actions/job-summary
         with:
           title: CI final summary
+          status: ${{ job.status }}
           lines: |
             - workflow_lint: ${{ inputs.workflow_lint_result }}
             - quality: ${{ inputs.quality_result }}

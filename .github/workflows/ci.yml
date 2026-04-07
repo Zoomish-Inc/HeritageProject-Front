@@ -34,9 +34,9 @@ jobs:
      uses: ./.github/actions/job-summary
      with:
       title: Quality summary
+      status: ${{ job.status }}
       lines: |
        - check:ci executed (reserved-dirs, lint boundaries, import graph, unit tests)
-       - result: ${{ job.status }}
 
  readme:
   needs: [workflow_lint]
@@ -70,10 +70,10 @@ jobs:
      uses: ./.github/actions/job-summary
      with:
       title: README summary
+      status: ${{ job.status }}
       lines: |
        - should_run: ${{ steps.readme_check.outputs.should_run }}
        - should_verify: ${{ steps.readme_check.outputs.should_verify }}
-       - result: ${{ job.status }}
 
  summary:
   if: always()

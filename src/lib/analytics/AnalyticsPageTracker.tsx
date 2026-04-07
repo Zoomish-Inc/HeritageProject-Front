@@ -8,7 +8,7 @@ export function AnalyticsPageTracker() {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		const pagePath = pathname;
+		const pagePath = pathname ?? '/';
 		const pageLocation =
 			typeof window !== 'undefined'
 				? window.location.href
@@ -18,7 +18,7 @@ export function AnalyticsPageTracker() {
 
 		trackPageView(pagePath, pageTitle, pageLocation);
 
-		const match = pathname.match(/^\/(ru|uz)\/heritage\/([^/?#]+)/);
+		const match = pagePath.match(/^\/(ru|uz)\/heritage\/([^/?#]+)/);
 		if (match) {
 			trackHeritageView(match[1], decodeURIComponent(match[2]), pagePath);
 		}

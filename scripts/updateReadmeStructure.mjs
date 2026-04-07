@@ -138,7 +138,7 @@ async function main() {
 	if (checkMode) {
 		if (updatedFormatted !== currentFormatted) {
 			console.error(
-				'README structure block is outdated. Run: npm run docs:structure'
+				'README structure block is outdated. Run: npm run docs:update'
 			);
 			process.exitCode = 1;
 		}

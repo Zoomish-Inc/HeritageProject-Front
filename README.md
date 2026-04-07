@@ -14,7 +14,7 @@
 
 ## Структура проекта
 
-Раздел ниже генерируется автоматически командой `npm run docs:sync` (алиас к `docs:structure`, с тем же форматированием README). Корни и исключения задаются в [`docs/structure.config.json`](docs/structure.config.json).
+Раздел ниже генерируется автоматически командой `npm run docs:update`. Корни и исключения задаются в [`docs/structure.config.json`](docs/structure.config.json).
 
 <!-- docs:structure:start -->
 
@@ -220,12 +220,12 @@ tests
 npm run dev
 npm run build
 npm run start
-npm run lint
-npm run check-lint
-npm run check-format
 npm run fix
-npm run docs:sync
-npm run docs:structure
+npm run check:all
+npm run check:imports
+npm run lint:boundaries
+npm run test:e2e
+npm run docs:update
 npm run docs:check
 npm test
 ```
@@ -254,4 +254,4 @@ npm run dev
 ## Тесты и CI
 
 - Unit-тесты лежат в `tests/`, окружение и cleanup — `tests/setup.ts`.
-- В CI (`.github/workflows/ci.yml`) выполняются `npm ci`, `npm test`, `npm run lint`, `npm run docs:check`.
+- В CI (`.github/workflows/ci.yml`) выполняются `npm ci`, `npm run check:all`, `npm run docs:check`.

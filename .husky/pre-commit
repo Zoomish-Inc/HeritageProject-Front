@@ -1,10 +1,18 @@
 #! /bin/sh
 
-npm run check-format
+# Auto-refresh README structure block when tracked tree changes.
+structure_changes="$(git diff --cached --name-only --diff-filter=ACDR -- src tests)"
+if [ -n "$structure_changes" ]; then
+  echo "Detected structural changes in src/tests, updating README structure..."
+  npm run docs:update || exit 1
+  git add README.md
+fi
+
+npm run check:all
 
 status="$?"
 
-if [[ "$status" == "1" ]]; then
-  echo "Prettier found ugly code. can't commit that."
+if [ "$status" != "0" ]; then
+  echo "Quality gate failed. Fix lint/imports/tests before commit."
   exit 1
 fi

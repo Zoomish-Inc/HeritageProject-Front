@@ -5,7 +5,24 @@
 		"plugin:@typescript-eslint/recommended",
 		"prettier"
 	],
-	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"prettier",
+		"boundaries",
+		"unused-imports"
+	],
+	"settings": {
+		"boundaries/include": ["src/**/*"],
+		"boundaries/elements": [
+			{ "type": "app", "pattern": "src/app/**" },
+			{ "type": "pages", "pattern": "src/pages/**" },
+			{ "type": "widgets", "pattern": "src/widgets/**" },
+			{ "type": "features", "pattern": "src/features/**" },
+			{ "type": "entities", "pattern": "src/entities/**" },
+			{ "type": "shared", "pattern": "src/shared/**" }
+		]
+	},
 	"rules": {
 		"prettier/prettier": "warn",
 		"arrow-body-style": "off",
@@ -33,7 +50,17 @@
 		"import/prefer-default-export": "off",
 		"no-unused-vars": "off",
 		"no-continue": "warn",
-		"@typescript-eslint/no-unused-vars": "warn",
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"varsIgnorePattern": "^_",
+				"args": "after-used",
+				"argsIgnorePattern": "^_"
+			}
+		],
 		"eqeqeq": "warn",
 		"react/require-default-props": "off",
 		"react/react-in-jsx-scope": "off",
@@ -61,6 +88,13 @@
 		"react/no-array-index-key": "warn",
 		"@typescript-eslint/ban-ts-comment": "warn",
 		"react/button-has-type": "warn",
+		"import/no-cycle": ["error", { "ignoreExternal": true }],
+		"import/no-internal-modules": [
+			"error",
+			{
+				"forbid": ["@/entities/*/*", "@/features/*/*", "@/widgets/*/*"]
+			}
+		],
 		"no-restricted-imports": [
 			"error",
 			{
@@ -91,6 +125,43 @@
 		]
 	},
 	"overrides": [
+		{
+			"files": ["src/**/*.{ts,tsx}"],
+			"rules": {
+				"boundaries/dependencies": [
+					"error",
+					{
+						"default": "disallow",
+						"rules": [
+							{
+								"from": "app",
+								"allow": ["pages", "widgets", "features", "entities", "shared"]
+							},
+							{
+								"from": "pages",
+								"allow": ["widgets", "features", "entities", "shared"]
+							},
+							{
+								"from": "widgets",
+								"allow": ["features", "entities", "shared"]
+							},
+							{
+								"from": "features",
+								"allow": ["entities", "shared"]
+							},
+							{
+								"from": "entities",
+								"allow": ["shared"]
+							},
+							{
+								"from": "shared",
+								"allow": ["shared"]
+							}
+						]
+					}
+				]
+			}
+		},
 		{
 			"files": ["src/shared/**/*.{ts,tsx}"],
 			"rules": {

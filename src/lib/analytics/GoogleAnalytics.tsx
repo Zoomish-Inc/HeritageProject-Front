@@ -1,24 +1,18 @@
-'use client';
-
-import Script from 'next/script';
-import { clientEnv } from '@/env';
-
 export function GoogleAnalytics() {
-	const gaId = clientEnv.NEXT_PUBLIC_GA_ID;
+	const gaId = process.env.NEXT_PUBLIC_GA_ID;
 	if (!gaId) return null;
 
 	return (
 		<>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-				strategy="afterInteractive"
-			/>
-			<Script id="google-analytics" strategy="afterInteractive">
-				{`window.dataLayer = window.dataLayer || [];
+			<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaId}', { send_page_view: false });`}
-			</Script>
+gtag('config', '${gaId}', { send_page_view: false });`,
+				}}
+			/>
 		</>
 	);
 }

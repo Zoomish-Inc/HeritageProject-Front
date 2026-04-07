@@ -23,12 +23,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
 	const title = `${tCommon('project_name')} · ${tHome('hero_subtitle')}`;
 	const description = tHome('hero_description');
+	let previewImageUrl: string | undefined;
+
+	try {
+		const list = await loadHeritageListForRequest();
+		const firstPublic = list.filter(isHeritageListItemPublic)[0];
+		previewImageUrl = firstPublic?.coverImageUrl;
+	} catch {
+		previewImageUrl = undefined;
+	}
 
 	return buildHomeMetadata({
 		locale,
 		title,
 		description,
 		projectName: tCommon('project_name'),
+		...(previewImageUrl
+			? {
+					ogImages: [{ url: previewImageUrl, alt: tCommon('project_name') }],
+					twitterImages: [previewImageUrl],
+				}
+			: {}),
 	});
 }
 

@@ -46,6 +46,10 @@ export default function RootLayout({
 						__html: `(function(){try{var key='theme-preference';var saved=localStorage.getItem(key);var prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;var theme=saved==='light'||saved==='dark'?saved:(prefersLight?'light':'dark');var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(theme);}catch(e){document.documentElement.classList.add('dark');}})();`,
 					}}
 				/>
+				<meta
+					name="google-site-verification"
+					content="KJX3dKc13wdH-OnAQ-Uxl9VahGz0GtpzJfugV7iWGeg"
+				/>
 			</head>
 			<body
 				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${cinzel.variable}`}

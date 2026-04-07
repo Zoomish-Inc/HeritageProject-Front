@@ -1,11 +1,8 @@
 name: Setup Node and npm deps
-description: Checkout repo, setup Node 20, install npm 11 and dependencies
+description: Setup Node 20, install npm 11 and dependencies
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
         node-version: '20'

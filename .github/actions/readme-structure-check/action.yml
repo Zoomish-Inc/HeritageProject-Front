@@ -16,10 +16,18 @@ inputs:
     description: Base branch ref for pull requests
     required: false
     default: ""
+outputs:
+  should_run:
+    description: Whether structure-related files changed
+    value: ${{ steps.check.outputs.should_run }}
+  should_verify:
+    description: Whether README should be verified in this event
+    value: ${{ steps.check.outputs.should_verify }}
 runs:
   using: composite
   steps:
-    - name: Handle README structure
+    - name: Evaluate README structure conditions
+      id: check
       shell: bash
       run: |
         set -euo pipefail
@@ -42,22 +50,16 @@ runs:
 
         if ! echo "$changed_files" | grep -E '^(src/|tests/|docs/structure.config.json|README\.md)' >/dev/null; then
           echo "No structure-related changes, skipping README structure action."
+          echo "should_run=false" >> "$GITHUB_OUTPUT"
+          echo "should_verify=false" >> "$GITHUB_OUTPUT"
           exit 0
         fi
 
         npm run docs:update
 
-        if [ "$event_name" = "push" ]; then
-          if ! git diff --quiet -- README.md; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add README.md
-            git commit -m "chore(docs): auto-update README structure"
-            git push
-          fi
-          exit 0
-        fi
-
+        echo "should_run=true" >> "$GITHUB_OUTPUT"
         if [ "$event_name" = "pull_request" ]; then
-          git diff --exit-code README.md
+          echo "should_verify=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "should_verify=false" >> "$GITHUB_OUTPUT"
         fi

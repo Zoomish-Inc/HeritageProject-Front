@@ -10,23 +10,54 @@ concurrency:
  cancel-in-progress: true
 
 jobs:
+ workflow_lint:
+  uses: ./.github/workflows/ci-workflow-lint.yml
+
  quality:
+  needs: [workflow_lint]
   runs-on: ubuntu-latest
   steps:
+   - uses: actions/checkout@v4
+     with:
+      fetch-depth: 0
+
    - uses: ./.github/actions/setup-node-npm
 
    - name: Run quality action
      uses: ./.github/actions/quality-gate
 
  readme:
+  needs: [workflow_lint]
   runs-on: ubuntu-latest
   steps:
+   - uses: actions/checkout@v4
+     with:
+      fetch-depth: 0
+
    - uses: ./.github/actions/setup-node-npm
 
    - name: Run README structure action
+     id: readme_check
      uses: ./.github/actions/readme-structure-check
      with:
       event_name: ${{ github.event_name }}
       before_sha: ${{ github.event.before }}
       head_sha: ${{ github.sha }}
       base_ref: ${{ github.base_ref }}
+
+   - name: Push README changes on main push
+     if: github.event_name == 'push' && steps.readme_check.outputs.should_run == 'true'
+     uses: ./.github/actions/git-push-readme
+
+   - name: Verify README is committed on PR
+     if: github.event_name == 'pull_request' && steps.readme_check.outputs.should_verify == 'true'
+     run: git diff --exit-code README.md
+
+ summary:
+  if: always()
+  needs: [workflow_lint, quality, readme]
+  uses: ./.github/workflows/ci-summary.yml
+  with:
+   workflow_lint_result: ${{ needs.workflow_lint.result }}
+   quality_result: ${{ needs.quality.result }}
+   readme_result: ${{ needs.readme.result }}

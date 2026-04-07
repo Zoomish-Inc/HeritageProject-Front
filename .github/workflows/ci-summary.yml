@@ -1,0 +1,30 @@
+name: CI Summary Reusable
+
+on:
+  workflow_call:
+    inputs:
+      workflow_lint_result:
+        required: true
+        type: string
+      quality_result:
+        required: true
+        type: string
+      readme_result:
+        required: true
+        type: string
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print CI stage results
+        run: |
+          echo "workflow_lint: ${{ inputs.workflow_lint_result }}"
+          echo "quality:       ${{ inputs.quality_result }}"
+          echo "readme:        ${{ inputs.readme_result }}"
+
+      - name: Fail if any stage failed
+        if: inputs.workflow_lint_result != 'success' || inputs.quality_result != 'success' || inputs.readme_result != 'success'
+        run: |
+          echo "::error::CI failed. Results => workflow_lint=${{ inputs.workflow_lint_result }}, quality=${{ inputs.quality_result }}, readme=${{ inputs.readme_result }}"
+          exit 1

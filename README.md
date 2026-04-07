@@ -107,7 +107,7 @@ src
 │   ├── heritage
 │   │   └── rawMockHeritageObjects.ts
 │   └── heritage.ts
-├── pages
+├── pageSlices
 │   ├── heritageDetail
 │   │   ├── model
 │   │   │   └── metadata.ts
@@ -136,6 +136,8 @@ src
 │   │   │   └── index.ts
 │   │   ├── image
 │   │   │   └── placeholder.ts
+│   │   ├── react
+│   │   │   └── cache.ts
 │   │   └── seo
 │   │       ├── absolutizeMediaUrl.ts
 │   │       ├── paths.ts

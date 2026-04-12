@@ -89,7 +89,8 @@ src
 │   ├── analytics
 │   │   ├── AnalyticsPageTracker.tsx
 │   │   ├── GoogleAnalytics.tsx
-│   │   └── index.ts
+│   │   ├── index.ts
+│   │   └── YandexMetrika.tsx
 │   ├── heritage
 │   │   ├── config.ts
 │   │   ├── getHeritageById.ts
@@ -218,7 +219,9 @@ tests
 ## Architectural guardrails
 
 <!-- docs:guardrails:start -->
+
 Reserved Next.js directory rules (from docs/structure.config.json):
+
 - forbidden top-level dirs in src: pages, api
 - preferred FSD page layer dir: pageSlices
 - allowed API dirs: app/api

@@ -14,4 +14,5 @@ export const seoConfig = {
 export const analyticsConfig = {
 	gaId: process.env.NEXT_PUBLIC_GA_ID?.trim(),
 	provider: process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER?.trim(),
+	yandexMetrikaId: process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID?.trim(),
 };

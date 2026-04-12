@@ -7,6 +7,7 @@ import { validateAnalyticsPayload } from './schema';
 declare global {
 	interface Window {
 		gtag?: (...args: unknown[]) => void;
+		ym?: (counterId: number, method: string, ...args: unknown[]) => void;
 	}
 }
 
@@ -97,6 +98,25 @@ export function trackRawEvent<K extends AnalyticsEventName>(
 	enqueue(eventName, payload as Record<string, unknown>);
 }
 
+function tryYandexMetrikaHit(
+	counterId: number,
+	url: string,
+	pageTitle?: string
+) {
+	if (typeof window === 'undefined') return;
+	const send = () => {
+		if (typeof window.ym !== 'function') return false;
+		window.ym(counterId, 'hit', url, {
+			...(pageTitle ? { title: pageTitle } : {}),
+		});
+		return true;
+	};
+	if (send()) return;
+	window.setTimeout(() => {
+		send();
+	}, 800);
+}
+
 export function trackPageView(
 	pagePath: string,
 	pageTitle?: string,
@@ -107,4 +127,14 @@ export function trackPageView(
 		...(pageTitle ? { page_title: pageTitle } : {}),
 		...(pageLocation ? { page_location: pageLocation } : {}),
 	});
+
+	const ymIdRaw = clientEnv.NEXT_PUBLIC_YANDEX_METRIKA_ID;
+	if (ymIdRaw) {
+		const url =
+			pageLocation ??
+			(typeof window !== 'undefined' ? window.location.href : undefined);
+		if (url) {
+			tryYandexMetrikaHit(Number(ymIdRaw), url, pageTitle);
+		}
+	}
 }

@@ -32,6 +32,10 @@ const clientSchema = z.object({
 		emptyToUndefined,
 		z.enum(['ga', 'plausible', 'posthog']).optional()
 	),
+	NEXT_PUBLIC_YANDEX_METRIKA_ID: z.preprocess(
+		emptyToUndefined,
+		z.string().regex(/^\d+$/).optional()
+	),
 });
 
 const parsed = clientSchema.safeParse({
@@ -42,6 +46,7 @@ const parsed = clientSchema.safeParse({
 		process.env.NEXT_PUBLIC_SITE_SEARCH_URL_TEMPLATE,
 	NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
 	NEXT_PUBLIC_ANALYTICS_PROVIDER: process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER,
+	NEXT_PUBLIC_YANDEX_METRIKA_ID: process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID,
 });
 
 export type ClientEnv = z.infer<typeof clientSchema>;

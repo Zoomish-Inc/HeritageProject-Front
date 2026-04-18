@@ -8,7 +8,7 @@ const config: Config = {
 				parchment: {
 					50: '#fdf8f0',
 					100: '#f5ede0',
-					200: '#ead8c0',
+					200: '#4f310d',
 					300: '#d9bfa0',
 				},
 				sepia: {

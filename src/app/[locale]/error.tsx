@@ -8,6 +8,8 @@ import {
 	ErrorOrNotFoundShell,
 	NavigatorBackButton,
 	OrnamentalDivider,
+	UiCtaButton,
+	getUiCtaButtonClassName,
 } from '@/shared/ui';
 
 type Props = {
@@ -40,23 +42,23 @@ export default function LocaleError({ error, reset }: Props) {
 
 	return (
 		<ErrorOrNotFoundShell>
-			<h1 className="font-display text-parchment-100 text-2xl md:text-3xl mb-4">
+			<h1 className="font-display text-theme-primary text-2xl md:text-3xl mb-4">
 				{t('title')}
 			</h1>
-			<p className="text-parchment-200/70 font-body text-sm mb-8 max-w-md mx-auto">
+			<p className="text-theme-muted font-body text-sm mb-8 max-w-md mx-auto">
 				{t('description')}
 			</p>
 
 			{error.digest ? (
 				<div className="text-left max-w-xl mx-auto mb-8 rounded border border-gold-400/20 bg-parchment-950/25 px-4 py-4 space-y-3">
-					<p className="text-parchment-200/85 font-body text-xs leading-relaxed">
+					<p className="text-theme-muted font-body text-xs leading-relaxed">
 						{t('error_rsc_explanation')}
 					</p>
-					<p className="text-parchment-200/85 font-body text-xs leading-relaxed">
+					<p className="text-theme-muted font-body text-xs leading-relaxed">
 						{t('error_digest_hint')}
 					</p>
 					{runtimeConfig.isDev ? (
-						<p className="text-gold-400/70 font-body text-xs leading-relaxed">
+						<p className="text-theme-accent-soft font-body text-xs leading-relaxed">
 							{t('error_dev_hint')}
 						</p>
 					) : null}
@@ -64,7 +66,7 @@ export default function LocaleError({ error, reset }: Props) {
 			) : null}
 
 			<div className="text-left max-w-xl mx-auto mb-8">
-				<p className="font-body text-[10px] tracking-[0.25em] uppercase text-gold-400/60 mb-3">
+				<p className="font-body text-ui-micro tracking-[0.25em] text-theme-accent-soft mb-3">
 					{t('error_details')}
 				</p>
 				<div className="rounded border border-gold-400/20 bg-parchment-950/30 backdrop-blur-sm">
@@ -75,7 +77,11 @@ export default function LocaleError({ error, reset }: Props) {
 				<button
 					type="button"
 					onClick={handleCopy}
-					className="mt-4 w-full border border-gold-400/40 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-4 py-2 font-body text-xs tracking-widest uppercase"
+					className={getUiCtaButtonClassName({
+						size: 'sm',
+						variant: 'accent',
+						className: 'mt-4 w-full border-gold-400/40',
+					})}
 				>
 					{copied ? t('copied') : t('copy_error')}
 				</button>
@@ -84,17 +90,16 @@ export default function LocaleError({ error, reset }: Props) {
 			<OrnamentalDivider />
 
 			<div className="flex flex-wrap gap-4 justify-center mt-10">
-				<button
-					type="button"
-					onClick={() => reset()}
-					className="border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-6 py-2 font-body text-xs tracking-widest uppercase"
-				>
+				<UiCtaButton type="button" onClick={() => reset()} size="md">
 					{t('retry')}
-				</button>
+				</UiCtaButton>
 				<NavigatorBackButton label={t('go_back')} />
 				<Link
 					href="/"
-					className="border border-gold-400/30 text-gold-400/80 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300 px-6 py-2 font-body text-xs tracking-widest uppercase"
+					className={getUiCtaButtonClassName({
+						size: 'md',
+						variant: 'accentSoft',
+					})}
 				>
 					{t('back_home')}
 				</Link>

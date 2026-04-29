@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
-import { AnalyticsPageTracker } from '@/lib/analytics/AnalyticsPageTracker';
-import { GoogleAnalytics } from '@/lib/analytics/GoogleAnalytics';
-import { YandexMetrika } from '@/lib/analytics/YandexMetrika';
+import {
+	AnalyticsPageTracker,
+	GoogleAnalytics,
+	YandexMetrika,
+} from '@/shared/lib/analytics/provider';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 

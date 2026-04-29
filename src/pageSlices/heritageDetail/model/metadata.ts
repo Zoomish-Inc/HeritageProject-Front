@@ -1,7 +1,6 @@
 import { buildHeritageMetadataFactory } from '@/entities/seo';
-import type { Locale } from '@/entities/heritage';
-import { routing } from '@/i18n/routing';
-import { getHeritageById } from '@/lib/heritage/getHeritageById';
+import { isSupportedLocale, type Locale } from '@/i18n/locale';
+import { getHeritageDetailPageData } from '@/lib/heritage/readModel';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
@@ -12,11 +11,11 @@ export async function getHeritageDetailPageMetadata({
 	locale: Locale;
 	id: string;
 }): Promise<Metadata> {
-	if (!routing.locales.includes(locale)) {
+	if (!isSupportedLocale(locale)) {
 		return { title: 'Not Found' };
 	}
 
-	const obj = await getHeritageById(id);
+	const { obj } = await getHeritageDetailPageData(id);
 	if (!obj) {
 		return { title: 'Not Found' };
 	}

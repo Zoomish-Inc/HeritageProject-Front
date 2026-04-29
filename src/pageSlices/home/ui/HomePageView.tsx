@@ -1,25 +1,27 @@
 import type { Locale } from '@/entities/heritage';
 import { HomeJsonLdFeature } from '@/features/seo';
-import { routing } from '@/i18n/routing';
-import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
-import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
-import { DecorativeFlourish } from '@/shared/ui';
+import { isSupportedLocale } from '@/i18n/locale';
+import { getPublicHeritageList } from '@/lib/heritage/readModel';
+import {
+	DecorativeFlourish,
+	UiBadge,
+	getUiCtaButtonClassName,
+} from '@/shared/ui';
 import { HeritageObjectsSection } from '@/widgets/heritage';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 export async function HomePageView({ locale }: { locale: Locale }) {
-	if (!routing.locales.includes(locale)) {
+	if (!isSupportedLocale(locale)) {
 		notFound();
 	}
 
 	const t = await getTranslations({ locale, namespace: 'home' });
 	const tCommon = await getTranslations({ locale, namespace: 'common' });
-	let listItems: Awaited<ReturnType<typeof loadHeritageListForRequest>> = [];
+	let listItems: Awaited<ReturnType<typeof getPublicHeritageList>> = [];
 
 	try {
-		const raw = await loadHeritageListForRequest();
-		listItems = raw.filter(isHeritageListItemPublic);
+		listItems = await getPublicHeritageList();
 	} catch {
 		listItems = [];
 	}
@@ -52,9 +54,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<div className="flex items-center justify-center gap-4 mb-8">
 						<div className="flex-1 max-w-32 h-px bg-gradient-to-r from-transparent to-gold-400/60" />
 						<div className="border border-gold-400/40 px-4 py-1 flex items-center justify-center">
-							<span className="block leading-none text-gold-400/70 font-body text-[10px] tracking-[0.4em] uppercase">
-								1878 — 1902
-							</span>
+							<UiBadge variant="heroEra">1878 — 1902</UiBadge>
 						</div>
 						<div className="flex-1 max-w-32 h-px bg-gradient-to-l from-transparent to-gold-400/60" />
 					</div>
@@ -62,13 +62,13 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<h1 className="font-display text-parchment-50 text-4xl md:text-6xl leading-tight mb-4">
 						{t('hero_title')}
 					</h1>
-					<p className="text-gold-400 font-body text-sm tracking-[0.3em] uppercase mb-6">
+					<p className="text-theme-accent font-body text-sm tracking-[0.3em] uppercase mb-6">
 						{t('hero_subtitle')}
 					</p>
 
 					<div className="max-w-xl mx-auto">
 						<div className="h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent mb-6" />
-						<p className="text-parchment-200/70 font-body text-base leading-relaxed">
+						<p className="text-theme-muted font-body text-base leading-relaxed">
 							{t('hero_description')}
 						</p>
 						<div className="h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent mt-6" />
@@ -77,7 +77,11 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<div className="mt-10">
 						<a
 							href="#objects"
-							className="inline-flex items-center gap-3 border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-8 py-3 font-body text-xs tracking-[0.3em] uppercase"
+							className={getUiCtaButtonClassName({
+								size: 'md',
+								variant: 'accent',
+								className: 'gap-3 px-8 py-3 tracking-[0.3em]',
+							})}
 						>
 							{t('explore_button')}
 							<span>↓</span>

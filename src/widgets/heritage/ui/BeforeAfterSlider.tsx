@@ -12,6 +12,7 @@ import {
 	imagePlaceholderDataUrl,
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
+import { UiBadge } from '@/shared/ui';
 
 type Props = {
 	beforeSrc: string;
@@ -176,12 +177,8 @@ export const BeforeAfterSlider = ({
 				</div>
 
 				<div className="absolute top-2 left-2 right-2 flex justify-between pointer-events-none z-[5]">
-					<span className="inline-flex items-center leading-none text-[10px] font-body tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
-						{beforeLabel}
-					</span>
-					<span className="inline-flex items-center leading-none text-[10px] font-body tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
-						{afterLabel}
-					</span>
+					<UiBadge variant="mediaLabel">{beforeLabel}</UiBadge>
+					<UiBadge variant="mediaLabel">{afterLabel}</UiBadge>
 				</div>
 			</div>
 

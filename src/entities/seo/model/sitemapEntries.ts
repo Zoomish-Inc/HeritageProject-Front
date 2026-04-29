@@ -1,7 +1,5 @@
-import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
-import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
+import { getPublicHeritageList } from '@/lib/heritage/readModel';
 
 export async function getHeritageListForSitemap() {
-	const list = await loadHeritageListForRequest();
-	return list.filter(isHeritageListItemPublic);
+	return getPublicHeritageList();
 }

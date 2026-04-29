@@ -285,6 +285,10 @@ html.light {
 }
 
 @layer utilities {
+	.text-ui-micro {
+		@apply font-body text-[10px] uppercase leading-none;
+	}
+
 	.line-clamp-2 {
 		display: -webkit-box;
 		-webkit-line-clamp: 2;

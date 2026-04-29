@@ -1,10 +1,8 @@
-import type { Locale } from '@/entities/heritage';
+import type { Locale } from '@/i18n/locale';
 import { HeritageJsonLdFeature } from '@/features/seo';
 import { getMetadataBaseUrl } from '@/env';
-import { routing } from '@/i18n/routing';
-import { getHeritageById } from '@/lib/heritage/getHeritageById';
-import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
-import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
+import { isSupportedLocale } from '@/i18n/locale';
+import { getHeritageDetailPageData } from '@/lib/heritage/readModel';
 import {
 	absolutePageUrl,
 	heritagePathForLocale,
@@ -22,9 +20,8 @@ export async function HeritageDetailPageView({
 	locale: Locale;
 	id: string;
 }) {
-	if (!routing.locales.includes(locale)) notFound();
-
-	const obj = await getHeritageById(id);
+	if (!isSupportedLocale(locale)) notFound();
+	const { obj, nextSlug } = await getHeritageDetailPageData(id);
 	if (!obj) notFound();
 
 	const pageUrl = absolutePageUrl(heritagePathForLocale(locale, obj.slug));
@@ -33,16 +30,6 @@ export async function HeritageDetailPageView({
 	const catalogUrl = `${homeUrl}#objects`;
 	const tNav = await getTranslations({ locale, namespace: 'nav' });
 	const tHome = await getTranslations({ locale, namespace: 'home' });
-	const list = await loadHeritageListForRequest();
-	const orderedPublic = [...list]
-		.filter(isHeritageListItemPublic)
-		.sort((a, b) => a.order - b.order);
-	const currentIndex = orderedPublic.findIndex((item) => item.slug === obj.slug);
-	const nextSlug =
-		currentIndex >= 0 && currentIndex < orderedPublic.length - 1
-			? orderedPublic[currentIndex + 1].slug
-			: undefined;
-
 	return (
 		<>
 			<NextHeritagePrefetch locale={locale} slug={nextSlug} />

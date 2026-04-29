@@ -1,13 +1,11 @@
 import { buildHomeMetadataFactory } from '@/entities/seo';
-import type { Locale } from '@/entities/heritage';
-import { routing } from '@/i18n/routing';
-import { loadHeritageListForRequest } from '@/lib/heritage/getHeritageList';
-import { isHeritageListItemPublic } from '@/lib/heritage/listVisibility';
+import { isSupportedLocale, type Locale } from '@/i18n/locale';
+import { getPublicHeritageList } from '@/lib/heritage/readModel';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 export async function getHomePageMetadata(locale: Locale): Promise<Metadata> {
-	if (!routing.locales.includes(locale)) {
+	if (!isSupportedLocale(locale)) {
 		return { title: 'Not Found' };
 	}
 
@@ -18,8 +16,8 @@ export async function getHomePageMetadata(locale: Locale): Promise<Metadata> {
 	let previewImageUrl: string | undefined;
 
 	try {
-		const list = await loadHeritageListForRequest();
-		const firstPublic = list.filter(isHeritageListItemPublic)[0];
+		const list = await getPublicHeritageList();
+		const firstPublic = list[0];
 		previewImageUrl = firstPublic?.coverImageUrl;
 	} catch {
 		previewImageUrl = undefined;

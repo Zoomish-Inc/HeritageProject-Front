@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import {
 	getMessages,
@@ -10,6 +9,7 @@ import { dehydrate } from '@tanstack/react-query';
 import { DocumentLangSync } from '@/shared/lib/i18n';
 import { runtimeConfig } from '@/shared/config';
 import { DecorativeFlourish } from '@/shared/ui';
+import { assertLocaleOrNotFound, type Locale } from '@/i18n/locale';
 import { routing } from '@/i18n/routing';
 import { heritageListQueryFn } from '@/lib/heritage/getHeritageList';
 import {
@@ -17,7 +17,6 @@ import {
 	heritageListStaleTime,
 } from '@/lib/heritage/listQuery';
 import { createQueryClient } from '@/lib/queryClient';
-import type { Locale } from '@/entities/heritage';
 import { HeaderWidget } from '@/widgets/header';
 import { Providers } from './providers';
 
@@ -41,8 +40,7 @@ export default async function LocaleLayout({
 	children,
 	params,
 }: Readonly<Props>) {
-	const locale = params.locale as Locale;
-	if (!routing.locales.includes(locale)) notFound();
+	const locale: Locale = assertLocaleOrNotFound(params.locale);
 
 	setRequestLocale(locale);
 	const messages = await getMessages();

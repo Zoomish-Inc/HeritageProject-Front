@@ -17,6 +17,7 @@
 			"@/*": ["./src/*"],
 			"@/app/*": ["./src/app/*"],
 			"@/pages/*": ["./src/pageSlices/*"],
+			"@/pageSlices/*": ["./src/pageSlices/*"],
 			"@/widgets/*": ["./src/widgets/*"],
 			"@/features/*": ["./src/features/*"],
 			"@/entities/*": ["./src/entities/*"],

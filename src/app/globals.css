@@ -24,6 +24,9 @@
 	--content-panel-bg: rgb(45 26 14 / 0.55);
 	--content-panel-heading: #e8cc7a;
 	--content-panel-body: rgb(245 237 224 / 0.92);
+	--chip-bg: rgb(26 15 8 / 0.72);
+	--chip-text: #f5ede0;
+	--chip-border: rgb(201 168 76 / 0.5);
 }
 
 html.light {
@@ -48,6 +51,9 @@ html.light {
 	--content-panel-bg: #dcc9a8;
 	--content-panel-heading: #5e3b0f;
 	--content-panel-body: #2b1b0f;
+	--chip-bg: rgb(94 59 15 / 0.72);
+	--chip-text: #fdf8f0;
+	--chip-border: rgb(94 59 15 / 0.58);
 }
 
 @layer base {
@@ -130,6 +136,18 @@ html.light {
 
 	.bg-theme-accent-faint {
 		background-color: var(--accent-faint);
+	}
+
+	.bg-theme-chip {
+		background-color: var(--chip-bg);
+	}
+
+	.text-theme-chip {
+		color: var(--chip-text);
+	}
+
+	.border-theme-chip {
+		border-color: var(--chip-border);
 	}
 
 	.theme-button-outline {

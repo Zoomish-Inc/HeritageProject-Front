@@ -33,13 +33,13 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 					className="object-cover [filter:sepia(0.4)] transition-transform duration-700 group-hover:scale-105"
 				/>
 				<div className="absolute inset-0 bg-sepia-900/40 z-10 group-hover:bg-sepia-900/20 transition-all duration-500 pointer-events-none" />
-				<div className="absolute top-3 left-3 z-20 w-8 h-8 border border-gold-400/60 flex items-center justify-center bg-sepia-900/80">
-					<span className="inline-flex items-center leading-none text-gold-400 font-body text-xs">
+				<div className="absolute top-3 left-3 z-20 w-8 h-8 border border-theme-chip flex items-center justify-center bg-theme-chip">
+					<span className="inline-flex items-center leading-none text-theme-chip font-body text-xs">
 						{String(index + 1).padStart(2, '0')}
 					</span>
 				</div>
-				<div className="absolute bottom-3 right-3 z-20 bg-sepia-900/80 border border-gold-400/30 px-2 py-1 flex items-center justify-center">
-					<span className="inline-flex items-center leading-none text-gold-400 font-body text-xs tracking-widest">
+				<div className="absolute bottom-3 right-3 z-20 bg-theme-chip border border-theme-chip px-2 py-1 flex items-center justify-center">
+					<span className="inline-flex items-center leading-none text-theme-chip font-body text-xs tracking-widest">
 						{item.yearRange ?? item.yearBuilt}
 					</span>
 				</div>

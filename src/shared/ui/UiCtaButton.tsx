@@ -13,7 +13,7 @@ const baseClassName =
 
 const variantClassName: Record<UiCtaButtonVariant, string> = {
 	accent:
-		'border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10',
+		'border-theme-chip text-theme-chip bg-theme-chip hover:border-gold-400 hover:bg-gold-400/10',
 	accentSoft:
 		'border-gold-400/30 text-gold-400/80 hover:text-gold-400 hover:border-gold-400/50',
 };

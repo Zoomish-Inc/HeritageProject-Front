@@ -55,7 +55,14 @@ function enqueue(
 	eventName: AnalyticsEventName,
 	payload: Record<string, unknown>
 ) {
-	queue.push({ name: eventName, payload, attempts: 0 });
+	queue.push({
+		name: eventName,
+		payload:
+			payload && typeof payload === 'object' && !Array.isArray(payload)
+				? payload
+				: {},
+		attempts: 0,
+	});
 	scheduleFlush();
 }
 
@@ -67,12 +74,21 @@ export function flushAnalyticsQueue() {
 	}
 	const nextQueue: QueueItem[] = [];
 	for (const item of queue) {
-		try {
-			sendToGa(item.name, item.payload);
-		} catch {
-			const attempts = item.attempts + 1;
-			if (attempts < maxQueueAttempts) {
-				nextQueue.push({ ...item, attempts });
+		if (item && typeof item === 'object') {
+			const payload =
+				item.payload &&
+				typeof item.payload === 'object' &&
+				!Array.isArray(item.payload)
+					? item.payload
+					: {};
+
+			try {
+				sendToGa(item.name, payload);
+			} catch {
+				const attempts = item.attempts + 1;
+				if (attempts < maxQueueAttempts) {
+					nextQueue.push({ ...item, payload, attempts });
+				}
 			}
 		}
 	}

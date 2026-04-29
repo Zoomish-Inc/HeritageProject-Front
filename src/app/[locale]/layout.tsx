@@ -72,7 +72,7 @@ export default async function LocaleLayout({
 				<main className="pt-16 min-h-screen">{children}</main>
 				<footer className="border-t border-gold-400/15 mt-16 py-8 text-center">
 					<DecorativeFlourish variant="footer" className="justify-center mb-3" />
-					<p className="text-parchment-300/40 font-ui text-xs tracking-[0.2em] uppercase">
+					<p className="text-parchment-300/40 font-body text-xs tracking-[0.2em] uppercase">
 						{tLayout('footer_line')}
 					</p>
 				</footer>

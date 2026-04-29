@@ -20,13 +20,13 @@ export const Header = () => {
 				<Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
 					<div className="w-10 h-10 shrink-0 border border-theme-strong flex items-center justify-center transition-colors duration-300 relative group-hover:border-gold-400">
 						<div className="absolute inset-1 border border-theme-soft" />
-						<span className="text-theme-accent text-lg font-ui">Ф</span>
+						<span className="text-theme-accent text-lg font-body">Ф</span>
 					</div>
 					<div className="hidden sm:block min-w-0">
 						<p className="text-theme-primary font-display text-sm leading-none tracking-wide truncate">
 							{t('project_name')}
 						</p>
-						<p className="text-theme-accent-soft font-ui text-[9px] tracking-[0.25em] uppercase mt-0.5">
+						<p className="text-theme-accent-soft font-body text-[9px] tracking-[0.25em] uppercase mt-0.5">
 							{t('tagline')}
 						</p>
 					</div>

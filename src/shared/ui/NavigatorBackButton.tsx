@@ -16,7 +16,7 @@ export const NavigatorBackButton = ({ label, className }: Props) => {
 			onClick={() => router.back()}
 			className={
 				className ??
-				'theme-button-outline px-6 py-2 font-ui text-xs tracking-widest uppercase'
+				'theme-button-outline px-6 py-2 font-body text-xs tracking-widest uppercase'
 			}
 		>
 			{label}

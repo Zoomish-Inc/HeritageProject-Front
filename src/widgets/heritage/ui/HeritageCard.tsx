@@ -34,12 +34,12 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 				/>
 				<div className="absolute inset-0 bg-sepia-900/40 z-10 group-hover:bg-sepia-900/20 transition-all duration-500 pointer-events-none" />
 				<div className="absolute top-3 left-3 z-20 w-8 h-8 border border-gold-400/60 flex items-center justify-center bg-sepia-900/80">
-					<span className="text-gold-400 font-ui text-xs">
+					<span className="inline-flex items-center leading-none text-gold-400 font-body text-xs">
 						{String(index + 1).padStart(2, '0')}
 					</span>
 				</div>
-				<div className="absolute bottom-3 right-3 z-20 bg-sepia-900/80 border border-gold-400/30 px-2 py-1">
-					<span className="text-gold-400 font-ui text-xs tracking-widest">
+				<div className="absolute bottom-3 right-3 z-20 bg-sepia-900/80 border border-gold-400/30 px-2 py-1 flex items-center justify-center">
+					<span className="inline-flex items-center leading-none text-gold-400 font-body text-xs tracking-widest">
 						{item.yearRange ?? item.yearBuilt}
 					</span>
 				</div>
@@ -51,15 +51,15 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 				<h3 className="font-display text-parchment-100 text-base leading-snug mb-2 group-hover:text-gold-300 transition-colors duration-300">
 					{item.name[locale]}
 				</h3>
-				<p className="text-parchment-200/60 font-body text-sm leading-relaxed line-clamp-2">
+				<p className="text-theme-muted font-body text-sm leading-relaxed line-clamp-2">
 					{item.shortDescription[locale]}
 				</p>
 
 				<div className="mt-4 flex items-center gap-2 text-gold-400/50 group-hover:text-gold-400 transition-colors duration-300">
-					<span className="font-ui text-[10px] tracking-[0.2em] uppercase">
+					<span className="inline-flex items-center leading-none font-body text-[10px] tracking-[0.2em] uppercase">
 						{readMoreLabel}
 					</span>
-					<span className="text-xs group-hover:translate-x-1 transition-transform duration-300">
+					<span className="inline-flex items-center leading-none text-xs group-hover:translate-x-1 transition-transform duration-300">
 						→
 					</span>
 				</div>

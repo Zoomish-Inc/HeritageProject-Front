@@ -40,7 +40,7 @@ export function HeritageNavDropdown() {
 				aria-expanded={open}
 				aria-controls={open ? `${menuId}-menu` : undefined}
 				onClick={() => setOpen((p) => !p)}
-				className="flex items-center gap-2 font-ui text-xs tracking-[0.2em] uppercase text-theme-accent hover:text-theme-accent-strong transition-colors duration-200 py-2"
+				className="flex items-center gap-2 font-body text-xs tracking-[0.2em] uppercase text-theme-accent hover:text-theme-accent-strong transition-colors duration-200 py-2"
 			>
 				<span>{tNav('landmarks')}</span>
 				<span

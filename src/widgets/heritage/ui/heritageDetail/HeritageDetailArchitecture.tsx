@@ -21,7 +21,7 @@ export const HeritageDetailArchitecture = ({
 
 		{object.architectureDetails.length > 0 && (
 			<div className="mt-8 space-y-6">
-				<p className="theme-content-panel-heading font-ui text-xs tracking-[0.3em] uppercase mb-4">
+				<p className="theme-content-panel-heading font-body text-xs tracking-[0.3em] uppercase mb-4">
 					{labels.architectureDetails}
 				</p>
 				{object.architectureDetails.map((detail) => (

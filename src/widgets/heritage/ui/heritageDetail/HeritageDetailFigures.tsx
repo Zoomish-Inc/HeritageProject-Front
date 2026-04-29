@@ -22,7 +22,7 @@ export const HeritageDetailFigures = ({ object, locale, title }: Props) => {
 						<h4 className="font-display theme-content-panel-heading text-xl mb-1">
 							{figure.name[locale]}
 						</h4>
-						<p className="theme-content-panel-heading font-ui text-xs tracking-wider uppercase mb-4">
+						<p className="theme-content-panel-heading font-body text-xs tracking-wider uppercase mb-4">
 							{figure.role[locale]}
 						</p>
 						<p className="theme-content-panel-body font-body text-sm leading-relaxed mb-4">
@@ -35,7 +35,7 @@ export const HeritageDetailFigures = ({ object, locale, title }: Props) => {
 										key={`${object.slug}-fig-${figure.name.ru}-y${m.year}`}
 										className="flex gap-4"
 									>
-										<span className="theme-content-panel-heading font-ui text-xs w-12 flex-shrink-0">
+										<span className="theme-content-panel-heading font-body text-xs w-12 flex-shrink-0">
 											{m.year}
 										</span>
 										<span className="theme-content-panel-body font-body text-xs">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cinzel, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { getMetadataBaseUrl } from '@/env';
 import { routing } from '@/i18n/routing';
 import { AnalyticsPageTracker } from '@/lib/analytics/AnalyticsPageTracker';
@@ -8,23 +8,17 @@ import { YandexMetrika } from '@/lib/analytics/YandexMetrika';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
-const playfairDisplay = Playfair_Display({
+const cormorantGaramond = Cormorant_Garamond({
 	subsets: ['latin', 'cyrillic'],
+	weight: ['500', '600', '700'],
 	variable: '--font-display',
 	display: 'swap',
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const inter = Inter({
 	subsets: ['latin', 'cyrillic'],
-	weight: ['300', '400', '500'],
+	weight: ['400', '500'],
 	variable: '--font-body',
-	display: 'swap',
-});
-
-const cinzel = Cinzel({
-	subsets: ['latin'],
-	weight: ['400', '600'],
-	variable: '--font-ui',
 	display: 'swap',
 });
 
@@ -52,7 +46,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${cinzel.variable}`}
+				className={`${cormorantGaramond.variable} ${inter.variable}`}
 			>
 				<AnalyticsPageTracker />
 				{children}

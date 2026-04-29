@@ -213,6 +213,16 @@ html.light {
 		color: var(--text-muted);
 	}
 
+	html.light .text-parchment-100\/90,
+	html.light .text-parchment-100\/80 {
+		color: var(--text-primary);
+	}
+
+	html.light .text-parchment-200\/90,
+	html.light .text-parchment-200\/85 {
+		color: var(--text-muted);
+	}
+
 	html.light .text-parchment-200\/50,
 	html.light .text-parchment-300\/40 {
 		color: var(--text-soft);
@@ -226,7 +236,8 @@ html.light {
 
 	html.light .text-gold-400\/70,
 	html.light .text-gold-400\/60,
-	html.light .text-gold-400\/50 {
+	html.light .text-gold-400\/50,
+	html.light .text-gold-400\/80 {
 		color: var(--accent-soft);
 	}
 
@@ -244,11 +255,15 @@ html.light {
 		border-color: var(--accent-strong);
 	}
 
-	html.light .hover\:text-gold-400:hover {
+	html.light .hover\:text-gold-300:hover,
+	html.light .hover\:text-gold-400:hover,
+	html.light .hover\:text-gold-500:hover {
 		color: var(--accent-strong);
 	}
 
-	html.light .group:hover .group-hover\:text-gold-400 {
+	html.light .group:hover .group-hover\:text-gold-300,
+	html.light .group:hover .group-hover\:text-gold-400,
+	html.light .group:hover .group-hover\:text-gold-500 {
 		color: var(--accent-strong);
 	}
 

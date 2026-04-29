@@ -16,7 +16,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 	<>
 		<Link
 			href="/"
-			className="inline-flex items-center gap-2 text-gold-400/60 hover:text-gold-400 transition-colors font-ui text-xs tracking-widest uppercase mb-10 group"
+			className="inline-flex items-center gap-2 text-gold-400/60 hover:text-gold-400 transition-colors font-body text-xs tracking-widest uppercase mb-10 group"
 		>
 			<span className="group-hover:-translate-x-1 transition-transform duration-200">
 				←
@@ -28,7 +28,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent mb-6" />
 			<div className="flex items-start justify-between gap-4 mb-4">
 				<div>
-					<p className="text-gold-400/60 font-ui text-xs tracking-[0.3em] uppercase mb-2">
+					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2">
 						{object.yearRange ?? object.yearBuilt}
 					</p>
 					<h1 className="font-display text-parchment-50 text-3xl md:text-4xl leading-tight">

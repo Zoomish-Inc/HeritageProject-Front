@@ -51,14 +51,14 @@ export function LandmarksNavList({
 						}}
 						className="flex items-start gap-3 px-4 py-3 hover:bg-theme-accent-faint transition-colors duration-150 group"
 					>
-						<span className="text-theme-accent-soft font-ui text-xs mt-0.5 flex-shrink-0 group-hover:text-theme-accent-strong transition-colors">
+						<span className="text-theme-accent-soft font-body text-xs mt-0.5 flex-shrink-0 group-hover:text-theme-accent-strong transition-colors">
 							{String(idx + 1).padStart(2, '0')}
 						</span>
 						<div className="min-w-0">
 							<p className="text-theme-primary text-xs font-body leading-snug group-hover:text-theme-accent transition-colors">
 								{item.name[locale]}
 							</p>
-							<p className="text-theme-accent-soft text-xs font-ui mt-0.5">
+							<p className="text-theme-accent-soft text-xs font-body mt-0.5">
 								{item.yearRange ?? item.yearBuilt}
 							</p>
 						</div>

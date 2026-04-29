@@ -27,9 +27,16 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				display: ['var(--font-display)', 'Georgia', 'serif'],
-				body: ['var(--font-body)', 'Georgia', 'serif'],
-				ui: ['var(--font-ui)', 'Georgia', 'serif'],
+				display: ['var(--font-display)', 'Times New Roman', 'Times', 'serif'],
+				body: [
+					'var(--font-body)',
+					'system-ui',
+					'-apple-system',
+					'Segoe UI',
+					'Roboto',
+					'Arial',
+					'sans-serif',
+				],
 			},
 			backgroundImage: {
 				'parchment-texture': "url('/textures/parchment.svg')",

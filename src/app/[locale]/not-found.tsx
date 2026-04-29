@@ -24,7 +24,7 @@ export default async function LocaleNotFound() {
 				<NavigatorBackButton label={t('go_back')} />
 				<Link
 					href="/"
-					className="inline-flex border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-8 py-3 font-ui text-xs tracking-widest uppercase"
+					className="inline-flex border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-8 py-3 font-body text-xs tracking-widest uppercase"
 				>
 					{t('back_home')}
 				</Link>

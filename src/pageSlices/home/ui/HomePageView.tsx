@@ -51,8 +51,8 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 				<div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
 					<div className="flex items-center justify-center gap-4 mb-8">
 						<div className="flex-1 max-w-32 h-px bg-gradient-to-r from-transparent to-gold-400/60" />
-						<div className="border border-gold-400/40 px-4 py-1">
-							<span className="text-gold-400/70 font-ui text-[10px] tracking-[0.4em] uppercase">
+						<div className="border border-gold-400/40 px-4 py-1 flex items-center justify-center">
+							<span className="block leading-none text-gold-400/70 font-body text-[10px] tracking-[0.4em] uppercase">
 								1878 — 1902
 							</span>
 						</div>
@@ -62,7 +62,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<h1 className="font-display text-parchment-50 text-4xl md:text-6xl leading-tight mb-4">
 						{t('hero_title')}
 					</h1>
-					<p className="text-gold-400 font-ui text-sm tracking-[0.3em] uppercase mb-6">
+					<p className="text-gold-400 font-body text-sm tracking-[0.3em] uppercase mb-6">
 						{t('hero_subtitle')}
 					</p>
 
@@ -77,7 +77,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<div className="mt-10">
 						<a
 							href="#objects"
-							className="inline-flex items-center gap-3 border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-8 py-3 font-ui text-xs tracking-[0.3em] uppercase"
+							className="inline-flex items-center gap-3 border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-8 py-3 font-body text-xs tracking-[0.3em] uppercase"
 						>
 							{t('explore_button')}
 							<span>↓</span>

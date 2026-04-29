@@ -26,7 +26,7 @@ export function LanguageSwitch({
 
 	return (
 		<div
-			className={`flex items-center gap-1 text-xs font-ui tracking-widest${className ? ` ${className}` : ''}`}
+			className={`flex items-center gap-1 text-xs font-body tracking-widest${className ? ` ${className}` : ''}`}
 		>
 			{(['ru', 'uz'] as Locale[]).map((itemLocale) => (
 				<button

@@ -170,16 +170,16 @@ export const BeforeAfterSlider = ({
 					style={{ left: `${pct}%` }}
 					aria-hidden
 				>
-					<span className="text-gold-400 text-lg leading-none font-ui select-none">
+					<span className="text-gold-400 text-lg leading-none font-body select-none">
 						⇄
 					</span>
 				</div>
 
 				<div className="absolute top-2 left-2 right-2 flex justify-between pointer-events-none z-[5]">
-					<span className="text-[10px] font-ui tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
+					<span className="inline-flex items-center leading-none text-[10px] font-body tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
 						{beforeLabel}
 					</span>
-					<span className="text-[10px] font-ui tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
+					<span className="inline-flex items-center leading-none text-[10px] font-body tracking-[0.2em] uppercase text-parchment-100/90 bg-sepia-900/75 border border-gold-400/30 px-2 py-1">
 						{afterLabel}
 					</span>
 				</div>
@@ -192,7 +192,7 @@ export const BeforeAfterSlider = ({
 					max={100}
 					value={pct}
 					aria-label={ariaLabel}
-					className="w-full h-2 rounded-full appearance-none cursor-pointer bg-sepia-800 border border-gold-400/25 accent-gold-400
+					className="w-full h-2 rounded-full appearance-none cursor-pointer bg-theme-accent-faint border border-theme-strong accent-gold-400
 						[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gold-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-sepia-900
 						[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-gold-400 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-sepia-900"
 					onChange={(e) => {

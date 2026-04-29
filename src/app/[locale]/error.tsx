@@ -64,7 +64,7 @@ export default function LocaleError({ error, reset }: Props) {
 			) : null}
 
 			<div className="text-left max-w-xl mx-auto mb-8">
-				<p className="font-ui text-[10px] tracking-[0.25em] uppercase text-gold-400/60 mb-3">
+				<p className="font-body text-[10px] tracking-[0.25em] uppercase text-gold-400/60 mb-3">
 					{t('error_details')}
 				</p>
 				<div className="rounded border border-gold-400/20 bg-parchment-950/30 backdrop-blur-sm">
@@ -75,7 +75,7 @@ export default function LocaleError({ error, reset }: Props) {
 				<button
 					type="button"
 					onClick={handleCopy}
-					className="mt-4 w-full border border-gold-400/40 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-4 py-2 font-ui text-xs tracking-widest uppercase"
+					className="mt-4 w-full border border-gold-400/40 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-4 py-2 font-body text-xs tracking-widest uppercase"
 				>
 					{copied ? t('copied') : t('copy_error')}
 				</button>
@@ -87,14 +87,14 @@ export default function LocaleError({ error, reset }: Props) {
 				<button
 					type="button"
 					onClick={() => reset()}
-					className="border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-6 py-2 font-ui text-xs tracking-widest uppercase"
+					className="border border-gold-400/50 hover:border-gold-400 text-gold-400 hover:bg-gold-400/10 transition-all duration-300 px-6 py-2 font-body text-xs tracking-widest uppercase"
 				>
 					{t('retry')}
 				</button>
 				<NavigatorBackButton label={t('go_back')} />
 				<Link
 					href="/"
-					className="border border-gold-400/30 text-gold-400/80 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300 px-6 py-2 font-ui text-xs tracking-widest uppercase"
+					className="border border-gold-400/30 text-gold-400/80 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300 px-6 py-2 font-body text-xs tracking-widest uppercase"
 				>
 					{t('back_home')}
 				</Link>

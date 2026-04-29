@@ -35,7 +35,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 						{object.name[locale]}
 					</h1>
 					{object.formerName && (
-						<p className="text-parchment-200/50 font-body italic text-sm mt-2">
+						<p className="text-theme-subtitle-italic font-body italic text-sm mt-2">
 							{object.formerName[locale]}
 						</p>
 					)}
@@ -56,7 +56,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-sepia-900/60 to-transparent pointer-events-none" />
 				<div className="absolute bottom-4 left-4 right-4 z-10">
-					<p className="text-parchment-100/80 font-body italic text-sm leading-relaxed">
+					<p className="text-hero-media-caption font-body italic text-sm leading-relaxed">
 						{object.shortDescription[locale]}
 					</p>
 				</div>

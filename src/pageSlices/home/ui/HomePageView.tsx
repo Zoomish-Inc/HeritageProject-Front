@@ -96,7 +96,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 					<h2 className="font-display text-parchment-100 text-2xl mb-2">
 						{t('objects_title')}
 					</h2>
-					<p className="text-parchment-200/50 font-body italic text-sm">
+					<p className="text-theme-subtitle-italic font-body italic text-sm">
 						{t('objects_subtitle')}
 					</p>
 				</div>

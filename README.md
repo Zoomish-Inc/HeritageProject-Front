@@ -80,6 +80,7 @@ src
 │   └── useHeritageListQuery.ts
 ├── i18n
 │   ├── index.ts
+│   ├── locale.ts
 │   ├── navigation.ts
 │   ├── request.ts
 │   ├── routing.ts
@@ -102,6 +103,7 @@ src
 │   │   ├── heritageSchemaPrimitives.ts
 │   │   ├── listQuery.ts
 │   │   ├── listVisibility.ts
+│   │   ├── readModel.ts
 │   │   └── schemas.ts
 │   └── queryClient.ts
 ├── mocks
@@ -131,6 +133,7 @@ src
 │   │   │   ├── core.ts
 │   │   │   ├── events.ts
 │   │   │   ├── index.ts
+│   │   │   ├── provider.tsx
 │   │   │   └── schema.ts
 │   │   ├── i18n
 │   │   │   ├── DocumentLangSync.tsx
@@ -151,8 +154,11 @@ src
 │       ├── JsonLdScript.tsx
 │       ├── LoadingSpinner.tsx
 │       ├── NavigatorBackButton.tsx
+│       ├── NotFoundView.tsx
 │       ├── OrnamentalDivider.tsx
-│       └── RenderOnView.tsx
+│       ├── RenderOnView.tsx
+│       ├── UiBadge.tsx
+│       └── UiCtaButton.tsx
 ├── styles
 │   └── globals.css
 ├── types

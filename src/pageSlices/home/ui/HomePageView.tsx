@@ -53,7 +53,7 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 				<div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
 					<div className="flex items-center justify-center gap-4 mb-8">
 						<div className="flex-1 max-w-32 h-px bg-gradient-to-r from-transparent to-gold-400/60" />
-						<div className="border border-gold-400/40 px-4 py-1 flex items-center justify-center">
+						<div className="flex shrink-0 items-center justify-center border border-gold-400/40 px-4 py-1">
 							<UiBadge variant="heroEra">1878 — 1902</UiBadge>
 						</div>
 						<div className="flex-1 max-w-32 h-px bg-gradient-to-l from-transparent to-gold-400/60" />

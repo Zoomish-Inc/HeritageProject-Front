@@ -189,9 +189,7 @@ async function main() {
 
 	if (checkMode) {
 		if (updatedFormatted !== currentFormatted) {
-			console.error(
-				'README docs blocks are outdated. Run: npm run docs:update'
-			);
+			console.error('README docs blocks are outdated. Run: npm run docs:update');
 			process.exitCode = 1;
 		}
 		return;

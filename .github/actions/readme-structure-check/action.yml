@@ -1,65 +1,65 @@
 name: README structure check
 description: Update or verify README structure block for relevant tree changes
 inputs:
-  event_name:
-    description: GitHub event name
-    required: true
-  before_sha:
-    description: SHA before push
-    required: false
-    default: ""
-  head_sha:
-    description: Current head SHA
-    required: false
-    default: ""
-  base_ref:
-    description: Base branch ref for pull requests
-    required: false
-    default: ""
+ event_name:
+  description: GitHub event name
+  required: true
+ before_sha:
+  description: SHA before push
+  required: false
+  default: ''
+ head_sha:
+  description: Current head SHA
+  required: false
+  default: ''
+ base_ref:
+  description: Base branch ref for pull requests
+  required: false
+  default: ''
 outputs:
-  should_run:
-    description: Whether structure-related files changed
-    value: ${{ steps.check.outputs.should_run }}
-  should_verify:
-    description: Whether README should be verified in this event
-    value: ${{ steps.check.outputs.should_verify }}
+ should_run:
+  description: Whether structure-related files changed
+  value: ${{ steps.check.outputs.should_run }}
+ should_verify:
+  description: Whether README should be verified in this event
+  value: ${{ steps.check.outputs.should_verify }}
 runs:
-  using: composite
-  steps:
-    - name: Evaluate README structure conditions
-      id: check
-      shell: bash
-      run: |
-        set -euo pipefail
+ using: composite
+ steps:
+  - name: Evaluate README structure conditions
+    id: check
+    shell: bash
+    run: |
+     set -euo pipefail
 
-        event_name="${{ inputs.event_name }}"
-        changed_files=""
+     event_name="${{ inputs.event_name }}"
+     changed_files=""
 
-        if [ "$event_name" = "push" ]; then
-          before_sha="${{ inputs.before_sha }}"
-          head_sha="${{ inputs.head_sha }}"
-          if [ -n "$before_sha" ] && [ -n "$head_sha" ]; then
-            changed_files="$(git diff --name-only "$before_sha...$head_sha" || true)"
-          fi
-        elif [ "$event_name" = "pull_request" ]; then
-          base_ref="${{ inputs.base_ref }}"
-          if [ -n "$base_ref" ]; then
-            changed_files="$(git diff --name-only "origin/$base_ref...HEAD" || true)"
-          fi
-        fi
+     if [ "$event_name" = "push" ]; then
+       before_sha="${{ inputs.before_sha }}"
+       head_sha="${{ inputs.head_sha }}"
+       if [ -n "$before_sha" ] && [ -n "$head_sha" ]; then
+         changed_files="$(git diff --name-only "$before_sha...$head_sha" || true)"
+       fi
+     elif [ "$event_name" = "pull_request" ]; then
+       base_ref="${{ inputs.base_ref }}"
+       if [ -n "$base_ref" ]; then
+         changed_files="$(git diff --name-only "origin/$base_ref...HEAD" || true)"
+       fi
+     fi
 
-        if ! echo "$changed_files" | grep -E '^(src/|tests/|docs/structure.config.json|README\.md)' >/dev/null; then
-          echo "No structure-related changes, skipping README structure action."
-          echo "should_run=false" >> "$GITHUB_OUTPUT"
-          echo "should_verify=false" >> "$GITHUB_OUTPUT"
-          exit 0
-        fi
+     if ! echo "$changed_files" | grep -E '^(src/|tests/|docs/structure.config.json|README\.md)' >/dev/null; then
+       echo "No structure-related changes, skipping README structure action."
+       echo "should_run=false" >> "$GITHUB_OUTPUT"
+       echo "should_verify=false" >> "$GITHUB_OUTPUT"
+       exit 0
+     fi
 
-        npm run docs:update
+     npm run docs:update
 
-        echo "should_run=true" >> "$GITHUB_OUTPUT"
-        if [ "$event_name" = "pull_request" ]; then
-          echo "should_verify=true" >> "$GITHUB_OUTPUT"
-        else
-          echo "should_verify=false" >> "$GITHUB_OUTPUT"
-        fi
+     echo "should_run=true" >> "$GITHUB_OUTPUT"
+     if [ "$event_name" = "pull_request" ]; then
+       echo "should_verify=true" >> "$GITHUB_OUTPUT"
+     else
+       echo "should_verify=false" >> "$GITHUB_OUTPUT"
+     fi

@@ -45,9 +45,7 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
-			<body
-				className={`${cormorantGaramond.variable} ${inter.variable}`}
-			>
+			<body className={`${cormorantGaramond.variable} ${inter.variable}`}>
 				<AnalyticsPageTracker />
 				{children}
 				<Analytics />

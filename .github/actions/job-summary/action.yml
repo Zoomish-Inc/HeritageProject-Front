@@ -1,43 +1,43 @@
 name: Job summary
 description: Write a compact markdown summary block
 inputs:
-  title:
-    description: Summary section title
-    required: true
-  status:
-    description: status token (success|failure|skipped)
-    required: false
-    default: ""
-  lines:
-    description: Multiline markdown lines for the section body
-    required: false
-    default: ""
+ title:
+  description: Summary section title
+  required: true
+ status:
+  description: status token (success|failure|skipped)
+  required: false
+  default: ''
+ lines:
+  description: Multiline markdown lines for the section body
+  required: false
+  default: ''
 runs:
-  using: composite
-  steps:
-    - name: Write summary section
-      shell: bash
-      run: |
-        status="${{ inputs.status }}"
-        badge=""
-        if [ "$status" = "success" ]; then
-          badge="✅"
-        elif [ "$status" = "failure" ]; then
-          badge="❌"
-        elif [ "$status" = "skipped" ]; then
-          badge="⏭️"
-        fi
+ using: composite
+ steps:
+  - name: Write summary section
+    shell: bash
+    run: |
+     status="${{ inputs.status }}"
+     badge=""
+     if [ "$status" = "success" ]; then
+       badge="✅"
+     elif [ "$status" = "failure" ]; then
+       badge="❌"
+     elif [ "$status" = "skipped" ]; then
+       badge="⏭️"
+     fi
 
-        {
-          if [ -n "$badge" ]; then
-            echo "## $badge ${{ inputs.title }}"
-          else
-            echo "## ${{ inputs.title }}"
-          fi
-          if [ -n "$status" ]; then
-            echo "- status: $status"
-          fi
-          if [ -n "${{ inputs.lines }}" ]; then
-            printf '%s\n' "${{ inputs.lines }}"
-          fi
-        } >> "$GITHUB_STEP_SUMMARY"
+     {
+       if [ -n "$badge" ]; then
+         echo "## $badge ${{ inputs.title }}"
+       else
+         echo "## ${{ inputs.title }}"
+       fi
+       if [ -n "$status" ]; then
+         echo "- status: $status"
+       fi
+       if [ -n "${{ inputs.lines }}" ]; then
+         printf '%s\n' "${{ inputs.lines }}"
+       fi
+     } >> "$GITHUB_STEP_SUMMARY"

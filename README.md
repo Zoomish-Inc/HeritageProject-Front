@@ -171,15 +171,20 @@ src
 │   │   │   └── MobileNavDrawer.tsx
 │   │   └── index.ts
 │   └── heritage
+│       ├── lib
+│       │   └── heritageDetailLocale.ts
 │       ├── ui
 │       │   ├── heritageDetail
+│       │   │   ├── HeritageDetailArchitectBio.tsx
 │       │   │   ├── HeritageDetailArchitecture.tsx
 │       │   │   ├── HeritageDetailAudio.tsx
 │       │   │   ├── HeritageDetailBeforeAfter.tsx
 │       │   │   ├── HeritageDetailClosingRule.tsx
 │       │   │   ├── HeritageDetailFigures.tsx
+│       │   │   ├── HeritageDetailGallery.tsx
 │       │   │   ├── HeritageDetailHero.tsx
 │       │   │   ├── HeritageDetailHistory.tsx
+│       │   │   ├── HeritageDetailMediaAttribution.tsx
 │       │   │   ├── HeritageDetailPurpose.tsx
 │       │   │   ├── HeritageDetailSection.tsx
 │       │   │   └── HeritageDetailVisualNotes.tsx

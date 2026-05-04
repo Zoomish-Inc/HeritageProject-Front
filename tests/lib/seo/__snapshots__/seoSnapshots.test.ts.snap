@@ -275,8 +275,12 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > detai
       "image": [
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-photo-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-history-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-architecture-0",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-before-0",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-after-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-figure-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-fig-0-g-0",
       ],
       "isPartOf": {
         "@id": "https://example.com/#website",
@@ -327,8 +331,12 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > detai
       "image": [
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-cover",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-photo-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-history-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-architecture-0",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-before-0",
         "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-after-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-figure-0",
+        "https://placehold.co/1400x900/3d2b1f/f5ede0.webp?text=zdanie-voennogo-sobraniya-dom-oficerov-fig-0-g-0",
       ],
       "isPartOf": {
         "@id": "https://example.com/#website",

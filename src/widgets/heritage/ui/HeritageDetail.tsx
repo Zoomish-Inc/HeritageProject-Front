@@ -22,6 +22,14 @@ const HeritageDetailBeforeAfter = dynamic(
 	{ loading: sectionLoading }
 );
 
+const HeritageDetailArchitectBio = dynamic(
+	() =>
+		import('./heritageDetail/HeritageDetailArchitectBio').then((m) => ({
+			default: m.HeritageDetailArchitectBio,
+		})),
+	{ loading: sectionLoading }
+);
+
 const HeritageDetailArchitecture = dynamic(
 	() =>
 		import('./heritageDetail/HeritageDetailArchitecture').then((m) => ({
@@ -34,6 +42,14 @@ const HeritageDetailHistory = dynamic(
 	() =>
 		import('./heritageDetail/HeritageDetailHistory').then((m) => ({
 			default: m.HeritageDetailHistory,
+		})),
+	{ loading: sectionLoading }
+);
+
+const HeritageDetailGallery = dynamic(
+	() =>
+		import('./heritageDetail/HeritageDetailGallery').then((m) => ({
+			default: m.HeritageDetailGallery,
 		})),
 	{ loading: sectionLoading }
 );
@@ -69,6 +85,7 @@ interface Props {
 export const HeritageDetail = ({ object }: Props) => {
 	const locale = useLocale() as Locale;
 	const t = useTranslations('heritage');
+	const sourceLabel = t('photo_source');
 
 	return (
 		<article className="max-w-4xl mx-auto px-6 py-8">
@@ -83,21 +100,33 @@ export const HeritageDetail = ({ object }: Props) => {
 				modernPhotos={t('modern_photos')}
 				sliderAria={t('compare_slider_aria')}
 				compareHint={t('compare_hint')}
+				sourceLabel={sourceLabel}
 			/>
 
 			<HeritageDetailPurpose
 				object={object}
 				locale={locale}
 				labels={{
-					title: t('current_purpose'),
+					sectionTitle: t('facts_title'),
 					currentPurpose: t('current_purpose'),
 					historicalPurpose: t('historical_purpose'),
 					address: t('address'),
 					yearBuilt: t('year_built'),
 					style: t('style'),
 					architect: t('architect'),
+					coordinates: t('coordinates'),
+					openMap: t('open_map'),
 				}}
 			/>
+
+			<RenderOnView fallback={sectionLoading()}>
+				<HeritageDetailArchitectBio
+					object={object}
+					locale={locale}
+					title={t('architect_bio')}
+					sourceLabel={sourceLabel}
+				/>
+			</RenderOnView>
 
 			<OrnamentalDivider />
 
@@ -108,6 +137,7 @@ export const HeritageDetail = ({ object }: Props) => {
 					labels={{
 						title: t('architecture'),
 						architectureDetails: t('architecture_details'),
+						sourceLabel,
 					}}
 				/>
 			</RenderOnView>
@@ -119,6 +149,16 @@ export const HeritageDetail = ({ object }: Props) => {
 					object={object}
 					locale={locale}
 					title={t('history')}
+					sourceLabel={sourceLabel}
+				/>
+			</RenderOnView>
+
+			<RenderOnView fallback={sectionLoading()}>
+				<HeritageDetailGallery
+					photos={object.photos}
+					locale={locale}
+					title={t('gallery')}
+					sourceLabel={sourceLabel}
 				/>
 			</RenderOnView>
 
@@ -131,6 +171,8 @@ export const HeritageDetail = ({ object }: Props) => {
 						listen: t('listen'),
 						atmosphere: t('atmosphere'),
 						musicSuggestion: t('music_suggestion'),
+						audioTracks: t('audio_tracks'),
+						fullTitle: t('audio_full_title'),
 					}}
 				/>
 			</RenderOnView>
@@ -140,6 +182,7 @@ export const HeritageDetail = ({ object }: Props) => {
 					object={object}
 					locale={locale}
 					title={t('figures')}
+					sourceLabel={sourceLabel}
 				/>
 			</RenderOnView>
 

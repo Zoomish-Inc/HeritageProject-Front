@@ -28,6 +28,7 @@ const minimalObject = (): HeritageObject => ({
 	beforeAfterPairs: [],
 	audioGuide: {
 		narratorLabel: { ru: '', uz: '' },
+		tracks: [],
 		transcript: { ru: '', uz: '' },
 		atmosphereDescription: { ru: '', uz: '' },
 		musicSuggestion: { ru: '', uz: '' },

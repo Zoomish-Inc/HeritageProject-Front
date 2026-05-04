@@ -7,6 +7,8 @@ export type {
 	PhotoItem,
 	BeforeAfterPair,
 	AudioGuide,
+	AudioGuideTrack,
+	HeritageCoordinates,
 	HeritageObject,
 	HeritageListItem,
 } from './model/types';

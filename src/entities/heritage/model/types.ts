@@ -9,6 +9,8 @@ export interface ArchitectureDetail {
 	title: LocalizedString;
 	description: LocalizedString;
 	imageUrl?: string;
+	imageSourceUrl?: string;
+	imageCredit?: LocalizedString;
 }
 
 export interface BiographyMilestone {
@@ -21,6 +23,7 @@ export interface HistoricalFigure {
 	role: LocalizedString;
 	bio: LocalizedString;
 	photoUrl?: string;
+	gallery?: PhotoItem[];
 	milestones?: BiographyMilestone[];
 }
 
@@ -29,6 +32,19 @@ export interface PhotoItem {
 	caption?: LocalizedString;
 	isHistorical?: boolean;
 	year?: number;
+	sourceUrl?: string;
+	credit?: LocalizedString;
+}
+
+export interface AudioGuideTrack {
+	url: string;
+	shortTitle: LocalizedString;
+	fullTitle?: LocalizedString;
+}
+
+export interface HeritageCoordinates {
+	lat: number;
+	lng: number;
 }
 
 export interface BeforeAfterPair {
@@ -39,7 +55,7 @@ export interface BeforeAfterPair {
 
 export interface AudioGuide {
 	narratorLabel: LocalizedString;
-	audioUrl?: string;
+	tracks: AudioGuideTrack[];
 	transcript: LocalizedString;
 	atmosphereDescription: LocalizedString;
 	musicSuggestion: LocalizedString;
@@ -53,8 +69,11 @@ export interface HeritageObject {
 	currentPurpose: LocalizedString;
 	historicalPurpose: LocalizedString;
 	address: LocalizedString;
+	coordinates?: HeritageCoordinates;
+	mapUrl?: string;
 	yearBuilt: number;
 	yearRange?: string;
+	yearBuiltLabel?: LocalizedString;
 	architecturalStyle: LocalizedString;
 	architect?: LocalizedString;
 	architectBio?: HistoricalFigure;
@@ -62,6 +81,7 @@ export interface HeritageObject {
 	architecturalDescription: LocalizedString;
 	architectureDetails: ArchitectureDetail[];
 	history: LocalizedString;
+	historyMedia?: PhotoItem[];
 	historicalFigures: HistoricalFigure[];
 	photos: PhotoItem[];
 	beforeAfterPairs: BeforeAfterPair[];

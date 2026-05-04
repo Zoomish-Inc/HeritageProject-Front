@@ -15,6 +15,12 @@ export const ru = {
 		readMore: 'Открыть',
 	},
 	heritage: {
+		facts_title: 'Сведения об объекте',
+		coordinates: 'Координаты',
+		open_map: 'Карта',
+		photo_source: 'Источник изображения',
+		audio_tracks: 'Аудиозаписи',
+		audio_full_title: 'Название',
 		year_built: 'Год постройки',
 		style: 'Стиль',
 		architect: 'Архитектор',

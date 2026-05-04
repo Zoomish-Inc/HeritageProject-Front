@@ -19,13 +19,18 @@ export function collectHeritageImageUrls(
 	};
 	add(object.coverImageUrl);
 	for (const p of object.photos) add(p.url);
+	for (const p of object.historyMedia ?? []) add(p.url);
 	for (const d of object.architectureDetails) add(d.imageUrl);
 	for (const pair of object.beforeAfterPairs) {
 		add(pair.before.url);
 		add(pair.after.url);
 	}
 	if (object.architectBio?.photoUrl) add(object.architectBio.photoUrl);
-	for (const f of object.historicalFigures) add(f.photoUrl);
+	for (const p of object.architectBio?.gallery ?? []) add(p.url);
+	for (const f of object.historicalFigures) {
+		add(f.photoUrl);
+		for (const p of f.gallery ?? []) add(p.url);
+	}
 	return Array.from(urls).slice(0, 24);
 }
 

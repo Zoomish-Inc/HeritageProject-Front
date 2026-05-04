@@ -31,6 +31,26 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			ru: 'Военный инженер Е. Кохановский',
 			uz: 'Harbiy muhandis Ye. Koxanovskiy',
 		},
+		architectBio: {
+			name: { ru: 'Евгений Кохановский', uz: 'Yevgeniy Koxanovskiy' },
+			role: { ru: 'Военный инженер', uz: 'Harbiy muhandis' },
+			bio: {
+				ru: 'Участвовал в проектировании первых казённых зданий Новой Маргиланы. Работы велись в контексте военно-инженерной службы Туркестанского края.',
+				uz: "Yangi Marg'iloning dastlabki davlat binolarini loyihalashda ishtirok etgan. Ishlar Turkiston harbiy-muhandislik xizmati doirasida olib borilgan.",
+			},
+			milestones: [
+				{
+					year: 1878,
+					event: {
+						ru: 'Курирование строительства военного собрания',
+						uz: "Harbiy yig'ilish binosining qurilishini nazorat qilish",
+					},
+				},
+			],
+		},
+		coordinates: { lat: 40.3863, lng: 71.7844 },
+		mapUrl:
+			'https://www.openstreetmap.org/?mlat=40.3863&mlon=71.7844#map=16/40.3863/71.7844',
 		shortDescription: {
 			ru: 'Одно из первых капитальных зданий Новой Маргиланы (Ферганы), возведённое в год основания города. Центр офицерской жизни гарнизона.',
 			uz: "Shahar tashkil etilgan yilda qurilgan Yangi Marg'ilon (Farg'ona) ning birinchi yirik binolaridan biri. Garnizoning ofitserlik hayotining markazi.",
@@ -45,6 +65,14 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				description: {
 					ru: 'Плоские колонны коринфского ордера делят фасад на равные секции, создавая ритмическую структуру. Капители украшены стилизованным аканфом, выполненным в технике высокого рельефа.',
 					uz: "Korinf tartibidagi tekis ustunlar fasadni teng bo'limlarga bo'lib, ritmik tuzilma yaratadi. Kapitellar baland relyef texnikasida ishlangan stilizatsiyalangan akant bilan bezatilgan.",
+				},
+				imageUrl:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+				imageSourceUrl:
+					'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
+				imageCredit: {
+					ru: 'Wikimedia Commons',
+					uz: 'Wikimedia Commons',
 				},
 			},
 			{
@@ -62,6 +90,18 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			ru: 'Здание было заложено в 1878 году одновременно с основанием города Новый Маргилан. Военное собрание служило главным клубом гарнизона: здесь проходили балы, театральные постановки, заседания и торжественные приёмы. В 1907 году в здании была устроена первая в городе публичная библиотека. После революции 1917 года перепрофилировано под нужды Красной армии, а затем стало Домом офицеров.',
 			uz: "Bino 1878 yilda Yangi Marg'ilon shahri asoslangan paytda qurilgan. Harbiy yig'ilish garnizoning asosiy klubi bo'lib xizmat qildi: bu yerda ballar, teatr spektakllari, majlislar va tantanali qabullar bo'lib o'tardi. 1907 yilda binoda shaharning birinchi jamoat kutubxonasi tashkil etildi. 1917 yilgi inqilobdan so'ng Qizil Armiya ehtiyojlari uchun qayta ixtisoslashtirildi.",
 		},
+		historyMedia: [
+			{
+				url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fergana_-_old_city.jpg/1200px-Fergana_-_old_city.jpg',
+				caption: {
+					ru: 'Вид на историческую застройку',
+					uz: "Tarixiy qurilishlarga ko'rinish",
+				},
+				sourceUrl: 'https://commons.wikimedia.org/wiki/File:Fergana_-_old_city.jpg',
+				credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
+				isHistorical: true,
+			},
+		],
 		historicalFigures: [
 			{
 				name: { ru: 'Михаил Скобелев', uz: 'Mixail Skobelev' },
@@ -73,6 +113,20 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Легендарный русский полководец, завоеватель Средней Азии. Именно он заложил план Новой Маргиланы и лично контролировал строительство первых казённых зданий, включая здание военного собрания.',
 					uz: "Afsonaviy rus qo'mondoni, O'rta Osiyo fotihi. U Yangi Marg'ilon rejasini tuzgan va harbiy yig'ilish binosi bilan birgalikda dastlabki davlat binolarining qurilishini shaxsan nazorat qilgan.",
 				},
+				photoUrl:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mikhail_Skobelev.jpg/440px-Mikhail_Skobelev.jpg',
+				gallery: [
+					{
+						url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+						caption: {
+							ru: 'Связанный с эпохой объект',
+							uz: "Davr bilan bog'langan ob'ekt",
+						},
+						sourceUrl:
+							'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
+						credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
+					},
+				],
 				milestones: [
 					{
 						year: 1877,
@@ -106,6 +160,9 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: "Harbiy yig'ilish binosi, XX asr boshlari",
 				},
 				isHistorical: false,
+				sourceUrl:
+					'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
+				credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
 			},
 		],
 		beforeAfterPairs: [
@@ -132,6 +189,16 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [
+				{
+					url: 'https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3',
+					shortTitle: { ru: 'Аудиогид', uz: 'Audio gid' },
+					fullTitle: {
+						ru: 'Краткое аудиосопровождение об объекте (демонстрационный фрагмент)',
+						uz: "Ob'ekt haqida qisqa audio (namoyish parchasi)",
+					},
+				},
+			],
 			narratorLabel: {
 				ru: 'Историк Рустам Назаров',
 				uz: 'Tarixchi Rustam Nazarov',
@@ -247,6 +314,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [],
 			narratorLabel: {
 				ru: 'Историк Наргиза Юсупова',
 				uz: 'Tarixchi Nargiza Yusupova',
@@ -347,6 +415,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [],
 			narratorLabel: {
 				ru: 'Историк Камола Рашидова',
 				uz: 'Tarixchi Kamola Rashidova',
@@ -453,6 +522,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [],
 			narratorLabel: {
 				ru: 'Историк Антон Великанов',
 				uz: 'Tarixchi Anton Velikanov',
@@ -591,6 +661,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [],
 			narratorLabel: {
 				ru: 'Настоятель протоиерей Николай',
 				uz: 'Ustoz protoierey Nikolay',
@@ -690,6 +761,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		audioGuide: {
+			tracks: [],
 			narratorLabel: {
 				ru: 'Краевед Тимур Хамидов',
 				uz: "O'lkashunos Timur Xamidov",

@@ -25,6 +25,10 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
 			...photo,
 			url: withPlaceholderImage(photo.url, `${obj.slug}-photo-${index}`),
 		})),
+		historyMedia: obj.historyMedia?.map((photo, index) => ({
+			...photo,
+			url: withPlaceholderImage(photo.url, `${obj.slug}-history-${index}`),
+		})),
 		beforeAfterPairs: obj.beforeAfterPairs.map((pair, index) => ({
 			...pair,
 			before: {
@@ -42,17 +46,33 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
 				? withPlaceholderImage(item.imageUrl, `${obj.slug}-architecture-${index}`)
 				: item.imageUrl,
 		})),
+		architectBio: obj.architectBio
+			? {
+					...obj.architectBio,
+					photoUrl: obj.architectBio.photoUrl
+						? withPlaceholderImage(
+								obj.architectBio.photoUrl,
+								`${obj.slug}-architect-bio`
+							)
+						: obj.architectBio.photoUrl,
+					gallery: obj.architectBio.gallery?.map((g, gi) => ({
+						...g,
+						url: withPlaceholderImage(g.url, `${obj.slug}-architect-g-${gi}`),
+					})),
+				}
+			: undefined,
 		historicalFigures: obj.historicalFigures.map((figure, index) => ({
 			...figure,
 			photoUrl: figure.photoUrl
 				? withPlaceholderImage(figure.photoUrl, `${obj.slug}-figure-${index}`)
 				: figure.photoUrl,
+			gallery: figure.gallery?.map((g, gi) => ({
+				...g,
+				url: withPlaceholderImage(g.url, `${obj.slug}-fig-${index}-g-${gi}`),
+			})),
 		})),
 		audioGuide: {
 			...obj.audioGuide,
-			audioUrl: obj.audioGuide.audioUrl
-				? withPlaceholderImage(obj.audioGuide.audioUrl, `${obj.slug}-audio`)
-				: obj.audioGuide.audioUrl,
 		},
 	}));
 

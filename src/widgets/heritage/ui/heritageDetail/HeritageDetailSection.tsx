@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export const HeritageDetailSection = ({
 	title,
 	children,
@@ -21,14 +23,14 @@ export const HeritageDetailInfoRow = ({
 	value,
 }: {
 	label: string;
-	value: string;
+	value: ReactNode;
 }) => (
 	<div className="grid grid-cols-2 gap-4 py-3 border-b theme-content-panel-divider last:border-0">
 		<span className="theme-content-panel-heading font-body text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
 			{label}
 		</span>
-		<span className="theme-content-panel-body font-body text-sm leading-relaxed">
+		<div className="theme-content-panel-body font-body text-sm leading-relaxed">
 			{value}
-		</span>
+		</div>
 	</div>
 );

@@ -15,6 +15,12 @@ export const uz = {
 		readMore: 'Ochiq',
 	},
 	heritage: {
+		facts_title: "Ob'ekt haqida ma'lumot",
+		coordinates: 'Koordinatalar',
+		open_map: 'Xarita',
+		photo_source: 'Surat manbai',
+		audio_tracks: 'Audio yozuvlar',
+		audio_full_title: 'Nom',
 		year_built: 'Qurilgan yil',
 		style: 'Uslub',
 		architect: "Me'mor",

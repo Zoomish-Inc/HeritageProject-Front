@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { AudioGuide, LocalizedString } from '@/entities/heritage';
 
 export const localizedStringSchema = z.object({
 	ru: z.string(),
@@ -10,6 +11,8 @@ export const photoItemSchema = z.object({
 	caption: localizedStringSchema.optional(),
 	isHistorical: z.boolean().optional(),
 	year: z.number().optional(),
+	sourceUrl: z.string().optional(),
+	credit: localizedStringSchema.optional(),
 });
 
 export const biographyMilestoneSchema = z.object({
@@ -22,6 +25,7 @@ export const historicalFigureSchema = z.object({
 	role: localizedStringSchema,
 	bio: localizedStringSchema,
 	photoUrl: z.string().optional(),
+	gallery: z.array(photoItemSchema).optional(),
 	milestones: z.array(biographyMilestoneSchema).optional(),
 });
 
@@ -29,6 +33,8 @@ export const architectureDetailSchema = z.object({
 	title: localizedStringSchema,
 	description: localizedStringSchema,
 	imageUrl: z.string().optional(),
+	imageSourceUrl: z.string().optional(),
+	imageCredit: localizedStringSchema.optional(),
 });
 
 export const beforeAfterPairSchema = z.object({
@@ -37,13 +43,43 @@ export const beforeAfterPairSchema = z.object({
 	label: localizedStringSchema,
 });
 
-export const audioGuideSchema = z.object({
+const audioGuideTrackSchema = z.object({
+	url: z.string(),
+	shortTitle: localizedStringSchema,
+	fullTitle: localizedStringSchema.optional(),
+});
+
+const audioGuideInputSchema = z.object({
 	narratorLabel: localizedStringSchema,
 	audioUrl: z.string().optional(),
+	tracks: z.array(audioGuideTrackSchema).max(24).optional(),
 	transcript: localizedStringSchema,
 	atmosphereDescription: localizedStringSchema,
 	musicSuggestion: localizedStringSchema,
 });
+
+function localizedNonEmpty(s: LocalizedString): boolean {
+	return s.ru.trim().length > 0 || s.uz.trim().length > 0;
+}
+
+export const audioGuideSchema = audioGuideInputSchema.transform(
+	(v): AudioGuide => {
+		let tracks = v.tracks ?? [];
+		if (tracks.length === 0 && v.audioUrl && v.audioUrl.trim() !== '') {
+			const fallbackTitle: LocalizedString = localizedNonEmpty(v.narratorLabel)
+				? v.narratorLabel
+				: { ru: 'Аудиозапись', uz: 'Audio yozuv' };
+			tracks = [{ url: v.audioUrl, shortTitle: fallbackTitle }];
+		}
+		return {
+			narratorLabel: v.narratorLabel,
+			tracks,
+			transcript: v.transcript,
+			atmosphereDescription: v.atmosphereDescription,
+			musicSuggestion: v.musicSuggestion,
+		};
+	}
+);
 
 const emptyLocalized = (): { ru: string; uz: string } => ({ ru: '', uz: '' });
 

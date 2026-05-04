@@ -153,6 +153,72 @@ describe('heritageObjectApiResponseSchema', () => {
 		}
 	});
 
+	it('maps legacy audioUrl to tracks when tracks omitted', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+				slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
+				name: { ru: 'Здание', uz: 'Bino' },
+				address: { ru: 'ул. 1', uz: "Ko'cha 1" },
+				order: 1,
+				year_built: 1878,
+				year_range: '',
+				short_description: { ru: 'Кратко', uz: 'Qisqa' },
+				cover: 'https://example.com/c.jpg',
+				audioGuide: {
+					narratorLabel: { ru: 'Гид', uz: 'Gid' },
+					audioUrl: 'https://example.com/a.mp3',
+					transcript: { ru: '', uz: '' },
+					atmosphereDescription: { ru: '', uz: '' },
+					musicSuggestion: { ru: '', uz: '' },
+				},
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.audioGuide.tracks).toHaveLength(1);
+			expect(parsed.data.data.audioGuide.tracks[0].url).toBe(
+				'https://example.com/a.mp3'
+			);
+		}
+	});
+
+	it('parses coordinates from nested object or latitude keys', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			data: {
+				id: 'x',
+				slug: 'x',
+				name: { ru: 'A', uz: 'B' },
+				address: { ru: '1', uz: '1' },
+				order: 1,
+				coordinates: { lat: 40.5, lng: 71.2 },
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.coordinates).toEqual({ lat: 40.5, lng: 71.2 });
+		}
+		const parsed2 = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			data: {
+				id: 'y',
+				slug: 'y',
+				name: { ru: 'A', uz: 'B' },
+				address: { ru: '1', uz: '1' },
+				order: 1,
+				latitude: 41,
+				longitude: 72,
+			},
+		});
+		expect(parsed2.success).toBe(true);
+		if (parsed2.success) {
+			expect(parsed2.data.data.coordinates).toEqual({ lat: 41, lng: 72 });
+		}
+	});
+
 	it('accepts minimal snake_case detail payload from API', () => {
 		const parsed = heritageObjectApiResponseSchema.safeParse({
 			success: true,

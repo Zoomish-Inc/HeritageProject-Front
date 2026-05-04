@@ -29,7 +29,9 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 			<div className="flex items-start justify-between gap-4 mb-4">
 				<div>
 					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2">
-						{object.yearRange ?? object.yearBuilt}
+						{object.yearBuiltLabel?.[locale]?.trim() ||
+							object.yearRange ||
+							object.yearBuilt}
 					</p>
 					<h1 className="font-display text-parchment-50 text-3xl md:text-4xl leading-tight">
 						{object.name[locale]}

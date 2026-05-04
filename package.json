@@ -12,7 +12,7 @@
 		"start": "next start",
 		"fix": "prettier --write .",
 		"prepare": "husky",
-		"lint:boundaries": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
+		"lint:boundaries": "eslint \"src/**/*.{ts,tsx}\" --quiet",
 		"check:imports": "node scripts/checkImportGraph.mjs",
 		"check:reserved-dirs": "node scripts/checkReservedDirs.mjs",
 		"check:all": "npm run check:reserved-dirs && npm run lint:boundaries && npm run check:imports && npm run test",

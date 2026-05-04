@@ -44,6 +44,9 @@ const cdnPattern = tryRemotePatternFromEnvUrl('NEXT_PUBLIC_IMAGE_CDN_URL');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	eslint: {
+		dirs: ['src'],
+	},
 	images: {
 		unoptimized: true,
 		remotePatterns: [

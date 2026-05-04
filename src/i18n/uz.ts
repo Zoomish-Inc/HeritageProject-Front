@@ -45,6 +45,7 @@ export const uz = {
 		historical_photos: 'Tarixiy fotosuratlar',
 		modern_photos: "Zamonaviy ko'rinish",
 		back: "Barcha ob'ektlar",
+		tour_link: '3D sayohat',
 		loading: 'Yuklanmoqda...',
 		error: "Ma'lumotlarni yuklab bo'lmadi",
 	},

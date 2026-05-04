@@ -125,6 +125,17 @@ export function parseStringFlexible(v: unknown): string {
 	return typeof v === 'string' ? v : '';
 }
 
+export function parseBooleanFlexible(v: unknown): boolean | undefined {
+	if (v === true || v === 1) return true;
+	if (v === false || v === 0) return false;
+	if (typeof v === 'string') {
+		const s = v.trim().toLowerCase();
+		if (s === 'true' || s === '1' || s === 'yes') return true;
+		if (s === 'false' || s === '0' || s === 'no') return false;
+	}
+	return undefined;
+}
+
 export function parseArrayFlexible<T extends z.ZodTypeAny>(
 	itemSchema: T,
 	value: unknown

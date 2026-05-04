@@ -3,6 +3,7 @@
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import dynamic from 'next/dynamic';
 import { useLocale, useTranslations } from 'next-intl';
+import { heritageTourPath } from '@/shared/lib/seo/paths';
 import { LoadingSpinner, OrnamentalDivider, RenderOnView } from '@/shared/ui';
 import { HeritageDetailClosingRule } from './heritageDetail/HeritageDetailClosingRule';
 import { HeritageDetailHero } from './heritageDetail/HeritageDetailHero';
@@ -89,7 +90,19 @@ export const HeritageDetail = ({ object }: Props) => {
 
 	return (
 		<article className="max-w-4xl mx-auto px-6 py-8">
-			<HeritageDetailHero object={object} locale={locale} backLabel={t('back')} />
+			<HeritageDetailHero
+				object={object}
+				locale={locale}
+				backLabel={t('back')}
+				tourHref={
+					object.tourPublished && object.tourEntryUrl
+						? heritageTourPath(object.slug)
+						: undefined
+				}
+				tourLabel={
+					object.tourPublished && object.tourEntryUrl ? t('tour_link') : undefined
+				}
+			/>
 
 			<HeritageDetailBeforeAfter
 				slug={object.slug}

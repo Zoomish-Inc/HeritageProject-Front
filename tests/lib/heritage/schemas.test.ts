@@ -243,4 +243,29 @@ describe('heritageObjectApiResponseSchema', () => {
 			expect(parsed.data.data.audioGuide.narratorLabel.ru).toBe('');
 		}
 	});
+
+	it('maps tour_published and tour_entry_url from API', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			data: {
+				id: 'x',
+				slug: 'slug',
+				name: { ru: 'A', uz: 'B' },
+				address: { ru: '1', uz: '1' },
+				order: 1,
+				year_built: 1900,
+				short_description: { ru: 's', uz: 's' },
+				cover: 'https://example.com/c.jpg',
+				tour_published: true,
+				tour_entry_url: 'https://cdn.example.com/packs/slug/index.htm',
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.tourPublished).toBe(true);
+			expect(parsed.data.data.tourEntryUrl).toBe(
+				'https://cdn.example.com/packs/slug/index.htm'
+			);
+		}
+	});
 });

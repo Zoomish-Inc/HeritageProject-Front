@@ -92,6 +92,8 @@ export interface HeritageObject {
 	createdAt?: string;
 	updatedAt?: string;
 	isPublished?: boolean;
+	tourPublished?: boolean;
+	tourEntryUrl?: string;
 }
 
 export interface HeritageListItem {

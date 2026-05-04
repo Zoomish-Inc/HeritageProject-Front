@@ -20,7 +20,8 @@
 		"test": "vitest run",
 		"test:e2e": "playwright test",
 		"docs:update": "node scripts/updateReadmeStructure.mjs",
-		"docs:check": "node scripts/updateReadmeStructure.mjs --check"
+		"docs:check": "node scripts/updateReadmeStructure.mjs --check",
+		"tour-packs:sync": "node scripts/sync-tour-packs.mjs"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.51.11",

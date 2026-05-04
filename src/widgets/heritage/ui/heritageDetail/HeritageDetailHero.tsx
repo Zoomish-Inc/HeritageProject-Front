@@ -10,9 +10,17 @@ type Props = {
 	object: HeritageObject;
 	locale: Locale;
 	backLabel: string;
+	tourHref?: string;
+	tourLabel?: string;
 };
 
-export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
+export const HeritageDetailHero = ({
+	object,
+	locale,
+	backLabel,
+	tourHref,
+	tourLabel,
+}: Props) => (
 	<>
 		<Link
 			href="/"
@@ -26,7 +34,7 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 
 		<div className="relative mb-12 overflow-hidden">
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent mb-6" />
-			<div className="flex items-start justify-between gap-4 mb-4">
+			<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
 				<div>
 					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2">
 						{object.yearBuiltLabel?.[locale]?.trim() ||
@@ -42,6 +50,14 @@ export const HeritageDetailHero = ({ object, locale, backLabel }: Props) => (
 						</p>
 					)}
 				</div>
+				{tourHref && tourLabel ? (
+					<Link
+						href={tourHref}
+						className="shrink-0 self-start inline-flex items-center justify-center px-4 py-2.5 text-xs font-body tracking-[0.2em] uppercase border border-gold-400/40 text-gold-400 hover:bg-gold-400/10 transition-colors rounded-lg"
+					>
+						{tourLabel}
+					</Link>
+				) : null}
 			</div>
 
 			<div className="relative w-full h-72 md:h-96 mb-6 border border-gold-400/20 rounded-xl overflow-hidden">

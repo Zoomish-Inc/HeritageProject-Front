@@ -45,6 +45,7 @@ export const ru = {
 		historical_photos: 'Исторические фотографии',
 		modern_photos: 'Современный вид',
 		back: ' Все объекты',
+		tour_link: '3D-тур',
 		loading: 'Загрузка...',
 		error: 'Не удалось загрузить данные',
 	},

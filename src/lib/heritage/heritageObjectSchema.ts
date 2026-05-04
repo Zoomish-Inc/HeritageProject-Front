@@ -14,6 +14,7 @@ import {
 	historicalFigureSchema,
 	localizedStringSchema,
 	parseArrayFlexible,
+	parseBooleanFlexible,
 	parseIsoDateOptional,
 	parseLocalizedFlexible,
 	parseLocalizedOptional,
@@ -176,6 +177,18 @@ export const heritageObjectApiDataSchema = z
 
 		const publishedRaw = coalesceKey(r, 'isPublished', 'is_published');
 		if (publishedRaw === false) core.isPublished = false;
+
+		const tourPublishedParsed = parseBooleanFlexible(
+			coalesceKey(r, 'tourPublished', 'tour_published')
+		);
+		if (tourPublishedParsed !== undefined) {
+			core.tourPublished = tourPublishedParsed;
+		}
+
+		const tourEntryUrlRaw = coalesceKey(r, 'tourEntryUrl', 'tour_entry_url');
+		if (typeof tourEntryUrlRaw === 'string' && tourEntryUrlRaw.trim() !== '') {
+			core.tourEntryUrl = tourEntryUrlRaw.trim();
+		}
 
 		const createdAt = parseIsoDateOptional(
 			coalesceKey(r, 'createdAt', 'created_at')

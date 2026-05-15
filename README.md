@@ -110,6 +110,7 @@ src
 │   └── queryClient.ts
 ├── mocks
 │   ├── heritage
+│   │   ├── imageUrl.ts
 │   │   └── rawMockHeritageObjects.ts
 │   └── heritage.ts
 ├── pageSlices
@@ -174,7 +175,8 @@ src
 │   │   └── index.ts
 │   └── heritage
 │       ├── lib
-│       │   └── heritageDetailLocale.ts
+│       │   ├── heritageDetailLocale.ts
+│       │   └── osmMapUrls.ts
 │       ├── ui
 │       │   ├── heritageDetail
 │       │   │   ├── HeritageDetailArchitectBio.tsx
@@ -182,10 +184,12 @@ src
 │       │   │   ├── HeritageDetailAudio.tsx
 │       │   │   ├── HeritageDetailBeforeAfter.tsx
 │       │   │   ├── HeritageDetailClosingRule.tsx
+│       │   │   ├── HeritageDetailExpandableText.tsx
 │       │   │   ├── HeritageDetailFigures.tsx
 │       │   │   ├── HeritageDetailGallery.tsx
 │       │   │   ├── HeritageDetailHero.tsx
 │       │   │   ├── HeritageDetailHistory.tsx
+│       │   │   ├── HeritageDetailMap.tsx
 │       │   │   ├── HeritageDetailMediaAttribution.tsx
 │       │   │   ├── HeritageDetailPurpose.tsx
 │       │   │   ├── HeritageDetailSection.tsx
@@ -223,7 +227,8 @@ tests
 │       ├── criticalSeo.test.ts
 │       └── seoSnapshots.test.ts
 ├── mocks
-│   └── heritage.test.ts
+│   ├── heritage.test.ts
+│   └── imageUrl.test.ts
 └── setup.ts
 ```
 

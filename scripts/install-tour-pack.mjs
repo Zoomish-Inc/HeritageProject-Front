@@ -64,8 +64,13 @@ if (!fs.existsSync(tdvPlayerPath)) {
 fs.rmSync(dest, { recursive: true, force: true });
 fs.mkdirSync(path.dirname(dest), { recursive: true });
 fs.cpSync(webRoot, dest, { recursive: true });
-fs.rmSync(path.join(repoRoot, '.tmp-tour-extract'), { recursive: true, force: true });
+fs.rmSync(path.join(repoRoot, '.tmp-tour-extract'), {
+	recursive: true,
+	force: true,
+});
 
 const fileCount = fs.readdirSync(dest, { recursive: true }).length;
-console.log(`[install-tour-pack] Installed ${fileCount} entries → public/tour-packs/${slug}/`);
+console.log(
+	`[install-tour-pack] Installed ${fileCount} entries → public/tour-packs/${slug}/`
+);
 console.log(`  Open: http://localhost:3000/tour-packs/${slug}/index.htm`);

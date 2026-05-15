@@ -11,14 +11,16 @@ describe('isDirectImageUrl', () => {
 	});
 
 	it('accepts URLs with image file extension', () => {
-		expect(isDirectImageUrl('https://cdn.example.com/assets/photo.webp?v=1')).toBe(
-			true
-		);
+		expect(
+			isDirectImageUrl('https://cdn.example.com/assets/photo.webp?v=1')
+		).toBe(true);
 	});
 
 	it('rejects album and page URLs', () => {
 		expect(isDirectImageUrl('https://ru.files.fm/u/9zv7sc6xgt')).toBe(false);
-		expect(isDirectImageUrl('https://disk.yandex.ru/d/R2ioBrjeNW211g')).toBe(false);
+		expect(isDirectImageUrl('https://disk.yandex.ru/d/R2ioBrjeNW211g')).toBe(
+			false
+		);
 		expect(isDirectImageUrl('https://humodoc.com/ru/ambar/example')).toBe(false);
 	});
 

@@ -48,7 +48,7 @@ export const uz = {
 		back: "Barcha ob'ektlar",
 		tour_link: '3D sayohat',
 		read_more: "To'liq o'qish",
-		read_less: 'Yig\'ish',
+		read_less: "Yig'ish",
 		loading: 'Yuklanmoqda...',
 		error: "Ma'lumotlarni yuklab bo'lmadi",
 	},

@@ -11,7 +11,9 @@ export function isDirectImageUrl(url: string): boolean {
 	}
 	try {
 		const parsed = new URL(url);
-		if (directImageHostPatterns.some((pattern) => pattern.test(parsed.hostname))) {
+		if (
+			directImageHostPatterns.some((pattern) => pattern.test(parsed.hostname))
+		) {
 			return true;
 		}
 		return imageExtensionPattern.test(parsed.pathname);

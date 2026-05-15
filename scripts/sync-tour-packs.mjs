@@ -15,7 +15,8 @@ const HERITAGE_TOUR_SLUGS = [
 ];
 
 const defaultWebPath = path.join(repoRoot, 'tour-web-export', 'Web');
-const webSource = process.argv[2] ?? process.env.TOUR_WEB_EXPORT ?? defaultWebPath;
+const webSource =
+	process.argv[2] ?? process.env.TOUR_WEB_EXPORT ?? defaultWebPath;
 
 if (!fs.existsSync(webSource) || !fs.statSync(webSource).isDirectory()) {
 	console.error(

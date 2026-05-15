@@ -14,10 +14,13 @@ const mockPath = path.join(
 
 const source = fs.readFileSync(mockPath, 'utf8');
 
-const slugBlocks = source.split(/slug:\s*"/).slice(1).map((chunk) => {
-	const slug = chunk.slice(0, chunk.indexOf('"'));
-	return { slug, chunk };
-});
+const slugBlocks = source
+	.split(/slug:\s*"/)
+	.slice(1)
+	.map((chunk) => {
+		const slug = chunk.slice(0, chunk.indexOf('"'));
+		return { slug, chunk };
+	});
 
 const patterns = [
 	{
@@ -42,7 +45,9 @@ let issueCount = 0;
 
 for (const { slug, chunk } of slugBlocks) {
 	const lines = [];
-	const figures = chunk.match(/historicalFigures:\s*\[([\s\S]*?)\],\s*\n\s*photos:/);
+	const figures = chunk.match(
+		/historicalFigures:\s*\[([\s\S]*?)\],\s*\n\s*photos:/
+	);
 	if (figures?.[1].includes('name:')) {
 		const pageRefs = figures[1].match(/\(стр\.?\s*\d+\)|\(\d+-bet\)/gi);
 		if (pageRefs?.length) {
@@ -55,7 +60,9 @@ for (const { slug, chunk } of slugBlocks) {
 		if (urls?.length) {
 			lines.push(`  [B] historicalFigures URLs in bio: ${urls.length}`);
 		}
-		const bioStubs = [...figures[1].matchAll(/bio:\s*\{\s*ru:\s*"([^"]{0,120})"/g)];
+		const bioStubs = [
+			...figures[1].matchAll(/bio:\s*\{\s*ru:\s*"([^"]{0,120})"/g),
+		];
 		for (const m of bioStubs) {
 			if (m[1].length < 80 && !m[1].includes('\n')) {
 				lines.push(`  [C] short bio: "${m[1].slice(0, 60)}..."`);

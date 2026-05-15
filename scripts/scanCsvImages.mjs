@@ -9,7 +9,7 @@ const files = fs
 const slugByFile = {
 	'Храм Сергия': 'khram-sergiya-radonezhskogo',
 	'Женская гимназия': 'zhenskaya-gimnaziya',
-	'Часовня': 'chasovnya-aleksandra-nevskogo',
+	Часовня: 'chasovnya-aleksandra-nevskogo',
 	'военного собрания': 'zdanie-voennogo-sobraniya-dom-oficerov',
 	'военного губернатора': 'gubernatorskiy-dom',
 	'Мужская гимназия': 'muzhskaya-gimnaziya',
@@ -19,7 +19,8 @@ const nameBySlug = {
 	'khram-sergiya-radonezhskogo': 'Храм преподобного Сергия Радонежского',
 	'zhenskaya-gimnaziya': 'Здание женской гимназии',
 	'chasovnya-aleksandra-nevskogo': 'Часовня во имя Св. Александра Невского',
-	'zdanie-voennogo-sobraniya-dom-oficerov': 'Здание военного собрания (Дом офицеров)',
+	'zdanie-voennogo-sobraniya-dom-oficerov':
+		'Здание военного собрания (Дом офицеров)',
 	'gubernatorskiy-dom': 'Здание военного губернатора',
 	'muzhskaya-gimnaziya': 'Здание мужской гимназии',
 };
@@ -117,9 +118,7 @@ for (const file of files) {
 	}
 }
 
-results.sort(
-	(a, b) => priority.indexOf(a.slug) - priority.indexOf(b.slug)
-);
+results.sort((a, b) => priority.indexOf(a.slug) - priority.indexOf(b.slug));
 
 fs.writeFileSync(
 	'csv-image-scan.json',

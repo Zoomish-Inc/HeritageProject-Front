@@ -3,6 +3,7 @@ const imageExtensionPattern = /\.(avif|gif|jpe?g|png|webp)(\?.*)?$/i;
 const directImageHostPatterns = [
 	/^upload\.wikimedia\.org$/i,
 	/^commons\.wikimedia\.org$/i,
+	/^avatars\.mds\.yandex\.net$/i,
 ];
 
 export function isDirectImageUrl(url: string): boolean {

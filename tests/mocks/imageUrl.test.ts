@@ -10,6 +10,14 @@ describe('isDirectImageUrl', () => {
 		).toBe(true);
 	});
 
+	it('accepts yandex avatar CDN URLs', () => {
+		expect(
+			isDirectImageUrl(
+				'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig'
+			)
+		).toBe(true);
+	});
+
 	it('accepts URLs with image file extension', () => {
 		expect(
 			isDirectImageUrl('https://cdn.example.com/assets/photo.webp?v=1')

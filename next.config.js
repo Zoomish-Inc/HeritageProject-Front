@@ -29,6 +29,11 @@ const baseRemotePatterns = [
 	},
 	{
 		protocol: 'https',
+		hostname: 'avatars.mds.yandex.net',
+		pathname: '/**',
+	},
+	{
+		protocol: 'https',
 		hostname: 'picsum.photos',
 		pathname: '/**',
 	},

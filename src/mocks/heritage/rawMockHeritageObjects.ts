@@ -6,7 +6,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		slug: 'khram-sergiya-radonezhskogo',
 		order: 1,
 		coverImageUrl:
-			'https://cdn.ruwiki.ru/commonswiki/files/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/600px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg',
+			'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 		name: {
 			ru: 'Храм преподобного Сергия Радонежского',
 			uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
@@ -43,7 +43,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektikasi deb belgilash mumkin. Unda cho'zilgan vertikallar, lansetli ochilishlar, hajmlarning oddiyligi va XX asr boshidagi protestant ibodatxonalariga xos fasad plastikasi mavjud. Keyinchalik pravoslav moslashuvi ichki tashkil etilish va makon ramziy mazmunini o'zgartirdi, ammo binoning asl yevropa uslubini saqlab qoldi.",
 		},
 		architect: {
-			ru: 'Имя архитектора в доступных источниках не указано.',
+			ru: 'Имя архитектора в доступных источниках не установлено.',
 			uz: 'Arxitektorning ismi mavjud manbalarda aniqlanmagan.',
 		},
 		shortDescription: {
@@ -57,15 +57,34 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		architectureDetails: [
 			{
 				title: {
-					ru: 'Стрельчатые окна и кирпичная кладка',
-					uz: "Lansetli derazalar va g'isht terimi",
+					ru: 'Стрельчатые оконные проёмы',
+					uz: 'Lansetli deraza ochilishlari',
 				},
 				description: {
-					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость. Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
-					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari. Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
+					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость.',
+					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari.",
 				},
 				imageUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29_%D1%84%D0%BE%D1%82%D0%BE_1..JPG/960px-%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29_%D1%84%D0%BE%D1%82%D0%BE_1..JPG?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=thumbnail',
+					'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original',
+
+			},
+			{
+				title: {
+					ru: 'Фактурная кирпичная кладка',
+					uz: "Teksturali g'isht terimi",
+				},
+				description: {
+					ru: 'Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
+					uz: "Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
+				},
+				imageUrl:
+					'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+				imageSourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+				imageCredit: {
+					ru: 'Bobyrr',
+					uz: 'Bobyrr',
+				},
 			},
 			{
 				title: {
@@ -76,28 +95,50 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Внутреннее пространство храма после его переосмысления в православной традиции получило новые художественные акценты. Центральным элементом стал иконостас, выполненный по образцу иконостаса Троицкого собора Троице-Сергиевой лавры, что связывает интерьер с классическими образцами русской церковной архитектуры.',
 					uz: "Cherkov ichki makoni pravoslav an'anasiga qayta moslashtirilgach yangi badiiy urg'ular oldi. Markaziy element — Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olingan ikonostaz bo'lib, interyerni rus cherkov me'moriyasining klassik namunalariga bog'laydi.",
 				},
+				imageUrl:
+					'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
+				imageSourceUrl:
+					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
+				imageCredit: {
+					ru: 'Елизавета Х.',
+					uz: 'Yelizaveta X.',
+				},
 			},
 			{
 				title: {
-					ru: 'Колокольня 2023 года',
-					uz: "2023-yil qo'ng'iroqlari",
+					ru: 'Колокольный ансамбль',
+					uz: "Qo'ng'iroq ansambli",
 				},
 				description: {
 					ru: 'Дополнительную выразительность современному облику придаёт колокольный ансамбль, появившийся в 2023 году, который усиливает не только визуальное, но и звуковое присутствие храма в городской среде.',
 					uz: "Zamonaviy ko'rinishga 2023-yilda paydo bo'lgan qo'ng'iroq ansambli qo'shimcha ifoda beradi — u cherkovning shahar muhitidagi nafaqat vizual, balki ovozli ishtirokini ham kuchaytiradi.",
 				},
+				imageUrl:
+					'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
+				imageSourceUrl:
+					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
+				imageCredit: {
+					ru: 'Шамурад Б.',
+					uz: 'Shamurad B.',
+				},
 			},
 		],
 		history: {
-			ru: 'История объекта складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города. Второй этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию. Третий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма. В результате бывшая кирха стала полноценным православным храмом, сохранив при этом память о своём прошлом.',
-			uz: "Ob'ekt tarixi bir necha aniq ajralib turadigan bosqichlardan iborat. Birinchisi lyuteranlik davri edi. 20-asr boshlarida Fargʻonada nemislar jamoasi mavjud boʻlib, ular uchun maxsus diniy bino qurilgan. 1910 yilda cherkov qurilishi surati tarixiy fotosuratlar veb-saytida saqlanib qolgan. O‘shanda ham bu joy Farg‘onaning Yevropa me’moriy merosining bir qismi bo‘lib, shaharning turli etnik va diniy qiyofasini o‘zida aks ettirgan. Ikkinchi bosqich diniy funktsiyani yo'qotgan sovet davri bilan bog'liq edi. Biroq, bu davrda ham binoning jismoniy saqlanishi katta ahamiyatga ega edi: me'moriy qobiq tarixiy qo'zg'olonlardan omon qoldi va keyinchalik madaniy ahamiyatga ega bo'lgan foydalanish uchun tiklandi. Uchinchi bosqich urushdan keyingi yillarda, bino pravoslav jamoasiga topshirilganda boshlandi. Radonejning Sankt-Sergius nomiga bag'ishlanganidan so'ng, bino o'z hayotining yangi bosqichiga kirdi. Cherkov uchun bu shunchaki makonni egallash emas, balki amalda noldan yangi ruhiy markazni yaratish edi. Bunda arxiyepiskop Guriy, arximandrit Boris (Xolchev) va ikonostazni yaratishda va cherkovning ichki badiiy dizaynida ishtirok etgan rohiba Yulianiya (Mariya Sokolova) muhim rol o'ynagan. Natijada, sobiq cherkov o'zining o'tmish xotirasini saqlab qolgan holda, to'liq huquqli pravoslav cherkoviga aylandi.",
+			ru: 'История памятника складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города.\n\nВторой этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию.\n\nТретий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма.',
+			uz: "Yodgorlik tarixi bir necha aniq ajralib turadigan bosqichlardan iborat. Birinchisi lyuteranlik davri. 20-asr boshlarida Fargʻonada nemislar jamoasi mavjud boʻlib, ular uchun maxsus diniy bino qurilgan. 1910 yilda cherkov qurilishi surati tarixiy fotosuratlar veb-saytida saqlanib qolgan. O‘shanda ham bu joy Farg‘onaning Yevropa me’moriy merosining bir qismi bo‘lib, shaharning turli etnik va diniy qiyofasini o‘zida aks ettirgan.\n\nIkkinchi bosqich diniy funktsiyani yo'qotgan sovet davri bilan bog'liq. Biroq, bu davrda ham binoning jismoniy saqlanishi katta ahamiyatga ega edi: me'moriy qobiq tarixiy qo'zg'olonlardan omon qoldi va keyinchalik madaniy ahamiyatga ega bo'lgan foydalanish uchun tiklandi.\n\nUchinchi bosqich urushdan keyingi yillarda, bino pravoslav jamoasiga topshirilganda boshlandi. Radonejning Muqaddas Sergiy nomiga bag'ishlanganidan so'ng, bino o'z hayotining yangi bosqichiga kirdi. Cherkov uchun bu shunchaki makonni egallash emas, balki amalda noldan yangi ruhiy markazni yaratish edi. Bunda arxiyepiskop Guriy, arximandrit Boris (Xolchev) va ikonostaz hamda cherkovning ichki badiiy ko'rinishini yaratishda ishtirok etgan rohiba Yulianiya (Mariya Sokolova) muhim rol o'ynagan.",
 		},
 		historyMedia: [
 			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/960px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg?utm_source=ru.wikipedia.org&utm_campaign=parser&utm_content=thumbnail',
+				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 				caption: {
-					ru: 'Фотография храма',
-					uz: 'Cherkov surati',
+					ru: 'Храм преподобного Сергия Радонежского',
+					uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
+				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				credit: {
+					ru: 'ГОЛ ос',
+					uz: 'GOL os',
 				},
 			},
 		],
@@ -145,41 +186,80 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		],
 		photos: [
 			{
-				url: 'https://sobory.ru/pic/45600/45639_20260317_1021100t.jpg',
+				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 				caption: {
-					ru: 'Вид с улицы',
-					uz: "Ko'chadan ko'rinish",
+					ru: 'Общий вид храма',
+					uz: 'Cherkovning umumiy ko‘rinishi',
+				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				credit: {
+					ru: 'ГОЛ ос',
+					uz: 'GOL os',
 				},
 			},
 			{
-				url: 'https://sobory.ru/pic/45600/45639_20260317_1021103t.jpg',
+				url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
 				caption: {
 					ru: 'Вид с юго-запада',
 					uz: "Janubi-g'arbiy tomondan ko'rinish",
 				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+				credit: {
+					ru: 'Bobyrr',
+					uz: 'Bobyrr',
+				},
 			},
 			{
-				url: 'https://sobory.ru/pic/45600/45639_20260317_1021102t.jpg',
+				url: 'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
 				caption: {
-					ru: 'Вид с запада',
-					uz: "G'arbdan ko'rinish",
+					ru: 'Интерьер, иконостас',
+					uz: 'Interyer, ikonostaz',
+				},
+				sourceUrl:
+					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
+				credit: {
+					ru: 'Елизавета Х.',
+					uz: 'Yelizaveta X.',
+				},
+			},
+			{
+				url: 'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
+				caption: {
+					ru: 'Колокольный ансамбль',
+					uz: "Qo'ng'iroq ansambli",
+				},
+				sourceUrl:
+					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
+				credit: {
+					ru: 'Шамурад Б.',
+					uz: 'Shamurad B.',
 				},
 			},
 		],
 		beforeAfterPairs: [
 			{
 				before: {
-					url: 'https://sobory.ru/pic/45600/45639_20190331_064603t.jpg',
+					url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 					caption: {
-						ru: 'Фотография храма',
-						uz: 'Cherkov surati',
+						ru: 'Общий вид',
+						uz: 'Umumiy ko‘rinish',
+					},
+					credit: {
+						ru: 'ГОЛ ос',
+						uz: 'GOL os',
 					},
 				},
 				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG/250px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG?utm_source=ru.wikipedia.org&utm_campaign=parser&utm_content=thumbnail',
+					url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
 					caption: {
-						ru: 'Фотография храма',
-						uz: 'Cherkov surati',
+						ru: 'Вид с юго-запада',
+						uz: "Janubi-g'arbiy tomondan",
+					},
+					credit: {
+						ru: 'Bobyrr',
+						uz: 'Bobyrr',
 					},
 				},
 				label: {

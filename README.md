@@ -221,13 +221,11 @@ tests
 │   │   ├── getHeritageSlugs.test.ts
 │   │   └── schemas.test.ts
 │   └── seo
-│       ├── __snapshots__
-│       │   └── seoSnapshots.test.ts.snap
 │       ├── buildHeritageGraph.test.ts
 │       ├── buildHomeGraph.test.ts
 │       ├── buildPageMetadata.test.ts
 │       ├── criticalSeo.test.ts
-│       └── seoSnapshots.test.ts
+│       └── seoBuildersStructural.test.ts
 ├── mocks
 │   ├── heritage.test.ts
 │   └── imageUrl.test.ts

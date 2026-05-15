@@ -2,784 +2,814 @@ import type { HeritageObject } from '@/entities/heritage';
 
 export const rawMockHeritageObjects: HeritageObject[] = [
 	{
-		id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
-		slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
-		order: 1,
-		name: {
-			ru: 'Здание военного собрания (Дом офицеров)',
-			uz: "Harbiy yig'ilish binosi (Ofitserlar uyi)",
-		},
-		formerName: {
-			ru: 'Военное собрание Ферганы',
-			uz: "Farg'ona harbiy yig'ilishi",
-		},
-		currentPurpose: { ru: 'Дом офицеров', uz: 'Ofitserlar uyi' },
-		historicalPurpose: {
-			ru: 'Место собраний и досуга офицерского корпуса Ферганского гарнизона',
-			uz: "Farg'ona garnizoni ofitserlarining yig'ilish va dam olish joyi",
-		},
-		address: {
-			ru: 'г. Фергана, ул. Мустақиллик, 12',
-			uz: "Farg'ona sh., Mustaqillik ko'ch., 12",
-		},
-		yearBuilt: 1878,
-		architecturalStyle: {
-			ru: 'Эклектика, русский имперский классицизм',
-			uz: 'Eklektika, rus imperial klassitsizmi',
-		},
-		architect: {
-			ru: 'Военный инженер Е. Кохановский',
-			uz: 'Harbiy muhandis Ye. Koxanovskiy',
-		},
-		architectBio: {
-			name: { ru: 'Евгений Кохановский', uz: 'Yevgeniy Koxanovskiy' },
-			role: { ru: 'Военный инженер', uz: 'Harbiy muhandis' },
-			bio: {
-				ru: 'Участвовал в проектировании первых казённых зданий Новой Маргиланы. Работы велись в контексте военно-инженерной службы Туркестанского края.',
-				uz: "Yangi Marg'iloning dastlabki davlat binolarini loyihalashda ishtirok etgan. Ishlar Turkiston harbiy-muhandislik xizmati doirasida olib borilgan.",
+			id: "6ab495cb-b13c-4f14-9c87-2ab87098407b",
+			slug: "zdanie-voennogo-sobraniya-dom-oficerov",
+			order: 1,
+			name: {
+				ru: "Здание военного собрания (Дом офицеров)",
+				uz: "Harbiy yig'ilish binosi (Ofitserlar uyi)"
 			},
-			milestones: [
+			formerName: {
+				ru: "Здание военного собрания в Фергане",
+				uz: "Farg‘onadagi harbiy yig‘ilish binosi"
+			},
+			currentPurpose: {
+				ru: "Дом офицеров",
+				uz: "Ofitserlar uyi"
+			},
+			historicalPurpose: {
+				ru: "Место собраний и досуга офицерского корпуса Ферганского гарнизона",
+				uz: "Farg'ona garnizoni ofitserlarining yig'ilish va dam olish joyi"
+			},
+			address: {
+				ru: "Адрес: город Фергана, улица Мустакиллик (бывшая Революционная), дом 13.",
+				uz: "Manzil: Farg‘ona shahri, Mustaqillik ko‘chasi (sobiq Revolyutsionnaya), 13-uy."
+			},
+			coordinates: {
+				lat: 40.387869,
+				lng: 71.7864,
+			},
+			mapUrl:
+				'https://www.openstreetmap.org/?mlat=40.387869&mlon=71.7864#map=16/40.387869/71.7864',
+			yearBuilt: 1879,
+			yearBuiltLabel: {
+				ru: "Наравне с первыми общественными зданиями Ферганы (Нового Маргилана) в 1878 году был заложен фундамент Гарнизонного дома офицеров. Строительство закончилось через год в 1879 году. Проект здания военного собрания принадлежит военному инженеру Синклеру",
+				uz: "Farg‘onadagi (Yangi Marg‘ilondagi) ilk jamoat binolari bilan bir qatorda, 1878-yilda Garnizon ofitserlar uyining poydevori qo‘yilgan. Qurilish ishlari bir yildan so‘ng, ya’ni 1879-yilda yakunlangan. Harbiy yig‘ilish binosining loyihasi harbiy muhandis Sinklerga tegishli."
+			},
+			architecturalStyle: {
+				ru: "Архитектурному стилю здания присуща эклектика с элементами русского имперского раннего классицизма и чертами провинциальной военной архитектуры Российской империи конца XIX века.",
+				uz: "Binoning me’moriy uslubiga eklektika, ilk rus imperiya klassitsizmi elementlari hamda XIX asr oxiridagi Rossiya imperiyasi provinsial harbiy arxitekturasining o‘ziga xos xususiyatlari xosdir."
+			},
+			architect: {
+				ru: "И. И. Синклер",
+				uz: "I. I. Sinkler"
+			},
+			architectBio: {
+				name: {
+					ru: "И. И. Синклер",
+					uz: "I. I. Sinkler"
+				},
+				role: {
+					ru: "Военный инженер и строитель",
+					uz: "Harbiy muhandis va quruvchi"
+				},
+				bio: {
+					ru: "И. И. Синклер: Военный инженер и строитель. Капитан (впоследствии подполковник) военного ведомства, военный инженер Ферганской дистанции.",
+					uz: "I. I. Sinkler: Harbiy muhandis va quruvchi. Harbiy idora kapitani (keyinchalik podpolkovnik), Farg‘ona masofasi (distansiyasi) harbiy muhandisi."
+				}
+			},
+			shortDescription: {
+				ru: "Архитектурное сооружение конца XIX — начала XX столетия, являлся гарнизоном дома офицеров, построен в стиле раннего русского классицизма.",
+				uz: "XIX asr oxiri va XX asr boshlariga mansub ushbu me’moriy inshoot ofitserlar uyining garnizoni (Harbiy yig‘ilish binosi) bo‘lib xizmat qilgan hamda ilk rus klassitsizmi uslubida barpo etilgan."
+			},
+			architecturalDescription: {
+				ru: "Здание построено в стиле раннего русского классицизма с элементами эклектики. В отличие от строго административной Резиденции губернатора, архитектура Военного собрания более изящна и нарядна, так как здание предназначалось для культурного досуга, балов и торжественных приемов. Главный фасад имеет четко выраженную осевую симметрию. Центральная часть здания слегка выступает вперед, акцентируя главный вход. Она украшена высокими арочными окнами, которые придают строению торжественный вид. Фасад декорирован фигурной кирпичной кладкой. Использование жженого кирпича без штукатурки - типичная черта «туркестанского кирпичного стиля». Сердцем здания является большой двусветный зал с высокими потолками, обладающий великолепной акустикой. Он предназначался для балов и музыкальных вечеров. Помещения расположены по принципу анфилады (последовательно соединенные комнаты), что создавало ощущение простора и обеспечивало сквозную вентиляцию. Помимо главного зала, в здании располагались гостиные для карточных игр, библиотека, бильярдная и буфет. Толщина стен из жженого кирпича обеспечивает тепловую инерцию (прохладу летом и тепло зимой). Высокие окна обеспечивают максимальное естественное освещение и циркуляцию воздуха.",
+				uz: "Bino eklektika elementlari bilan boyitilgan ilk rus klassitsizmi uslubida barpo etilgan. Gubernatorning qat’iy ma’muriy qarorgohidan farqli o‘laroq, Harbiy yig‘ilish binosining me’morchiligi ancha nafis va serbezakdir, chunki bino madaniy hordiq chiqarish, ballar va tantanali qabullar uchun mo‘ljallangan edi. Bosh fasad yaqqol ifodalangan o‘q chizig‘i bo‘yicha simmetriyaga ega. Binoning markaziy qismi biroz oldinga chiqib turadi va asosiy kirish qismini belgilab beradi. U baland ravoqli derazalar bilan bezatilgan bo‘lib, bu inshootga tantanavor qiyofa baxsh etadi."
+			},
+			architectureDetails: [
 				{
-					year: 1878,
-					event: {
-						ru: 'Курирование строительства военного собрания',
-						uz: "Harbiy yig'ilish binosining qurilishini nazorat qilish",
+					title: {
+						ru: "Главный фасад и симметрия",
+						uz: "Bosh fasad va simmetriya"
+					},
+					description: {
+						ru: "Главный фасад имеет четко выраженную осевую симметрию. Центральная часть здания слегка выступает вперед, акцентируя главный вход. Она украшена высокими арочными окнами, которые придают строению торжественный вид.",
+						uz: "Bosh fasad yaqqol ifodalangan o'q chizig'i bo'yicha simmetriyaga ega. Binoning markaziy qismi biroz oldinga chiqib turadi va asosiy kirish qismini belgilab beradi. U baland ravoqli derazalar bilan bezatilgan bo'lib, bu inshootga tantanavor qiyofa baxsh etadi."
+					}
+				},
+				{
+					title: {
+						ru: "Фигурная кирпичная кладка",
+						uz: "Shaklli g'isht terimi"
+					},
+					description: {
+						ru: "Фасад декорирован фигурной кирпичной кладкой. Использование жженого кирпича без штукатурки - типичная черта «туркестанского кирпичного стиля».",
+						uz: "Fasad shaklli g'isht terimi bilan bezatilgan. Pishgan g'ishtdan suvoqsiz foydalanish — «Turkiston g'isht uslubi»ning o'ziga xos xususiyatidir."
+					}
+				},
+				{
+					title: {
+						ru: "Двусветный зал",
+						uz: "Ikki qavatli zal"
+					},
+					description: {
+						ru: "Сердцем здания является большой двусветный зал с высокими потолками, обладающий великолепной акустикой. Он предназначался для балов и музыкальных вечеров.",
+						uz: "Binoning yuragi baland shiftli va ajoyib akustikaga ega bo'lgan katta ikki qavatli zaldir. U ballar va musiqiy kechalar uchun mo'ljallangan edi."
+					}
+				},
+				{
+					title: {
+						ru: "Анфилада и планировка",
+						uz: "Anfilada va rejalashtirish"
+					},
+					description: {
+						ru: "Помещения расположены по принципу анфилады (последовательно соединенные комнаты), что создавало ощущение простора и обеспечивало сквозную вентиляцию. Помимо главного зала, в здании располагались гостиные для карточных игр, библиотека, бильярдная и буфет. Толщина стен из жженого кирпича обеспечивает тепловую инерцию (прохладу летом и тепло зимой). Высокие окна обеспечивают максимальное естественное освещение и циркуляцию воздуха.",
+						uz: "Xonalar anfilada prinsipi bo'yicha (bir-biriga ketma-ket ulangan xonalar) joylashgan bo'lib, bu kenglik hissini yaratgan va binoni ichkaridan to'liq shamollatish imkonini bergan. Asosiy zaldan tashqari, binoda qarta o'yinlari uchun mehmonxonalar, kutubxona, bilyard xonasi va bufet joylashgan edi. Pishgan g'ishtdan urilgan qalin devorlar issiqlik inersiyasini (yozda salqinlik, qishda esa issiqlikni) ta'minlaydi. Baland derazalar maksimal darajada tabiiy yorug'lik va havo aylanishini kafolatlaydi."
+					}
+				}
+			],
+			history: {
+				ru: "Наравне с первыми общественными зданиями Ферганы (Нового Маргилана) в 1878 году был заложен фундамент Гарнизонного дома офицеров. Строительство закончилось через год в 1879 году. Проект здания военного собрания принадлежит военному инженеру Синклеру",
+				uz: "Farg‘onadagi (Yangi Marg‘ilondagi) ilk jamoat binolari bilan bir qatorda, 1878-yilda Garnizon ofitserlar uyining poydevori qo‘yilgan. Qurilish ishlari bir yildan so‘ng, ya’ni 1879-yilda yakunlangan. Harbiy yig‘ilish binosining loyihasi harbiy muhandis Sinklerga tegishli."
+			},
+			historicalFigures: [],
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
+				},
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
+				},
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
+				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
+			},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg"
+		},
+	{
+			id: "2",
+			slug: "gubernatorskiy-dom",
+			order: 2,
+			name: {
+				ru: "Здание военного губернатора",
+				uz: "Harbiy gubernator qarorgohi binosi"
+			},
+			formerName: {
+				ru: "Здание военного губернатора в Фергане",
+				uz: "Farg‘ona shahridagi harbiy gubernator qarorgohi binosi."
+			},
+			currentPurpose: {
+				ru: "Административное здание (Хокимият г. Фергана)",
+				uz: "Ma'muriy bino (Farg'ona shahri hokimiyati)"
+			},
+			historicalPurpose: {
+				ru: "Официальная резиденция военного губернатора Ферганской области",
+				uz: "Farg'ona viloyati harbiy gubernatorining rasmiy rezidentsiyasi"
+			},
+			address: {
+				ru: "150100, Республика Узбекистан, город Фергана, ул. Кувасайская дом 7.",
+				uz: "150100, O‘zbekiston Respublikasi, Farg‘ona shahri, Quvasoy ko‘chasi, 7-uy."
+			},
+			coordinates: {
+				lat: 40.3847,
+				lng: 71.7839,
+			},
+			mapUrl:
+				'https://www.openstreetmap.org/?mlat=40.3847&mlon=71.7839#map=16/40.3847/71.7839',
+			yearBuilt: 1899,
+			yearBuiltLabel: {
+				ru: "Проектирование и строительство началось в 1879, но закончилось спустя 20 лет, в 1899 году, в проектировании здания участвовали такие знаменитые русские архитекторы С.В. Леханов, И.Р. Сакович, Э.А. Брун, И.И. Аксентович. Особую роль внес С.В. Леханов, он считается главным архитектором.",
+				uz: "Loyiha ishlari va qurilish 1879-yilda boshlanib, 20 yildan so‘ng, ya’ni 1899-yilda yakunlangan. Binoning loyihalashtirish jarayonida S.V. Lexanov, I.R. Sakovich, E.A. Brun va I.I. Aksentovich kabi mashhur rus me’morlari ishtirok etishgan. Bunda S.V. Lexanov alohida o‘rin tutadi, u binoning bosh me’mori hisoblanadi."
+			},
+			architecturalStyle: {
+				ru: "Стиль сооружения: русская колониальная архитектура Туркестана, которая включает в себя эклектичное соотношение раннего классицизма и модерна с восточной мозаичной кирпичной кладкой. Особенность здания заключается в том, что оно сочетает в себе европейские и восточные композиции с учетом среднеазиатского климата.",
+				uz: "Inshoot uslubi: Turkistonning rus mustamlaka me’morchiligi yo‘nalishida bo‘lib, unda ilk klassitsizm va modernning o‘zaro uyg‘unligi hamda Sharqona mozaika uslubidagi g‘isht terimi o‘z aksini topgan. Binoning o‘ziga xosligi shundaki, unda Yevropa va Sharq kompozitsiyalari O‘rta Osiyo iqlimi inobatga olingan holda mahorat bilan birlashtirilgan."
+			},
+			architect: {
+				ru: "С.В. Леханов",
+				uz: "S.V. Lexanov"
+			},
+			architectBio: {
+				name: {
+					ru: "С.В. Леханов",
+					uz: "S.V. Lexanov"
+				},
+				role: {
+					ru: "Главный архитектор",
+					uz: "Bosh me'mor"
+				},
+				bio: {
+					ru: "С.В. Леханов — выдающийся российский военный инженер и архитектор, стоявший у истоков градостроительства Нового Маргилана (Ферганы). Как главный архитектор ключевых административных объектов, он сформировал уникальный облик города на рубеже XIX–XX веков. Его главной работой стала Резиденция военного губернатора — шедевр «туркестанского стиля», сочетающий строгий русский классицизм с восточными традициями зодчества. Благодаря профессионализму Леханова здание получило безупречную симметрию и адаптацию к среднеазиатскому климату. Творческое наследие С.В. Леханова признано объектом культурного достояния, олицетворяющим историческую преемственность и административную мощь региона.",
+					uz: "S.V. Lexanov — XIX asr oxiri va XX asr boshlarida Yangi Marg‘ilon (Farg‘ona) shaharsozlik poydevorini qo‘ygan atoqli rus harbiy muhandisi va me’moridir. U bosh me’mor sifatida ko‘plab muhim ma’muriy obektlarni loyihalash orqali shaharning betakror qiyofasini shakllantirdi. Uning asosiy ishi — ilk rus klassitsizmi va Sharq me’morchiligi an’analarini o‘zida mujassam etgan «Turkiston uslubi» durdonasi bo‘lmish harbiy gubernator qarorgohidir. Lexanovning mahorati tufayli bino mukammal simmetriyaga ega bo‘lib, O‘rta Osiyo iqlimiga moslashtirilgan. S.V. Lexanovning ijodiy merosi mintaqaning tarixiy davomiyligi va ma’muriy qudratini ifodalovchi madaniy boylik hisoblanadi."
+				}
+			},
+			shortDescription: {
+				ru: "Архитектурное сооружение конца XIX — начала XX столетия, являлся военно-административным центром  Нового Маргилана (ныне Фергана), построен в стиле раннего русского классицизма.",
+				uz: "XIX asr oxiri va XX asr boshlariga oid me’moriy bino. Ushbu inshoot Yangi Marg‘ilon (hozirgi Farg‘ona) shahrining harbiy-ma’muriy markazi bo‘lib xizmat qilgan hamda ilk rus klassitsizmi uslubida barpo etilgan."
+			},
+			architecturalDescription: {
+				ru: "Внешнее убранство постройки сохранилось до наших дней почти таким же, как при окончании строительства. Здесь два этажа: на первом располагались рабочие кабинеты, приемные помещения и парадные залы, а на втором этаже - жилые помещения. Само строение имеет симметричную композицию и два парадных входа по бокам главного корпуса. Правый вход вёл в помещение для деловых или личных встреч. Там располагались кабинеты, небольшая столовая с буфетом, гостиная и ещё несколько комнат. А в левой части здания военного губернатора находились большие парадные помещения, предназначенные для торжественных приёмов и официальных встреч: банкетный зал со своей столовой и оркестром, зал для бильярда, библиотека со множеством книг и небольшой зимний сад. Для наших современников здание военного губернатора представляет собой образец так называемой \"первой волны\" русской архитектуры Туркестана, мимо которого очень сложно пройти не остановившись. Здание построено по принципу строгой симметрии - типичный приём русского классицизма. Главный фасад: вытянут по горизонтали, имеет четкий центральный акцент, визуально создает стабильность государственной власти (главная цель показать порядок, контроль, административную силу). Русские черты: симметрия, парадный фасад, классическая композиция, ритм окон, строгая осевая структура. Среднеазиатские черты: широкие мансарды и веранды (похожие на айван) защита от жары, большие теневые пространства, воздушность.",
+				uz: "Inshootning tashqi ko‘rinishi qurilish yakunlangan davrdagi holatini deyarli o‘zgarishsiz saqlab qolgan. Bino ikki qavatdan iborat: birinchi qavatda ish xonalari, qabulxonalar va tantanalar zallari, ikkinchi qavatda esa yashash xonalari joylashgan. Inshoot simmetrik kompozitsiyaga ega bo‘lib, asosiy korpusning ikki yon tomonida ikkita bosh kirish eshigi mavjud."
+			},
+			architectureDetails: [
+				{
+					title: {
+						ru: "Двухэтажная композиция",
+						uz: "Ikki qavatli kompozitsiya"
+					},
+					description: {
+						ru: "Внешнее убранство постройки сохранилось до наших дней почти таким же, как при окончании строительства. Здесь два этажа: на первом располагались рабочие кабинеты, приемные помещения и парадные залы, а на втором этаже - жилые помещения. Само строение имеет симметричную композицию и два парадных входа по бокам главного корпуса.",
+						uz: "Inshootning tashqi ko'rinishi qurilish yakunlangan davrdagi holatini deyarli o'zgarishsiz saqlab qolgan. Bino ikki qavatdan iborat: birinchi qavatda ish xonalari, qabulxonalar va tantanalar zallari, ikkinchi qavatda esa yashash xonalari joylashgan. Inshoot simmetrik kompozitsiyaga ega bo'lib, asosiy korpusning ikki yon tomonida ikkita bosh kirish eshigi mavjud."
+					}
+				},
+				{
+					title: {
+						ru: "Правое крыло",
+						uz: "O'ng qanot"
+					},
+					description: {
+						ru: "Правый вход вёл в помещение для деловых или личных встреч. Там располагались кабинеты, небольшая столовая с буфетом, гостиная и ещё несколько комнат.",
+						uz: "O'ng tomondagi kirish eshigi ishchi va shaxsiy uchrashuvlar uchun mo'ljallangan xonalarga olib borgan. U yerda kabinetlar, bufetli kichik oshxona, mehmonxona va yana bir nechta xonalar bo'lgan."
+					}
+				},
+				{
+					title: {
+						ru: "Левое крыло и парадные залы",
+						uz: "Chap qanot va tantanalar zallari"
+					},
+					description: {
+						ru: "А в левой части здания военного губернатора находились большие парадные помещения, предназначенные для торжественных приёмов и официальных встреч: банкетный зал со своей столовой и оркестром, зал для бильярда, библиотека со множеством книг и небольшой зимний сад.",
+						uz: "Harbiy gubernator binosining chap qismida esa tantanali qabullar va rasmiy uchrashuvlar uchun mo'ljallangan keng xonalar: shaxsiy oshxonasi va orkestri bo'lgan banket zali, bilyard xonasi, boy kutubxona hamda kichik qishki bog' joylashgan."
+					}
+				},
+				{
+					title: {
+						ru: "Симметрия и климатическая адаптация",
+						uz: "Simmetriya va iqlim moslashuvi"
+					},
+					description: {
+						ru: "Для наших современников здание военного губернатора представляет собой образец так называемой \"первой волны\" русской архитектуры Туркестана, мимо которого очень сложно пройти не остановившись. Здание построено по принципу строгой симметрии - типичный приём русского классицизма. Главный фасад: вытянут по горизонтали, имеет четкий центральный акцент, визуально создает стабильность государственной власти (главная цель показать порядок, контроль, административную силу). Русские черты: симметрия, парадный фасад, классическая композиция, ритм окон, строгая осевая структура. Среднеазиатские черты: широкие мансарды и веранды (похожие на айван) защита от жары, большие теневые пространства, воздушность.",
+						uz: "Zamonaviy davrda harbiy gubernator binosi Turkistonning rus me'morchiligining «birinchi to'lqini» namunasi hisoblanadi. Bino qat'iy simmetriya prinsipi asosida qurilgan — bu rus klassitsizmining odatiy uslubidir. Bosh fasad gorizontal yo'nalishda cho'zilgan, markaziy urg'u aniq ifodalangan va davlat hokimiyatining barqarorligini vizual tarzda namoyon etadi. Rus xususiyatlari: simmetriya, tantanali fasad, klassik kompozitsiya, derazalar ritmi, qat'iy o'qli tuzilma. O'rta Osiyo xususiyatlari: keng mansardalar va ayvonga o'xshash verandalar — issiqdan himoya, keng soyali fazolar, havodorlik."
+					}
+				}
+			],
+			history: {
+				ru: "Проектирование и строительство началось в 1879, но закончилось спустя 20 лет, в 1899 году, в проектировании здания участвовали такие знаменитые русские архитекторы С.В. Леханов, И.Р. Сакович, Э.А. Брун, И.И. Аксентович. Особую роль внес С.В. Леханов, он считается главным архитектором.",
+				uz: "Loyiha ishlari va qurilish 1879-yilda boshlanib, 20 yildan so‘ng, ya’ni 1899-yilda yakunlangan. Binoning loyihalashtirish jarayonida S.V. Lexanov, I.R. Sakovich, E.A. Brun va I.I. Aksentovich kabi mashhur rus me’morlari ishtirok etishgan. Bunda S.V. Lexanov alohida o‘rin tutadi, u binoning bosh me’mori hisoblanadi."
+			},
+			historicalFigures: [],
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
+				},
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
+				},
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
+				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
+			},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg"
+		},
+	{
+			id: "3",
+			slug: "zhenskaya-gimnaziya",
+			order: 3,
+			name: {
+				ru: "Здание женской гимназии",
+				uz: "Qizlar gimnaziyasi binosi"
+			},
+			formerName: {
+				ru: "Здание женской гимназии",
+				uz: "Qizlar gimnaziyasi binosi"
+			},
+			currentPurpose: {
+				ru: "Городской дом культуры",
+				uz: "Shahar madaniyat uyi"
+			},
+			historicalPurpose: {
+				ru: "Женская гимназия с пансионом",
+				uz: "Qizlar gimnaziyasi va internat maktabi"
+			},
+			address: {
+				ru: "Здание расположено в центральной части города, между улицами Аль-Фергани и Маргилансай. В настоящее время в нём размещается Городской дом культуры",
+				uz: "Bino shaharning markaziy qismida, Al-Farg‘oniy va Marg‘ilonsoy ko‘chalari oralig‘ida joylashgan. Hozirda shahar madaniyat uyi joylashgan."
+			},
+			coordinates: {
+				lat: 40.388056,
+				lng: 71.770556
+			},
+			mapUrl: "https://www.openstreetmap.org/?mlat=40.388056&mlon=71.770556#map=16/40.388056/71.770556",
+			yearBuilt: 1877,
+			yearBuiltLabel: {
+				ru: "приблизительно в 1877 году",
+				uz: "1877 yil atrofida"
+			},
+			architecturalStyle: {
+				ru: "Архитектурный стиль здания сочетает традиции русского классицизма с элементами местного зодчества, что было характерно для архитектуры Туркестанского края конца XIX века.",
+				uz: "Binoning meʼmoriy uslubi rus klassitsizmi anʼanalarini mahalliy meʼmorlik elementlari bilan uygʻunlashtiradi, bu XIX asr oxirida Turkiston oʻlkasi meʼmorchiligiga xos boʻlgan."
+			},
+			architect: {
+				ru: "Эдуард Генрихович Брун",
+				uz: "Eduard Genrixovich Brun"
+			},
+			architectBio: {
+				name: {
+					ru: "Эдуард Генрихович Брун",
+					uz: "Eduard Genrixovich Brun"
+				},
+				role: {
+					ru: "Областной архитектор",
+					uz: "Viloyat me'mori"
+				},
+				bio: {
+					ru: "Эдуард Генрихович был военным инженером, подполковником (позже полковником). В те времена в Туркестанском крае профессиональных гражданских архитекторов было мало, поэтому проектированием и строительством занимались офицеры инженерных войск.\nДолжность: Он долгие годы занимал пост областного инженера Ферганской области.\nМиссия: Брун не просто строил отдельные здания, он реализовывал генеральный план города. Он был апологетом «регулярного города» с широкими проспектами и обилием зелени.\nЖизненный путь Эдуарда Генриховича Бруна — это история человека, который буквально из пыли и палящего солнца создал регулярный город Новый Маргилан (ныне Фергана). Он не просто строил дома, он проектировал образ жизни в Туркестане.\nНиже представлены ключевые вехи его биографии и карьеры, собранные из архивных данных.\nБиографические вехи Эдуарда Бруна\nПроисхождение: Родился 24 января 1849 года в Николаеве (Херсонская губерния). Из дворян. По вероисповеданию — лютеранин.\nОбразование: Окончил престижное Строительное училище в Санкт-Петербурге со званием гражданского инженера. Это дало ему мощную базу в области материаловедения и сейсмики.\nПрибытие в Туркестан: Приехал в край в первые годы его освоения. В 1878 году был назначен младшим инженером в строительное отделение Ферганского областного правления.\nГлавная должность: С 1 мая 1879 года — Областной архитектор Ферганской области. В этой должности он прослужил более 26 лет.\nЧин: Дослужился до чина статского советника (что соответствовало званию генерала в гражданской службе).\nЗавершение пути: Ушел в отставку «с мундиром» по болезни в 1905 году. Военный губернатор области В. И. Покатило лично выразил сожаление об его уходе, назвав его труд «образцовым».",
+					uz: "Eduard Genrixovich harbiy muhandis, podpolkovnik (keyinchalik polkovnik) edi. O'sha paytda Turkiston o'lkasida professional fuqarolik me'morlari kam edi, shuning uchun muhandislik zobitlari loyihalash va qurilish bilan shug'ullangan.\nLavozimi: Uzoq yillar Farg‘ona viloyati hududiy muhandisi lavozimida ishlagan.\nMissiya: Brun shunchaki alohida binolar qurmagan; u shaharning bosh rejasini amalga oshirdi. U keng xiyobonlar va ko'kalamzorlarga boy \"muntazam shahar\" tarafdori edi.Eduard Genrixovich Brunning hayoti tom ma'noda chang va jazirama quyoshdan Yangi Marg'ilon (hozirgi Farg'ona) shahrini yaratgan odamning hikoyasidir. U shunchaki uylar qurmagan; Turkiston uchun hayot tarzini ishlab chiqdi.\nQuyida uning tarjimai holi va faoliyatidagi muhim bosqichlar arxiv maʼlumotlaridan toʻplangan.\nEduard Brunning biografik bosqichlari\nKelib chiqishi: 1849 yil 24 yanvarda Nikolaevda (Xerson gubernatorligi) tug'ilgan. Olijanob nasldan. Diniga ko'ra lyuteran.Maʼlumoti: Sankt-Peterburgdagi nufuzli qurilish maktabini muhandis-qurilish mutaxassisligi boʻyicha tamomlagan. Bu unga materialshunoslik va seysmik muhandislik sohasida mustahkam poydevor yaratdi.\nTurkistonga yetib kelish: mintaqaga rivojlanishning dastlabki yillarida kelgan. 1878-yilda Farg‘ona viloyat hokimiyati qurilish bo‘limiga kichik muhandis etib tayinlanadi.\nBirlamchi lavozimi: 1879-yil 1-maydan Fargʻona viloyati viloyat meʼmori boʻldi. U bu lavozimda 26 yildan ortiq xizmat qildi.Darajasi: Davlat maslahatchisi darajasiga ko‘tarildi (davlat xizmatidagi generalga teng).\r\nFaoliyatining yakuni: 1905-yilda kasallik tufayli “formada” nafaqaga chiqdi.Viloyat harbiy gubernatori V.I.Pokatilo shaxsan o‘zi ketayotganidan taassufda ekanligini bildirib, uning faoliyatini “namunali” deb baholadi."
+				}
+			},
+			shortDescription: {
+				ru: "Одним из интереснейших архитектурных памятников города является здание, которое в прошлом принадлежало пансиону Мариинского женского училища. Оно было построено в конце XIX века, приблизительно в 1877 году по проекту архитектора Э. А. Бруна. Первоначально здание использовалось как приходская школа. Позднее, в начале XX века, примерно в 1901-1903 годах, здание было перестроено и преобразовано в женскую гимназию с пансионом",
+				uz: "Shaharning eng qiziqarli me'moriy yodgorliklaridan biri - ilgari Mariinskiy qizlar maktabining internat maktabi joylashgan bino. U 19-asr oxirida, taxminan 1877 yilda me'mor E. A. Brunoning loyihalariga ko'ra qurilgan. Dastlab, bino cherkov maktabi sifatida xizmat qilgan. Keyinchalik, 20-asrning boshlarida, taxminan 1901-1903 yillarda bino rekonstruksiya qilinib, qizlar gimnaziyasi va internat maktabiga aylantirildi."
+			},
+			architecturalDescription: {
+				ru: "Архитектура сооружения отражает особенности городской застройки Ферганы дореволюционного периода. Это кирпичное здание с симметричным фасадом, крупными оконными проёмами, декоративными карнизами и нишами. Здание спроектировано в духе строгой симметрии, что было характерно для казенных учебных заведений Российской империи начала XX века.\n\nПланировочное решение: Здание имеет П-образную форму (или вытянутый прямоугольник с ризалитами), что позволило создать закрытый или полуоткрытый внутренний дворик — традиционный элемент для жаркого климата.\n\nФасадный ритм: Главный фасад разбит выступающими частями — ризалитами (центральным и боковыми). Это придает протяженному зданию динамику и монументальность.\n\nГоризонтальное членение: Здание четко разделено на цокольную часть, основной массив стен и венчающий карниз. Это подчеркивает устойчивость и приземленность, визуально «успокаивая» постройку.\n\nИнженерная мысль здесь была направлена на две главные угрозы: землетрясения и экстремальную жару.\n\nСтены и материал\n\n«Николаевский» кирпич: Стены возведены из высококачественного жженого кирпича на сложном известковом растворе. Толщина стен в некоторых местах достигает 80–100 см.\n\nСейсмостойкость: Массивность стен здесь работает как демпфер. Кирпичная кладка выполнена с тщательной перевязкой швов, что создает монолитную структуру, способную гасить колебания.\n\nОтсутствие штукатурки: Это принципиальная черта «туркестанского стиля». Открытый кирпич не только эстетичен, но и практичен: он не осыпается и лучше отдает тепло ночью, не требуя частого ремонта.",
+				uz: "Bino me’morchiligi Farg‘onaning inqilobgacha bo‘lgan davrdagi shahar rivojlanishini aks ettiradi. Bu nosimmetrik jabha, katta deraza teshiklari, dekorativ kornişlar va nişlarga ega bo'lgan g'isht konstruktsiyasidir. Bino 20-asr boshlarida Rossiya imperiyasidagi davlat ta'lim muassasalariga xos bo'lgan qat'iy simmetriya ruhida yaratilgan.Fasad ritmi: Asosiy fasad proektsion qismlarga bo'lingan - avant-korpuslar (markaziy va lateral). Bu cho'zilgan binoga dinamizm va monumentallikni beradi.\n\nGorizontal bo'linish: bino podvalga, asosiy devor massasiga va toj kornişiga aniq bo'linadi. Bu barqarorlik va asoslilikni ta'kidlaydi, strukturani vizual ravishda \"tinchlantiradi\". Muhandislik dizayni ikkita asosiy tahdidni bartaraf etishga qaratilgan edi: zilzilalar va haddan tashqari issiqlik.\n\nDevor va materiallar\n\"Nikolayev\" g'isht: devorlari murakkab ohak ohak bilan yuqori sifatli pishgan g'ishtdan qurilgan. Ba'zi joylarda devorlarning qalinligi 80-100 sm ga etadi.\n\nSeysmik qarshilik: Devorlarning massivligi damper vazifasini bajaradi. G'isht ishlari ehtiyotkorlik bilan yopishtirilib, tebranishlarni susaytirishga qodir monolitik tuzilmani yaratadi.\n\nGipsning etishmasligi: Bu \"Turkiston uslubi\" ning asosiy xususiyati. Ochiq g'isht nafaqat estetik jihatdan yoqimli, balki amaliydir: u parchalanmaydi va kechasi yaxshi issiqlikni ta'minlaydi, ozgina ta'mirlashni talab qiladi."
+			},
+			architectureDetails: [
+				{
+					title: {
+						ru: 'Кирпичный декор фасада',
+						uz: "Fasad g'isht bezagi",
+					},
+					description: {
+						ru: 'В отличие от столичных зданий того времени, здесь декор не лепился из гипса, а выкладывался непосредственно из кирпича.\n\nТехнология: Использовался местный жженый кирпич характерного песочно-желтого оттенка. Мастера применяли метод «подрезки» и лекального кирпича, создавая сложные карнизы, сухарики (дентикулы) и фризы.\n\nСимволика: Ритмичные повторения зубцов по карнизу здания символизировали порядок и дисциплину — идеальные качества для образовательного учреждения. Этот стиль также называли «кирпичным модерном», где честность материала подчеркивала надежность и долговечность знаний.',
+						uz: "Ramz: Binoning karniri bo'ylab tishlarning ritmik takrorlanishi tartib va intizomni anglatadi - ta'lim muassasasi uchun ideal fazilatlar. Ushbu uslub, shuningdek, \"g'isht modernizmi\" deb ataldi, bu erda materialning yaxlitligi bilimning ishonchliligi va uzoq umr ko'rishini ta'kidladi.",
+					},
+				},
+				{
+					title: {
+						ru: 'Резные деревянные колонны',
+						uz: "O'yilgan yog'och ustunlar"
+					},
+					description: {
+						ru: "Синтез культур\n\nОдной из жемчужин гимназии являются входные группы и внутренние галереи, где встречаются элементы традиционного узбекского зодчества.\n\nТехнология: Колонны часто изготавливались из карагача (вяза) или арчи. Использовалась техника «паргари» — плоскорельефная резьба, выполняемая с помощью циркуля и резца. Основание колонны (кузача) напоминает форму кувшина.\n\nСимволика: Колонна в местной традиции — это Мировое древо, опора мироздания. В контексте женской гимназии это подчеркивало роль женщины как опоры семьи и общества. Геометрические узоры (гирих) символизировали бесконечность познания и гармонию Вселенной.",
+						uz: "madaniyatlar sintezi\nGimnaziyaning diqqatga sazovor joylaridan biri bu anʼanaviy oʻzbek meʼmorchiligi elementlari kesishgan kirish joylari va ichki galereyalardir."
+					}
+				},
+				{
+					title: {
+						ru: "Кованые решетки и козырьки",
+						uz: "Temir panjaralar va soyabonlar"
+					},
+					description: {
+						ru: "Кружево из металла\n\nОконные проёмы и парадные входы украшены ажурным металлом, который сохранился на некоторых участках здания.\n\nТехнология: Ручная горячая ковка. Мастера-кузнецы вытягивали и закручивали раскаленное железо в волюты и спирали. Соединения часто выполнялись на заклепках, а не на сварке, что придает изделиям особую «живую» фактуру.\n\nСимволика: Растительные мотивы в решетках (переплетения лозы, бутоны) отсылали к процветанию и юности. Кованый козырек над входом служил не только защитой от солнца, но и «порталом», отделяющим суету улицы от храма науки.",
+						uz: "Temir to'ri\nDeraza teshiklari va tantanali kirishlar binoning ba'zi qismlarida saqlanib qolgan ajinli metall bilan bezatilgan.\n\nTexnologiya: Qo'lda issiq bo'rtma. Temirchi ustalar qizdirilgan temirni volyutalar va spiralga cho'zish va burishdi. Ulanishlar ko'pincha payvandlash o'rniga zaklepka bilan amalga oshirilgan.\n\nSimvolika: Panjaralardagi o'simlik motivlari (tok o'tishlari, gullar) gullab-yashnash va yoshlikka ishora qilgan. Kirish ustidagi temir soyabon nafaqat quyoshdan himoya qilgan, balki ko'chaning shovqinidan fan ibodatxonasiga ajratuvchi «portal» vazifasini bajargan.",
+					}
+				},
+				{
+					title: {
+						ru: "Окна-арки и замковые камни",
+						uz: "Arkali derazalar va qulflash toshi"
+					},
+					description: {
+						ru: "Окна гимназии имеют характерную полуциркульную (арочную) форму, что типично для классической архитектуры Туркестана того периода.\nДеталь: В верхней части каждой арки выделяется замковый камень — визуально утяжеленный центральный кирпич.\nСимволика: Замковый камень — символ единства и прочности конструкции. Он «держит» на себе всю арку, подобно тому как образование объединяет различные аспекты личности в единое целое.",
+						uz: "Gimnaziya derazalari o'sha davrdagi Turkiston klassik me'morchiligiga xos bo'lgan yarim doira (arkali) shaklga ega.\nTafsilot: Har bir arkaning yuqori qismida qulflash toshi — vizual ravishda og'irlashtirilgan markaziy g'isht ajratilgan.\nSimvolika: Qulflash toshi — birlash va mustahkamlik ramzi. U butun arkani «uslab turadi», xuddi ta'lim shaxsning turli jihatlarini yagona butunlikka birlashtirgandek.",
+					}
+				}
+			],
+			history: {
+				ru: "",
+				uz: ""
+			},
+			historicalFigures: [],
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
+				},
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
+				},
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
+				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
+			},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg"
+		},
+	{
+			id: "4",
+			slug: "chasovnya-aleksandra-nevskogo",
+			order: 4,
+			name: {
+				ru: "Часовня во имя Святого благоверного князя Александра Невского",
+				uz: "Muqaddas muborak shahzoda Aleksandr Nevskiy nomidagi cherkov"
+			},
+			currentPurpose: {
+				ru: "Часовня (действующая)",
+				uz: "Cherkov (faol)"
+			},
+			historicalPurpose: {
+				ru: "Православная часовня в память о погибших воинах",
+				uz: "Halok bo'lgan askarlar xotirasiga pravoslav cherkovi"
+			},
+			address: {
+				ru: "150105, Ферганская область, Фергана, ул. Саккокий, 8",
+				uz: "150105, Farg‘ona viloyati, Farg‘ona, Sakkokiya ko‘chasi, 8-uy"
+			},
+			coordinates: {
+				lat: 40.386389,
+				lng: 71.768889
+			},
+			mapUrl: "https://www.openstreetmap.org/?mlat=40.386389&mlon=71.768889#map=16/40.386389/71.768889",
+			yearBuilt: 1892,
+			yearBuiltLabel: {
+				ru: "не ранее 1889.",
+				uz: "1892"
+			},
+			architecturalStyle: {
+				ru: "Русский стиль (или псевдорусский) в кирпичном исполнении",
+				uz: "G'ishtni bajarishda rus uslubi (yoki psevdo-ruscha)."
+			},
+			architect: {
+				ru: "Александр Александрович Бурмейстер (1850 – после 1909), полковник, военный инженер, архитектор.",
+				uz: "Aleksandr Aleksandrovich Burmeister (1850 - 1909 yildan keyin), polkovnik, harbiy muhandis, arxitektor."
+			},
+			architectBio: {
+				name: {
+					ru: "Александр Александрович Бурмейстер",
+					uz: "Aleksandr Aleksandrovich Burmeister"
+				},
+				role: {
+					ru: "Военный инженер, архитектор",
+					uz: "Harbiy muhandis, arxitektor"
+				},
+				bio: {
+					ru: "Из дворян С.-Петербургской губернии. Православный. Воспитывался в Новгородском графа Аракчеева кадетском корпусе. В службу вступил юнкером 15 августа 1867 г. во 2-е Константиновское военное училище в С.-Петербурге, 21 августа 1869 г. зачислен в Николаевское инженерное училище, 12 июля 1870 г. в звании подпоручика зачислен в Туркестанскую саперную роту, 1 января 1878 г. назначен обучающим в старшем классе батальонной учебной команды, временно исполняющим должность младшего инженера строительного отделения Сырдарьинского областного правления.\nУчаствовал в работах по восстановлению почтового сообщения между городами Ташкент и Туркестан (1878–1879). По просьбе военного губернатора Ферганской области генерала А.К. Абрамова назначен 14 апреля 1879 г. городским архитектором Коканда, архитектором Кокандского и Исфаринского уездов Ферганской области, в 1880 г. также исполнял обязанности директора Ферганского попечительского о тюрьмах комитета, 1 апреля 1882 г. за упразднением должности Кокандского архитектора остался за штатом, Строитель многих укреплений и крепостей на территории края: в Ташкенте «был производителем работ по исправлению верхов и по устройству двух каменных ворот в Ташкентской цитадели апрель–декабрь 1872», был архитектором перестройки в восточном стиле приобретенного А.А. Половцевым дома купца Иванова, в котором ныне размещается музей Прикладного искусства Узбекистана, составил проект железной ограды первоначального захоронения генерал-губернатора К.П. фон Кауфмана. После Хивинского похода был откомандирован в распоряжение начальника Амударьинского отдела, оставлен 18 февраля 1874 г. в Петро-Александровске для строительства крепости. Строил укрепления в Оше и Гульчи ( 1872–1878).\nПроектировал и строил также храмы различных конфессий. В Ташкенте – архитектор православного храма Святого великого князя Александра Невского на Боткинском кладбище (1903–1904); строитель храма Св. Сергия Радонежского (1893–1897, снесен в 1930); «за безвозмездный труд по постройке нового здания Иосифо-Георгиевской церкви (1877) объявлена архиерейская благодарность первоосвященного епископа Никона» (снесено в 1995); строитель здания синагоги (1891).",
+					uz: "Peterburg guberniyasining zodagonlaridan. pravoslav. Novgorod graf Arakcheev kadet korpusida tahsil olgan. U 1867 yil 15 avgustda Sankt-Peterburgdagi 2-Konstantinovskiy harbiy bilim yurtida kursant sifatida xizmatga kirdi. 1869 yil 21 avgustda u Nikolaev muhandislik maktabiga o'qishga kirdi. 1870-yil 12-iyulda ikkinchi leytenant unvoni bilan Turkiston sapyorlar rotasiga xizmatga olinadi. 1878-yil 1-yanvarda Sirdaryo viloyati hokimiyati qurilish bo‘limida vaqtincha kichik muhandis bo‘lib, batalyon o‘quv otryadining yuqori sinfiga o‘qituvchi etib tayinlanadi.Toshkent va Turkiston shaharlari oʻrtasida pochta aloqasini tiklashda qatnashgan (1878–1879). Farg‘ona viloyati harbiy gubernatorining iltimosiga ko‘ra, general A.K. Abramov 1879-yil 14-aprelda Qoʻqon shahar meʼmori, Fargʻona viloyatining Qoʻqon va Isfara tumanlari meʼmori etib tayinlangan. 1880-yilda Farg‘ona qamoqxonasi vasiylik qo‘mitasi direktori vazifasini ham bajargan. 1882-yil 1-aprelda Qoʻqon meʼmori lavozimi tugatilgandan soʻng u boshqa shtatda boʻlmagan."
+				}
+			},
+			shortDescription: {
+				ru: "Православный собор, построенный в конце XIX века в русско-византийском стиле, ставший важным архитектурным символом города. Собор возведен из жженого кирпича, сохранил элементы классического храмового зодчества, отличается бело-розовыми тонами оформления, наличием открытых галерей и шатрового крыльца",
+				uz: "19-asr oxirida rus-Vizantiya uslubida qurilgan pravoslav sobori shaharning muhim me'moriy ramziga aylandi. Pishirilgan g‘ishtdan qurilgan u klassik cherkov me’morchiligining elementlarini saqlab qolgan va pushti va oq bezak, ochiq galereyalar va chodirli ayvonga ega."
+			},
+			architecturalDescription: {
+				ru: "Архитектурные особенности:\n\nСтиль: Здание выполнено в традициях русско-византийского стиля.\n\nКонструкция: Храм двухъярусный, с шатровым крыльцом и открытыми галереями. Изначально (на момент постройки в 1890-х годах) собор был рассчитан на значительное число прихожан.\n\nФасад: Изначально фасад был выполнен в красно-кирпичных тонах, а в настоящее время раскрашен бело-синей краской, облицован мрамором и оформлен железными решетками.\n\nИнтерьер: Внутреннее пространство украшают фрески с ликами святых, архангелов и ангелов, а также многочисленные иконы в позолоченных рамах.\n\nКолокольня: Включала 11 колоколов, главный из которых весил 7.010 кг\n\nИстория постройки: Храм пережил землетрясение 1966 года и пожар, но устоял, сохранив основу, и был реставрирован.\n\nХрам был освящен в 1902 году в честь святого благоверного князя Александра Невского — покровителя воинов. Это центрическое восьмигранное (или квадратное) в плане сооружение. Характерная черта — шатровая крыша, увенчанная луковичной главкой. \nВыделяются «кокошники» (декоративные арки) в основании шатра, фигурный фриз и «сухарики» (мелкие прямоугольные выступы под карнизом). Символика: Александр Невский — покровитель воинов, поэтому архитектура строгая, напоминающая богатырский шлем.",
+				uz: "Arxitektura xususiyatlari:\n\nUslub: Bino an'anaviy rus-Vizantiya uslubida qurilgan.\n\nQurilish: cherkov ikki qavatli, ayvonli chodir va ochiq galereyalardan iborat. Dastlab (1890-yillarda qurilgan) sobor ko'p sonli parishionerlarni joylashtirish uchun mo'ljallangan edi.\n\nFasad: Dastlab qizil va g‘ishtdan bo‘yalgan, hozirda oq va ko‘k rangga bo‘yalgan, marmar bilan qoplangan va temir panjaralar bilan bezatilgan.\n\nIchki makon: Ichki makon avliyolar, bosh farishtalar va farishtalar tasvirlangan freskalar, shuningdek, zarhal ramkalardagi ko'plab piktogrammalar bilan bezatilgan.Qo'ng'iroq minorasi: 11 ta qo'ng'iroqdan iborat bo'lib, asosiysining og'irligi 7010 kg.\n\nQurilish tarixi: Cherkov 1966 yilgi zilzila va yong'indan omon qoldi, ammo omon qoldi, poydevorini saqlab qoldi va tiklandi.\n\nCherkov 1902 yilda jangchilarning homiysi bo'lgan muqaddas va sodiq shahzoda Aleksandr Nevskiy sharafiga muqaddas qilingan."
+			},
+			architectureDetails: [
+				{
+					title: {
+						ru: "Русско-византийский стиль и конструкция",
+						uz: "Rus-Vizantiya uslubi va konstruksiya"
+					},
+					description: {
+						ru: "Стиль: Здание выполнено в традициях русско-византийского стиля.\nКонструкция: Храм двухъярусный, с шатровым крыльцом и открытыми галереями. Изначально (на момент постройки в 1890-х годах) собор был рассчитан на значительное число прихожан.",
+						uz: "Uslub: Bino an'anaviy rus-Vizantiya uslubida qurilgan.\nQurilish: cherkov ikki qavatli, ayvonli chodir va ochiq galereyalardan iborat. Dastlab (1890-yillarda qurilgan) sobor ko'p sonli parishionerlarni joylashtirish uchun mo'ljallangan edi."
+					}
+				},
+				{
+					title: {
+						ru: "Фасад и интерьер",
+						uz: "Fasad va ichki makon"
+					},
+					description: {
+						ru: "Фасад: Изначально фасад был выполнен в красно-кирпичных тонах, а в настоящее время раскрашен бело-синей краской, облицован мрамором и оформлен железными решетками.\nИнтерьер: Внутреннее пространство украшают фрески с ликами святых, архангелов и ангелов, а также многочисленные иконы в позолоченных рамах.",
+						uz: "Fasad: Dastlab qizil va g'ishtdan bo'yalgan, hozirda oq va ko'k rangga bo'yalgan, marmar bilan qoplangan va temir panjaralar bilan bezatilgan.\nIchki makon: Ichki makon avliyolar, bosh farishtalar va farishtalar tasvirlangan freskalar, shuningdek, zarhal ramkalardagi ko'plab piktogrammalar bilan bezatilgan."
+					}
+				},
+				{
+					title: {
+						ru: "Колокольня",
+						uz: "Qo'ng'iroq minorasi"
+					},
+					description: {
+						ru: "Колокольня: Включала 11 колоколов, главный из которых весил 7.010 кг",
+						uz: "Qo'ng'iroq minorasi: 11 ta qo'ng'iroqdan iborat bo'lib, asosiysining og'irligi 7010 kg."
+					}
+				},
+				{
+					title: {
+						ru: "Кокошники и шатровая крыша",
+						uz: "Kokoshniklar va chodirli tom"
+					},
+					description: {
+						ru: "Храм был освящен в 1902 году в честь святого благоверного князя Александра Невского — покровителя воинов. Это центрическое восьмигранное (или квадратное) в плане сооружение. Характерная черта — шатровая крыша, увенчанная луковичной главкой. \nВыделяются «кокошники» (декоративные арки) в основании шатра, фигурный фриз и «сухарики» (мелкие прямоугольные выступы под карнизом). Символика: Александр Невский — покровитель воинов, поэтому архитектура строгая, напоминающая богатырский шлем.",
+						uz: "Cherkov 1902 yilda jangchilarning homiysi bo'lgan muqaddas va sodiq shahzoda Aleksandr Nevskiy sharafiga muqaddas qilingan. Bu markaziy sakkiz burchakli (yoki kvadrat) rejalashtirilgan inshoot. Xarakterli xususiyat — piyozsimon gumbaz bilan bezatilgan chodirli tom.\nKokoshniklar (dekorativ arklar) chodir poydevorida, shaklli friz va «suxariklar» (karniz ostidagi mayda to'rtburchak chiqimlar). Simvolika: Aleksandr Nevskiy — jangchilarning homiysi, shuning uchun me'moriy qat'iy, daho dubulg'asiga o'xshash."
+					}
+				}
+			],
+			history: {
+				ru: "В 1898 году в Узбекистане произошло Андижанское восстание, в ходе которого в Фергане были убиты русские солдаты. Все они были захоронены на местном Русском православном кладбище, после чего было принято решение о возведении часовни на средства казны. \n\nЧасовня, представляла собой восьмиугольное в плане здание из жжёного кирпича, на крыше был установлен позолоченный крест. Внутри находились таблички с именами погибших солдат (не сохранились).\n\nБыла приписана к Храму Святого Николая Чудотворца, входила в ведение Туркестанского Епархиального Начальства.\n\nВ 1902 году в результате случившегося землетрясения здание было повреждено, частично обрушилась крыша (была восстановлена год спустя). \n\nВ советский период история часовни была драматичной. В 1932 (по другим данным 1934) году она была закрыта для богослужений в рамках антирелигиозной кампании. Однако само здание избежало сноса, в отличие от многих других храмов Скобелева. В 1943 году именно при этой кладбищенской часовне была зарегистрирована православная община, что стало началом возрождения легальной церковной жизни в Фергане после десятилетий подполья.",
+				uz: "1898 yilda O'zbekistonda Andijon qo'zg'oloni bo'lib, Farg'onada rus askarlari o'ldirilgan. Ularning barchasi mahalliy rus pravoslav qabristoniga dafn qilindi, shundan so'ng davlat mablag'lari hisobidan cherkov qurish to'g'risida qaror qabul qilindi.\n\nChapel pishiq g'ishtdan qurilgan sakkiz burchakli bino bo'lib, tomida zarhal xoch bor edi. Ichkarida halok bo'lgan askarlarning ismlari yozilgan lavhalar bor edi (ular omon qolmagan).\n\nU Nicholas the Wonderworker cherkoviga biriktirilgan va Turkiston yeparxiyasi ma'muriyatining yurisdiktsiyasiga kirgan.\n\n1902 yilda zilzila binoga zarar etkazdi, tom qisman qulab tushdi (bir yildan keyin tiklandi)"
+			},
+			historicalFigures: [],
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
+				},
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
+				},
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
+				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
+			},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg"
+		},
+	{
+			id: "5",
+			slug: "khram-sergiya-radonezhskogo",
+			order: 5,
+			name: {
+				ru: "Храм преподобного Сергия Радонежского",
+				uz: "Muqaddas Sergiy Radonejskiy cherkovi"
+			},
+			formerName: {
+				ru: "Евангелическо-лютеранская кирха немецкой общины Нового Маргилана (Скобелева).",
+				uz: "Yangi Margʻilon (Skobelev) nemis jamoasining Evangelist-lyuteran cherkovi"
+			},
+			currentPurpose: {
+				ru: "Православный храм (действующий)",
+				uz: "Pravoslav cherkovi (faol)"
+			},
+			historicalPurpose: {
+				ru: "Евангелическо-лютеранская кирха немецкой общины",
+				uz: "Yangi Marg'ilon nemis jamoasining lyuteran cherkovi"
+			},
+			address: {
+				ru: "Узбекистан, г. Фергана, ул. Саккокий, 8.",
+				uz: "O'zbekiston, Farg'ona, ko'ch. Sakkokiy, 8."
+			},
+			coordinates: {
+				lat: 40.395293,
+				lng: 71.781572
+			},
+			mapUrl: "https://www.openstreetmap.org/?mlat=40.395293&mlon=71.781572#map=16/40.395293/71.781572",
+			yearBuilt: 1910,
+			yearBuiltLabel: {
+				ru: "Исторические фотоматериалы фиксируют строительство кирхи в 1910 году, а современные церковные и медийные источники называют 1913 год как время существования уже оформленного лютеранского храма.",
+				uz: "Tarixiy fotosuratlar 1910 yilda cherkov qurilishini hujjatlashtiradi, zamonaviy cherkov va ommaviy axborot vositalarida lyuteran cherkovi allaqachon mavjud bo'lgan yil sifatida 1913 yil keltiriladi."
+			},
+			architecturalStyle: {
+				ru: "Архитектурный облик здания можно определить как кирпичную эклектику с отчетливыми неоготическими мотивами.",
+				uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektizmi sifatida aniqlash mumkin."
+			},
+			architect: {
+				ru: "Имя архитектора в доступных источниках не указано.",
+				uz: "Arxitektorning ismi mavjud manbalarda aniqlanmagan."
+			},
+			shortDescription: {
+				ru: "В настоящее время объект является действующим православным храмом Ташкентской и Узбекистанской епархии. Он выполняет богослужебную, мемориальную, просветительскую и общинную функции, оставаясь одним из ключевых духовных центров Ферганской долины. Ранее здание было построено как кирха для лютеранской общины, а в советский период временно использовалось не по первоначальному назначению, а как складское помещение.",
+				uz: "Ayni paytda bino Toshkent va Oʻzbekiston yeparxiyasining pravoslav cherkovi boʻlib xizmat qilmoqda. U Farg‘ona vodiysining asosiy ma’naviy markazlaridan biri bo‘lib qolgan holda liturgik, yodgorlik, ma’rifiy va jamoat vazifalarini bajaradi. Ilgari bino Lyuteran cherkovi vazifasini bajargan, sovet davrida esa vaqtinchalik asl maqsadi uchun emas, balki ombor sifatida foydalanilgan"
+			},
+			architecturalDescription: {
+				ru: "Храм представляет собой вытянутый кирпичный объем продольной ориентации, организованный по принципу однонефного зального пространства. Силуэт здания читается как компактный и собранный: главному фасаду придается особая выразительность за счет вертикального акцента входной части и высокого стрельчатого оконного проема. Для архитектуры объекта важны не столько сложность композиции, сколько ее ясность, строгий ритм и работа на вертикальное восприятие. Такая структура хорошо соответствовала исходной лютеранской функции и оказалась пригодной для последующей православной адаптации. \n При переходе здания к православной общине основное конструктивное ядро было сохранено, а изменения коснулись прежде всего литургической организации интерьера: появилась алтарная часть, был установлен иконостас, внутреннее пространство получило новые смысловые центры. Благодаря этому объект представляет интерес не только как памятник рубежа веков, но и как пример бережного перепрофилирования культовой архитектуры.",
+				uz: "Cherkov uzunlamasına yo'naltirilgan cho'zilgan g'ishtli bino bo'lib, bitta nefli zal bo'shlig'i printsipiga muvofiq tashkil etilgan. Binoning silueti ixcham va kompozitsion: asosiy fasadga kirishning vertikal urg'usi va baland lansetli deraza ochilishi alohida ifodalangan. Bino pravoslav jamiyatiga o'tkazilganda, asosiy strukturaviy yadro saqlanib qoldi, lekin o'zgarishlar birinchi navbatda ichki makonning liturgik tashkil etilishiga ta'sir qildi: qurbongoh bo'limi qo'shildi, ikonostaz o'rnatildi va ichki makon yangi semantik markazlarga ega bo'ldi. Shu sababli, bino nafaqat asrlar boshi yodgorligi, balki diniy arxitekturani puxta o'zgartirish namunasi sifatida ham qiziqish uyg'otadi."
+			},
+			architectureDetails: [
+				{
+					title: {
+						ru: "Стрельчатые окна и кирпичная кладка",
+						uz: "Lansetli derazalar va g'isht terimi"
+					},
+					description: {
+						ru: "Наиболее выразительные детали объекта — это\nстрельчатые оконные проёмы, фактурная кирпичная кладка, сдержанное фасадное\nчленение и общий вертикальный ритм. Эти элементы формируют строгий, но\nблагородный образ. Здание выглядит не тяжеловесным, а собранным и цельным. Даже\nпри отсутствии обильного декора фасады производят сильное впечатление за счёт\nпропорций и ясности архитектурного языка.",
+						uz: "Binoning eng ifodali detallari - bu lansetli derazalar, teksturali g'isht ishlari, o'ralgan fasad bo'linmalari va umumiy vertikal ritm."
+					},
+					imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7e/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG",
+					imageSourceUrl: "https://commons.wikimedia.org/wiki/File:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG",
+					imageCredit: {
+						ru: "Wikimedia Commons",
+						uz: "Wikimedia Commons"
+					}
+				},
+				{
+					title: {
+						ru: "Иконостас",
+						uz: "Ikonostaz"
+					},
+					description: {
+						ru: "Особое значение имеет внутреннее пространство. После переосвящения главный художественный акцент здесь был связан с иконостасом, выполненным по образцу иконостаса Троицкого собора Троице-Сергиевой лавры. Этот элемент придаёт интерьеру не только православный характер, но и особую культурную ценность, связывая ферганский храм с более широкой русской церковной традицией.",
+						uz: "Ichki makon ayniqsa muhimdir. Qayta tiklashdan so'ng, bu erda asosiy badiiy e'tibor Avliyo Sergiusning Trinity Lavra Trinity sobori ikonostazidan keyin modellashtirilgan ikonostaz edi. Bu element ichki makonga nafaqat pravoslav xarakterini, balki Farg'ona cherkovini kengroq rus cherkov an'analari bilan bog'laydigan alohida madaniy qadriyatni ham beradi."
+					}
+				},
+				{
+					title: {
+						ru: "Колокольня 2023 года",
+						uz: "2023-yil qo'ng'iroqlari"
+					},
+					description: {
+						ru: "В современном восприятии ансамбля заметную роль играет и новая колокольная тема: в 2023 году для прихода были освящены колокола, что усилило звуковое присутствие храма в городской среде.",
+						uz: "Yangi qo'ng'iroq mavzusi ham ansamblni zamonaviy idrok etishda muhim rol o'ynaydi: 2023 yilda cherkov uchun qo'ng'iroqlar bag'ishlangan bo'lib, shahar muhitida cherkovning ovozli ishtirokini kuchaytirdi."
+					}
+				}
+			],
+			history: {
+				ru: "История объекта складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города. Второй этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию. Третий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма. В результате бывшая кирха стала полноценным православным храмом, сохранив при этом память о своём прошлом.",
+				uz: "Ob'ekt tarixi bir necha aniq ajralib turadigan bosqichlardan iborat. Birinchisi lyuteranlik davri edi. 20-asr boshlarida Fargʻonada nemislar jamoasi mavjud boʻlib, ular uchun maxsus diniy bino qurilgan. 1910 yilda cherkov qurilishi surati tarixiy fotosuratlar veb-saytida saqlanib qolgan. O‘shanda ham bu joy Farg‘onaning Yevropa me’moriy merosining bir qismi bo‘lib, shaharning turli etnik va diniy qiyofasini o‘zida aks ettirgan. Ikkinchi bosqich diniy funktsiyani yo'qotgan sovet davri bilan bog'liq edi. Biroq, bu davrda ham binoning jismoniy saqlanishi katta ahamiyatga ega edi: me'moriy qobiq tarixiy qo'zg'olonlardan omon qoldi va keyinchalik madaniy ahamiyatga ega bo'lgan foydalanish uchun tiklandi. Uchinchi bosqich urushdan keyingi yillarda, bino pravoslav jamoasiga topshirilganda boshlandi. Radonejning Sankt-Sergius nomiga bag'ishlanganidan so'ng, bino o'z hayotining yangi bosqichiga kirdi. Cherkov uchun bu shunchaki makonni egallash emas, balki amalda noldan yangi ruhiy markazni yaratish edi. Bunda arxiyepiskop Guriy, arximandrit Boris (Xolchev) va ikonostazni yaratishda va cherkovning ichki badiiy dizaynida ishtirok etgan rohiba Yulianiya (Mariya Sokolova) muhim rol o'ynagan. Natijada, sobiq cherkov o'zining o'tmish xotirasini saqlab qolgan holda, to'liq huquqli pravoslav cherkoviga aylandi."
+			},
+			historicalFigures: [
+				{
+					name: {
+						ru: "Архимандрит Борис (Холчев)",
+						uz: "Arximandrit Boris (Xolchev)"
+					},
+					role: {
+						ru: "Духовный настоятель",
+						uz: "Ma'naviy rahbar"
+					},
+					bio: {
+						ru: 'Архимандрит Борис (1895-1971)(стр.42)',
+						uz: 'Arximandrit Boris (1895-1971) (42-bet)',
+					},
+				},
+				{
+					name: {
+						ru: "Монахиня Иулиания (Мария Соколова)",
+						uz: "Rohiba Yulianiya (Mariya Sokolova)"
+					},
+					role: {
+						ru: "Участница создания иконостаса",
+						uz: "Ikonostaz yaratilishida ishtirok etgan"
+					},
+					bio: {
+						ru: "Монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма.",
+						uz: "Ikonostazni yaratishda va cherkovning ichki badiiy dizaynida ishtirok etgan rohiba Yulianiya (Mariya Sokolova)."
+					}
+				}
+			],
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
+				},
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
+				},
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
+				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
+			},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7e/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG"
+		},
+	{
+			id: "6",
+			slug: "muzhskaya-gimnaziya",
+			order: 6,
+			name: {
+				ru: "Здание мужской гимназии",
+				uz: "Erkaklar gimnaziyasi binosi"
+			},
+			currentPurpose: {
+				ru: "Административный корпус Ферганского государственного университета",
+				uz: "Farg'ona davlat universitetining ma'muriy korpusi"
+			},
+			historicalPurpose: {
+				ru: "Мужская гимназия",
+				uz: "Erkaklar gimnaziyasi"
+			},
+			address: {
+				ru: "150100, Узбекистан, город Фергана, улица Мурабийлар, 19.",
+				uz: "150100, O‘zbekiston Respublikasi, Farg‘ona shahri, Murabbiylar ko‘chasi, 19-uy."
+			},
+			coordinates: {
+				lat: 40.387158,
+				lng: 71.777406,
+			},
+			mapUrl:
+				'https://www.openstreetmap.org/?mlat=40.387158&mlon=71.777406#map=16/40.387158/71.777406',
+			yearBuilt: 1902,
+			yearBuiltLabel: {
+				ru: "Проект разработан в 1900 году, строительство началось в 1902 году",
+				uz: "Loyiha 1900-yilda ishlab chiqilgan, qurilish esa 1902-yilda boshlangan"
+			},
+			architecturalStyle: {
+				ru: "Модерн («кирпичный стиль») с элементами классицизма",
+				uz: "Modern («g‘isht uslubi») va klassitsizm elementlari"
+			},
+			architect: {
+				ru: "Георгий Михайлович Сваричевский",
+				uz: "Georgiy Mixaylovich Svarichevskiy"
+			},
+			shortDescription: {
+				ru: "Памятник архитектуры начала XX века, построенный по проекту архитектора Г. М. Сваричевского. Здание отличается строгой симметрией, монументальными формами и элементами «кирпичного стиля» модерна. Центральную часть фасада выделяют крупные полуциркульные окна и выступающий объём. Сегодня в здании располагается административный корпус Ферганского государственного университета.",
+				uz: "XX asr boshlariga oid me’moriy yodgorlik bo‘lib, me’mor G. M. Svarichevskiy loyihasi asosida qurilgan. Bino qat’iy simmetriyasi, mahobatli shakllari hamda modern uslubining «g‘ishtli uslubi» elementlari bilan ajralib turadi. Fasadning markaziy qismi yirik yarim doira shaklidagi derazalar va oldinga chiqib turgan hajm bilan bezatilgan. Hozirgi kunda binoda Farg‘ona davlat universitetining ma’muriy korpusi joylashgan."
+			},
+			architecturalDescription: {
+				ru: "Архитектурное описание памятника: Здание выполнено в строгой симметричной композиции. Центральная часть фасада выделена выступающим объёмом и крупными полуциркульными окнами. В оформлении использованы кирпичный декор, карнизы и геометрические элементы. Архитектура относится к «кирпичному стилю» модерна с отдельными чертами классицизма, что придаёт зданию монументальный и выразительный облик. Архитектурные и конструктивные особенности: Здание построено из обожжённого кирпича, отличается прочными несущими стенами и устойчивой конструкцией. Входные группы оформлены глубокими нишами. Планировка была функционально ориентирована на учебный процесс. Позднее была добавлена пристройка гимнастического зала, однако она выполнена с учётом общего стилистического решения и не нарушает целостности архитектурного облика.",
+				uz: "Me’moriy tavsifi:\n Bino qat’iy simmetrik kompozitsiya asosida qurilgan bo‘lib, markaziy qismi oldinga chiqib turgan hajm va yirik yarim doira shaklidagi derazalar bilan ajralib turadi. Fasad bezagida g‘ishtli dekor, karnizlar va geometrik shakllar qo‘llanilgan. Bino modern uslubining «g‘isht uslubi» yo‘nalishida barpo etilgan bo‘lib, mahobatli ko‘rinishi bilan ajraladi.\n Me’moriy va konstruktiv xususiyatlari:\n Bino pishiq g‘ishtdan qurilgan. Devorlari qalin va mustahkam konstruksiyaga ega. Kirish qismlari chuqur nishalar bilan bezatilgan. Ichki rejalashtirish o‘quv jarayoniga mos ravishda tashkil etilgan. Keyinchalik binoga gimnastika zali qo‘shimcha ravishda qurilgan bo‘lsa-da, asosiy me’moriy uslub saqlab qolingan."
+			},
+			architectureDetails: [
+				{
+					title: {
+						ru: 'Кирпичный декор фасада',
+						uz: "Fasad g'isht bezagi",
+					},
+					description: {
+						ru: 'В отличие от столичных зданий того времени, декоративные элементы здесь выполнялись не из штукатурки или гипса, а из кирпичной кладки.\n\nТехнология: Использовался местный жжёный кирпич. Мастера применяли приёмы фигурной и лекальной кладки, создавая ритмичные пояски, карнизы и зубчатые завершения фасада без дополнительной облицовки.\n\nСимволика: Открытая кирпичная поверхность подчёркивала идею прочности, долговечности и «честности» архитектуры. Ритм кладки ассоциировался с порядком и дисциплиной, что соответствовало назначению здания как учебного заведения.',
+						uz: "O'sha davrdagi yirik shahar binolaridan farqli ravishda, bu yerda dekor gipsdan emas, balki to'g'ridan-to'g'ri g'isht terimi orqali bajarilgan.\n\nTexnologiya: mahalliy pishiq g'isht ishlatilgan. Ustalar shaklli va lekalli g'isht terish usullaridan foydalanib, murakkab karnizlar, g'ishtli belbog'lar va tishsimon tugallanishlarni yaratgan.\n\nSimvolika: ochiq g'isht yuzasi mustahkamlik, uzoq xizmat qilish va “materialning halolligi” g'oyasini ifodalaydi. Qat'iy ritm ta'lim muassasasiga xos tartib va intizomni aks ettiradi.",
+					},
+				},
+				{
+					title: {
+						ru: 'Арочные оконные проёмы и розеточное окно',
+						uz: 'Yoysimon deraza teshiklari va rozetka oynasi',
+					},
+					description: {
+						ru: 'Фасад здания организован через систему арочных оконных проёмов и центрального декоративного окна.\n\nТехнология: Полуциркульные арки выполнены из кирпича с точной радиальной кладкой. Верхняя часть фасада включает круглое окно-розетку, сформированное кирпичным обрамлением.\n\nСимволика: Арка символизирует устойчивость и завершённость конструкции. Круглое окно трактуется как образ знания, света и гармонии, усиливающий образовательную функцию здания.',
+						uz: "Fasad yoysimon deraza teshiklari va markaziy dekorativ oyna orqali tashkil etilgan.\n\nTexnologiya: yarim aylana shaklidagi arkalar aniq g'isht terimi orqali bajarilgan. Yuqori qismda aylana shaklidagi rozetka oyna joylashgan bo'lib, u g'ishtli ramka bilan ishlangan.\n\nSimvolika: ark shakli konstruksiyaning barqarorligini bildiradi. Aylana oyna esa bilim, yorug'lik va uyg'unlik ramzi sifatida talqin qilinadi.",
+					},
+				},
+				{
+					title: {
+						ru: 'Входная группа: монументальный портал',
+						uz: 'Kirish qismi: monumental portal',
+					},
+					description: {
+						ru: 'Вход в здание оформлен как композиционный центр фасада.\n\nТехнология: Массивная деревянная дверь установлена в глубокой кирпичной нише. Обрамление выполнено из фигурной кирпичной кладки с геометрическим ритмом. Над входом размещены световые проёмы.\n\nСимволика: Вход воспринимается как переход из внешнего пространства в «пространство знаний». Архитектурное решение подчёркивает торжественность и значимость учебного учреждения.',
+						uz: "Binoga kirish qismi fasadning kompozitsion markazi hisoblanadi.\n\nTexnologiya: katta yog'och eshik chuqur g'ishtli nisha ichida joylashgan. Atrofi geometrik ritmga ega g'isht terimi bilan bezatilgan. Eshik ustida tabiiy yoritish uchun oynali teshiklar mavjud.\n\nSimvolika: kirish qismi tashqi dunyodan bilim makoniga o'tish ramzi sifatida talqin qilinadi.",
+					},
+				},
+				{
+					title: {
+						ru: 'Конструктивная система здания',
+						uz: 'Binoning konstruktiv tizimi',
+					},
+					description: {
+						ru: 'Технология: Здание возведено из жжёного кирпича на известковом растворе. Несущие стены обладают значительной толщиной, что обеспечивает устойчивость конструкции и долговечность.\n\nСимволика: Массивность и простота конструкции отражают идею стабильности образования и устойчивости знаний.',
+						uz: "Texnologiya: bino pishiq g'isht va ohak qorishmasi asosida qurilgan. Yuk ko'taruvchi devorlar juda qalin bo'lib, bu konstruksiyaning mustahkamligini ta'minlaydi.\n\nSimvolika: massivlik va soddalik ta'lim tizimining barqarorligi va bilimning mustahkamligini ifodalaydi.",
 					},
 				},
 			],
-		},
-		coordinates: { lat: 40.3863, lng: 71.7844 },
-		mapUrl:
-			'https://www.openstreetmap.org/?mlat=40.3863&mlon=71.7844#map=16/40.3863/71.7844',
-		shortDescription: {
-			ru: 'Одно из первых капитальных зданий Новой Маргиланы (Ферганы), возведённое в год основания города. Центр офицерской жизни гарнизона.',
-			uz: "Shahar tashkil etilgan yilda qurilgan Yangi Marg'ilon (Farg'ona) ning birinchi yirik binolaridan biri. Garnizoning ofitserlik hayotining markazi.",
-		},
-		architecturalDescription: {
-			ru: 'Одноэтажное здание на высоком цоколе с симметричным главным фасадом, декорированным пилястрами коринфского ордера. Центральный ризалит завершён треугольным фронтоном с лепным декором. Кирпичная кладка с оштукатуренными фасадами выполнена местными мастерами под руководством военных инженеров.',
-			uz: "Korinf tartibidagi pilastirlar bilan bezatilgan simmetrik asosiy fasadli baland poydevorli bir qavatli bino. Markaziy rizalit uch burchakli frontonla yakunlangan. G'isht terishlari harbiy muhandislar rahbarligida mahalliy ustalar tomonidan bajarilgan.",
-		},
-		architectureDetails: [
-			{
-				title: { ru: 'Коринфские пилястры', uz: 'Korinf pilastrlari' },
-				description: {
-					ru: 'Плоские колонны коринфского ордера делят фасад на равные секции, создавая ритмическую структуру. Капители украшены стилизованным аканфом, выполненным в технике высокого рельефа.',
-					uz: "Korinf tartibidagi tekis ustunlar fasadni teng bo'limlarga bo'lib, ritmik tuzilma yaratadi. Kapitellar baland relyef texnikasida ishlangan stilizatsiyalangan akant bilan bezatilgan.",
-				},
-				imageUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
-				imageSourceUrl:
-					'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
-				imageCredit: {
-					ru: 'Wikimedia Commons',
-					uz: 'Wikimedia Commons',
-				},
+			history: {
+				ru: "Здание мужской гимназии в Фергане является важным объектом архитектурного наследия города. Оно было специально спроектировано для размещения учебного заведения для юношей. Первые чертежи здания были выполнены в 1900 году архитектором Г. М. Сваричевским. Проект отличался продуманной учебной функцией и впоследствии послужил основой для строительства женских гимназий в Самарканде и Чарджуе. Закладка здания состоялась 28 апреля 1902 года. Архитектура здания выполнена в стиле кирпичного модерна и характеризуется строгой симметрией. Центральная часть фасада выделена выступающим объёмом с крупными полуциркульными окнами. Архитектор стремился придать зданию монументальность, используя укрупнённые и упрощённые декоративные элементы. Особое внимание уделено входным зонам, оформленным глубокими нишами с колонками и фронтонами. Металлическая ограда внутреннего двора выполнена в строгом геометрическом стиле, что подчёркивает единство архитектурного решения. Первоначально здание имело центрально-осевую композицию с акцентом на боковые входы и гранёный центральный объём. В более поздний период был пристроен двусветный гимназический зал, который частично изменил первоначальную симметрию, но сохранил стилистическое единство комплекса. В советский и современный период здание сохранило своё значение как образовательный и административный центр. В настоящее время оно используется как административный корпус Ферганского государственного университета. Несмотря на функциональные изменения, памятник сохранил исторический архитектурный облик и остаётся одним из наиболее выразительных зданий города. Здание мужской гимназии отражает особенности архитектуры и образовательного развития Ферганы начала XX века и представляет значительную культурно-историческую ценность.  Было построено монументальное здание мужской гимназии. Здание было специально запроектировано для этих целей Г. М. Сваричевским в 1900 г. 28 апреля 1902 г. состоялась закладка здания, и в том же году проект был повторён для нужд женской гимназии в Самарканде, а затем в Чарджуе. Здание, которое до сих пор сохранило близкое по функциям назначение и старый облик, выглядит солидным и очень прочным. Некогда в нём, помимо учебных помещений, располагались пансион и квартира директора. Строго симметричное здание: возвышенный центр подчёркивался на фасаде полуциркульными окнами. Во внешнем облике наглядно видна присущая Г. М. Сваричевскому любовь к модерну в его «кирпичном варианте»; здесь, очевидно, для придания большей представительности архитектура несколько схематична, его формы укрупнены. Также несколько схематична и металлическая решётка, окружавшая некогда большую территорию внутреннего двора. Несмотря на эти характерные стилистические черты, здание выделяется в старой городской застройке как одно из лучших в городе. В солидности и монументальности другие здания учебного назначения значительно ему проигрывают, в том числе бывшая прогимназия на бывшей Кокандской улице.\n\nПервоначально это было здание центральной осевой композиции, в котором центр был выявлен выступающим гранёным объёмом с большим оконным проёмом посередине. Но архитектурные акценты были на боковых ризалитах, где размещались входы в здание. Глубокие входные ниши фланкировались причудливыми колонками и антами, поддерживавшими, в свою очередь, треугольный фронтон. Вестибюли за входами снаружи были выявлены декоративными куполами (ныне не сохранившимися). Пристроенный позднее двусветный гимназический зал, хотя снаружи и выполненный в общих по стилю архитектурных формах, всё же (как и в случае с домом военного собрания) нарушил симметричность композиции.",
+				uz: ""
 			},
-			{
-				title: {
-					ru: 'Треугольный фронтон',
-					uz: 'Uch burchakli fronton',
-				},
-				description: {
-					ru: 'Центральный фронтон несёт лепной картуш с датой постройки 1878 г. Тимпан оформлен лавровыми гирляндами — традиционным символом воинской доблести.',
-					uz: "Markaziy fronton 1878-yildagi qurilish sanasi bilan loy kartuş ko'taradi. Timpan an'anaviy harbiy mardlik ramzi bo'lgan zaytun gulchambarlar bilan bezatilgan.",
-				},
-			},
-		],
-		history: {
-			ru: 'Здание было заложено в 1878 году одновременно с основанием города Новый Маргилан. Военное собрание служило главным клубом гарнизона: здесь проходили балы, театральные постановки, заседания и торжественные приёмы. В 1907 году в здании была устроена первая в городе публичная библиотека. После революции 1917 года перепрофилировано под нужды Красной армии, а затем стало Домом офицеров.',
-			uz: "Bino 1878 yilda Yangi Marg'ilon shahri asoslangan paytda qurilgan. Harbiy yig'ilish garnizoning asosiy klubi bo'lib xizmat qildi: bu yerda ballar, teatr spektakllari, majlislar va tantanali qabullar bo'lib o'tardi. 1907 yilda binoda shaharning birinchi jamoat kutubxonasi tashkil etildi. 1917 yilgi inqilobdan so'ng Qizil Armiya ehtiyojlari uchun qayta ixtisoslashtirildi.",
-		},
-		historyMedia: [
-			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fergana_-_old_city.jpg/1200px-Fergana_-_old_city.jpg',
-				caption: {
-					ru: 'Вид на историческую застройку',
-					uz: "Tarixiy qurilishlarga ko'rinish",
-				},
-				sourceUrl: 'https://commons.wikimedia.org/wiki/File:Fergana_-_old_city.jpg',
-				credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
-				isHistorical: true,
-			},
-		],
-		historicalFigures: [
-			{
-				name: { ru: 'Михаил Скобелев', uz: 'Mixail Skobelev' },
-				role: {
-					ru: 'Генерал, первый военный губернатор Ферганской области',
-					uz: "General, Farg'ona viloyatining birinchi harbiy gubernatori",
-				},
-				bio: {
-					ru: 'Легендарный русский полководец, завоеватель Средней Азии. Именно он заложил план Новой Маргиланы и лично контролировал строительство первых казённых зданий, включая здание военного собрания.',
-					uz: "Afsonaviy rus qo'mondoni, O'rta Osiyo fotihi. U Yangi Marg'ilon rejasini tuzgan va harbiy yig'ilish binosi bilan birgalikda dastlabki davlat binolarining qurilishini shaxsan nazorat qilgan.",
-				},
-				photoUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mikhail_Skobelev.jpg/440px-Mikhail_Skobelev.jpg',
-				gallery: [
-					{
-						url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
-						caption: {
-							ru: 'Связанный с эпохой объект',
-							uz: "Davr bilan bog'langan ob'ekt",
-						},
-						sourceUrl:
-							'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
-						credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
-					},
-				],
-				milestones: [
-					{
-						year: 1877,
-						event: {
-							ru: 'Назначен военным губернатором Ферганской области',
-							uz: "Farg'ona viloyatining harbiy gubernatori etib tayinlandi",
-						},
-					},
-					{
-						year: 1878,
-						event: {
-							ru: 'Заложил план нового города Новый Маргилан',
-							uz: "Yangi Marg'ilon shahrining yangi rejasini tuzdi",
-						},
-					},
-					{
-						year: 1882,
-						event: {
-							ru: 'Скончался во время военного похода',
-							uz: 'Harbiy yurish paytida vafot etdi',
-						},
-					},
-				],
-			},
-		],
-		photos: [
-			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
-				caption: {
-					ru: 'Здание военного собрания, начало XX в.',
-					uz: "Harbiy yig'ilish binosi, XX asr boshlari",
-				},
-				isHistorical: false,
-				sourceUrl:
-					'https://commons.wikimedia.org/wiki/File:Fergana_oblast_building.jpg',
-				credit: { ru: 'Wikimedia Commons', uz: 'Wikimedia Commons' },
-			},
-		],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fergana_-_old_city.jpg/1200px-Fergana_-_old_city.jpg',
-					caption: {
-						ru: 'Фергана, историческая фотография',
-						uz: "Farg'ona, tarixiy fotosurat",
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
-					caption: {
-						ru: 'Современный вид',
-						uz: "Zamonaviy ko'rinish",
-					},
-				},
-				label: {
-					ru: 'Городской пейзаж',
-					uz: 'Shahar manzarasi',
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [
+			historicalFigures: [
 				{
-					url: 'https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3',
-					shortTitle: { ru: 'Аудиогид', uz: 'Audio gid' },
-					fullTitle: {
-						ru: 'Краткое аудиосопровождение об объекте (демонстрационный фрагмент)',
-						uz: "Ob'ekt haqida qisqa audio (namoyish parchasi)",
+					name: {
+						ru: "Иосиф Абрамович Кассирский",
+						uz: "Iosif Abramovich Kassirskiy"
 					},
-				},
+					role: {
+						ru: "Историческая личность",
+						uz: "Tarixiy shaxs"
+					},
+					bio: {
+						ru: "Иосиф Абрамович Кассирский",
+						uz: "Iosif Abramovich Kassirskiy"
+					}
+				}
 			],
-			narratorLabel: {
-				ru: 'Историк Рустам Назаров',
-				uz: 'Tarixchi Rustam Nazarov',
-			},
-			transcript: {
-				ru: 'Перед вами — одно из первых капитальных строений молодого города. 1878 год. Генерал Скобелев только что разбил план улиц на пустом месте, и сразу — военное собрание. Символ мощи и цивилизации одновременно...',
-				uz: "Siz oldingizda - yosh shaharning birinchi yirik inshootlaridan biri. 1878 yil. General Skobelev bo'sh joyda ko'cha rejasini belgilab, darhol harbiy yig'ilish binosi qurishga buyruq berdi. Bir vaqtning o'zida kuch va sivilizatsiya ramzi...",
-			},
-			atmosphereDescription: {
-				ru: 'Звуки плаца, военный оркестр, шелест бальных платьев по паркету...',
-				uz: "Maysazor tovushlari, harbiy orkestr, parket bo'ylab ko'ylaklar shitirlashi...",
-			},
-			musicSuggestion: {
-				ru: 'Вальс «На сопках Маньчжурии» И. Шатрова (1906), военные марши Российской империи',
-				uz: 'I. Shatrovning «Manchjuriya tepaliklarda» valsi (1906), Rossiya imperiyasining harbiy marshlari',
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fergana_-_old_city.jpg/1200px-Fergana_-_old_city.jpg',
-		visualStyleNotes: {
-			ru: 'Тёмно-зелёный с золотом — цвета военного мундира эпохи. Орнамент в виде лаврового венка.',
-			uz: "To'q yashil va oltin - davr harbiy formasi ranglari. Zaytun gulchambar naqshi.",
-		},
-	},
-	{
-		id: '2',
-		slug: 'gubernatorskiy-dom',
-		order: 2,
-		name: {
-			ru: 'Здание военного губернатора',
-			uz: 'Harbiy gubernator binosi',
-		},
-		formerName: {
-			ru: 'Резиденция военного губернатора Ферганской области',
-			uz: "Farg'ona viloyati harbiy gubernatori rezidentsiyasi",
-		},
-		currentPurpose: {
-			ru: 'Административное здание (Хокимият г. Фергана)',
-			uz: "Ma'muriy bino (Farg'ona shahri hokimiyati)",
-		},
-		historicalPurpose: {
-			ru: 'Официальная резиденция военного губернатора Ферганской области',
-			uz: "Farg'ona viloyati harbiy gubernatorining rasmiy rezidentsiyasi",
-		},
-		address: {
-			ru: 'г. Фергана, пл. Мустақиллик, 1',
-			uz: "Farg'ona sh., Mustaqillik maydoni, 1",
-		},
-		yearBuilt: 1879,
-		yearRange: '1879–1899',
-		architecturalStyle: {
-			ru: 'Русский классицизм с ориентальными акцентами',
-			uz: "Oriental urg'ular bilan rus klassitsizmi",
-		},
-		architect: {
-			ru: 'Инженер-архитектор А. Бенуа (предположительно)',
-			uz: "Muhandis-me'mor A. Benua (taxminan)",
-		},
-		shortDescription: {
-			ru: 'Главное административное здание Ферганской области, строившееся поэтапно с 1879 по 1899 год. Архитектурный центр имперского Нового Маргилана.',
-			uz: "1879 yildan 1899 yilgacha bosqichma-bosqich qurilgan Farg'ona viloyatining asosiy ma'muriy binosi. Imperial Yangi Marg'ilonning me'moriy markazi.",
-		},
-		architecturalDescription: {
-			ru: 'Двухэтажное здание с парадным портиком и колоннадой ионического ордера. Главный фасад протяжённостью около 60 метров выходит на центральную площадь. Крыло с приёмным залом декорировано кессонным потолком с розетками. Фасады оформлены рустовкой первого этажа и профилированными наличниками окон.',
-			uz: 'Ion tartibidagi ustunlar bilan tantanali portikli ikki qavatli bino. Markaziy maydonga qaragan asosiy fasad uzunligi taxminan 60 metr. Qabul zali qanotida kasetli shiftlar mavjud. Fasadlar birinchi qavatning rustik bezagi va profillantirilgan deraza nalichniklari bilan bezatilgan.',
-		},
-		architectureDetails: [
-			{
-				title: {
-					ru: 'Ионическая колоннада портика',
-					uz: 'Portik ion ustunlar qatori',
+			photos: [],
+			beforeAfterPairs: [],
+			audioGuide: {
+				narratorLabel: {
+					ru: "",
+					uz: ""
 				},
-				description: {
-					ru: 'Шесть ионических колонн парадного портика выполнены из обожжённого кирпича с штукатурной облицовкой. Капители с волютами воспроизводят классический греческий образец, адаптированный для местного климата.',
-					uz: "Tantanali portikdagi oltita ion ustun pishiq g'ishtdan shtukaturka qoplamasida yasalgan. Volutali kapitellar mahalliy iqlimga moslashtirilgan klassik yunon namunasini takrorlaydi.",
+				tracks: [],
+				transcript: {
+					ru: "",
+					uz: ""
 				},
-			},
-			{
-				title: { ru: 'Рустованный цоколь', uz: 'Rustik poydevor' },
-				description: {
-					ru: 'Первый этаж облицован рустом — обработанными выступающими блоками, создающими игру светотени. Приём пришёл из итальянского Ренессанса и символизировал незыблемость государственной власти.',
-					uz: "Birinchi qavat qoʻshimcha chiqib turadigan bloklarda ishlov berilgan rustlar bilan qoplangan. Usul italyan Uyg'onish davridan kelgan va davlat hokimiyatining mustahkamligini ramzlagan.",
+				atmosphereDescription: {
+					ru: "",
+					uz: ""
 				},
+				musicSuggestion: {
+					ru: "",
+					uz: ""
+				}
 			},
-		],
-		history: {
-			ru: 'Строительство резиденции губернатора началось в 1879 году по прямому указанию Туркестанского генерал-губернатора Кауфмана. Здание возводилось поэтапно: основной корпус завершён к 1885 году, западное крыло с парадным залом — к 1899 году. В стенах резиденции принимали высоких гостей — в 1888 году здание посетил сам Великий князь Николай Александрович. После 1917 года здание передано советским органам власти.',
-			uz: "Gubernator rezidentsiyasining qurilishi 1879 yilda Turkiston general-gubernatori Kaufmanning to'g'ridan-to'g'ri ko'rsatmasiga binoan boshlandi. Bino bosqichma-bosqich qurildi: asosiy korpus 1885 yilga, tantanali zalidagi g'arbiy qanot 1899 yilga qadar yakunlandi. 1888 yilda binoni Buyuk Knyaz Nikolay Aleksandrovich o'zi tashrif buyurdi. 1917 yildan keyin bino sovet hokimiyat organlariga topshirildi.",
-		},
-		historicalFigures: [],
-		photos: [],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
-					caption: {
-						ru: 'Учебное здание, начало XX в.',
-						uz: "O'quv binosi, XX asr boshlari",
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
-					caption: {
-						ru: 'Здание областной администрации сегодня',
-						uz: 'Viloyat hokimiyati binosi bugun',
-					},
-				},
-				label: {
-					ru: 'Административный центр',
-					uz: 'Maʼmuriy markaz',
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [],
-			narratorLabel: {
-				ru: 'Историк Наргиза Юсупова',
-				uz: 'Tarixchi Nargiza Yusupova',
-			},
-			transcript: {
-				ru: 'Именно здесь, в этих залах, вершилась история Ферганской области. Губернаторы принимали депутации от местных беков, решали судьбы торговых путей...',
-				uz: "Aynan shu zallarda Farg'ona viloyatining tarixi yaratildi. Gubernatorlar mahalliy beklar deputatsiyalarini qabul qildi, savdo yo'llarining taqdirini hal qildi...",
-			},
-			atmosphereDescription: {
-				ru: 'Скрип паркета, бой напольных часов, шёпот придворных на двух языках...',
-				uz: "Parket g'ichiri, pol soatining chiqillashi, ikki tildagi saroyliklarning shivirlashi...",
-			},
-			musicSuggestion: {
-				ru: 'П.И. Чайковский, Серенада для струнного оркестра до мажор (1880)',
-				uz: 'P.I. Chaykovskiy, do majordagi kamera torli orkestri uchun serenada (1880)',
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
-	},
-	{
-		id: '3',
-		slug: 'zhenskaya-gimnaziya',
-		order: 3,
-		name: {
-			ru: 'Здание женской гимназии (Дом культуры №1)',
-			uz: 'Qizlar gimnaziyasi binosi (№1 Madaniyat uyi)',
-		},
-		formerName: {
-			ru: 'Женская гимназия Ферганы',
-			uz: "Farg'ona qizlar gimnaziyasi",
-		},
-		currentPurpose: {
-			ru: 'Городской дом культуры №1',
-			uz: 'Shahar madaniyat uyi №1',
-		},
-		historicalPurpose: {
-			ru: 'Среднее учебное заведение для девочек',
-			uz: "Qizlar uchun o'rta ta'lim muassasasi",
-		},
-		address: {
-			ru: 'г. Фергана, ул. Навои, 34',
-			uz: "Farg'ona sh., Navoiy ko'ch., 34",
-		},
-		yearBuilt: 1890,
-		architecturalStyle: {
-			ru: 'Кирпичный романтизм, эклектика',
-			uz: "G'isht romantizmi, eklektika",
-		},
-		architect: {
-			ru: 'Неизвестен / архивные данные уточняются',
-			uz: "Noma'lum / arxiv ma'lumotlari aniqlanmoqda",
-		},
-		shortDescription: {
-			ru: 'Первое светское женское учебное заведение Ферганской долины. Здание стало символом просвещения и «цивилизаторской миссии» в Средней Азии.',
-			uz: "Farg'ona vodiysining birinchi dunyoviy qizlar ta'lim muassasasi. Bino O'rta Osiyoda ma'rifat va \"sivilizatorlik missiyasi\" ramziga aylandi.",
-		},
-		architecturalDescription: {
-			ru: 'Протяжённое двухэтажное здание с центральным ризалитом, акцентированным парным пилонами и аттиком. Фасад декорирован аркатурным поясом и кирпичным орнаментом в духе «кирпичного стиля». Широкие окна с полуциркульными завершениями обеспечивали хорошую освещённость учебных классов.',
-			uz: "Juft pilonlar va attik bilan ta'kidlangan markaziy rizalitli uzun ikki qavatli bino. Fasad arkatura kamari va \"g'isht uslubi\" ruhidagi g'isht naqshlari bilan bezatilgan. Yarim doira yuqori qismlari bo'lgan keng derazalar sinf xonalarining yaxshi yoritilishini ta'minladi.",
-		},
-		architectureDetails: [
-			{
-				title: { ru: 'Кирпичный орнамент', uz: "G'isht naqshi" },
-				description: {
-					ru: 'Декор фасада выполнен из фигурного кирпича без использования штукатурки — характерная черта «кирпичного стиля» 1870–1900-х гг. Геометрические узоры в наличниках окон отсылают как к романской традиции, так и к местному орнаменту.',
-					uz: "Fasad bezagi shtukaturkasiz figurali g'ishtdan ishlangan - 1870-1900-yillardagi \"g'isht uslubi\"ning xarakterli xususiyati. Deraza nalichniklaridagi geometrik naqshlar ham roman an'anasiga, ham mahalliy ornamentga murojaat qiladi.",
-				},
-			},
-		],
-		history: {
-			ru: 'Открытие женской гимназии в 1890 году стало значительным событием для всей Ферганской долины. В учебном заведении обучались дочери русских чиновников и офицеров, а со временем — и представительницы местной знати. Первой начальницей гимназии стала Елизавета Михайловна Соколова. Здание сыграло важную роль в развитии женского образования в регионе.',
-			uz: "1890 yilda qizlar gimnaziyasining ochilishi butun Farg'ona vodiysi uchun muhim voqea bo'ldi. Ta'lim muassasasida rus amaldorlari va ofitserlarining qizlari o'qidi, vaqt o'tishi bilan mahalliy zodagonlarning vakillari ham qabul qilindi. Elizaveta Mixaylovna Sokolova gimnaziyaning birinchi direktori bo'ldi.",
-		},
-		historicalFigures: [],
-		photos: [],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
-					caption: {
-						ru: 'Женская гимназия, архивный снимок',
-						uz: 'Qizlar gimnaziyasi, arxiv surati',
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fergana_gymnasium_historical.jpg/1200px-Fergana_gymnasium_historical.jpg',
-					caption: {
-						ru: 'Мужская гимназия, для сравнения застройки',
-						uz: 'Erkaklar gimnaziyasi, qurilishni solishtirish uchun',
-					},
-				},
-				label: {
-					ru: 'Просветительские здания эпохи',
-					uz: "Ma'rifat davri binolari",
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [],
-			narratorLabel: {
-				ru: 'Историк Камола Рашидова',
-				uz: 'Tarixchi Kamola Rashidova',
-			},
-			transcript: {
-				ru: '1890 год. Девочки в белых фартуках впервые переступают порог этого здания. Для многих из них этот момент — первый шаг к другой жизни...',
-				uz: "1890 yil. Oq fartukli qizlar birinchi marta bu binoning ostonasini hatlab o'tishdi. Ularning ko'pchiligi uchun bu lahza boshqa hayotga qadam qo'yishning birinchi bosqichi edi...",
-			},
-			atmosphereDescription: {
-				ru: 'Детские голоса, звуки фортепиано, скрип перьев по бумаге...',
-				uz: "Bolalar ovozlari, pianino tovushlari, qog'ozda qalamdosh g'ichirlashi...",
-			},
-			musicSuggestion: {
-				ru: 'Р. Шуман, «Альбом для юношества» (1848), этюды для фортепиано',
-				uz: 'R. Shuman, «Yoshlik albomi» (1848), fortepiano uchun etyudlar',
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
-	},
-	{
-		id: '4',
-		slug: 'chasovnya-aleksandra-nevskogo',
-		order: 4,
-		name: {
-			ru: 'Часовня Святого Александра Невского',
-			uz: 'Muqaddas Aleksandr Nevskiy ibodatxonasi',
-		},
-		currentPurpose: {
-			ru: 'Часовня (действующая)',
-			uz: 'Ibodatxona (faol)',
-		},
-		historicalPurpose: {
-			ru: 'Православная часовня в память о погибших воинах',
-			uz: "Halok bo'lgan jangchilar xotirasiga pravoslav ibodatxonasi",
-		},
-		address: {
-			ru: 'г. Фергана, ул. Ататюрк, 5 (территория городского парка)',
-			uz: "Farg'ona sh., Atatürk ko'ch., 5 (shahar parki hududi)",
-		},
-		yearBuilt: 1892,
-		architecturalStyle: {
-			ru: 'Русско-византийский стиль',
-			uz: 'Rus-Vizantiya uslubi',
-		},
-		architect: {
-			ru: 'Военный инженер (имя не установлено)',
-			uz: 'Harbiy muhandis (ismi aniqlanmagan)',
-		},
-		shortDescription: {
-			ru: 'Небольшая православная часовня, возведённая в память о воинах, павших при завоевании Средней Азии. Единственный сохранившийся православный культовый объект города.',
-			uz: "O'rta Osiyoni fath etishda halok bo'lgan jangchilar xotirasiga qurilgan kichik pravoslav ibodatxonasi. Shaharning yagona saqlanib qolgan pravoslav diniy ob'ekti.",
-		},
-		architecturalDescription: {
-			ru: 'Небольшая центрическая постройка с восьмигранным барабаном и луковичным куполом на лёгком деревянном каркасе. Фасады декорированы килевидными кокошниками и перехватами колонок в духе московского узорочья XVII века. Вход акцентирован трёхлопастной аркой.',
-			uz: "Engil yog'och karkas ustidagi sakkiz qirrali baraban va piyozsimon gumbaz bilan markaziy qurilma. Fasadlar XVII asrgi Moskva naqshinkorligida kamar qirrali kokoshniklar va ustun qistirmalari bilan bezatilgan. Kirish uch bargli kamar bilan ta'kidlangan.",
-		},
-		architectureDetails: [
-			{
-				title: { ru: 'Луковичный купол', uz: 'Piyozsimon gumbaz' },
-				description: {
-					ru: 'Характерная луковичная форма купола — символ православной архитектуры, пришедший из Byzantium через Московское царство. В климате Средней Азии медный купол приобрёл характерный зелёный патинный оттенок.',
-					uz: "Gumbazning xarakterli piyozsimon shakli - Vizantiyadan Moskva podsholigi orqali kelgan pravoslav me'moriyati ramzi. O'rta Osiyo iqlimida mis gumbaz xarakterli yashil patina rangini oldi.",
-				},
-			},
-			{
-				title: {
-					ru: 'Кокошники и узорочье',
-					uz: 'Kokoshniklar va naqshinkorlik',
-				},
-				description: {
-					ru: 'Кокошники — декоративные килевидные арки — воспроизводят мотивы русской архитектуры XVI–XVII вв. В данном случае они выполнены из кирпича и дерева, создавая ажурный силуэт, контрастирующий с суровым центральноазиатским небом.',
-					uz: "Kokoshniklar — dekorativ kamar qirrali arkalar — XVI–XVII asrlar rus me'moriyati motivlarini takrorlaydi. Bu holda ular g'isht va yog'ochdan ishlangan bo'lib, Markaziy Osiyo osmoniga zid mayin siluet yaratadi.",
-				},
-			},
-		],
-		history: {
-			ru: 'Часовня возведена по инициативе офицерского корпуса гарнизона в 1892 году в память о солдатах, павших в ходе среднеазиатских кампаний 1860–1880-х годов. Освящена во имя Александра Невского — небесного покровителя русского воинства. В советский период использовалась как склад, в 1990-е годы возвращена верующим и отреставрирована.',
-			uz: "Ibodatxona 1892 yilda 1860-1880-yillardagi O'rta Osiyo kampaniyalarida halok bo'lgan askarlar xotirasiga garnizoning ofitserlik korpusi tashabbusi bilan qurildi. Rus qo'shinlarining osmon homiysi Aleksandr Nevskiy nomiga muqaddaslashtirildi. Sovet davrida omborxona sifatida ishlatilgan, 1990-yillarda dindorlarga qaytarilgan va ta'mirlangan.",
-		},
-		historicalFigures: [],
-		photos: [],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Russian_Orthodox_chapel_Central_Asia.jpg/800px-Russian_Orthodox_chapel_Central_Asia.jpg',
-					caption: {
-						ru: 'Часовня, архивный снимок',
-						uz: 'Ibodatxona, arxiv surati',
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Russian_church_Fergana.jpg/1200px-Russian_church_Fergana.jpg',
-					caption: {
-						ru: 'Городской храм — масштаб культовой застройки',
-						uz: 'Shahar cherkovi — diniy qurilish miqyosi',
-					},
-				},
-				label: {
-					ru: 'От часовни к собору',
-					uz: 'Ibodatxonadan soborgacha',
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [],
-			narratorLabel: {
-				ru: 'Историк Антон Великанов',
-				uz: 'Tarixchi Anton Velikanov',
-			},
-			transcript: {
-				ru: 'Маленькая часовня на краю плаца. В ней солдаты молились перед походом и возвращались с благодарностью после. Живой диалог двух цивилизаций в камне и куполе...',
-				uz: "Maydon chetidagi kichik ibodatxona. Askarlar yurish oldidan ibodat qildi va keyin minnatdorlik bilan qaytdi. G'isht va gumbazda ikki tsivilizatsiyaning jonli muloqoti...",
-			},
-			atmosphereDescription: {
-				ru: 'Звон колокола, тихие молитвы, пение хора, ветер Ферганской долины...',
-				uz: "Qo'ng'iroq jarangi, sokin ibodat, xor qo'shig'i, Farg'ona vodiysi shamoli...",
-			},
-			musicSuggestion: {
-				ru: 'П.Г. Чесноков, православные хоровые песнопения; колокольный звон',
-				uz: "P.G. Chesnokov, pravoslav xor qo'shiqlari; qo'ng'iroq jarangi",
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Russian_Orthodox_chapel_Central_Asia.jpg/800px-Russian_Orthodox_chapel_Central_Asia.jpg',
-	},
-	{
-		id: '5',
-		slug: 'khram-sergiya-radonezhskogo',
-		order: 5,
-		name: {
-			ru: 'Храм Сергия Радонежского',
-			uz: 'Sergiy Radonezhskiy ibodatxonasi',
-		},
-		currentPurpose: {
-			ru: 'Православный храм (действующий)',
-			uz: 'Pravoslav ibodatxonasi (faol)',
-		},
-		historicalPurpose: {
-			ru: 'Православная церковь Ферганского гарнизона',
-			uz: "Farg'ona garnizoni pravoslav cherkovi",
-		},
-		address: {
-			ru: 'г. Фергана, ул. Пушкина, 17',
-			uz: "Farg'ona sh., Pushkin ko'ch., 17",
-		},
-		yearBuilt: 1897,
-		architecturalStyle: {
-			ru: 'Псевдорусский стиль, русский церковный историзм',
-			uz: 'Psevdorus uslubi, rus cherkov istorizmi',
-		},
-		architect: { ru: 'Архитектор А.А. Ясевич', uz: "Me'mor A.A. Yasevich" },
-		shortDescription: {
-			ru: 'Главная православная церковь дореволюционной Ферганы. Крупнейший храм города, освящённый в память о преподобном Сергии Радонежском.',
-			uz: "Inqilobdan avvalgi Farg'onaning asosiy pravoslav cherkovi. Muqaddas Sergiy Radonezhskiy xotirasiga muqaddaslashtirilgan shahardagi eng yirik ibodatxona.",
-		},
-		architecturalDescription: {
-			ru: 'Крестово-купольная церковь с центральным световым барабаном и четырьмя малыми куполами над угловыми частями. Высокая колокольня над западным притвором доминирует в силуэте улицы. Фасады декорированы кокошниками, поребриком и бусинами — элементами древнерусской архитектуры. Интерьер украшен масляной живописью в академическом стиле.',
-			uz: "Markaziy yorug'lik barabani va burchak qismlari ustidagi to'rtta kichik gumbazli xoch-gumbazli cherkov. G'arbiy narteks ustidagi baland minora ko'cha siluetiida ustunlik qiladi. Fasadlar qadimgi rus me'moriyatining elementlari - kokoshniklar, porebrik va munchoklar bilan bezatilgan. Interyer akademik uslubdagi yog' bo'yog'i rasmlar bilan bezatilgan.",
-		},
-		architectureDetails: [
-			{
-				title: {
-					ru: 'Крестово-купольная композиция',
-					uz: 'Xoch-gumbaz kompozitsiyasi',
-				},
-				description: {
-					ru: 'Классическая для православия крестово-купольная схема: в плане здание образует крест, в центре пересечения — главный барабан с куполом. Такая схема восходит к Константинопольской традиции VI века и символизирует Голгофу.',
-					uz: "Pravoslavlik uchun klassik xoch-gumbaz sxemasi: rejada bino xoch hosil qiladi, kesishish markazida gumbazli asosiy baraban. Bunday sxema VI asrgi Konstantinopol an'anasiga qaytadi va Golgofani ramzlaydi.",
-				},
-			},
-			{
-				title: { ru: 'Колокольня', uz: 'Minora' },
-				description: {
-					ru: 'Ярусная колокольня высотой около 35 метров состоит из трёх убывающих ярусов с арочными проёмами звона. Завершена шатровым верхом — характерным элементом русского церковного зодчества XVI–XVII вв.',
-					uz: "Taxminan 35 metr balandlikdagi yarusli minora kamarli qo'ng'iroq teshiklari bo'lgan uchta kamalib boruvchi yarusdan iborat. XVI-XVII asrlar rus cherkov me'moriyatining xarakterli elementi - cho'qqi bilan yakunlangan.",
-				},
-			},
-		],
-		history: {
-			ru: 'Церковь заложена в 1895 году по инициативе губернатора Ферганской области и завершена в 1897 году. Освящение провёл епископ Туркестанский и Ташкентский Григорий. Храм вмещал до 800 прихожан и был главным духовным центром русского населения города. В 1930-е годы закрыт советскими властями и использован как склад, затем как концертный зал. В 1991 году возвращён православной общине.',
-			uz: "Cherkov 1895 yilda Farg'ona viloyati gubernatori tashabbusi bilan poydevor qo'yilib, 1897 yilda yakunlandi. Muqaddaslashtirish marosimini Turkiston va Toshkent episkopi Grigoriy o'tkazdi. Ibodatxona 800 ta xristian ibodat qiluvchisini sig'dira oldi va shaharning rus aholisi uchun asosiy ma'naviy markaz bo'ldi. 1930-yillarda sovet hokimiyati tomonidan yopildi va ombor, keyin kontsert zali sifatida ishlatildi. 1991 yilda pravoslav jamoasiga qaytarildi.",
-		},
-		historicalFigures: [
-			{
-				name: { ru: 'Сергий Радонежский', uz: 'Sergiy Radonezhskiy' },
-				role: {
-					ru: 'Православный святой, небесный покровитель храма',
-					uz: 'Pravoslav avliyosi, ibodatxonaning osmon homiysi',
-				},
-				bio: {
-					ru: 'Преподобный Сергий Радонежский (1314–1392) — один из наиболее почитаемых святых Русской православной церкви. Основатель Троице-Сергиевой лавры, духовный вождь России эпохи Куликовской битвы.',
-					uz: "Muqaddas Sergiy Radonezhskiy (1314–1392) — Rus pravoslav cherkovining eng hurmatli avliyolaridan biri. Troitsk-Sergiy monastirining asoschisi, Kulikovo jangi davrida Rossiyaning ma'naviy rahbari.",
-				},
-				milestones: [
-					{
-						year: 1337,
-						event: {
-							ru: 'Основал монастырь у горы Маковец',
-							uz: "Makovets tog'i yonida monastir asos soldi",
-						},
-					},
-					{
-						year: 1380,
-						event: {
-							ru: 'Благословил Дмитрия Донского перед Куликовской битвой',
-							uz: 'Kulikovo jangi oldidan Dmitriy Donskoyni duo qildi',
-						},
-					},
-					{
-						year: 1422,
-						event: {
-							ru: 'Канонизирован Русской православной церковью',
-							uz: "Rus pravoslav cherkovi tomonidan avliyo qilib e'lon qilindi",
-						},
-					},
-				],
-			},
-		],
-		photos: [],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Russian_church_Fergana.jpg/1200px-Russian_church_Fergana.jpg',
-					caption: {
-						ru: 'Храм, исторический ракурс',
-						uz: 'Ibodatxona, tarixiy rakurs',
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
-					caption: {
-						ru: 'Площадь и административный фасад сегодня',
-						uz: 'Maydon va maʼmuriy fasad bugun',
-					},
-				},
-				label: {
-					ru: 'Духовный и гражданский центр',
-					uz: 'Maʼnaviy va fuqarolik markazi',
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [],
-			narratorLabel: {
-				ru: 'Настоятель протоиерей Николай',
-				uz: 'Ustoz protoierey Nikolay',
-			},
-			transcript: {
-				ru: 'Этот храм строили, когда Фергана ещё называлась Новым Маргиланом. Строили надолго, всерьёз, с душой. И он пережил всё — революцию, советские годы...',
-				uz: "Bu ibodatxona Farg'ona hali Yangi Marg'ilon deb atalgan paytda qurilgan. Uzoq vaqtga, jiddiy, qalb bilan qurildi. Va u hamma narsadan omon qoldi — inqilob, sovet yillaridan...",
-			},
-			atmosphereDescription: {
-				ru: 'Хоровое пение, запах ладана, звон колокола на рассвете...',
-				uz: "Xor qo'shig'i, archa hidi, tongda qo'ng'iroq jarangi...",
-			},
-			musicSuggestion: {
-				ru: 'С.В. Рахманинов, «Всенощное бдение» op. 37 (1915); хор Валаамского монастыря',
-				uz: 'S.V. Raxmaninov, «Butun tunlik nigohdorlik» op. 37 (1915); Valaam monastiri xori',
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Russian_church_Fergana.jpg/1200px-Russian_church_Fergana.jpg',
-	},
-	{
-		id: '6',
-		slug: 'muzhskaya-gimnaziya',
-		order: 6,
-		name: {
-			ru: 'Здание мужской гимназии',
-			uz: 'Erkaklar gimnaziyasi binosi',
-		},
-		currentPurpose: {
-			ru: 'Средняя общеобразовательная школа №1',
-			uz: "1-sonli o'rta umumta'lim maktabi",
-		},
-		historicalPurpose: {
-			ru: 'Мужская классическая гимназия',
-			uz: 'Erkaklar klassik gimnaziyasi',
-		},
-		address: {
-			ru: 'г. Фергана, ул. Навои, 18',
-			uz: "Farg'ona sh., Navoiy ko'ch., 18",
-		},
-		yearBuilt: 1902,
-		architecturalStyle: {
-			ru: 'Поздняя эклектика, элементы модерна',
-			uz: 'Kech eklektika, modern elementlari',
-		},
-		architect: {
-			ru: 'Областной архитектор Г.М. Сварика',
-			uz: "Viloyat me'mori G.M. Svarika",
-		},
-		shortDescription: {
-			ru: 'Крупнейшее учебное заведение дореволюционной Ферганы. Здание с элементами стиля модерн стало последним значительным архитектурным сооружением имперского периода в городе.',
-			uz: "Inqilobdan avvalgi Farg'onaning eng yirik ta'lim muassasasi. Modern uslubi elementlari bo'lgan bino shahardagi imperial davrning so'nggi muhim me'moriy inshootiga aylandi.",
-		},
-		architecturalDescription: {
-			ru: 'Представительное двухэтажное здание П-образного плана с внутренним двором. Главный фасад с ризалитом и треугольным фронтоном решён в духе позднего классицизма, тогда как декор окон и карнизов несёт черты раннего модерна. Оконные проёмы укрупнены по сравнению с ранними постройками — уступка новым педагогическим требованиям к освещённости.',
-			uz: "Ichki hovlili P-shaklidagi rejaga ega vakili ikki qavatli bino. Rizalit va uchburchak frontonli asosiy fasad kech klassitsizm ruhida hal qilingan, derazalar va karnizslarning bezagi esa erta modern belgilarini ko'taradi. Deraza teshiklari dastlabki qurilishlarga nisbatan kengaytirilgan - yoritilishga bo'lgan yangi pedagogik talablarga yon berish.",
-		},
-		architectureDetails: [
-			{
-				title: {
-					ru: 'Элементы стиля модерн в декоре',
-					uz: 'Bezakdagi modern uslubi elementlari',
-				},
-				description: {
-					ru: 'В обрамлении окон и фриза просматриваются характерные для раннего модерна растительные мотивы — стилизованные ирисы и плавные линии. Это свидетельствует о знакомстве архитектора с европейскими журналами по архитектуре, которые поступали в Туркестан.',
-					uz: "Derazalar va friz çerçivesida erta moderna xarakterli o'simlik motivlari - stilizatsiyalangan irislar va silliq chiziqlar ko'rinib turadi. Bu me'morning Turkistonga kelib turgan Yevropa me'morchilik jurnallari bilan tanishligini ko'rsatadi.",
-				},
-			},
-		],
-		history: {
-			ru: 'Мужская гимназия была открыта в 1902 году как главное среднее учебное заведение Ферганской области. Обучение велось по классической программе с обязательным латинским языком и древнегреческим. Среди выпускников гимназии — ряд известных деятелей науки и культуры первой половины XX века. После 1917 года преобразована в советскую среднюю школу, которая функционирует по сей день.',
-			uz: "Erkaklar gimnaziyasi 1902 yilda Farg'ona viloyatining asosiy o'rta ta'lim muassasasi sifatida ochildi. Ta'lim majburiy lotin va qadimgi yunon tillar bilan klassik dastur bo'yicha olib borildi. Gimnaziya bitiruvchilari orasida XX asrning birinchi yarmining bir qancha mashxur fan va madaniyat arboblari bor. 1917 yildan keyin bugungi kungacha faoliyat yuritayotgan sovet o'rta maktabiga aylantirildi.",
-		},
-		historicalFigures: [],
-		photos: [],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fergana_gymnasium_historical.jpg/1200px-Fergana_gymnasium_historical.jpg',
-					caption: {
-						ru: 'Мужская гимназия, 1902 г.',
-						uz: 'Erkaklar gimnaziyasi, 1902 y.',
-					},
-					isHistorical: true,
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Fergana_school_historical.jpg/1200px-Fergana_school_historical.jpg',
-					caption: {
-						ru: 'Соседняя школьная застройка той же эпохи',
-						uz: "Shu davrning qo'shni maktab qurilishi",
-					},
-				},
-				label: {
-					ru: 'Учебные корпуса Новой Ферганы',
-					uz: "Yangi Farg'ona o'quv binolari",
-				},
-			},
-		],
-		audioGuide: {
-			tracks: [],
-			narratorLabel: {
-				ru: 'Краевед Тимур Хамидов',
-				uz: "O'lkashunos Timur Xamidov",
-			},
-			transcript: {
-				ru: 'В этих стенах звучала латынь. Mensa, mensae — стол. Здесь готовили будущих чиновников, военных, врачей. Целую эпоху...',
-				uz: 'Bu devorlar orasida lotin tili yangradi. Mensa, mensae — stol. Bu yerda kelajakdagi amaldorlar, harbiylar, shifokorlar tayyorlandi. Butun bir davr...',
-			},
-			atmosphereDescription: {
-				ru: 'Скрип мела по доске, перелистывание страниц, гул перемены...',
-				uz: "Taxtada bo'r g'ichirlashi, sahifalar aylanishi, tanaffus shovqini...",
-			},
-			musicSuggestion: {
-				ru: 'И.С. Бах, Хорошо темперированный клавир (гимназическая музыкальная традиция)',
-				uz: "I.S. Bax, Yaxshi sozlangan klavir (gimnaziya musiqa an'anasi)",
-			},
-		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Fergana_gymnasium_historical.jpg/1200px-Fergana_gymnasium_historical.jpg',
-	},
+			coverImageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg"
+		}
 ];

@@ -17,8 +17,6 @@ type Props = {
 		yearBuilt: string;
 		style: string;
 		architect: string;
-		coordinates: string;
-		openMap: string;
 	};
 };
 
@@ -27,11 +25,6 @@ export const HeritageDetailPurpose = ({ object, locale, labels }: Props) => {
 		localizedTrim(object.yearBuiltLabel, locale) ||
 		object.yearRange ||
 		String(object.yearBuilt);
-
-	const coordStr =
-		object.coordinates !== undefined
-			? `${object.coordinates.lat.toFixed(5)}, ${object.coordinates.lng.toFixed(5)}`
-			: '';
 
 	const rows: Array<{ key: string; label: string; node: ReactNode }> = [];
 
@@ -51,25 +44,6 @@ export const HeritageDetailPurpose = ({ object, locale, labels }: Props) => {
 	add('style', labels.style, object.architecturalStyle[locale]);
 	if (object.architect) {
 		add('architect', labels.architect, object.architect[locale]);
-	}
-	if (coordStr) {
-		rows.push({ key: 'coordinates', label: labels.coordinates, node: coordStr });
-	}
-	if (object.mapUrl?.trim()) {
-		rows.push({
-			key: 'map',
-			label: labels.openMap,
-			node: (
-				<a
-					href={object.mapUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="text-gold-400/80 hover:text-gold-400 underline-offset-2 hover:underline"
-				>
-					{labels.openMap}
-				</a>
-			),
-		});
 	}
 
 	if (rows.length === 0) return null;

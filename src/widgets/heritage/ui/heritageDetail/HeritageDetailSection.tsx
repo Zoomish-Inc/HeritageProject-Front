@@ -29,7 +29,7 @@ export const HeritageDetailInfoRow = ({
 		<span className="theme-content-panel-heading font-body text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
 			{label}
 		</span>
-		<div className="theme-content-panel-body font-body text-sm leading-relaxed">
+		<div className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line">
 			{value}
 		</div>
 	</div>

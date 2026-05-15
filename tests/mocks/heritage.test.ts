@@ -17,4 +17,9 @@ describe('getMockHeritageById', () => {
 	it('returns undefined for unknown id', () => {
 		expect(getMockHeritageById('unknown-slug')).toBeUndefined();
 	});
+
+	it('keeps direct wikimedia image URLs in mock output', () => {
+		const obj = getMockHeritageById('zdanie-voennogo-sobraniya-dom-oficerov');
+		expect(obj?.coverImageUrl).toMatch(/^https:\/\/upload\.wikimedia\.org\//);
+	});
 });

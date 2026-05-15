@@ -36,7 +36,7 @@ export const HeritageDetailHero = ({
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent mb-6" />
 			<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
 				<div>
-					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2">
+					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2 whitespace-pre-line">
 						{object.yearBuiltLabel?.[locale]?.trim() ||
 							object.yearRange ||
 							object.yearBuilt}

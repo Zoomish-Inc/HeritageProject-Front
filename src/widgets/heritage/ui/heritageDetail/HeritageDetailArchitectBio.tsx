@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { OrnamentalDivider } from '@/shared/ui';
+import { HeritageDetailExpandableText } from './HeritageDetailExpandableText';
 import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
@@ -67,9 +68,11 @@ export const HeritageDetailArchitectBio = ({
 							<p className="theme-content-panel-heading font-body text-xs tracking-wider uppercase mb-3">
 								{b.role[locale]}
 							</p>
-							<p className="theme-content-panel-body font-body text-sm leading-relaxed">
-								{b.bio[locale]}
-							</p>
+							<HeritageDetailExpandableText
+								text={b.bio[locale]}
+								className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line"
+								collapsedMaxHeight={160}
+							/>
 						</div>
 					</div>
 					{b.milestones && b.milestones.length > 0 ? (

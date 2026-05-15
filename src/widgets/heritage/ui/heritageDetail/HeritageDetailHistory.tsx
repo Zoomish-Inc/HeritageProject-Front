@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { HeritageDetailExpandableText } from './HeritageDetailExpandableText';
 import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
@@ -29,8 +30,11 @@ export const HeritageDetailHistory = ({
 		<HeritageDetailSection title={title}>
 			{body ? (
 				<div className="theme-content-panel p-6 mb-6">
-					<blockquote className="theme-content-panel-body m-0 font-body text-base leading-loose">
-						{object.history[locale]}
+					<blockquote className="m-0">
+						<HeritageDetailExpandableText
+							text={body}
+							className="theme-content-panel-body font-body text-base leading-loose whitespace-pre-line"
+						/>
 					</blockquote>
 				</div>
 			) : null}

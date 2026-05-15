@@ -3,11 +3,9 @@ import {
 	type HeritageListApiResponseWire,
 } from '@/lib/heritage/heritageListWire';
 import { parseHeritageListResponseJson } from '@/lib/heritage/schemas';
-import { getMetadataBaseUrl } from '@/env';
+import { isDirectImageUrl } from '@/mocks/heritage/imageUrl';
 import { rawMockHeritageObjects } from '@/mocks/heritage/rawMockHeritageObjects';
 import type { HeritageListItem, HeritageObject } from '@/entities/heritage';
-
-const tourDisabledSlug = 'muzhskaya-gimnaziya';
 
 const buildPlaceholderUrl = (seed: string, width = 1400, height = 900) =>
 	`https://placehold.co/${width}x${height}/3d2b1f/f5ede0.webp?text=${encodeURIComponent(
@@ -15,24 +13,18 @@ const buildPlaceholderUrl = (seed: string, width = 1400, height = 900) =>
 	)}`;
 
 const withPlaceholderImage = (url: string, seed: string) => {
-	const isHttp = /^https?:\/\//.test(url);
-	if (!isHttp) return url;
+	if (!url.trim()) return url;
+	if (!/^https?:\/\//i.test(url)) return url;
+	if (isDirectImageUrl(url)) return url;
 	return buildPlaceholderUrl(seed);
 };
 
 export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
 	rawMockHeritageObjects.map((obj) => {
-		const tourPublished = obj.slug !== tourDisabledSlug;
-		const tourEntryUrl = tourPublished
-			? new URL(
-					`/tour-packs/${obj.slug}/index.htm`,
-					getMetadataBaseUrl()
-				).toString()
-			: undefined;
 		return {
 			...obj,
-			tourPublished,
-			tourEntryUrl,
+			tourPublished: false,
+			tourEntryUrl: undefined,
 			coverImageUrl: withPlaceholderImage(obj.coverImageUrl, `${obj.slug}-cover`),
 			photos: obj.photos.map((photo, index) => ({
 				...photo,

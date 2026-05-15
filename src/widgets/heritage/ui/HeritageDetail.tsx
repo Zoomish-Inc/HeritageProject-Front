@@ -7,6 +7,7 @@ import { heritageTourPath } from '@/shared/lib/seo/paths';
 import { LoadingSpinner, OrnamentalDivider, RenderOnView } from '@/shared/ui';
 import { HeritageDetailClosingRule } from './heritageDetail/HeritageDetailClosingRule';
 import { HeritageDetailHero } from './heritageDetail/HeritageDetailHero';
+import { HeritageDetailMap } from './heritageDetail/HeritageDetailMap';
 import { HeritageDetailPurpose } from './heritageDetail/HeritageDetailPurpose';
 
 const sectionLoading = () => (
@@ -127,9 +128,14 @@ export const HeritageDetail = ({ object }: Props) => {
 					yearBuilt: t('year_built'),
 					style: t('style'),
 					architect: t('architect'),
-					coordinates: t('coordinates'),
-					openMap: t('open_map'),
 				}}
+			/>
+
+			<HeritageDetailMap
+				object={object}
+				title={t('map_title')}
+				embedTitle={t('map_embed_title')}
+				openMapLabel={t('open_map')}
 			/>
 
 			<RenderOnView fallback={sectionLoading()}>

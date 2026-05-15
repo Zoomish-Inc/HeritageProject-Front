@@ -178,6 +178,7 @@ src
 │   └── heritage
 │       ├── lib
 │       │   ├── heritageDetailLocale.ts
+│       │   ├── mediaSourceResourceLabel.ts
 │       │   └── osmMapUrls.ts
 │       ├── ui
 │       │   ├── heritageDetail
@@ -233,6 +234,9 @@ tests
 │   └── lib
 │       └── image
 │           └── wikimediaUrl.test.ts
+├── widgets
+│   └── heritage
+│       └── mediaSourceResourceLabel.test.ts
 └── setup.ts
 ```
 

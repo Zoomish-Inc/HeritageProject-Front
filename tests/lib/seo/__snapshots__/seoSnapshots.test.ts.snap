@@ -271,7 +271,7 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > detai
         "@type": "PostalAddress",
         "streetAddress": "Узбекистан, г. Фергана, ул. Саккокий, 8.",
       },
-      "description": "В настоящее время объект является действующим православным храмом Ташкентской и Узбекистанской епархии. Он выполняет богослужебную, мемориальную, просветительскую и общинную функции, оставаясь одним из ключевых духовных центров Ферганской долины. Ранее здание было построено как кирха для лютеранской общины, а в советский период временно использовалось не по первоначальному назначению, а как складское помещение.",
+      "description": "Храм преподобного Сергия Радонежского в Фергане — это памятник архитектуры начала XX века, изначально построенный как евангелическо-лютеранская кирха для немецкой общины, а после Второй мировой войны переосмысленный и освящённый как православный храм. Сегодня храм является действующим религиозным центром, выполняющим богослужебные, просветительские и мемориальные функции, и представляет собой пример многослойного культурного наследия, отражающего сложную историю города.",
       "image": [
         "https://cdn.ruwiki.ru/commonswiki/files/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/600px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg",
         "https://sobory.ru/pic/45600/45639_20260317_1021100t.jpg",
@@ -328,7 +328,7 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > detai
         "@type": "PostalAddress",
         "streetAddress": "O'zbekiston, Farg'ona, ko'ch. Sakkokiy, 8.",
       },
-      "description": "Ayni paytda bino Toshkent va Oʻzbekiston yeparxiyasining pravoslav cherkovi boʻlib xizmat qilmoqda. U Farg‘ona vodiysining asosiy ma’naviy markazlaridan biri bo‘lib qolgan holda liturgik, yodgorlik, ma’rifiy va jamoat vazifalarini bajaradi. Ilgari bino Lyuteran cherkovi vazifasini bajargan, sovet davrida esa vaqtinchalik asl maqsadi uchun emas, balki ombor sifatida foydalanilgan",
+      "description": "Farg'onadagi Muqaddas Sergiy Radonejskiy cherkovi — XX asr boshining me'moriy yodgorligi bo'lib, dastlab nemis jamoasi uchun lyuteran cherkovi sifatida qurilgan va Ikkinchi jahon urushidan keyin pravoslav cherkovi sifatida qayta bag'ishlangan. Bugun cherkov faol diniy markaz bo'lib, ibodat, ma'rifat va yodgorlik vazifalarini bajaradi va shaharning murakkab tarixini aks ettiruvchi ko'p qatlamli madaniy meros namunasidir.",
       "image": [
         "https://cdn.ruwiki.ru/commonswiki/files/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/600px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg",
         "https://sobory.ru/pic/45600/45639_20260317_1021100t.jpg",
@@ -396,7 +396,7 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > home-
           "@type": "ListItem",
           "item": {
             "@type": "LandmarksOrHistoricalBuildings",
-            "description": "В настоящее время объект является действующим православным храмом Ташкентской и Узбекистанской епархии. Он выполняет богослужебную, мемориальную, просветительскую и общинную функции, оставаясь одним из ключевых духовных центров Ферганской долины. Ранее здание было построено как кирха для лютеранской общины, а в советский период временно использовалось не по первоначальному назначению, а как складское помещение.",
+            "description": "Храм преподобного Сергия Радонежского в Фергане — это памятник архитектуры начала XX века, изначально построенный как евангелическо-лютеранская кирха для немецкой общины, а после Второй мировой войны переосмысленный и освящённый как православный храм. Сегодня храм является действующим религиозным центром, выполняющим богослужебные, просветительские и мемориальные функции, и представляет собой пример многослойного культурного наследия, отражающего сложную историю города.",
             "image": "https://cdn.ruwiki.ru/commonswiki/files/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/600px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg",
             "name": "Храм преподобного Сергия Радонежского",
             "url": "https://example.com/ru/heritage/khram-sergiya-radonezhskogo",
@@ -512,7 +512,7 @@ exports[`seo snapshots > matches structured data snapshots for ru and uz > home-
           "@type": "ListItem",
           "item": {
             "@type": "LandmarksOrHistoricalBuildings",
-            "description": "Ayni paytda bino Toshkent va Oʻzbekiston yeparxiyasining pravoslav cherkovi boʻlib xizmat qilmoqda. U Farg‘ona vodiysining asosiy ma’naviy markazlaridan biri bo‘lib qolgan holda liturgik, yodgorlik, ma’rifiy va jamoat vazifalarini bajaradi. Ilgari bino Lyuteran cherkovi vazifasini bajargan, sovet davrida esa vaqtinchalik asl maqsadi uchun emas, balki ombor sifatida foydalanilgan",
+            "description": "Farg'onadagi Muqaddas Sergiy Radonejskiy cherkovi — XX asr boshining me'moriy yodgorligi bo'lib, dastlab nemis jamoasi uchun lyuteran cherkovi sifatida qurilgan va Ikkinchi jahon urushidan keyin pravoslav cherkovi sifatida qayta bag'ishlangan. Bugun cherkov faol diniy markaz bo'lib, ibodat, ma'rifat va yodgorlik vazifalarini bajaradi va shaharning murakkab tarixini aks ettiruvchi ko'p qatlamli madaniy meros namunasidir.",
             "image": "https://cdn.ruwiki.ru/commonswiki/files/thumb/5/55/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg/600px-Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_02-01.jpg",
             "name": "Muqaddas Sergiy Radonejskiy cherkovi",
             "url": "https://example.com/uz/heritage/khram-sergiya-radonezhskogo",

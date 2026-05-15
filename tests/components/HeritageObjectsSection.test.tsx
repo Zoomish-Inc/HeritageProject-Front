@@ -75,7 +75,7 @@ describe('HeritageObjectsSection', () => {
 		renderSection();
 
 		expect(
-			screen.getByText(MOCK_HERITAGE_LIST[0].name.ru, { exact: false })
+			screen.getByRole('heading', { name: MOCK_HERITAGE_LIST[0].name.ru })
 		).toBeDefined();
 		expect(screen.getAllByText('Подробнее').length).toBeGreaterThanOrEqual(1);
 	});

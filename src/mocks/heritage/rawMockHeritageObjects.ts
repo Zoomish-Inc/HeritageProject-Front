@@ -33,22 +33,22 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		},
 		mapUrl:
 			'https://www.openstreetmap.org/?mlat=40.395293&mlon=71.781572#map=16/40.395293/71.781572',
-		yearBuilt: 1910,
+		yearBuilt: 1913,
 		yearBuiltLabel: {
-			ru: 'Исторические фотоматериалы фиксируют строительство кирхи в 1910 году, а современные церковные и медийные источники называют 1913 год как время существования уже оформленного лютеранского храма.',
-			uz: "Tarixiy fotosuratlar 1910 yilda cherkov qurilishini hujjatlashtiradi, zamonaviy cherkov va ommaviy axborot vositalarida lyuteran cherkovi allaqachon mavjud bo'lgan yil sifatida 1913 yil keltiriladi.",
+			ru: '1913 год',
+			uz: '1913 yil',
 		},
 		architecturalStyle: {
-			ru: 'Архитектурный облик здания можно определить как кирпичную эклектику с отчетливыми неоготическими мотивами.',
-			uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektizmi sifatida aniqlash mumkin.",
+			ru: 'Архитектурный облик здания можно определить как кирпичную эклектику с отчетливыми неоготическими мотивами. Для него характерны вытянутые вертикали, стрельчатые завершения проемов, подчеркнутая простота объемов и сдержанная пластика фасадов, типичная для протестантской культовой архитектуры начала XX века. Позднейшая православная адаптация изменила внутреннюю организацию и символическое содержание пространства, но не уничтожила исходную европейскую стилистику здания.',
+			uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektikasi deb belgilash mumkin. Unda cho'zilgan vertikallar, lansetli ochilishlar, hajmlarning oddiyligi va XX asr boshidagi protestant ibodatxonalariga xos fasad plastikasi mavjud. Keyinchalik pravoslav moslashuvi ichki tashkil etilish va makon ramziy mazmunini o'zgartirdi, ammo binoning asl yevropa uslubini saqlab qoldi.",
 		},
 		architect: {
 			ru: 'Имя архитектора в доступных источниках не указано.',
 			uz: 'Arxitektorning ismi mavjud manbalarda aniqlanmagan.',
 		},
 		shortDescription: {
-			ru: 'В настоящее время объект является действующим православным храмом Ташкентской и Узбекистанской епархии. Он выполняет богослужебную, мемориальную, просветительскую и общинную функции, оставаясь одним из ключевых духовных центров Ферганской долины. Ранее здание было построено как кирха для лютеранской общины, а в советский период временно использовалось не по первоначальному назначению, а как складское помещение.',
-			uz: 'Ayni paytda bino Toshkent va Oʻzbekiston yeparxiyasining pravoslav cherkovi boʻlib xizmat qilmoqda. U Farg‘ona vodiysining asosiy ma’naviy markazlaridan biri bo‘lib qolgan holda liturgik, yodgorlik, ma’rifiy va jamoat vazifalarini bajaradi. Ilgari bino Lyuteran cherkovi vazifasini bajargan, sovet davrida esa vaqtinchalik asl maqsadi uchun emas, balki ombor sifatida foydalanilgan',
+			ru: 'Храм преподобного Сергия Радонежского в Фергане — это памятник архитектуры начала XX века, изначально построенный как евангелическо-лютеранская кирха для немецкой общины, а после Второй мировой войны переосмысленный и освящённый как православный храм. Сегодня храм является действующим религиозным центром, выполняющим богослужебные, просветительские и мемориальные функции, и представляет собой пример многослойного культурного наследия, отражающего сложную историю города.',
+			uz: "Farg'onadagi Muqaddas Sergiy Radonejskiy cherkovi — XX asr boshining me'moriy yodgorligi bo'lib, dastlab nemis jamoasi uchun lyuteran cherkovi sifatida qurilgan va Ikkinchi jahon urushidan keyin pravoslav cherkovi sifatida qayta bag'ishlangan. Bugun cherkov faol diniy markaz bo'lib, ibodat, ma'rifat va yodgorlik vazifalarini bajaradi va shaharning murakkab tarixini aks ettiruvchi ko'p qatlamli madaniy meros namunasidir.",
 		},
 		architecturalDescription: {
 			ru: 'Храм представляет собой вытянутый кирпичный объем продольной ориентации, организованный по принципу однонефного зального пространства. Силуэт здания читается как компактный и собранный: главному фасаду придается особая выразительность за счет вертикального акцента входной части и высокого стрельчатого оконного проема. Для архитектуры объекта важны не столько сложность композиции, сколько ее ясность, строгий ритм и работа на вертикальное восприятие. Такая структура хорошо соответствовала исходной лютеранской функции и оказалась пригодной для последующей православной адаптации. \n При переходе здания к православной общине основное конструктивное ядро было сохранено, а изменения коснулись прежде всего литургической организации интерьера: появилась алтарная часть, был установлен иконостас, внутреннее пространство получило новые смысловые центры. Благодаря этому объект представляет интерес не только как памятник рубежа веков, но и как пример бережного перепрофилирования культовой архитектуры.',
@@ -61,8 +61,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: "Lansetli derazalar va g'isht terimi",
 				},
 				description: {
-					ru: 'Наиболее выразительные детали объекта — это\nстрельчатые оконные проёмы, фактурная кирпичная кладка, сдержанное фасадное\nчленение и общий вертикальный ритм. Эти элементы формируют строгий, но\nблагородный образ. Здание выглядит не тяжеловесным, а собранным и цельным. Даже\nпри отсутствии обильного декора фасады производят сильное впечатление за счёт\nпропорций и ясности архитектурного языка.',
-					uz: "Binoning eng ifodali detallari - bu lansetli derazalar, teksturali g'isht ishlari, o'ralgan fasad bo'linmalari va umumiy vertikal ritm.",
+					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость. Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
+					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari. Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
 				},
 				imageUrl:
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29_%D1%84%D0%BE%D1%82%D0%BE_1..JPG/960px-%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29_%D1%84%D0%BE%D1%82%D0%BE_1..JPG?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=thumbnail',
@@ -73,8 +73,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: 'Ikonostaz',
 				},
 				description: {
-					ru: 'Особое значение имеет внутреннее пространство. После переосвящения главный художественный акцент здесь был связан с иконостасом, выполненным по образцу иконостаса Троицкого собора Троице-Сергиевой лавры. Этот элемент придаёт интерьеру не только православный характер, но и особую культурную ценность, связывая ферганский храм с более широкой русской церковной традицией.',
-					uz: "Ichki makon ayniqsa muhimdir. Qayta tiklashdan so'ng, bu erda asosiy badiiy e'tibor Avliyo Sergiusning Trinity Lavra Trinity sobori ikonostazidan keyin modellashtirilgan ikonostaz edi. Bu element ichki makonga nafaqat pravoslav xarakterini, balki Farg'ona cherkovini kengroq rus cherkov an'analari bilan bog'laydigan alohida madaniy qadriyatni ham beradi.",
+					ru: 'Внутреннее пространство храма после его переосмысления в православной традиции получило новые художественные акценты. Центральным элементом стал иконостас, выполненный по образцу иконостаса Троицкого собора Троице-Сергиевой лавры, что связывает интерьер с классическими образцами русской церковной архитектуры.',
+					uz: "Cherkov ichki makoni pravoslav an'anasiga qayta moslashtirilgach yangi badiiy urg'ular oldi. Markaziy element — Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olingan ikonostaz bo'lib, interyerni rus cherkov me'moriyasining klassik namunalariga bog'laydi.",
 				},
 			},
 			{
@@ -83,8 +83,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: "2023-yil qo'ng'iroqlari",
 				},
 				description: {
-					ru: 'В современном восприятии ансамбля заметную роль играет и новая колокольная тема: в 2023 году для прихода были освящены колокола, что усилило звуковое присутствие храма в городской среде.',
-					uz: "Yangi qo'ng'iroq mavzusi ham ansamblni zamonaviy idrok etishda muhim rol o'ynaydi: 2023 yilda cherkov uchun qo'ng'iroqlar bag'ishlangan bo'lib, shahar muhitida cherkovning ovozli ishtirokini kuchaytirdi.",
+					ru: 'Дополнительную выразительность современному облику придаёт колокольный ансамбль, появившийся в 2023 году, который усиливает не только визуальное, но и звуковое присутствие храма в городской среде.',
+					uz: "Zamonaviy ko'rinishga 2023-yilda paydo bo'lgan qo'ng'iroq ansambli qo'shimcha ifoda beradi — u cherkovning shahar muhitidagi nafaqat vizual, balki ovozli ishtirokini ham kuchaytiradi.",
 				},
 			},
 		],

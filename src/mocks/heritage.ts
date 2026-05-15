@@ -2,8 +2,10 @@ import {
 	heritageListItemsToApiWire,
 	type HeritageListApiResponseWire,
 } from '@/lib/heritage/heritageListWire';
+import { sortHeritageListByOrder } from '@/lib/heritage/sortHeritageList';
 import { parseHeritageListResponseJson } from '@/lib/heritage/schemas';
 import { isDirectImageUrl } from '@/mocks/heritage/imageUrl';
+import { normalizeWikimediaImageUrl } from '@/shared/lib/image/wikimediaUrl';
 import { rawMockHeritageObjects } from '@/mocks/heritage/rawMockHeritageObjects';
 import type { HeritageListItem, HeritageObject } from '@/entities/heritage';
 
@@ -12,19 +14,32 @@ const buildPlaceholderUrl = (seed: string, width = 1400, height = 900) =>
 		seed
 	)}`;
 
+const resolveImageUrl = (url: string) => normalizeWikimediaImageUrl(url.trim());
+
 const withPlaceholderImage = (url: string, seed: string) => {
 	if (!url.trim()) return url;
-	if (!/^https?:\/\//i.test(url)) return url;
-	if (isDirectImageUrl(url)) return url;
+	const resolved = resolveImageUrl(url);
+	if (!/^https?:\/\//i.test(resolved)) return resolved;
+	if (isDirectImageUrl(resolved)) return resolved;
 	return buildPlaceholderUrl(seed);
 };
 
-export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
+const TOUR_BY_SLUG: Partial<
+	Record<string, { tourPublished: true; tourEntryUrl: string }>
+> = {
+	// 'khram-sergiya-radonezhskogo': {
+	// 	tourPublished: fa,
+	// 	tourEntryUrl: '/tour-packs/khram-sergiya-radonezhskogo/index.htm',
+	// },
+};
+
+export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = sortHeritageListByOrder(
 	rawMockHeritageObjects.map((obj) => {
+		const tour = TOUR_BY_SLUG[obj.slug];
 		return {
 			...obj,
-			tourPublished: false,
-			tourEntryUrl: undefined,
+			tourPublished: tour?.tourPublished ?? false,
+			tourEntryUrl: tour?.tourEntryUrl,
 			coverImageUrl: withPlaceholderImage(obj.coverImageUrl, `${obj.slug}-cover`),
 			photos: obj.photos.map((photo, index) => ({
 				...photo,
@@ -80,7 +95,8 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] =
 				...obj.audioGuide,
 			},
 		};
-	});
+	})
+);
 
 function heritageObjectToListItem(obj: HeritageObject): HeritageListItem {
 	return {
@@ -104,8 +120,9 @@ export const MOCK_HERITAGE_LIST_RESPONSE: HeritageListApiResponseWire = {
 	),
 };
 
-export const MOCK_HERITAGE_LIST: HeritageListItem[] =
-	parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE);
+export const MOCK_HERITAGE_LIST: HeritageListItem[] = sortHeritageListByOrder(
+	parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE)
+);
 
 export const getMockHeritageById = (id: string): HeritageObject | undefined =>
 	MOCK_HERITAGE_OBJECTS.find((o) => o.id === id || o.slug === id);

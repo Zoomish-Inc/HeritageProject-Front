@@ -4,7 +4,7 @@ export type SeoPageKind = 'home' | 'heritage';
 
 const commonKeywordsByLocale: Record<Locale, string[]> = {
 	ru: [
-		'Наследие Ферганы',
+		'Архитектурное наследие Ферганы',
 		'Фергана',
 		'архитектурное наследие',
 		'исторические здания',

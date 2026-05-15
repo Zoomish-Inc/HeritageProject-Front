@@ -60,6 +60,12 @@ export const HeritageDetailFigures = ({
 									className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line"
 									collapsedMaxHeight={160}
 								/>
+								<HeritageDetailMediaAttribution
+									locale={locale}
+									sourceUrl={figure.bioSourceUrl}
+									credit={figure.bioSourceCredit}
+									sourceLabel={sourceLabel}
+								/>
 							</div>
 						</div>
 						{figure.milestones && figure.milestones.length > 0 ? (

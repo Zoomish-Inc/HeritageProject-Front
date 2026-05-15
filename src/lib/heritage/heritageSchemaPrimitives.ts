@@ -20,14 +20,32 @@ export const biographyMilestoneSchema = z.object({
 	event: localizedStringSchema,
 });
 
-export const historicalFigureSchema = z.object({
+const historicalFigureFieldsSchema = z.object({
 	name: localizedStringSchema,
 	role: localizedStringSchema,
 	bio: localizedStringSchema,
+	bioSourceUrl: z.string().optional(),
+	bioSourceCredit: localizedStringSchema.optional(),
+	bio_source_url: z.string().optional(),
+	bio_source_credit: localizedStringSchema.optional(),
 	photoUrl: z.string().optional(),
+	photo_url: z.string().optional(),
 	gallery: z.array(photoItemSchema).optional(),
 	milestones: z.array(biographyMilestoneSchema).optional(),
 });
+
+export const historicalFigureSchema = historicalFigureFieldsSchema.transform(
+	(fig) => ({
+		name: fig.name,
+		role: fig.role,
+		bio: fig.bio,
+		bioSourceUrl: fig.bioSourceUrl ?? fig.bio_source_url,
+		bioSourceCredit: fig.bioSourceCredit ?? fig.bio_source_credit,
+		photoUrl: fig.photoUrl ?? fig.photo_url,
+		gallery: fig.gallery,
+		milestones: fig.milestones,
+	})
+);
 
 export const architectureDetailSchema = z.object({
 	title: localizedStringSchema,

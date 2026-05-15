@@ -73,6 +73,12 @@ export const HeritageDetailArchitectBio = ({
 								className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line"
 								collapsedMaxHeight={160}
 							/>
+							<HeritageDetailMediaAttribution
+								locale={locale}
+								sourceUrl={b.bioSourceUrl}
+								credit={b.bioSourceCredit}
+								sourceLabel={sourceLabel}
+							/>
 						</div>
 					</div>
 					{b.milestones && b.milestones.length > 0 ? (

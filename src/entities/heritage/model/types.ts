@@ -22,6 +22,8 @@ export interface HistoricalFigure {
 	name: LocalizedString;
 	role: LocalizedString;
 	bio: LocalizedString;
+	bioSourceUrl?: string;
+	bioSourceCredit?: LocalizedString;
 	photoUrl?: string;
 	gallery?: PhotoItem[];
 	milestones?: BiographyMilestone[];

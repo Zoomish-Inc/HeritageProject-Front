@@ -93,12 +93,9 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 			<section id="objects" className="max-w-7xl mx-auto px-6 pb-24">
 				<div className="text-center mb-12">
 					<DecorativeFlourish className="mb-4" />
-					<h2 className="font-display text-parchment-100 text-2xl mb-2">
+					<h2 className="font-display text-parchment-100 text-2xl">
 						{t('objects_title')}
 					</h2>
-					<p className="text-theme-subtitle-italic font-body italic text-sm">
-						{t('objects_subtitle')}
-					</p>
 				</div>
 
 				<HeritageObjectsSection />

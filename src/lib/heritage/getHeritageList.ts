@@ -4,6 +4,7 @@ import type { HeritageListItem } from '@/entities/heritage';
 import { reactCache } from '@/shared/lib/react/cache';
 import { isHeritageMockEnabled } from './config';
 import { parseHeritageListResponseJson } from './schemas';
+import { sortHeritageListByOrder } from './sortHeritageList';
 
 const heritageFetchTimeoutMs = 15000;
 
@@ -13,7 +14,9 @@ export async function loadHeritageList(cacheOptions?: {
 	next?: { revalidate: number };
 }): Promise<HeritageListItem[]> {
 	if (isHeritageMockEnabled()) {
-		return parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE);
+		return sortHeritageListByOrder(
+			parseHeritageListResponseJson(MOCK_HERITAGE_LIST_RESPONSE)
+		);
 	}
 	const res = await fetch(`${getApiBaseUrl()}/api/v1/heritage/`, {
 		headers: { Accept: 'application/json' },
@@ -24,7 +27,7 @@ export async function loadHeritageList(cacheOptions?: {
 		throw new Error(`Heritage list fetch failed: ${res.status}`);
 	}
 	const json: unknown = await res.json();
-	return parseHeritageListResponseJson(json);
+	return sortHeritageListByOrder(parseHeritageListResponseJson(json));
 }
 
 export const loadHeritageListForRequest = reactCache(async () =>

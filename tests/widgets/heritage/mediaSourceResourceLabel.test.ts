@@ -23,13 +23,13 @@ describe('getMediaSourceResourceLabel', () => {
 	it('maps Yandex hosts', () => {
 		expect(
 			getMediaSourceResourceLabel('https://yandex.uz/maps/org/1/gallery/', 'ru')
-		).toBe('Яндекс Карты');
+		).toBe('Яндекс');
 		expect(
 			getMediaSourceResourceLabel(
 				'https://avatars.mds.yandex.net/get-altay/x/orig',
 				'uz'
 			)
-		).toBe('Yandex Xaritalar');
+		).toBe('Yandex');
 	});
 
 	it('maps Wikimapia', () => {

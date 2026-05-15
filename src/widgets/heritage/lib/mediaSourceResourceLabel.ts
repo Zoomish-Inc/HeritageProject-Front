@@ -15,7 +15,7 @@ export function getMediaSourceResourceLabel(
 			host.endsWith('.yandex.uz') ||
 			host.endsWith('.yandex.com')
 		) {
-			return locale === 'uz' ? 'Yandex Xaritalar' : 'Яндекс Карты';
+			return locale === 'uz' ? 'Yandex' : 'Яндекс';
 		}
 		if (
 			host === 'upload.wikimedia.org' ||

@@ -4,6 +4,7 @@ const directImageHostPatterns = [
 	/^upload\.wikimedia\.org$/i,
 	/^commons\.wikimedia\.org$/i,
 	/^avatars\.mds\.yandex\.net$/i,
+	/^downloader\.disk\.yandex\.ru$/i,
 ];
 
 export function isDirectImageUrl(url: string): boolean {

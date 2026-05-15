@@ -74,6 +74,7 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 										<audio
 											controls
 											preload="metadata"
+											autoPlay={index === 0}
 											className="w-full h-9 mt-1"
 											src={track.url}
 										/>

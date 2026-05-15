@@ -254,6 +254,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		id: '3',
 		slug: 'zhenskaya-gimnaziya',
 		order: 2,
+		coverImageUrl:
+			'https://downloader.disk.yandex.ru/preview/00931e44a42abfdb87a662b7f148760be93be5fcf217d81f4b574a6e137231ab/6a07d89d/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
 		name: {
 			ru: 'Здание женской гимназии',
 			uz: 'Qizlar gimnaziyasi binosi',
@@ -355,6 +357,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'В отличие от столичных зданий того времени, здесь декор не лепился из гипса, а выкладывался непосредственно из кирпича.\n\nТехнология: Использовался местный жженый кирпич характерного песочно-желтого оттенка. Мастера применяли метод «подрезки» и лекального кирпича, создавая сложные карнизы, сухарики (дентикулы) и фризы.\n\nСимволика: Ритмичные повторения зубцов по карнизу здания символизировали порядок и дисциплину — идеальные качества для образовательного учреждения. Этот стиль также называли «кирпичным модерном», где честность материала подчеркивала надежность и долговечность знаний.',
 					uz: "Ramz: Binoning karniri bo'ylab tishlarning ritmik takrorlanishi tartib va intizomni anglatadi - ta'lim muassasasi uchun ideal fazilatlar. Ushbu uslub, shuningdek, \"g'isht modernizmi\" deb ataldi, bu erda materialning yaxlitligi bilimning ishonchliligi va uzoq umr ko'rishini ta'kidladi.",
 				},
+				imageUrl:
+					'https://downloader.disk.yandex.ru/preview/00931e44a42abfdb87a662b7f148760be93be5fcf217d81f4b574a6e137231ab/6a07d89d/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
 			},
 			{
 				title: {
@@ -391,15 +395,84 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			ru: 'Здание в прошлом принадлежало пансиону Мариинского женского училища. Оно было построено приблизительно в 1877 году по проекту архитектора Э. Г. Бруна; первоначально использовалось как приходская школа. В начале XX века, примерно в 1901–1903 годах, здание перестроили и преобразовали в женскую гимназию с пансионом. Сегодня здесь размещается Городской дом культуры.',
 			uz: 'Bino ilgari Mariinskiy qizlar maktabi internati joylashgan edi. Taxminan 1877-yilda me’mor E. G. Brun loyihasiga ko‘ra qurilgan; dastlab cherkov maktabi sifatida foydalanilgan. XX asr boshida, taxminan 1901–1903 yillarda rekonstruksiya qilinib, qizlar gimnaziyasi va internatiga aylantirilgan. Hozir shahar madaniyat uyida joylashgan.',
 		},
+		historyMedia: [
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/949c5b47fd4f7327bb858d2938dc483aed870aa7123a0347af5e3e2c0a96791b/6a07da76/Xxi1TZTcQVMmJNw_7vkErWCIF1FGI-_sPY3vyAkHh41nSz9lv3M60Y8yfi6ZSG1s6qCCzSz1W8Lq5K4pPO3rCg%3D%3D?uid=0&filename=%D0%92%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%B8%D1%86%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				caption: {
+					ru: 'Здание женской гимназии',
+					uz: 'Qizlar gimnaziyasi binosi',
+				},
+			},
+		],
 		historicalFigures: [],
-		photos: [],
-		beforeAfterPairs: [],
+		photos: [
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/9737ad727d2b16fab4f0b65fc30e74319459e49543513afc225ca31275ea77a1/6a07da76/b1IdYwtIEs-28raNAnKznJvIa_qjyKGNepHp4WxfwoXbnvMV4T06fq6sZi2Vtwa1Uap5LiSFWeIhLhMdo57MdQ%3D%3D?uid=0&filename=20260514_151346.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			},
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/5f7c4cfe6e16773e43df6fb2615606dbb4ccf4c1abff709dc77c57aaaf78fc5b/6a07da76/AIYj4toiPPamasI_YjRxh5vIa_qjyKGNepHp4WxfwoWacYyZA8HlmHBdc2wt_CxhDYIUUxZrKSTlP9OGJIGi1Q%3D%3D?uid=0&filename=%D0%90%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B9%20%D0%B3%D0%B8%D0%BC%D0%BD%D0%B0%D0%B7%D0%B8%D0%B8.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			},
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/d48ce043057f14c9a9c60648f47fb5380ee8269dbe43dfaa8f4c48c511ead127/6a07da76/09QN6R_2qMNyxrm_svgdb5vIa_qjyKGNepHp4WxfwoXBAe4oHmcFwHf59fHDm61LqHjz1m_tDkBW7VtR_lKhnw%3D%3D?uid=0&filename=%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%20%D0%A3%D0%A7%D0%95%D0%9D%D0%98%D0%A6%D0%AB.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			},
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/949c5b47fd4f7327bb858d2938dc483aed870aa7123a0347af5e3e2c0a96791b/6a07da76/Xxi1TZTcQVMmJNw_7vkErWCIF1FGI-_sPY3vyAkHh41nSz9lv3M60Y8yfi6ZSG1s6qCCzSz1W8Lq5K4pPO3rCg%3D%3D?uid=0&filename=%D0%92%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%B8%D1%86%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			},
+			{
+				url: 'https://downloader.disk.yandex.ru/preview/ea3b83a8beb46b9bec1fec93cc9e26df7626a953d4e192efa838a632d5d5091c/6a07da76/u5TVtGAPM95SjLB1bSXI2ZvIa_qjyKGNepHp4WxfwoXG5bYQIpKoqbi3cevpTcyc_3TjSm0fySlNl5fvZRR6rQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%9F%D0%9E%D0%A1%D0%9B%D0%95.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			},
+		],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'https://downloader.disk.yandex.ru/preview/626f43e51fe520c6482df3a3647e63a3dcb0f71ad1801e499b4af5332b075bcd/6a07da76/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+					caption: {
+						ru: 'Общий вид',
+						uz: 'Umumiy ko‘rinish',
+					},
+				},
+				after: {
+					url: 'https://downloader.disk.yandex.ru/preview/1119959b52181a532ee6883ea08ec4336bcf12bfaa5f3a97f27eb6495d4b2062/6a07da76/il4S7RyOGnYIROfGqaVMnFDVKODHw4BVTiyFjpnWB6lA3AfFxdN6E8ANLdVdV_nVbAt_FmJv3Ao7V_35G6cJgQ%3D%3D?uid=0&filename=%D0%93%D0%98%D0%9C%D0%9D%D0%90%D0%97%D0%98%D0%AF%20%D0%9F%D0%9E%D0%A1%D0%9B%D0%95.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+					caption: {
+						ru: 'Общий вид',
+						uz: 'Umumiy ko‘rinish',
+					},
+				},
+				label: {
+					ru: 'Здание женской гимназии',
+					uz: 'Qizlar gimnaziyasi binosi',
+				},
+			},
+		],
 		audioGuide: {
 			narratorLabel: {
-				ru: '',
-				uz: '',
+				ru: 'Аудиогид',
+				uz: 'Audio gid',
 			},
-			tracks: [],
+			tracks: [
+				{
+					url: '/audio/heritage/zhenskaya-gimnaziya/01.mp3',
+					shortTitle: {
+						ru: 'Часть 1',
+						uz: '1-qism',
+					},
+					fullTitle: {
+						ru: 'Женская гимназия — аудиогид 01',
+						uz: 'Qizlar gimnaziyasi — audio gid 01',
+					},
+				},
+				{
+					url: '/audio/heritage/zhenskaya-gimnaziya/02.mp3',
+					shortTitle: {
+						ru: 'Часть 2',
+						uz: '2-qism',
+					},
+					fullTitle: {
+						ru: 'Женская гимназия — аудиогид 02',
+						uz: 'Qizlar gimnaziyasi — audio gid 02',
+					},
+				},
+			],
 			transcript: {
 				ru: '',
 				uz: '',
@@ -413,8 +486,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
 	},
 	{
 		id: '4',
@@ -546,7 +617,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		},
 		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+			'https://downloader.disk.yandex.ru/preview/c310c1fe81981927308955925033772665e6a59de3d50f73548251f41955d8ae/6a07e032/tJ6SDW0QS9HSFR6V4O3mtRdAPTsM1y0MV3FFjSNFQfXopRD-jFezK8g1cMFJDVvlD6rJII-umxEBz8XrAmJ4Eg%3D%3D?uid=0&filename=%D0%A7%D0%B0%D1%81%D0%BE%D0%B2%D0%BD%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
 	},
 	{
 		id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
@@ -681,8 +752,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+		coverImageUrl: 'https://img.pastvu.com/d/3/6/3/363l10tlk88f0ndkjf.jpg',
 	},
 	{
 		id: '2',
@@ -817,8 +887,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fergana_Oblast_Administration.jpg/1200px-Fergana_Oblast_Administration.jpg',
+		coverImageUrl: 'https://geocaching.su/photos/areas/129764.jpg',
 	},
 	{
 		id: '6',
@@ -955,7 +1024,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fergana_oblast_building.jpg/800px-Fergana_oblast_building.jpg',
+		coverImageUrl: 'https://cont.ws/uploads/pic/2017/2/000%20%28110%29.jpg',
 	},
 ];

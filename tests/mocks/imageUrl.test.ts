@@ -18,6 +18,14 @@ describe('isDirectImageUrl', () => {
 		).toBe(true);
 	});
 
+	it('accepts Yandex Disk preview image CDN', () => {
+		expect(
+			isDirectImageUrl(
+				'https://downloader.disk.yandex.ru/preview/abc/xyz?content_type=image%2Fjpeg'
+			)
+		).toBe(true);
+	});
+
 	it('accepts URLs with image file extension', () => {
 		expect(
 			isDirectImageUrl('https://cdn.example.com/assets/photo.webp?v=1')

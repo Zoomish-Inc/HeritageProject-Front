@@ -18,8 +18,10 @@ describe('getMockHeritageById', () => {
 		expect(getMockHeritageById('unknown-slug')).toBeUndefined();
 	});
 
-	it('keeps direct wikimedia image URLs in mock output', () => {
+	it('keeps direct image URLs in mock output (not replaced by placeholder)', () => {
 		const obj = getMockHeritageById('zdanie-voennogo-sobraniya-dom-oficerov');
-		expect(obj?.coverImageUrl).toMatch(/^https:\/\/upload\.wikimedia\.org\//);
+		expect(obj?.coverImageUrl).toBeTruthy();
+		expect(obj?.coverImageUrl).not.toMatch(/^https:\/\/placehold\.co\//);
+		expect(obj?.coverImageUrl).toMatch(/^https:\/\//);
 	});
 });

@@ -34,6 +34,11 @@ const baseRemotePatterns = [
 	},
 	{
 		protocol: 'https',
+		hostname: 'downloader.disk.yandex.ru',
+		pathname: '/**',
+	},
+	{
+		protocol: 'https',
 		hostname: 'picsum.photos',
 		pathname: '/**',
 	},

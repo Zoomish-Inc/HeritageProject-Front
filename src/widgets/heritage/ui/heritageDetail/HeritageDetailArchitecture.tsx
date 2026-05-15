@@ -7,6 +7,7 @@ import {
 	imagePlaceholderDataUrl,
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
+import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	object: HeritageObject;
@@ -69,7 +70,11 @@ export const HeritageDetailArchitecture = ({
 							) : null}
 							<HeritageDetailMediaAttribution
 								locale={locale}
-								sourceUrl={detail.imageSourceUrl}
+								sourceUrl={resolvePhotoAttributionSourceUrl(
+									detail.imageSourceUrl,
+									detail.imageUrl,
+									locale
+								)}
 								credit={detail.imageCredit}
 								sourceLabel={labels.sourceLabel}
 							/>

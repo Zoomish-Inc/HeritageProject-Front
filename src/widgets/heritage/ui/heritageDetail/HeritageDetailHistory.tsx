@@ -8,6 +8,7 @@ import {
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
+import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	object: HeritageObject;
@@ -68,7 +69,11 @@ export const HeritageDetailHistory = ({
 									) : null}
 									<HeritageDetailMediaAttribution
 										locale={locale}
-										sourceUrl={photo.sourceUrl}
+										sourceUrl={resolvePhotoAttributionSourceUrl(
+											photo.sourceUrl,
+											photo.url,
+											locale
+										)}
 										credit={photo.credit}
 										sourceLabel={sourceLabel}
 									/>

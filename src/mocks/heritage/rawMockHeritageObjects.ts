@@ -5,8 +5,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		id: '5',
 		slug: 'khram-sergiya-radonezhskogo',
 		order: 1,
-		coverImageUrl:
-			'http://photos.wikimapia.org/p/00/07/31/58/39_1280.jpg',
+		coverImageUrl: 'http://photos.wikimapia.org/p/00/07/31/58/39_1280.jpg',
 		name: {
 			ru: 'Храм преподобного Сергия Радонежского',
 			uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
@@ -65,8 +64,9 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari.",
 				},
 				imageUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original',
-
+					'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				imageSourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 			},
 			{
 				title: {
@@ -81,10 +81,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
 				imageSourceUrl:
 					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-				imageCredit: {
-					ru: 'Bobyrr',
-					uz: 'Bobyrr',
-				},
 			},
 			{
 				title: {
@@ -99,10 +95,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
 				imageSourceUrl:
 					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
-				imageCredit: {
-					ru: 'Елизавета Х.',
-					uz: 'Yelizaveta X.',
-				},
 			},
 			{
 				title: {
@@ -117,10 +109,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
 				imageSourceUrl:
 					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
-				imageCredit: {
-					ru: 'Шамурад Б.',
-					uz: 'Shamurad B.',
-				},
 			},
 		],
 		history: {
@@ -136,10 +124,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				},
 				sourceUrl:
 					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				credit: {
-					ru: 'ГОЛ ос',
-					uz: 'GOL os',
-				},
 			},
 		],
 		historicalFigures: [
@@ -186,19 +170,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		],
 		photos: [
 			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				caption: {
-					ru: 'Общий вид храма',
-					uz: 'Cherkovning umumiy ko‘rinishi',
-				},
-				sourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				credit: {
-					ru: 'ГОЛ ос',
-					uz: 'GOL os',
-				},
-			},
-			{
 				url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
 				caption: {
 					ru: 'Вид с юго-запада',
@@ -206,10 +177,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				},
 				sourceUrl:
 					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-				credit: {
-					ru: 'Bobyrr',
-					uz: 'Bobyrr',
-				},
 			},
 			{
 				url: 'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
@@ -219,10 +186,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				},
 				sourceUrl:
 					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
-				credit: {
-					ru: 'Елизавета Х.',
-					uz: 'Yelizaveta X.',
-				},
 			},
 			{
 				url: 'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
@@ -232,10 +195,15 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				},
 				sourceUrl:
 					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
-				credit: {
-					ru: 'Шамурад Б.',
-					uz: 'Shamurad B.',
+			},
+			{
+				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				caption: {
+					ru: 'Общий вид храма',
+					uz: 'Cherkovning umumiy ko‘rinishi',
 				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
 			},
 		],
 		beforeAfterPairs: [
@@ -246,10 +214,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 						ru: 'Общий вид',
 						uz: 'Umumiy ko‘rinish',
 					},
-					credit: {
-						ru: 'ГОЛ ос',
-						uz: 'GOL os',
-					},
 				},
 				after: {
 					url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
@@ -257,10 +221,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 						ru: 'Вид с юго-запада',
 						uz: "Janubi-g'arbiy tomondan",
 					},
-					credit: {
-						ru: 'Bobyrr',
-						uz: 'Bobyrr',
-					},
+					sourceUrl:
+						'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
 				},
 				label: {
 					ru: 'Храм преподобного Сергия Радонежского',

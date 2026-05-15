@@ -12,6 +12,7 @@ import {
 	localizedTrim,
 	localizedTrimEither,
 } from '@/widgets/heritage/lib/heritageDetailLocale';
+import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 function hasArchitectBioBlock(object: HeritageObject): boolean {
 	const b = object.architectBio;
@@ -122,7 +123,11 @@ export const HeritageDetailArchitectBio = ({
 										) : null}
 										<HeritageDetailMediaAttribution
 											locale={locale}
-											sourceUrl={photo.sourceUrl}
+											sourceUrl={resolvePhotoAttributionSourceUrl(
+												photo.sourceUrl,
+												photo.url,
+												locale
+											)}
 											credit={photo.credit}
 											sourceLabel={sourceLabel}
 										/>

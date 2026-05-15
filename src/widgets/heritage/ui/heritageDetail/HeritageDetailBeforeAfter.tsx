@@ -3,6 +3,7 @@ import { OrnamentalDivider } from '@/shared/ui';
 import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { BeforeAfterPair, Locale } from '@/entities/heritage';
+import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	slug: string;
@@ -53,7 +54,11 @@ export const HeritageDetailBeforeAfter = ({
 									</p>
 									<HeritageDetailMediaAttribution
 										locale={locale}
-										sourceUrl={pair.before.sourceUrl}
+										sourceUrl={resolvePhotoAttributionSourceUrl(
+											pair.before.sourceUrl,
+											pair.before.url,
+											locale
+										)}
 										credit={pair.before.credit}
 										sourceLabel={sourceLabel}
 									/>
@@ -64,7 +69,11 @@ export const HeritageDetailBeforeAfter = ({
 									</p>
 									<HeritageDetailMediaAttribution
 										locale={locale}
-										sourceUrl={pair.after.sourceUrl}
+										sourceUrl={resolvePhotoAttributionSourceUrl(
+											pair.after.sourceUrl,
+											pair.after.url,
+											locale
+										)}
 										credit={pair.after.credit}
 										sourceLabel={sourceLabel}
 									/>

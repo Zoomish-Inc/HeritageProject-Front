@@ -27,10 +27,10 @@ const withPlaceholderImage = (url: string, seed: string) => {
 const TOUR_BY_SLUG: Partial<
 	Record<string, { tourPublished: true; tourEntryUrl: string }>
 > = {
-	// 'khram-sergiya-radonezhskogo': {
-	// 	tourPublished: fa,
-	// 	tourEntryUrl: '/tour-packs/khram-sergiya-radonezhskogo/index.htm',
-	// },
+	'zhenskaya-gimnaziya': {
+		tourPublished: true,
+		tourEntryUrl: '/tour-packs/zhenskaya-gimnaziya/index.htm',
+	},
 };
 
 export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = sortHeritageListByOrder(

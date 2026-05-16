@@ -105,6 +105,21 @@ export const HeritageDetail = ({ object }: Props) => {
 				}
 			/>
 
+			<RenderOnView fallback={sectionLoading()}>
+				<HeritageDetailAudio
+					object={object}
+					locale={locale}
+					labels={{
+						title: t('audio_guide'),
+						listen: t('listen'),
+						atmosphere: t('atmosphere'),
+						musicSuggestion: t('music_suggestion'),
+						audioTracks: t('audio_tracks'),
+						fullTitle: t('audio_full_title'),
+					}}
+				/>
+			</RenderOnView>
+
 			<HeritageDetailBeforeAfter
 				slug={object.slug}
 				pairs={object.beforeAfterPairs}
@@ -178,21 +193,6 @@ export const HeritageDetail = ({ object }: Props) => {
 					locale={locale}
 					title={t('gallery')}
 					sourceLabel={sourceLabel}
-				/>
-			</RenderOnView>
-
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailAudio
-					object={object}
-					locale={locale}
-					labels={{
-						title: t('audio_guide'),
-						listen: t('listen'),
-						atmosphere: t('atmosphere'),
-						musicSuggestion: t('music_suggestion'),
-						audioTracks: t('audio_tracks'),
-						fullTitle: t('audio_full_title'),
-					}}
 				/>
 			</RenderOnView>
 

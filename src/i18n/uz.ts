@@ -8,7 +8,7 @@ export const uz = {
 		hero_title: "Farg'ona me'moriy merosi",
 		hero_subtitle: 'XIX — XX asr boshlari',
 		hero_description:
-			"Shahar tarixiy yodgorliklari bo'ylab virtual sayohat: Markaziy Osiyo qalbida saqlanib qolgan rus me'moriy an'analarining nafisligi.",
+			"Shaharning tarixiy yodgorliklari bo'ylab virtual sayohat — Markaziy Osiyo qalbida rus me'moriy an'analarining nafisligini saqlab qolgan obidalar.",
 		explore_button: 'Sayohatni boshlash',
 		objects_title: "Madaniy meros ob'ektlari",
 		readMore: 'Ochiq',
@@ -56,7 +56,7 @@ export const uz = {
 		lang_ru: 'Русский',
 		lang_uz: "O'zbek",
 		project_name: "Farg'ona me'moriy merosi",
-		tagline: 'Virtual sayohat · XIX–XX asrlar',
+		tagline: 'Virtual sayohat · XIX–XX asr boshlari',
 		theme_toggle: 'Mavzuni almashtirish',
 		mobile_nav_title: 'Menyu',
 		open_menu: 'Navigatsiya menyusini ochish',
@@ -65,7 +65,7 @@ export const uz = {
 		desktop_nav_label: 'Asosiy navigatsiya',
 	},
 	layout: {
-		footer_line: "Farg'ona me'moriy merosi · XIX–XX asrlar",
+		footer_line: "Farg'ona me'moriy merosi · XIX–XX asr boshlari",
 	},
 	errors: {
 		title: 'Xatolik yuz berdi',

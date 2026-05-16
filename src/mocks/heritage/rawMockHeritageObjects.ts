@@ -2,258 +2,9 @@ import type { HeritageObject } from '@/entities/heritage';
 
 export const rawMockHeritageObjects: HeritageObject[] = [
 	{
-		id: '5',
-		slug: 'khram-sergiya-radonezhskogo',
-		order: 1,
-		coverImageUrl: 'http://photos.wikimapia.org/p/00/07/31/58/39_1280.jpg',
-		name: {
-			ru: 'Храм преподобного Сергия Радонежского',
-			uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
-		},
-		formerName: {
-			ru: 'Евангелическо-лютеранская кирха немецкой общины Нового Маргилана (Скобелева).',
-			uz: 'Yangi Margʻilon (Skobelev) nemis jamoasining Evangelist-lyuteran cherkovi',
-		},
-		currentPurpose: {
-			ru: 'Православный храм (действующий)',
-			uz: 'Pravoslav cherkovi (faol)',
-		},
-		historicalPurpose: {
-			ru: 'Евангелическо-лютеранская кирха немецкой общины',
-			uz: "Yangi Marg'ilon nemis jamoasining lyuteran cherkovi",
-		},
-		address: {
-			ru: 'Узбекистан, г. Фергана, ул. Саккокий, 8.',
-			uz: "O'zbekiston, Farg'ona, ko'ch. Sakkokiy, 8.",
-		},
-		coordinates: {
-			lat: 40.395293,
-			lng: 71.781572,
-		},
-		mapUrl:
-			'https://www.openstreetmap.org/?mlat=40.395293&mlon=71.781572#map=16/40.395293/71.781572',
-		yearBuilt: 1913,
-		yearBuiltLabel: {
-			ru: '1913 год',
-			uz: '1913 yil',
-		},
-		architecturalStyle: {
-			ru: 'Архитектурный облик здания можно определить как кирпичную эклектику с отчетливыми неоготическими мотивами. Для него характерны вытянутые вертикали, стрельчатые завершения проемов, подчеркнутая простота объемов и сдержанная пластика фасадов, типичная для протестантской культовой архитектуры начала XX века. Позднейшая православная адаптация изменила внутреннюю организацию и символическое содержание пространства, но не уничтожила исходную европейскую стилистику здания.',
-			uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektikasi deb belgilash mumkin. Unda cho'zilgan vertikallar, lansetli ochilishlar, hajmlarning oddiyligi va XX asr boshidagi protestant ibodatxonalariga xos fasad plastikasi mavjud. Keyinchalik pravoslav moslashuvi ichki tashkil etilish va makon ramziy mazmunini o'zgartirdi, ammo binoning asl yevropa uslubini saqlab qoldi.",
-		},
-		architect: {
-			ru: 'Имя архитектора в доступных источниках не установлено.',
-			uz: 'Arxitektorning ismi mavjud manbalarda aniqlanmagan.',
-		},
-		shortDescription: {
-			ru: 'Храм преподобного Сергия Радонежского в Фергане — это памятник архитектуры начала XX века, изначально построенный как евангелическо-лютеранская кирха для немецкой общины, а после Второй мировой войны переосмысленный и освящённый как православный храм. Сегодня храм является действующим религиозным центром, выполняющим богослужебные, просветительские и мемориальные функции, и представляет собой пример многослойного культурного наследия, отражающего сложную историю города.',
-			uz: "Farg'onadagi Muqaddas Sergiy Radonejskiy cherkovi — XX asr boshining me'moriy yodgorligi bo'lib, dastlab nemis jamoasi uchun lyuteran cherkovi sifatida qurilgan va Ikkinchi jahon urushidan keyin pravoslav cherkovi sifatida qayta bag'ishlangan. Bugun cherkov faol diniy markaz bo'lib, ibodat, ma'rifat va yodgorlik vazifalarini bajaradi va shaharning murakkab tarixini aks ettiruvchi ko'p qatlamli madaniy meros namunasidir.",
-		},
-		architecturalDescription: {
-			ru: 'Храм представляет собой вытянутый кирпичный объем продольной ориентации, организованный по принципу однонефного зального пространства. Силуэт здания читается как компактный и собранный: главному фасаду придается особая выразительность за счет вертикального акцента входной части и высокого стрельчатого оконного проема. Для архитектуры объекта важны не столько сложность композиции, сколько ее ясность, строгий ритм и работа на вертикальное восприятие. Такая структура хорошо соответствовала исходной лютеранской функции и оказалась пригодной для последующей православной адаптации. \n При переходе здания к православной общине основное конструктивное ядро было сохранено, а изменения коснулись прежде всего литургической организации интерьера: появилась алтарная часть, был установлен иконостас, внутреннее пространство получило новые смысловые центры. Благодаря этому объект представляет интерес не только как памятник рубежа веков, но и как пример бережного перепрофилирования культовой архитектуры.',
-			uz: "Cherkov uzunlamasına yo'naltirilgan cho'zilgan g'ishtli bino bo'lib, bitta nefli zal bo'shlig'i printsipiga muvofiq tashkil etilgan. Binoning silueti ixcham va kompozitsion: asosiy fasadga kirishning vertikal urg'usi va baland lansetli deraza ochilishi alohida ifodalangan. Bino pravoslav jamiyatiga o'tkazilganda, asosiy strukturaviy yadro saqlanib qoldi, lekin o'zgarishlar birinchi navbatda ichki makonning liturgik tashkil etilishiga ta'sir qildi: qurbongoh bo'limi qo'shildi, ikonostaz o'rnatildi va ichki makon yangi semantik markazlarga ega bo'ldi. Shu sababli, bino nafaqat asrlar boshi yodgorligi, balki diniy arxitekturani puxta o'zgartirish namunasi sifatida ham qiziqish uyg'otadi.",
-		},
-		architectureDetails: [
-			{
-				title: {
-					ru: 'Стрельчатые оконные проёмы',
-					uz: 'Lansetli deraza ochilishlari',
-				},
-				description: {
-					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость.',
-					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari.",
-				},
-				imageUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				imageSourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-			},
-			{
-				title: {
-					ru: 'Фактурная кирпичная кладка',
-					uz: "Teksturali g'isht terimi",
-				},
-				description: {
-					ru: 'Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
-					uz: "Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
-				},
-				imageUrl:
-					'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-				imageSourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-			},
-			{
-				title: {
-					ru: 'Иконостас',
-					uz: 'Ikonostaz',
-				},
-				description: {
-					ru: 'Внутреннее пространство храма после его переосмысления в православной традиции получило новые художественные акценты. Центральным элементом стал иконостас, выполненный по образцу иконостаса Троицкого собора Троице-Сергиевой лавры, что связывает интерьер с классическими образцами русской церковной архитектуры.',
-					uz: "Cherkov ichki makoni pravoslav an'anasiga qayta moslashtirilgach yangi badiiy urg'ular oldi. Markaziy element — Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olingan ikonostaz bo'lib, interyerni rus cherkov me'moriyasining klassik namunalariga bog'laydi.",
-				},
-				imageUrl:
-					'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
-				imageSourceUrl:
-					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
-			},
-			{
-				title: {
-					ru: 'Колокольный ансамбль',
-					uz: "Qo'ng'iroq ansambli",
-				},
-				description: {
-					ru: 'Дополнительную выразительность современному облику придаёт колокольный ансамбль, появившийся в 2023 году, который усиливает не только визуальное, но и звуковое присутствие храма в городской среде.',
-					uz: "Zamonaviy ko'rinishga 2023-yilda paydo bo'lgan qo'ng'iroq ansambli qo'shimcha ifoda beradi — u cherkovning shahar muhitidagi nafaqat vizual, balki ovozli ishtirokini ham kuchaytiradi.",
-				},
-				imageUrl:
-					'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
-				imageSourceUrl:
-					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
-			},
-		],
-		history: {
-			ru: 'История памятника складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города.\n\nВторой этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию.\n\nТретий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма.',
-			uz: "Yodgorlik tarixi bir necha aniq ajralib turadigan bosqichlardan iborat. Birinchisi lyuteranlik davri. 20-asr boshlarida Fargʻonada nemislar jamoasi mavjud boʻlib, ular uchun maxsus diniy bino qurilgan. 1910 yilda cherkov qurilishi surati tarixiy fotosuratlar veb-saytida saqlanib qolgan. O‘shanda ham bu joy Farg‘onaning Yevropa me’moriy merosining bir qismi bo‘lib, shaharning turli etnik va diniy qiyofasini o‘zida aks ettirgan.\n\nIkkinchi bosqich diniy funktsiyani yo'qotgan sovet davri bilan bog'liq. Biroq, bu davrda ham binoning jismoniy saqlanishi katta ahamiyatga ega edi: me'moriy qobiq tarixiy qo'zg'olonlardan omon qoldi va keyinchalik madaniy ahamiyatga ega bo'lgan foydalanish uchun tiklandi.\n\nUchinchi bosqich urushdan keyingi yillarda, bino pravoslav jamoasiga topshirilganda boshlandi. Radonejning Muqaddas Sergiy nomiga bag'ishlanganidan so'ng, bino o'z hayotining yangi bosqichiga kirdi. Cherkov uchun bu shunchaki makonni egallash emas, balki amalda noldan yangi ruhiy markazni yaratish edi. Bunda arxiyepiskop Guriy, arximandrit Boris (Xolchev) va ikonostaz hamda cherkovning ichki badiiy ko'rinishini yaratishda ishtirok etgan rohiba Yulianiya (Mariya Sokolova) muhim rol o'ynagan.",
-		},
-		historyMedia: [
-			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				caption: {
-					ru: 'Храм преподобного Сергия Радонежского',
-					uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
-				},
-				sourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-			},
-		],
-		historicalFigures: [
-			{
-				name: {
-					ru: 'Архимандрит Борис (Холчев)',
-					uz: 'Arximandrit Boris (Xolchev)',
-				},
-				role: {
-					ru: 'Духовный настоятель',
-					uz: "Ma'naviy rahbar",
-				},
-				bio: {
-					ru: 'С 1949 года священник Борис Холчев был настоятелем храма преподобного Сергия Радонежского в Фергане. Ученик оптинского старца Нектария, бывший научный сотрудник в области психологии, он пользовался глубоким уважением прихожан и умел находить слова, обращённые к душе человека. В 1953 году переведён в Ташкентский Успенский собор; позднее возведён в сан архимандрита и назначен духовником епархии.',
-					uz: '1949-yildan boshlab ruhoniy Boris Xolchev Farg‘onadagi Muqaddas Sergiy Radonejskiy cherkovining boshlig‘i bo‘ldi. Optina keksasi Nektariyning shogirdi, ilgari psixologiya sohasida ilmiy ish olib borgan, u jamoat orasida katta hurmatga sazovor edi va inson ruhiga tegadigan so‘zlarni topa olardi. 1953-yilda Toshkent Uspenskiy soboriga o‘tkazildi; keyinchalik arximandrit unvoniga ko‘tarilib, yeparxiya ruhoniyasi etib tayinlandi.',
-				},
-				bioSourceUrl: 'https://www.uzlit.net/pdf/Vostok23-24.pdf',
-				bioSourceCredit: {
-					ru: 'Сборник «Восток», с. 42',
-					uz: '«Vostok» to‘plami, 42-bet',
-				},
-			},
-			{
-				name: {
-					ru: 'Монахиня Иулиания (Мария Соколова)',
-					uz: 'Rohiba Yulianiya (Mariya Sokolova)',
-				},
-				role: {
-					ru: 'Участница создания иконостаса',
-					uz: 'Ikonostaz yaratilishida ishtirok etgan',
-				},
-				bio: {
-					ru: 'В 1952–1954 годах Мария Николаевна Соколова (монахиня Иулиания) работала над трёхъярусным иконостасом для Свято-Сергиевского храма в Фергане — по образцу иконостаса Троицкого собора Троице-Сергиевой лавры. Иконы писались на холстах в Лавре и на месте приклеивались на доски; к празднику Рождества храм был обновлён.',
-					uz: '1952–1954 yillarda Mariya Nikolayevna Sokolova (rohiba Yulianiya) Farg‘onadagi Muqaddas Sergiy cherkovi uchun Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olib, uch qavatli ikonostaz ustida ishladi. Rasmlar lavrada matoga yozilib, joyida taxtaga yopishtirilgan; Rojdestvo bayramiga qadar cherkov yangilangan.',
-				},
-				photoUrl:
-					'https://upload.wikimedia.org/wikipedia/ru/0/0c/Iulianiya_Sokolova.jpg',
-				bioSourceUrl: 'https://24wiki.ru/Соколова,_Мария_Николаевна',
-				bioSourceCredit: {
-					ru: '24wiki.ru',
-					uz: '24wiki.ru',
-				},
-			},
-		],
-		photos: [
-			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-				caption: {
-					ru: 'Вид с юго-запада',
-					uz: "Janubi-g'arbiy tomondan ko'rinish",
-				},
-				sourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-			},
-			{
-				url: 'https://avatars.mds.yandex.net/get-altay/9724410/2a000001899818ed953dca12d75843d8fcec/orig',
-				caption: {
-					ru: 'Интерьер, иконостас',
-					uz: 'Interyer, ikonostaz',
-				},
-				sourceUrl:
-					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A9724410_2a000001899818ed953dca12d75843d8fcec',
-			},
-			{
-				url: 'https://avatars.mds.yandex.net/get-altay/15358610/2a0000019696d453a9aa5c54186ac8f4eeff/orig',
-				caption: {
-					ru: 'Колокольный ансамбль',
-					uz: "Qo'ng'iroq ansambli",
-				},
-				sourceUrl:
-					'https://yandex.uz/maps/org/168559788612/gallery/?photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A15358610_2a0000019696d453a9aa5c54186ac8f4eeff',
-			},
-			{
-				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-				caption: {
-					ru: 'Общий вид храма',
-					uz: 'Cherkovning umumiy ko‘rinishi',
-				},
-				sourceUrl:
-					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
-			},
-		],
-		beforeAfterPairs: [
-			{
-				before: {
-					url: 'http://photos.wikimapia.org/p/00/07/31/58/38_1280.jpg',
-					caption: {
-						ru: 'Общий вид',
-						uz: 'Umumiy ko‘rinish',
-					},
-				},
-				after: {
-					url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-					caption: {
-						ru: 'Вид с юго-запада',
-						uz: "Janubi-g'arbiy tomondan",
-					},
-					sourceUrl:
-						'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
-				},
-				label: {
-					ru: 'Храм преподобного Сергия Радонежского',
-					uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
-				},
-			},
-		],
-		audioGuide: {
-			narratorLabel: {
-				ru: '',
-				uz: '',
-			},
-			tracks: [],
-			transcript: {
-				ru: '',
-				uz: '',
-			},
-			atmosphereDescription: {
-				ru: '',
-				uz: '',
-			},
-			musicSuggestion: {
-				ru: '',
-				uz: '',
-			},
-		},
-	},
-	{
 		id: '3',
 		slug: 'zhenskaya-gimnaziya',
-		order: 2,
+		order: 1,
 		coverImageUrl:
 			'https://downloader.disk.yandex.ru/preview/00931e44a42abfdb87a662b7f148760be93be5fcf217d81f4b574a6e137231ab/6a07d89d/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
 		name: {
@@ -461,18 +212,245 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 						uz: 'Qizlar gimnaziyasi — audio gid 01',
 					},
 				},
-				{
-					url: '/audio/heritage/zhenskaya-gimnaziya/02.mp3',
-					shortTitle: {
-						ru: 'Часть 2',
-						uz: '2-qism',
-					},
-					fullTitle: {
-						ru: 'Женская гимназия — аудиогид 02',
-						uz: 'Qizlar gimnaziyasi — audio gid 02',
+			],
+			transcript: {
+				ru: '',
+				uz: '',
+			},
+			atmosphereDescription: {
+				ru: '',
+				uz: '',
+			},
+			musicSuggestion: {
+				ru: '',
+				uz: '',
+			},
+		},
+	},
+	{
+		id: '5',
+		slug: 'khram-sergiya-radonezhskogo',
+		order: 2,
+		coverImageUrl: 'http://photos.wikimapia.org/p/00/07/31/58/39_1280.jpg',
+		name: {
+			ru: 'Храм преподобного Сергия Радонежского',
+			uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
+		},
+		formerName: {
+			ru: 'Евангелическо-лютеранская кирха немецкой общины Нового Маргилана (Скобелева).',
+			uz: 'Yangi Margʻilon (Skobelev) nemis jamoasining Evangelist-lyuteran cherkovi',
+		},
+		currentPurpose: {
+			ru: 'Православный храм (действующий)',
+			uz: 'Pravoslav cherkovi (faol)',
+		},
+		historicalPurpose: {
+			ru: 'Евангелическо-лютеранская кирха немецкой общины',
+			uz: "Yangi Marg'ilon nemis jamoasining lyuteran cherkovi",
+		},
+		address: {
+			ru: 'Узбекистан, г. Фергана, ул. Саккокий, 8.',
+			uz: "O'zbekiston, Farg'ona, ko'ch. Sakkokiy, 8.",
+		},
+		coordinates: {
+			lat: 40.386480,
+			lng: 71.768825,
+		},
+		mapUrl:
+			'https://www.openstreetmap.org/?mlat=40.386480&mlon=71.768825#map=16/40.386480/71.768825',
+		yearBuilt: 1913,
+		yearBuiltLabel: {
+			ru: '1910-1913 гг',
+			uz: '1910-1913 yillar',
+		},
+		architecturalStyle: {
+			ru: 'Архитектурный облик здания можно определить как кирпичную эклектику с отчетливыми неоготическими мотивами. Для него характерны вытянутые вертикали, стрельчатые завершения проемов, подчеркнутая простота объемов и сдержанная пластика фасадов, типичная для протестантской культовой архитектуры начала XX века. Позднейшая православная адаптация изменила внутреннюю организацию и символическое содержание пространства, но не уничтожила исходную европейскую стилистику здания.',
+			uz: "Binoning me'moriy ko'rinishini aniq neo-gotik naqshli g'isht eklektikasi deb belgilash mumkin. Unda cho'zilgan vertikallar, lansetli ochilishlar, hajmlarning oddiyligi va XX asr boshidagi protestant ibodatxonalariga xos fasad plastikasi mavjud. Keyinchalik pravoslav moslashuvi ichki tashkil etilish va makon ramziy mazmunini o'zgartirdi, ammo binoning asl yevropa uslubini saqlab qoldi.",
+		},
+		architect: {
+			ru: 'Имя архитектора в доступных источниках не установлено.',
+			uz: 'Arxitektorning ismi mavjud manbalarda aniqlanmagan.',
+		},
+		shortDescription: {
+			ru: 'Храм преподобного Сергия Радонежского в Фергане — это памятник архитектуры начала XX века, изначально построенный как евангелическо-лютеранская кирха для немецкой общины, а после Второй мировой войны переосмысленный и освящённый как православный храм. Сегодня храм является действующим религиозным центром, выполняющим богослужебные, просветительские и мемориальные функции, и представляет собой пример многослойного культурного наследия, отражающего сложную историю города.',
+			uz: "Farg'onadagi Muqaddas Sergiy Radonejskiy cherkovi — XX asr boshining me'moriy yodgorligi bo'lib, dastlab nemis jamoasi uchun lyuteran cherkovi sifatida qurilgan va Ikkinchi jahon urushidan keyin pravoslav cherkovi sifatida qayta bag'ishlangan. Bugun cherkov faol diniy markaz bo'lib, ibodat, ma'rifat va yodgorlik vazifalarini bajaradi va shaharning murakkab tarixini aks ettiruvchi ko'p qatlamli madaniy meros namunasidir.",
+		},
+		architecturalDescription: {
+			ru: 'Храм представляет собой вытянутый кирпичный объем продольной ориентации, организованный по принципу однонефного зального пространства. Силуэт здания читается как компактный и собранный: главному фасаду придается особая выразительность за счет вертикального акцента входной части и высокого стрельчатого оконного проема. Для архитектуры объекта важны не столько сложность композиции, сколько ее ясность, строгий ритм и работа на вертикальное восприятие. Такая структура хорошо соответствовала исходной лютеранской функции и оказалась пригодной для последующей православной адаптации. \n При переходе здания к православной общине основное конструктивное ядро было сохранено, а изменения коснулись прежде всего литургической организации интерьера: появилась алтарная часть, был установлен иконостас, внутреннее пространство получило новые смысловые центры. Благодаря этому объект представляет интерес не только как памятник рубежа веков, но и как пример бережного перепрофилирования культовой архитектуры.',
+			uz: "Cherkov uzunlamasına yo'naltirilgan cho'zilgan g'ishtli bino bo'lib, bitta nefli zal bo'shlig'i printsipiga muvofiq tashkil etilgan. Binoning silueti ixcham va kompozitsion: asosiy fasadga kirishning vertikal urg'usi va baland lansetli deraza ochilishi alohida ifodalangan. Bino pravoslav jamiyatiga o'tkazilganda, asosiy strukturaviy yadro saqlanib qoldi, lekin o'zgarishlar birinchi navbatda ichki makonning liturgik tashkil etilishiga ta'sir qildi: qurbongoh bo'limi qo'shildi, ikonostaz o'rnatildi va ichki makon yangi semantik markazlarga ega bo'ldi. Shu sababli, bino nafaqat asrlar boshi yodgorligi, balki diniy arxitekturani puxta o'zgartirish namunasi sifatida ham qiziqish uyg'otadi.",
+		},
+		architectureDetails: [
+			{
+				title: {
+					ru: 'Стрельчатые оконные проёмы',
+					uz: 'Lansetli deraza ochilishlari',
+				},
+				description: {
+					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость.',
+					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari.",
+				},
+				imageUrl:
+					'/images/khram-sergiya-radonezhskogo/okna.jpg',
+			},
+			{
+				title: {
+					ru: 'Фактурная кирпичная кладка',
+					uz: "Teksturali g'isht terimi",
+				},
+				description: {
+					ru: 'Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
+					uz: "Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
+				},
+				imageUrl:
+					'/images/khram-sergiya-radonezhskogo/bricks.jpg',
+			},
+			{
+				title: {
+					ru: 'Иконостас',
+					uz: 'Ikonostaz',
+				},
+				description: {
+					ru: 'Внутреннее пространство храма после его переосмысления в православной традиции получило новые художественные акценты. Центральным элементом стал иконостас, выполненный по образцу иконостаса Троицкого собора Троице-Сергиевой лавры, что связывает интерьер с классическими образцами русской церковной архитектуры.',
+					uz: "Cherkov ichki makoni pravoslav an'anasiga qayta moslashtirilgach yangi badiiy urg'ular oldi. Markaziy element — Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olingan ikonostaz bo'lib, interyerni rus cherkov me'moriyasining klassik namunalariga bog'laydi.",
+				},
+				imageUrl:
+					'/images/khram-sergiya-radonezhskogo/icons.jpg',
+			},
+			{
+				title: {
+					ru: 'Колокольный ансамбль',
+					uz: "Qo'ng'iroq ansambli",
+				},
+				description: {
+					ru: 'Дополнительную выразительность современному облику придаёт колокольный ансамбль, появившийся в 2023 году, который усиливает не только визуальное, но и звуковое присутствие храма в городской среде.',
+					uz: "Zamonaviy ko'rinishga 2023-yilda paydo bo'lgan qo'ng'iroq ansambli qo'shimcha ifoda beradi — u cherkovning shahar muhitidagi nafaqat vizual, balki ovozli ishtirokini ham kuchaytiradi.",
+				},
+				imageUrl:
+					'/images/khram-sergiya-radonezhskogo/kolokol.jpg',			},
+		],
+		history: {
+			ru: 'История памятника складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города.\n\nВторой этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию.\n\nТретий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма.',
+			uz: "Yodgorlik tarixi bir necha aniq ajralib turadigan bosqichlardan iborat. Birinchisi lyuteranlik davri. 20-asr boshlarida Fargʻonada nemislar jamoasi mavjud boʻlib, ular uchun maxsus diniy bino qurilgan. 1910 yilda cherkov qurilishi surati tarixiy fotosuratlar veb-saytida saqlanib qolgan. O‘shanda ham bu joy Farg‘onaning Yevropa me’moriy merosining bir qismi bo‘lib, shaharning turli etnik va diniy qiyofasini o‘zida aks ettirgan.\n\nIkkinchi bosqich diniy funktsiyani yo'qotgan sovet davri bilan bog'liq. Biroq, bu davrda ham binoning jismoniy saqlanishi katta ahamiyatga ega edi: me'moriy qobiq tarixiy qo'zg'olonlardan omon qoldi va keyinchalik madaniy ahamiyatga ega bo'lgan foydalanish uchun tiklandi.\n\nUchinchi bosqich urushdan keyingi yillarda, bino pravoslav jamoasiga topshirilganda boshlandi. Radonejning Muqaddas Sergiy nomiga bag'ishlanganidan so'ng, bino o'z hayotining yangi bosqichiga kirdi. Cherkov uchun bu shunchaki makonni egallash emas, balki amalda noldan yangi ruhiy markazni yaratish edi. Bunda arxiyepiskop Guriy, arximandrit Boris (Xolchev) va ikonostaz hamda cherkovning ichki badiiy ko'rinishini yaratishda ishtirok etgan rohiba Yulianiya (Mariya Sokolova) muhim rol o'ynagan.",
+		},
+		historyMedia: [
+			{
+				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				caption: {
+					ru: 'Храм преподобного Сергия Радонежского',
+					uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
+				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+			},
+		],
+		historicalFigures: [
+			{
+				name: {
+					ru: 'Архимандрит Борис (Холчев)',
+					uz: 'Arximandrit Boris (Xolchev)',
+				},
+				role: {
+					ru: 'Духовный настоятель',
+					uz: "Ma'naviy rahbar",
+				},
+				bio: {
+					ru: 'С 1949 года священник Борис Холчев был настоятелем храма преподобного Сергия Радонежского в Фергане. Ученик оптинского старца Нектария, бывший научный сотрудник в области психологии, он пользовался глубоким уважением прихожан и умел находить слова, обращённые к душе человека. В 1953 году переведён в Ташкентский Успенский собор; позднее возведён в сан архимандрита и назначен духовником епархии.',
+					uz: '1949-yildan boshlab ruhoniy Boris Xolchev Farg‘onadagi Muqaddas Sergiy Radonejskiy cherkovining boshlig‘i bo‘ldi. Optina keksasi Nektariyning shogirdi, ilgari psixologiya sohasida ilmiy ish olib borgan, u jamoat orasida katta hurmatga sazovor edi va inson ruhiga tegadigan so‘zlarni topa olardi. 1953-yilda Toshkent Uspenskiy soboriga o‘tkazildi; keyinchalik arximandrit unvoniga ko‘tarilib, yeparxiya ruhoniyasi etib tayinlandi.',
+				},
+				photoUrl:
+					'https://azbyka.ru/otechnik/authors/9b61087a370e73772f54c149becb9745.png',
+				bioSourceUrl: 'https://www.uzlit.net/pdf/Vostok23-24.pdf',
+				bioSourceCredit: {
+					ru: 'Сборник «Восток», с. 42',
+					uz: '«Vostok» to‘plami, 42-bet',
+				},
+			},
+			{
+				name: {
+					ru: 'Монахиня Иулиания (Мария Соколова)',
+					uz: 'Rohiba Yulianiya (Mariya Sokolova)',
+				},
+				role: {
+					ru: 'Участница создания иконостаса',
+					uz: 'Ikonostaz yaratilishida ishtirok etgan',
+				},
+				bio: {
+					ru: 'В 1952–1954 годах Мария Николаевна Соколова (монахиня Иулиания) работала над трёхъярусным иконостасом для Свято-Сергиевского храма в Фергане — по образцу иконостаса Троицкого собора Троице-Сергиевой лавры. Иконы писались на холстах в Лавре и на месте приклеивались на доски; к празднику Рождества храм был обновлён.',
+					uz: '1952–1954 yillarda Mariya Nikolayevna Sokolova (rohiba Yulianiya) Farg‘onadagi Muqaddas Sergiy cherkovi uchun Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olib, uch qavatli ikonostaz ustida ishladi. Rasmlar lavrada matoga yozilib, joyida taxtaga yopishtirilgan; Rojdestvo bayramiga qadar cherkov yangilangan.',
+				},
+				photoUrl:
+					'https://upload.wikimedia.org/wikipedia/ru/0/0c/Iulianiya_Sokolova.jpg',
+				bioSourceUrl: 'https://24wiki.ru/Соколова,_Мария_Николаевна',
+				bioSourceCredit: {
+					ru: '24wiki.ru',
+					uz: '24wiki.ru',
+				},
+			},
+		],
+		photos: [
+			{
+				url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+				caption: {
+					ru: 'Вид с юго-запада',
+					uz: "Janubi-g'arbiy tomondan ko'rinish",
+				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+			},
+			{
+				url: '/images/khram-sergiya-radonezhskogo/icons.jpg',
+				caption: {
+					ru: 'Интерьер, иконостас',
+					uz: 'Interyer, ikonostaz',
+				},
+			},
+			{
+				url: '/images/khram-sergiya-radonezhskogo/kolokol.jpg',
+				caption: {
+					ru: 'Колокольный ансамбль',
+					uz: "Qo'ng'iroq ansambli",
+				},
+			},
+			{
+				url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+				caption: {
+					ru: 'Общий вид храма',
+					uz: 'Cherkovning umumiy ko‘rinishi',
+				},
+				sourceUrl:
+					'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:%D0%A5%D1%80%D0%B0%D0%BC_%D0%BF%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D0%BD%D0%BE%D0%B3%D0%BE_%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D1%8F_%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%28%D0%A4%D0%B5%D1%80%D0%B3%D0%B0%D0%BD%D0%B0%29.JPG',
+			},
+		],
+		beforeAfterPairs: [
+			{
+				before: {
+					url: 'http://photos.wikimapia.org/p/00/07/31/58/38_1280.jpg',
+					caption: {
+						ru: 'Общий вид',
+						uz: 'Umumiy ko‘rinish',
 					},
 				},
-			],
+				after: {
+					url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+					caption: {
+						ru: 'Вид с юго-запада',
+						uz: "Janubi-g'arbiy tomondan",
+					},
+					sourceUrl:
+						'https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Church_of_St._Sergiuy_Radonezhkogo_in_Fergana_01-03.JPG',
+				},
+				label: {
+					ru: 'Храм преподобного Сергия Радонежского',
+					uz: 'Muqaddas Sergiy Radonejskiy cherkovi',
+				},
+			},
+		],
+		audioGuide: {
+			narratorLabel: {
+				ru: '',
+				uz: '',
+			},
+			tracks: [],
 			transcript: {
 				ru: '',
 				uz: '',
@@ -523,8 +501,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			uz: "G'ishtni bajarishda rus uslubi (yoki psevdo-ruscha).",
 		},
 		architect: {
-			ru: 'Александр Александрович Бурмейстер (1850 – после 1909), полковник, военный инженер, архитектор.',
-			uz: 'Aleksandr Aleksandrovich Burmeister (1850 - 1909 yildan keyin), polkovnik, harbiy muhandis, arxitektor.',
+			ru: 'Александр Александрович Бурмейстер (1850 – ?? гг), полковник, военный инженер, архитектор.',
+			uz: 'Aleksandr Aleksandrovich Burmeister (1850 – ?? y.), polkovnik, harbiy muhandis, arxitektor.',
 		},
 		architectBio: {
 			name: {
@@ -591,8 +569,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		history: {
-			ru: 'В 1898 году в Узбекистане произошло Андижанское восстание, в ходе которого в Фергане были убиты русские солдаты. Все они были захоронены на местном Русском православном кладбище, после чего было принято решение о возведении часовни на средства казны. \n\nЧасовня, представляла собой восьмиугольное в плане здание из жжёного кирпича, на крыше был установлен позолоченный крест. Внутри находились таблички с именами погибших солдат (не сохранились).\n\nБыла приписана к Храму Святого Николая Чудотворца, входила в ведение Туркестанского Епархиального Начальства.\n\nВ 1902 году в результате случившегося землетрясения здание было повреждено, частично обрушилась крыша (была восстановлена год спустя). \n\nВ советский период история часовни была драматичной. В 1932 (по другим данным 1934) году она была закрыта для богослужений в рамках антирелигиозной кампании. Однако само здание избежало сноса, в отличие от многих других храмов Скобелева. В 1943 году именно при этой кладбищенской часовне была зарегистрирована православная община, что стало началом возрождения легальной церковной жизни в Фергане после десятилетий подполья.',
-			uz: "1898 yilda O'zbekistonda Andijon qo'zg'oloni bo'lib, Farg'onada rus askarlari o'ldirilgan. Ularning barchasi mahalliy rus pravoslav qabristoniga dafn qilindi, shundan so'ng davlat mablag'lari hisobidan cherkov qurish to'g'risida qaror qabul qilindi.\n\nChapel pishiq g'ishtdan qurilgan sakkiz burchakli bino bo'lib, tomida zarhal xoch bor edi. Ichkarida halok bo'lgan askarlarning ismlari yozilgan lavhalar bor edi (ular omon qolmagan).\n\nU Nicholas the Wonderworker cherkoviga biriktirilgan va Turkiston yeparxiyasi ma'muriyatining yurisdiktsiyasiga kirgan.\n\n1902 yilda zilzila binoga zarar etkazdi, tom qisman qulab tushdi (bir yildan keyin tiklandi)",
+			ru: 'В 1898 году в Фергане погибшие русские солдаты были захоронены на местном Русском православном кладбище, после чего было принято решение о возведении часовни на средства казны. \n\nЧасовня, представляла собой восьмиугольное в плане здание из жжёного кирпича, на крыше был установлен позолоченный крест. Внутри находились таблички с именами погибших солдат (не сохранились).\n\nБыла приписана к Храму Святого Николая Чудотворца, входила в ведение Туркестанского Епархиального Начальства.\n\nВ 1902 году в результате случившегося землетрясения здание было повреждено, частично обрушилась крыша (была восстановлена год спустя). \n\nВ советский период история часовни была драматичной. В 1932 (по другим данным 1934) году она была закрыта для богослужений в рамках антирелигиозной кампании. Однако само здание избежало сноса, в отличие от многих других храмов города Скобелева. В 1943 году именно при этой кладбищенской часовне была зарегистрирована православная община, что стало началом возрождения легальной церковной жизни в Фергане после десятилетий подполья.',
+			uz: "1898-yilda Farg'onada halok bo'lgan rus askarlari mahalliy Rus pravoslav qabristoniga dafn etildi, shundan so'ng davlat mablag'lari hisobidan soatxona qurish to'g'risida qaror qabul qilindi.\n\nSoatxona rejada sakkiz burchakli pishiq g'ishtdan qurilgan bino bo'lib, tomida zarhal qoplangan xoch o'rnatilgan. Ichkarida halok bo'lgan askarlarning ismlari yozilgan lavhalar mavjud edi (ular saqlanmagan).\n\nU Moʻjizalar ishlovchi avliyo Nikolay cherkoviga biriktirilgan, Turkiston yeparxiyasi boshqarmasi nazoratida boʻlgan.\n\n1902-yilda sodir boʻlgan zilzila binoga zarar yetkazdi, tom qisman qulagan (bir yildan keyin tiklangan).\n\nSovet davrida soatxona tarixi dramatik kechgan. 1932-yilda (boshqa ma'lumotlarga ko'ra 1934) u diniy aqidalariga qarshi kampaniya doirasida ibodatlar uchun yopilgan. Biroq binoning o'zi buzib tashlanishdan qutulgan, Skobelev shahridagi boshqa ko'plab ibodatxonalardan farqli o'laroq. 1943-yilda aynan shu qabriston soatxonasida pravoslav jamoasi ro'yxatdan o'tkazilgan bo'lib, bu Farg'onada o'n yillar davomida yashirinchi holda bo'lgan diniy hayotning qonuniy tiklanishining boshlanishi bo'lgan.",
 		},
 		historicalFigures: [],
 		photos: [],
@@ -979,8 +957,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		],
 		history: {
-			ru: 'Здание мужской гимназии в Фергане является важным объектом архитектурного наследия города. Оно было специально спроектировано для размещения учебного заведения для юношей. Первые чертежи здания были выполнены в 1900 году архитектором Г. М. Сваричевским. Проект отличался продуманной учебной функцией и впоследствии послужил основой для строительства женских гимназий в Самарканде и Чарджуе. Закладка здания состоялась 28 апреля 1902 года. Архитектура здания выполнена в стиле кирпичного модерна и характеризуется строгой симметрией. Центральная часть фасада выделена выступающим объёмом с крупными полуциркульными окнами. Архитектор стремился придать зданию монументальность, используя укрупнённые и упрощённые декоративные элементы. Особое внимание уделено входным зонам, оформленным глубокими нишами с колонками и фронтонами. Металлическая ограда внутреннего двора выполнена в строгом геометрическом стиле, что подчёркивает единство архитектурного решения. Первоначально здание имело центрально-осевую композицию с акцентом на боковые входы и гранёный центральный объём. В более поздний период был пристроен двусветный гимназический зал, который частично изменил первоначальную симметрию, но сохранил стилистическое единство комплекса. В советский и современный период здание сохранило своё значение как образовательный и административный центр. В настоящее время оно используется как административный корпус Ферганского государственного университета. Несмотря на функциональные изменения, памятник сохранил исторический архитектурный облик и остаётся одним из наиболее выразительных зданий города. Здание мужской гимназии отражает особенности архитектуры и образовательного развития Ферганы начала XX века и представляет значительную культурно-историческую ценность.  Было построено монументальное здание мужской гимназии. Здание было специально запроектировано для этих целей Г. М. Сваричевским в 1900 г. 28 апреля 1902 г. состоялась закладка здания, и в том же году проект был повторён для нужд женской гимназии в Самарканде, а затем в Чарджуе. Здание, которое до сих пор сохранило близкое по функциям назначение и старый облик, выглядит солидным и очень прочным. Некогда в нём, помимо учебных помещений, располагались пансион и квартира директора. Строго симметричное здание: возвышенный центр подчёркивался на фасаде полуциркульными окнами. Во внешнем облике наглядно видна присущая Г. М. Сваричевскому любовь к модерну в его «кирпичном варианте»; здесь, очевидно, для придания большей представительности архитектура несколько схематична, его формы укрупнены. Также несколько схематична и металлическая решётка, окружавшая некогда большую территорию внутреннего двора. Несмотря на эти характерные стилистические черты, здание выделяется в старой городской застройке как одно из лучших в городе. В солидности и монументальности другие здания учебного назначения значительно ему проигрывают, в том числе бывшая прогимназия на бывшей Кокандской улице.\n\nПервоначально это было здание центральной осевой композиции, в котором центр был выявлен выступающим гранёным объёмом с большим оконным проёмом посередине. Но архитектурные акценты были на боковых ризалитах, где размещались входы в здание. Глубокие входные ниши фланкировались причудливыми колонками и антами, поддерживавшими, в свою очередь, треугольный фронтон. Вестибюли за входами снаружи были выявлены декоративными куполами (ныне не сохранившимися). Пристроенный позднее двусветный гимназический зал, хотя снаружи и выполненный в общих по стилю архитектурных формах, всё же (как и в случае с домом военного собрания) нарушил симметричность композиции.',
-			uz: '',
+			ru: 'Здание мужской гимназии в Фергане является важным объектом архитектурного наследия города. Оно было специально спроектировано для размещения учебного заведения для юношей. Первые чертежи здания были выполнены в 1900 году архитектором Г. М. Сваричевским. Проект отличался продуманной учебной функцией и впоследствии послужил основой для строительства женских гимназий в Самарканде и Чарджуе. Закладка здания состоялась 28 апреля 1902 года. В нём, помимо учебных помещений, располагались пансион и квартира директора. Здание строго симметричное, возвышенный центр подчёркивался на фасаде полуциркульными окнами. Во внешнем облике наглядно видна присущая Г. М. Сваричевскому любовь к модерну в его «кирпичном варианте».\n\nАрхитектура здания выполнена в стиле кирпичного модерна и характеризуется строгой симметрией. Центральная часть фасада выделена выступающим объёмом с крупными полуциркульными окнами. Архитектор стремился придать зданию монументальность, используя укрупнённые и упрощённые декоративные элементы. Особое внимание уделено входным зонам, оформленным глубокими нишами с колонками и фронтонами. Металлическая ограда внутреннего двора выполнена в строгом геометрическом стиле, что подчёркивает единство архитектурного решения. Первоначально здание имело центрально-осевую композицию с акцентом на боковые входы и гранёный центральный объём. В более поздний период был пристроен двусветный гимназический зал, который частично изменил первоначальную симметрию, но сохранил стилистическое единство комплекса.\n\nВ советский и современный период здание сохранило своё значение как образовательный и административный центр. В настоящее время оно используется как административный корпус Ферганского государственного университета. Несмотря на функциональные изменения, памятник сохранил исторический архитектурный облик и остаётся одним из наиболее выразительных зданий города. Здание мужской гимназии отражает особенности архитектуры и образовательного развития Ферганы начала XX века и представляет значительную культурно-историческую ценность.',
+			uz: "Farg'onadagi erkaklar gimnaziyasi binosi shaharning muhim me'moriy meros ob'ekti hisoblanadi. U yigitlar uchun o'quv muassasasini joylashtirish uchun maxsus loyihalashtirilgan. Binoning dastlabki chizmalari 1900-yilda me'mor G. M. Svarichevskiy tomonidan bajarilgan. Loyiha o'ylangan o'quv funksiyasi bilan ajralib turgan va keyinchalik Samarqand hamda Chardjouda ayollar gimnaziyalarini qurish uchun asos bo'lgan. Binoning poydevori 1902-yil 28-aprelda qo'yilgan. Unda, o'quv xonalaridan tashqari, panсион va direktor kvartirasi ham joylashgan. Bino qat'iy simmetrik, baland markaziy qism fasadda yarim doira shaklidagi derazalar bilan ta'kidlangan. Tashqi ko'rinishda G. M. Svarichevskiyga xos «g'ishtli» modern sevgisi aniq ko'rinadi.\n\nBino g'ishtli modern uslubida qurilgan va qat'iy simmetriya bilan ajralib turadi. Fasadning markaziy qismi oldinga chiqib turgan hajm va yirik yarim doira shaklidagi derazalar bilan belgilangan. Me'mor binoga monumental ko'rinish berishga intilgan, dekorativ elementlarni yirik va soddalashtirilgan shaklda qo'llagan. Kirish zonalariga — ustunlar va frontonlar bilan bezatilgan chuqur nishalar bilan — alohida e'tibor qaratilgan. Ichki hovlining metall tosi qat'iy geometrik uslubda bajarilgan bo'lib, bu me'moriy yechimning yaxlitligini ta'kidlaydi. Dastlab binoda markaziy o'qli kompozitsiya bo'lgan, yon kirishlar va fasetli markaziy hajmga urg'u berilgan. Keyinroq ikki yorug'likli gimnaziya zali qo'shilgan, bu dastlabki simmetriyani qisman o'zgartirgan, ammo majmuaning uslubiy yaxlitligini saqlab qolgan.\n\nSovet va zamonaviy davrda bino ta'lim va ma'muriy markaz sifatidagi ahamiyatini saqlab qolgan. Hozirgi kunda u Farg'ona davlat universitetining ma'muriy korpusi sifatida foydalaniladi. Funksional o'zgarishlarga qaramay, yodgorlik tarixiy me'moriy ko'rinishini saqlagan va shahardagi eng ifodali binolardan biri bo'lib qolmoqda. Erkaklar gimnaziyasi binosi Farg'onaning XX asr boshidagi me'moriy va ta'lim rivojlanishi xususiyatlarini aks ettiradi hamda muhim madaniy-tarixiy qadrga ega.",
 		},
 		historicalFigures: [
 			{

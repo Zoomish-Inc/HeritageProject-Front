@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 	metadataBase: getMetadataBaseUrl(),
 	title: "Наследие Ферганы | Farg'ona Merosi",
 	description:
-		'Виртуальный тур по историко-архитектурному наследию г. Фергана XIX–XX вв.',
+		'Виртуальный тур по историко-архитектурному наследию г. Фергана XIX–начало XX вв.',
 };
 
 export default function RootLayout({

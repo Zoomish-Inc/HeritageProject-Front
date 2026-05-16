@@ -2,11 +2,7 @@ import type { Locale } from '@/entities/heritage';
 import { HomeJsonLdFeature } from '@/features/seo';
 import { isSupportedLocale } from '@/i18n/locale';
 import { getPublicHeritageList } from '@/lib/heritage/readModel';
-import {
-	DecorativeFlourish,
-	UiBadge,
-	getUiCtaButtonClassName,
-} from '@/shared/ui';
+import { DecorativeFlourish, getUiCtaButtonClassName } from '@/shared/ui';
 import { HeritageObjectsSection } from '@/widgets/heritage';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
@@ -51,14 +47,6 @@ export async function HomePageView({ locale }: { locale: Locale }) {
 				</div>
 
 				<div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
-					<div className="flex items-center justify-center gap-4 mb-8">
-						<div className="flex-1 max-w-32 h-px bg-gradient-to-r from-transparent to-gold-400/60" />
-						<div className="flex shrink-0 items-center justify-center border border-gold-400/40 px-4 py-1">
-							<UiBadge variant="heroEra">1878 — 1902</UiBadge>
-						</div>
-						<div className="flex-1 max-w-32 h-px bg-gradient-to-l from-transparent to-gold-400/60" />
-					</div>
-
 					<h1 className="font-display text-parchment-50 text-4xl md:text-6xl leading-tight mb-4">
 						{t('hero_title')}
 					</h1>

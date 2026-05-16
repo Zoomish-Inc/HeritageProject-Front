@@ -6,7 +6,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		slug: 'zhenskaya-gimnaziya',
 		order: 1,
 		coverImageUrl:
-			'/images/zhenskaya-gimnaziya/Женская гимназия/Фотография ДО.jpg',
+			'/images/zhenskaya-gimnaziya/Фотография ДО.jpg',
 		name: {
 			ru: 'Здание женской гимназии',
 			uz: 'Qizlar gimnaziyasi binosi',
@@ -109,7 +109,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					uz: "Ramz: Binoning karniri bo'ylab tishlarning ritmik takrorlanishi tartib va intizomni anglatadi - ta'lim muassasasi uchun ideal fazilatlar. Ushbu uslub, shuningdek, \"g'isht modernizmi\" deb ataldi, bu erda materialning yaxlitligi bilimning ishonchliligi va uzoq umr ko'rishini ta'kidladi.",
 				},
 				imageUrl:
-					'https://downloader.disk.yandex.ru/preview/00931e44a42abfdb87a662b7f148760be93be5fcf217d81f4b574a6e137231ab/6a07d89d/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+					'/images/zhenskaya-gimnaziya/Фотография ДО.jpg'
 			},
 			{
 				title: {
@@ -148,7 +148,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		},
 		historyMedia: [
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/949c5b47fd4f7327bb858d2938dc483aed870aa7123a0347af5e3e2c0a96791b/6a07da76/Xxi1TZTcQVMmJNw_7vkErWCIF1FGI-_sPY3vyAkHh41nSz9lv3M60Y8yfi6ZSG1s6qCCzSz1W8Lq5K4pPO3rCg%3D%3D?uid=0&filename=%D0%92%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%B8%D1%86%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/Выпускницы.jpg',
 				caption: {
 					ru: 'Здание женской гимназии',
 					uz: 'Qizlar gimnaziyasi binosi',
@@ -158,32 +158,32 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		historicalFigures: [],
 		photos: [
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/9737ad727d2b16fab4f0b65fc30e74319459e49543513afc225ca31275ea77a1/6a07da76/b1IdYwtIEs-28raNAnKznJvIa_qjyKGNepHp4WxfwoXbnvMV4T06fq6sZi2Vtwa1Uap5LiSFWeIhLhMdo57MdQ%3D%3D?uid=0&filename=20260514_151346.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/20260514_151346.jpg',
 			},
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/5f7c4cfe6e16773e43df6fb2615606dbb4ccf4c1abff709dc77c57aaaf78fc5b/6a07da76/AIYj4toiPPamasI_YjRxh5vIa_qjyKGNepHp4WxfwoWacYyZA8HlmHBdc2wt_CxhDYIUUxZrKSTlP9OGJIGi1Q%3D%3D?uid=0&filename=%D0%90%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%82%20%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B9%20%D0%B3%D0%B8%D0%BC%D0%BD%D0%B0%D0%B7%D0%B8%D0%B8.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/Атестат женской гимназии.jpg',
 			},
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/d48ce043057f14c9a9c60648f47fb5380ee8269dbe43dfaa8f4c48c511ead127/6a07da76/09QN6R_2qMNyxrm_svgdb5vIa_qjyKGNepHp4WxfwoXBAe4oHmcFwHf59fHDm61LqHjz1m_tDkBW7VtR_lKhnw%3D%3D?uid=0&filename=%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%20%D0%A3%D0%A7%D0%95%D0%9D%D0%98%D0%A6%D0%AB.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/Выпускницы.jpg',
 			},
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/949c5b47fd4f7327bb858d2938dc483aed870aa7123a0347af5e3e2c0a96791b/6a07da76/Xxi1TZTcQVMmJNw_7vkErWCIF1FGI-_sPY3vyAkHh41nSz9lv3M60Y8yfi6ZSG1s6qCCzSz1W8Lq5K4pPO3rCg%3D%3D?uid=0&filename=%D0%92%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%B8%D1%86%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/ГИМНАЗИЯ ПОСЛЕ.jpg',
 			},
 			{
-				url: 'https://downloader.disk.yandex.ru/preview/ea3b83a8beb46b9bec1fec93cc9e26df7626a953d4e192efa838a632d5d5091c/6a07da76/u5TVtGAPM95SjLB1bSXI2ZvIa_qjyKGNepHp4WxfwoXG5bYQIpKoqbi3cevpTcyc_3TjSm0fySlNl5fvZRR6rQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%9F%D0%9E%D0%A1%D0%9B%D0%95.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+				url: '/images/zhenskaya-gimnaziya/Дневник УЧЕНИЦЫ.jpg',
 			},
 		],
 		beforeAfterPairs: [
 			{
 				before: {
-					url: 'https://downloader.disk.yandex.ru/preview/626f43e51fe520c6482df3a3647e63a3dcb0f71ad1801e499b4af5332b075bcd/6a07da76/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+					url: '/images/zhenskaya-gimnaziya/Фотография ДО.jpg',
 					caption: {
 						ru: 'Общий вид',
 						uz: 'Umumiy ko‘rinish',
 					},
 				},
 				after: {
-					url: 'https://downloader.disk.yandex.ru/preview/1119959b52181a532ee6883ea08ec4336bcf12bfaa5f3a97f27eb6495d4b2062/6a07da76/il4S7RyOGnYIROfGqaVMnFDVKODHw4BVTiyFjpnWB6lA3AfFxdN6E8ANLdVdV_nVbAt_FmJv3Ao7V_35G6cJgQ%3D%3D?uid=0&filename=%D0%93%D0%98%D0%9C%D0%9D%D0%90%D0%97%D0%98%D0%AF%20%D0%9F%D0%9E%D0%A1%D0%9B%D0%95.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+					url: '/images/zhenskaya-gimnaziya/ГИМНАЗИЯ ПОСЛЕ.jpg',
 					caption: {
 						ru: 'Общий вид',
 						uz: 'Umumiy ko‘rinish',

@@ -6,7 +6,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		slug: 'zhenskaya-gimnaziya',
 		order: 1,
 		coverImageUrl:
-			'https://downloader.disk.yandex.ru/preview/00931e44a42abfdb87a662b7f148760be93be5fcf217d81f4b574a6e137231ab/6a07d89d/AeW-tSiQc6nchRIjcPAIApvIa_qjyKGNepHp4WxfwoXYxuVXNgRa5-eX1W4U5s2r7MZxHv-XF04At0xPH8M2LQ%3D%3D?uid=0&filename=%D0%A4%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			'/images/zhenskaya-gimnaziya/Женская гимназия/Фотография ДО.jpg',
 		name: {
 			ru: 'Здание женской гимназии',
 			uz: 'Qizlar gimnaziyasi binosi',
@@ -592,7 +592,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			},
 		},
 		coverImageUrl:
-			'https://downloader.disk.yandex.ru/preview/c310c1fe81981927308955925033772665e6a59de3d50f73548251f41955d8ae/6a07e032/tJ6SDW0QS9HSFR6V4O3mtRdAPTsM1y0MV3FFjSNFQfXopRD-jFezK8g1cMFJDVvlD6rJII-umxEBz8XrAmJ4Eg%3D%3D?uid=0&filename=%D0%A7%D0%B0%D1%81%D0%BE%D0%B2%D0%BD%D1%8F%20%D0%94%D0%9E.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=1920x888',
+			'/images/chasovnya-aleksandra-nevskogo/clocker.jpg',
 	},
 	{
 		id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',

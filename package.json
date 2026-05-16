@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "node scripts/fetch-tour-packs.mjs && next build",
 		"start": "next start",
 		"fix": "prettier --write .",
 		"prepare": "husky",
@@ -23,7 +23,8 @@
 		"docs:check": "node scripts/updateReadmeStructure.mjs --check",
 		"tour-packs:sync": "node scripts/sync-tour-packs.mjs",
 		"audit:heritage-text": "node scripts/auditHeritageContent.mjs",
-		"tour-packs:install": "node scripts/install-tour-pack.mjs"
+		"tour-packs:install": "node scripts/install-tour-pack.mjs",
+		"tour-packs:fetch": "node scripts/fetch-tour-packs.mjs"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.51.11",

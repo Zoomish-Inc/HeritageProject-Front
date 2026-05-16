@@ -253,7 +253,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 			uz: "O'zbekiston, Farg'ona, ko'ch. Sakkokiy, 8.",
 		},
 		coordinates: {
-			lat: 40.386480,
+			lat: 40.38648,
 			lng: 71.768825,
 		},
 		mapUrl:
@@ -289,8 +289,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Ключевыми элементами фасадов являются стрельчатые оконные проёмы, придающие зданию вертикальную устремлённость и визуальную лёгкость.',
 					uz: "Fasadlarning asosiy elementlari — binoga vertikal yo'nalish va yengillik beradigan lansetli deraza ochilishlari.",
 				},
-				imageUrl:
-					'/images/khram-sergiya-radonezhskogo/okna.jpg',
+				imageUrl: '/images/khram-sergiya-radonezhskogo/okna.jpg',
 			},
 			{
 				title: {
@@ -301,8 +300,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Важную роль играет фактурная кирпичная кладка, которая выступает не только конструктивным, но и декоративным элементом, формируя ритм и глубину поверхности. Членение фасадов остаётся лаконичным, без избыточного декора, что усиливает ощущение строгости и цельности архитектурного образа.',
 					uz: "Teksturali g'isht terimi nafaqat konstruktiv, balki dekorativ element bo'lib, sirt ritmi va chuqurligini shakllantiradi. Fasad bo'linishi ortiqcha bezaksiz, ixcham bo'lib qoladi va me'moriy obrazning qat'iyligi va yaxlitligini kuchaytiradi.",
 				},
-				imageUrl:
-					'/images/khram-sergiya-radonezhskogo/bricks.jpg',
+				imageUrl: '/images/khram-sergiya-radonezhskogo/bricks.jpg',
 			},
 			{
 				title: {
@@ -313,8 +311,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Внутреннее пространство храма после его переосмысления в православной традиции получило новые художественные акценты. Центральным элементом стал иконостас, выполненный по образцу иконостаса Троицкого собора Троице-Сергиевой лавры, что связывает интерьер с классическими образцами русской церковной архитектуры.',
 					uz: "Cherkov ichki makoni pravoslav an'anasiga qayta moslashtirilgach yangi badiiy urg'ular oldi. Markaziy element — Troitsa-Sergiy lavrasidagi Troitskiy sobor ikonostazidan namuna olingan ikonostaz bo'lib, interyerni rus cherkov me'moriyasining klassik namunalariga bog'laydi.",
 				},
-				imageUrl:
-					'/images/khram-sergiya-radonezhskogo/icons.jpg',
+				imageUrl: '/images/khram-sergiya-radonezhskogo/icons.jpg',
 			},
 			{
 				title: {
@@ -325,8 +322,8 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'Дополнительную выразительность современному облику придаёт колокольный ансамбль, появившийся в 2023 году, который усиливает не только визуальное, но и звуковое присутствие храма в городской среде.',
 					uz: "Zamonaviy ko'rinishga 2023-yilda paydo bo'lgan qo'ng'iroq ansambli qo'shimcha ifoda beradi — u cherkovning shahar muhitidagi nafaqat vizual, balki ovozli ishtirokini ham kuchaytiradi.",
 				},
-				imageUrl:
-					'/images/khram-sergiya-radonezhskogo/kolokol.jpg',			},
+				imageUrl: '/images/khram-sergiya-radonezhskogo/kolokol.jpg',
+			},
 		],
 		history: {
 			ru: 'История памятника складывается из нескольких отчетливо различимых этапов. Первый этап - лютеранский. В начале XX века в Фергане существовала немецкая община, для которой было возведено специальное культовое здание; на сайте исторических фотографий сохранился кадр строительства кирхи 1910 года. Уже тогда объект являлся частью европейского архитектурного слоя Ферганы и отражал разнообразие этноконфессионального состава города.\n\nВторой этап связан с советским временем, когда религиозная функция была утрачена. Однако даже в этот период физическое сохранение постройки имело большое значение: архитектурная оболочка пережила исторический перелом и позднее смогла быть возвращена к культурно значимому использованию.\n\nТретий этап начинается в послевоенные годы, когда здание было передано православной общине. После освящения во имя преподобного Сергия Радонежского объект вошёл в новую фазу жизни. Для прихода это было не просто получение помещения, а создание нового духовного центра практически заново. Большую роль в этом сыграли архиепископ Гурий, архимандрит Борис (Холчев) и монахиня Иулиания (Мария Соколова), связанная с созданием иконостаса и внутреннего художественного облика храма.',
@@ -1002,6 +999,6 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl: 'https://cont.ws/uploads/pic/2017/2/000%20%28110%29.jpg',
+		coverImageUrl: '/images/muzhskaya-gimnaziya/myz_gimn.jpg',
 	},
 ];

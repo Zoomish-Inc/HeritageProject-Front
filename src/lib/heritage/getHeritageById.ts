@@ -3,6 +3,7 @@ import { getMockHeritageById } from '@/mocks/heritage';
 import type { HeritageObject } from '@/entities/heritage';
 import { reactCache } from '@/shared/lib/react/cache';
 import { isHeritageMockEnabled } from './config';
+import { logHeritageParseFailure } from './logHeritageParseFailure';
 import { heritageObjectApiResponseSchema } from './schemas';
 
 const heritageFetchTimeoutMs = 15000;
@@ -29,6 +30,7 @@ export async function loadHeritageById(
 	const json: unknown = await res.json();
 	const parsed = heritageObjectApiResponseSchema.safeParse(json);
 	if (!parsed.success) {
+		logHeritageParseFailure(`object response (${id})`, parsed.error, json);
 		throw new Error(`Heritage object response invalid: ${parsed.error.message}`);
 	}
 	const obj = parsed.data.data;

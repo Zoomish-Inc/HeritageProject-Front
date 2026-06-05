@@ -8,6 +8,7 @@ import {
 	parseNumberFlexible,
 	parseStringFlexible,
 } from './heritageSchemaPrimitives';
+import { logHeritageParseFailure } from './logHeritageParseFailure';
 
 const heritageListItemInputSchema = z
 	.object({
@@ -110,6 +111,7 @@ export function parseHeritageListResponseJson(
 ): HeritageListItem[] {
 	const parsed = heritageListApiResponseSchema.safeParse(json);
 	if (!parsed.success) {
+		logHeritageParseFailure('list response', parsed.error, json);
 		throw new Error(`Heritage list response invalid: ${parsed.error.message}`);
 	}
 	return parsed.data.data;

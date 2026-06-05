@@ -20,6 +20,33 @@ describe('heritageListApiResponseSchema', () => {
 		}
 	});
 
+	it('accepts live backend list shape (yearRange, isPublished)', () => {
+		const parsed = heritageListApiResponseSchema.safeParse({
+			success: true,
+			data: [
+				{
+					id: '914e442f-cc52-4802-a3b1-2c5b35c679ce',
+					slug: 'zhenskaya-gimnaziya',
+					name: { ru: 'Здание женской гимназии', uz: 'Qizlar gimnaziyasi binosi' },
+					yearRange: '1877',
+					address: { ru: 'Адрес', uz: 'Manzil' },
+					short_description: { ru: 'Кратко', uz: 'Qisqa' },
+					cover: 'https://example.com/cover.jpg',
+					order: 1,
+					isPublished: true,
+				},
+			],
+			message: null,
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			const row = parsed.data.data[0];
+			expect(row.yearBuilt).toBe(1877);
+			expect(row.yearRange).toBe('1877');
+			expect(row.isPublished).toBeUndefined();
+		}
+	});
+
 	it('accepts backend sample shape', () => {
 		const parsed = heritageListApiResponseSchema.safeParse({
 			success: true,

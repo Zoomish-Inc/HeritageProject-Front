@@ -105,6 +105,7 @@ src
 │   │   ├── heritageSchemaPrimitives.ts
 │   │   ├── listQuery.ts
 │   │   ├── listVisibility.ts
+│   │   ├── logHeritageParseFailure.ts
 │   │   ├── readModel.ts
 │   │   ├── schemas.ts
 │   │   └── sortHeritageList.ts

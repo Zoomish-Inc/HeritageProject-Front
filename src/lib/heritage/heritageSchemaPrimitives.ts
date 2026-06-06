@@ -55,11 +55,38 @@ export const architectureDetailSchema = z.object({
 	imageCredit: localizedStringSchema.optional(),
 });
 
-export const beforeAfterPairSchema = z.object({
-	before: photoItemSchema,
-	after: photoItemSchema,
-	label: localizedStringSchema,
-});
+export const beforeAfterPairSchema = z
+	.object({
+		before: photoItemSchema.optional(),
+		after: photoItemSchema.optional(),
+		label: localizedStringSchema.optional(),
+		title: localizedStringSchema.optional(),
+		before_image: z.string().optional(),
+		after_image: z.string().optional(),
+		description: localizedStringSchema.optional(),
+	})
+	.passthrough()
+	.transform((row) => {
+		const label = row.label ?? row.title ?? emptyLocalized();
+		const resolveSide = (
+			photo: z.infer<typeof photoItemSchema> | undefined,
+			imageUrl: string | undefined
+		) => {
+			if (photo?.url?.trim()) return photo;
+			const url = imageUrl?.trim() ?? '';
+			if (!url) return { url: '' };
+			return { url };
+		};
+
+		return {
+			before: resolveSide(row.before, row.before_image),
+			after: resolveSide(row.after, row.after_image),
+			label,
+		};
+	})
+	.refine((pair) => pair.before.url.trim() !== '' && pair.after.url.trim() !== '', {
+		message: 'before_after pair requires before and after image urls',
+	});
 
 const audioGuideTrackSchema = z.object({
 	url: z.string(),

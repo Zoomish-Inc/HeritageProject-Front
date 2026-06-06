@@ -211,6 +211,50 @@ describe('heritageObjectApiResponseSchema', () => {
 		}
 	});
 
+	it('maps before_after_pairs from backend shape (before_image, after_image, title)', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: '53e01e3e-5d28-42c4-894a-41b03f18140a',
+				slug: 'zhenskaya-gimnaziya',
+				name: { ru: 'Здание', uz: 'Bino' },
+				address: { ru: 'ул', uz: 'k' },
+				order: 1,
+				year_built: 1877,
+				short_description: { ru: 's', uz: 's' },
+				current_purpose: { ru: 'a', uz: 'b' },
+				historical_purpose: { ru: 'c', uz: 'd' },
+				architectural_style: { ru: 'e', uz: 'f' },
+				architectural_description: { ru: 'g', uz: 'h' },
+				history: { ru: 'i', uz: 'j' },
+				cover: 'https://example.com/cover.jpg',
+				before_after_pairs: [
+					{
+						title: { ru: 'Здание женской гимназии', uz: 'Qizlar gimnaziyasi' },
+						before_image: 'https://example.com/before.jpg',
+						after_image: 'https://example.com/after.jpg',
+						year_before: null,
+						year_after: null,
+						description: { ru: '', uz: '' },
+						sort_order: 0,
+					},
+				],
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.beforeAfterPairs).toHaveLength(1);
+			expect(parsed.data.data.beforeAfterPairs[0].before.url).toBe(
+				'https://example.com/before.jpg'
+			);
+			expect(parsed.data.data.beforeAfterPairs[0].after.url).toBe(
+				'https://example.com/after.jpg'
+			);
+			expect(parsed.data.data.beforeAfterPairs[0].label.ru).toContain('гимназии');
+		}
+	});
+
 	it('maps legacy audioUrl to tracks when tracks omitted', () => {
 		const parsed = heritageObjectApiResponseSchema.safeParse({
 			success: true,

@@ -26,12 +26,13 @@ export const HeritageDetailGallery = ({
 	return (
 		<HeritageDetailSection title={title}>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-				{photos.map((photo, index) => {
+				{photos.map((photo) => {
 					const alt =
-						localizedTrim(photo.caption, locale) || `${title} ${index + 1}`;
+						localizedTrim(photo.caption, locale) ||
+						`${title} ${photo.caption?.ru ?? photo.url}`;
 					return (
 						<div
-							key={`gallery-${photo.url}-${index}`}
+							key={`gallery-${photo.url}-${photo.caption?.ru ?? photo.sourceUrl ?? ''}`}
 							className="theme-content-panel overflow-hidden rounded-lg border border-gold-400/15"
 						>
 							<div className="relative aspect-[4/3] w-full bg-sepia-900/40">

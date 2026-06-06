@@ -88,9 +88,9 @@ export const HeritageDetailFigures = ({
 						) : null}
 						{figure.gallery && figure.gallery.length > 0 ? (
 							<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t theme-content-panel-divider">
-								{figure.gallery.map((photo, gi) => (
+								{figure.gallery.map((photo) => (
 									<div
-										key={`${object.slug}-fig-g-${figure.name.ru}-${gi}`}
+										key={`${object.slug}-fig-g-${figure.name.ru}-${photo.url}-${photo.caption?.ru ?? photo.sourceUrl ?? ''}`}
 										className="rounded-lg overflow-hidden border border-gold-400/10"
 									>
 										<div className="relative aspect-[4/3] w-full">

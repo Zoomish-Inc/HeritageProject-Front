@@ -41,12 +41,13 @@ export const HeritageDetailHistory = ({
 			) : null}
 			{media.length > 0 ? (
 				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-					{media.map((photo, index) => {
+					{media.map((photo) => {
 						const alt =
-							localizedTrim(photo.caption, locale) || `${title} ${index + 1}`;
+							localizedTrim(photo.caption, locale) ||
+							`${title} ${photo.caption?.ru ?? photo.url}`;
 						return (
 							<div
-								key={`hist-media-${photo.url}-${index}`}
+								key={`hist-media-${photo.url}-${photo.caption?.ru ?? photo.sourceUrl ?? ''}`}
 								className="theme-content-panel overflow-hidden rounded-lg border border-gold-400/15"
 							>
 								<div className="relative aspect-[4/3] w-full bg-sepia-900/40">

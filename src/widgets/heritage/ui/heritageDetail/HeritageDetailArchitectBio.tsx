@@ -98,9 +98,9 @@ export const HeritageDetailArchitectBio = ({
 					) : null}
 					{b.gallery && b.gallery.length > 0 ? (
 						<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t theme-content-panel-divider">
-							{b.gallery.map((photo, index) => (
+							{b.gallery.map((photo) => (
 								<div
-									key={`arch-bio-g-${photo.url}-${index}`}
+									key={`arch-bio-g-${photo.url}-${photo.caption?.ru ?? photo.sourceUrl ?? ''}`}
 									className="rounded-lg overflow-hidden border border-gold-400/10"
 								>
 									<div className="relative aspect-[4/3] w-full">

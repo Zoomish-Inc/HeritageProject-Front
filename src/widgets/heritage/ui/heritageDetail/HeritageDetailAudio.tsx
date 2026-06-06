@@ -30,6 +30,8 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 	if (!hasAudioContent(object, locale)) return null;
 
 	const ag = object.audioGuide;
+	const tracks = ag.tracks.filter((t) => t.url.trim());
+	const firstTrackUrl = tracks[0]?.url;
 
 	return (
 		<>
@@ -47,39 +49,37 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 						</div>
 					) : null}
 
-					{ag.tracks.filter((t) => t.url.trim()).length > 0 ? (
+					{tracks.length > 0 ? (
 						<div className="space-y-4">
 							<p className="theme-content-panel-heading font-body text-xs tracking-widest uppercase">
 								{labels.audioTracks}
 							</p>
-							{ag.tracks
-								.filter((t) => t.url.trim())
-								.map((track, index) => (
-									<div
-										key={`${object.slug}-track-${index}`}
-										className="border border-gold-400/15 rounded-lg p-4 space-y-2"
-									>
-										<p className="theme-content-panel-heading font-body text-sm">
-											{track.shortTitle[locale]}
+							{tracks.map((track) => (
+								<div
+									key={`${object.slug}-track-${track.url}`}
+									className="border border-gold-400/15 rounded-lg p-4 space-y-2"
+								>
+									<p className="theme-content-panel-heading font-body text-sm">
+										{track.shortTitle[locale]}
+									</p>
+									{track.fullTitle &&
+									(track.fullTitle.ru.trim() || track.fullTitle.uz.trim()) ? (
+										<p className="theme-content-panel-body font-body text-xs text-gold-400/60">
+											<span className="uppercase tracking-wider mr-1">
+												{labels.fullTitle}:
+											</span>
+											{track.fullTitle[locale]}
 										</p>
-										{track.fullTitle &&
-										(track.fullTitle.ru.trim() || track.fullTitle.uz.trim()) ? (
-											<p className="theme-content-panel-body font-body text-xs text-gold-400/60">
-												<span className="uppercase tracking-wider mr-1">
-													{labels.fullTitle}:
-												</span>
-												{track.fullTitle[locale]}
-											</p>
-										) : null}
-										<audio
-											controls
-											preload="metadata"
-											autoPlay={index === 0}
-											className="w-full h-9 mt-1"
-											src={track.url}
-										/>
-									</div>
-								))}
+									) : null}
+									<audio
+										controls
+										preload="metadata"
+										autoPlay={track.url === firstTrackUrl}
+										className="w-full h-9 mt-1"
+										src={track.url}
+									/>
+								</div>
+							))}
 						</div>
 					) : null}
 

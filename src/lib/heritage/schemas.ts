@@ -1,14 +1,8 @@
 export {
-	architectureDetailSchema,
-	audioGuideSchema,
-	beforeAfterPairSchema,
 	biographyMilestoneSchema,
-	coalesceAudioGuideRaw,
 	coalesceKey,
-	emptyAudioGuideParsed,
-	historicalFigureSchema,
 	localizedStringSchema,
-	parseArrayFlexible,
+	parseBooleanFlexible,
 	parseIsoDateOptional,
 	parseLocalizedFlexible,
 	parseLocalizedOptional,
@@ -16,6 +10,11 @@ export {
 	parseStringFlexible,
 	photoItemSchema,
 } from './heritageSchemaPrimitives';
+export {
+	emptyAudioGuide,
+	mapAudioGuideFromApi,
+	mapHeritageDetailFromApi,
+} from './mapHeritageDetailFromApi';
 export {
 	heritageListApiResponseSchema,
 	heritageListItemApiSchema,

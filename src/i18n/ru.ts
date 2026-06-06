@@ -47,6 +47,8 @@ export const ru = {
 		modern_photos: 'Современный вид',
 		back: ' Все объекты',
 		tour_link: '3D-тур',
+		tour_fullscreen: 'На весь экран',
+		tour_exit_fullscreen: 'Выйти из полноэкранного режима',
 		read_more: 'Читать далее',
 		read_less: 'Свернуть',
 		loading: 'Загрузка...',

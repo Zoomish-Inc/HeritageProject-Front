@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import {
 	assertLocaleOrNotFound,
 	isSupportedLocale,
 	type Locale,
 } from '@/i18n/locale';
 import { getHeritageById } from '@/lib/heritage/getHeritageById';
+import { HeritageTourPageView } from '@/pageSlices/heritageTour';
 import { getTranslations } from 'next-intl/server';
 
 type Props = {
@@ -32,10 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function HeritageTourPage({ params }: Props) {
-	assertLocaleOrNotFound(params.locale);
+	const locale = assertLocaleOrNotFound(params.locale);
 	const obj = await getHeritageById(params.id);
 	if (!obj || !obj.tourPublished || !obj.tourEntryUrl?.trim()) {
 		notFound();
 	}
-	redirect(obj.tourEntryUrl.trim());
+	return HeritageTourPageView({ object: obj, locale });
 }

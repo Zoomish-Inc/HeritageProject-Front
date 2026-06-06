@@ -190,6 +190,10 @@ export const heritageObjectApiDataSchema = z
 			core.tourEntryUrl = tourEntryUrlRaw.trim();
 		}
 
+		if (core.tourPublished && !core.tourEntryUrl?.trim()) {
+			core.tourEntryUrl = `/tour-packs/${core.slug}/index.htm`;
+		}
+
 		const createdAt = parseIsoDateOptional(
 			coalesceKey(r, 'createdAt', 'created_at')
 		);

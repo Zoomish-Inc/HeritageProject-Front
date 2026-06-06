@@ -47,6 +47,8 @@ export const uz = {
 		modern_photos: "Zamonaviy ko'rinish",
 		back: "Barcha ob'ektlar",
 		tour_link: '3D sayohat',
+		tour_fullscreen: "To'liq ekran",
+		tour_exit_fullscreen: "To'liq ekrandan chiqish",
 		read_more: "To'liq o'qish",
 		read_less: "Yig'ish",
 		loading: 'Yuklanmoqda...',

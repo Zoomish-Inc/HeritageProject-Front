@@ -295,4 +295,28 @@ describe('heritageObjectApiResponseSchema', () => {
 			);
 		}
 	});
+
+	it('defaults tour entry url from slug when tour is published without url', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			data: {
+				id: 'x',
+				slug: 'zhenskaya-gimnaziya',
+				name: { ru: 'A', uz: 'B' },
+				address: { ru: '1', uz: '1' },
+				order: 1,
+				year_built: 1900,
+				short_description: { ru: 's', uz: 's' },
+				cover: 'https://example.com/c.jpg',
+				tour_published: true,
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data.tourPublished).toBe(true);
+			expect(parsed.data.data.tourEntryUrl).toBe(
+				'/tour-packs/zhenskaya-gimnaziya/index.htm'
+			);
+		}
+	});
 });

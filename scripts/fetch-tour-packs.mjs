@@ -7,19 +7,73 @@ import { installTourPackFromZip } from './lib/installTourPack.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(__dirname, '..');
 
-function loadManifest() {
+function filterValidPacks(packs) {
+	return packs.filter(
+		(p) => p?.slug && (p.url || p.googleDriveFileId || p.googleDriveUrl)
+	);
+}
+
+function parseManifestPayload(raw) {
+	if (Array.isArray(raw)) return filterValidPacks(raw);
+	if (Array.isArray(raw?.data)) return filterValidPacks(raw.data);
+	if (Array.isArray(raw?.packs)) return filterValidPacks(raw.packs);
+	return [];
+}
+
+function loadManifestFromFile() {
 	const manifestPath =
 		process.env.TOUR_PACKS_MANIFEST?.trim() ||
 		path.join(repoRoot, 'tour-packs.manifest.json');
 
 	if (!fs.existsSync(manifestPath)) {
-		console.log('[tour-packs:fetch] No manifest found, skipping.');
 		return [];
 	}
 
 	const raw = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-	const packs = Array.isArray(raw.packs) ? raw.packs : [];
-	return packs.filter((p) => p?.slug && (p.url || p.googleDriveFileId || p.googleDriveUrl));
+	return parseManifestPayload(raw);
+}
+
+async function loadManifestFromApi(apiUrl) {
+	const response = await fetch(apiUrl);
+	if (!response.ok) {
+		throw new Error(
+			`[tour-packs:fetch] API ${response.status} ${response.statusText}: ${apiUrl}`
+		);
+	}
+
+	const raw = await response.json();
+	if (raw.success === false) {
+		throw new Error(`[tour-packs:fetch] API success=false: ${apiUrl}`);
+	}
+
+	return parseManifestPayload(raw);
+}
+
+async function loadManifest() {
+	const apiUrl = process.env.TOUR_PACKS_API_URL?.trim();
+	if (apiUrl) {
+		console.log(`[tour-packs:fetch] Loading manifest from API: ${apiUrl}`);
+		const packs = await loadManifestFromApi(apiUrl);
+		console.log(`[tour-packs:fetch] API returned ${packs.length} pack(s)`);
+		for (const pack of packs) {
+			if (pack.updatedAt) {
+				console.log(
+					`[tour-packs:fetch] ${pack.slug}: updatedAt=${pack.updatedAt}`
+				);
+			}
+		}
+		return packs;
+	}
+
+	const packs = loadManifestFromFile();
+	if (packs.length === 0) {
+		console.log('[tour-packs:fetch] No manifest found, skipping.');
+	} else {
+		console.log(
+			`[tour-packs:fetch] Loaded ${packs.length} pack(s) from local manifest`
+		);
+	}
+	return packs;
 }
 
 function resolveDownloadSource(pack) {
@@ -36,7 +90,17 @@ function isPackInstalled(slug) {
 }
 
 async function main() {
-	const packs = loadManifest();
+	const apiUrl = process.env.TOUR_PACKS_API_URL?.trim();
+	let packs;
+
+	try {
+		packs = await loadManifest();
+	} catch (err) {
+		console.error(err.message || err);
+		if (apiUrl) process.exit(1);
+		throw err;
+	}
+
 	if (packs.length === 0) return;
 
 	const downloadDir = path.join(repoRoot, '.tmp-tour-downloads');

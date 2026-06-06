@@ -24,7 +24,6 @@ function lastModifiedForHeritageItem(item: HeritageListItem): Date | undefined {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const origin = getMetadataBaseUrl().origin;
-	const list = await getHeritageListForSitemap();
 	const entries: MetadataRoute.Sitemap = [];
 
 	for (const locale of routing.locales) {
@@ -35,17 +34,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		});
 	}
 
-	for (const item of list) {
-		for (const locale of routing.locales) {
-			const path = heritagePathForLocale(locale, item.slug);
-			const lastModified = lastModifiedForHeritageItem(item);
-			entries.push({
-				url: `${origin}${path}`,
-				...(lastModified ? { lastModified } : {}),
-				changeFrequency: 'monthly',
-				priority: 0.85,
-			});
+	try {
+		const list = await getHeritageListForSitemap();
+
+		for (const item of list) {
+			for (const locale of routing.locales) {
+				const path = heritagePathForLocale(locale, item.slug);
+				const lastModified = lastModifiedForHeritageItem(item);
+				entries.push({
+					url: `${origin}${path}`,
+					...(lastModified ? { lastModified } : {}),
+					changeFrequency: 'monthly',
+					priority: 0.85,
+				});
+			}
 		}
+	} catch (error) {
+		console.error(
+			'[seo] sitemap heritage list unavailable, exporting home URLs only',
+			error
+		);
 	}
 
 	if (runtimeConfig.isDev && entries.length > SITEMAP_WARN_THRESHOLD) {

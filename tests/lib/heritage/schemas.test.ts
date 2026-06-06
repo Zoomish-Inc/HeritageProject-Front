@@ -47,6 +47,37 @@ describe('heritageListApiResponseSchema', () => {
 		}
 	});
 
+	it('accepts null year_built from live backend list', () => {
+		const parsed = heritageListApiResponseSchema.safeParse({
+			success: true,
+			data: [
+				{
+					id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',
+					slug: 'zdanie-voennogo-sobraniya-dom-oficerov',
+					name: {
+						ru: 'Здание военного собрания (Дом офицеров)',
+						uz: "Harbiy yig'ilish binosi (Ofitserlar uyi)",
+					},
+					year_built: null,
+					yearRange: '',
+					address: {
+						ru: 'г. Фергана, ул. Мустақиллик, 12',
+						uz: "Farg'ona sh., Mustaqillik ko'ch., 12",
+					},
+					short_description: { ru: '', uz: '' },
+					cover: 'https://example.com/cover.jpg',
+					order: 4,
+					isPublished: true,
+				},
+			],
+			message: null,
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			expect(parsed.data.data[0].yearBuilt).toBe(0);
+		}
+	});
+
 	it('accepts backend sample shape', () => {
 		const parsed = heritageListApiResponseSchema.safeParse({
 			success: true,

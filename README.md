@@ -106,6 +106,7 @@ src
 │   │   ├── listQuery.ts
 │   │   ├── listVisibility.ts
 │   │   ├── logHeritageParseFailure.ts
+│   │   ├── mapHeritageDetailFromApi.ts
 │   │   ├── readModel.ts
 │   │   ├── schemas.ts
 │   │   └── sortHeritageList.ts

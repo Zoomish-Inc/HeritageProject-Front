@@ -30,6 +30,7 @@ const historicalFigureFieldsSchema = z.object({
 	bio_source_credit: localizedStringSchema.optional(),
 	photoUrl: z.string().optional(),
 	photo_url: z.string().optional(),
+	photo: z.string().nullable().optional(),
 	gallery: z.array(photoItemSchema).optional(),
 	milestones: z.array(biographyMilestoneSchema).optional(),
 });
@@ -41,19 +42,41 @@ export const historicalFigureSchema = historicalFigureFieldsSchema.transform(
 		bio: fig.bio,
 		bioSourceUrl: fig.bioSourceUrl ?? fig.bio_source_url,
 		bioSourceCredit: fig.bioSourceCredit ?? fig.bio_source_credit,
-		photoUrl: fig.photoUrl ?? fig.photo_url,
+		photoUrl: fig.photoUrl ?? fig.photo_url ?? fig.photo ?? undefined,
 		gallery: fig.gallery,
 		milestones: fig.milestones,
 	})
 );
 
-export const architectureDetailSchema = z.object({
-	title: localizedStringSchema,
-	description: localizedStringSchema,
-	imageUrl: z.string().optional(),
-	imageSourceUrl: z.string().optional(),
-	imageCredit: localizedStringSchema.optional(),
-});
+function resolveOptionalImageUrl(
+	camel: string | null | undefined,
+	snake: string | null | undefined
+): string | undefined {
+	const raw = camel ?? snake;
+	if (typeof raw !== 'string') return undefined;
+	const trimmed = raw.trim();
+	return trimmed !== '' ? trimmed : undefined;
+}
+
+export const architectureDetailSchema = z
+	.object({
+		title: localizedStringSchema,
+		description: localizedStringSchema,
+		imageUrl: z.string().nullable().optional(),
+		image: z.string().nullable().optional(),
+		imageSourceUrl: z.string().optional(),
+		image_source_url: z.string().optional(),
+		imageCredit: localizedStringSchema.optional(),
+		image_credit: localizedStringSchema.optional(),
+	})
+	.passthrough()
+	.transform((row) => ({
+		title: row.title,
+		description: row.description,
+		imageUrl: resolveOptionalImageUrl(row.imageUrl, row.image),
+		imageSourceUrl: row.imageSourceUrl ?? row.image_source_url,
+		imageCredit: row.imageCredit ?? row.image_credit,
+	}));
 
 export const beforeAfterPairSchema = z
 	.object({
@@ -88,20 +111,44 @@ export const beforeAfterPairSchema = z
 		message: 'before_after pair requires before and after image urls',
 	});
 
-const audioGuideTrackSchema = z.object({
-	url: z.string(),
-	shortTitle: localizedStringSchema,
-	fullTitle: localizedStringSchema.optional(),
-});
+const audioGuideTrackInputSchema = z
+	.object({
+		url: z.string(),
+		shortTitle: localizedStringSchema.optional(),
+		short_title: localizedStringSchema.optional(),
+		fullTitle: localizedStringSchema.optional(),
+		full_title: localizedStringSchema.optional(),
+	})
+	.passthrough()
+	.transform((track) => ({
+		url: track.url,
+		shortTitle: track.shortTitle ?? track.short_title ?? emptyLocalized(),
+		fullTitle: track.fullTitle ?? track.full_title,
+	}));
 
-const audioGuideInputSchema = z.object({
-	narratorLabel: localizedStringSchema,
-	audioUrl: z.string().optional(),
-	tracks: z.array(audioGuideTrackSchema).max(24).optional(),
-	transcript: localizedStringSchema,
-	atmosphereDescription: localizedStringSchema,
-	musicSuggestion: localizedStringSchema,
-});
+const audioGuideInputSchema = z
+	.object({
+		narratorLabel: localizedStringSchema.optional(),
+		narrator_label: localizedStringSchema.optional(),
+		audioUrl: z.string().optional(),
+		audio_url: z.string().optional(),
+		tracks: z.array(audioGuideTrackInputSchema).max(24).optional(),
+		transcript: localizedStringSchema.optional(),
+		atmosphereDescription: localizedStringSchema.optional(),
+		atmosphere_description: localizedStringSchema.optional(),
+		musicSuggestion: localizedStringSchema.optional(),
+		music_suggestion: localizedStringSchema.optional(),
+	})
+	.passthrough()
+	.transform((v) => ({
+		narratorLabel: v.narratorLabel ?? v.narrator_label ?? emptyLocalized(),
+		audioUrl: v.audioUrl ?? v.audio_url,
+		tracks: v.tracks,
+		transcript: v.transcript ?? emptyLocalized(),
+		atmosphereDescription:
+			v.atmosphereDescription ?? v.atmosphere_description ?? emptyLocalized(),
+		musicSuggestion: v.musicSuggestion ?? v.music_suggestion ?? emptyLocalized(),
+	}));
 
 function localizedNonEmpty(s: LocalizedString): boolean {
 	return s.ru.trim().length > 0 || s.uz.trim().length > 0;
@@ -154,7 +201,8 @@ export function parseLocalizedOptional(
 ): { ru: string; uz: string } | undefined {
 	if (v === undefined || v === null) return undefined;
 	const p = localizedStringSchema.safeParse(v);
-	return p.success ? p.data : undefined;
+	if (!p.success || !localizedNonEmpty(p.data)) return undefined;
+	return p.data;
 }
 
 export function parseNumberFlexible(v: unknown): number {
@@ -183,11 +231,18 @@ export function parseBooleanFlexible(v: unknown): boolean | undefined {
 
 export function parseArrayFlexible<T extends z.ZodTypeAny>(
 	itemSchema: T,
-	value: unknown
+	value: unknown,
+	scope?: string
 ): Array<z.infer<T>> {
 	if (value === undefined || value === null) return [];
 	const p = z.array(itemSchema).safeParse(value);
-	return p.success ? p.data : [];
+	if (!p.success) {
+		if (process.env.NODE_ENV === 'development' && scope) {
+			console.warn(`[heritage] ${scope} parse dropped items`, p.error.issues);
+		}
+		return [];
+	}
+	return p.data;
 }
 
 export function coalesceAudioGuideRaw(row: Record<string, unknown>): unknown {

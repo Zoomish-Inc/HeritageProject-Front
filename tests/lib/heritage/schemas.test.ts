@@ -287,7 +287,27 @@ describe('heritageObjectApiResponseSchema', () => {
 		}
 	});
 
-	it('parses coordinates from nested object or latitude keys', () => {
+	it('parses coordinates from lat/lng, nested object, or latitude keys', () => {
+		const parsedTop = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			data: {
+				id: 'z',
+				slug: 'z',
+				name: { ru: 'A', uz: 'B' },
+				address: { ru: '1', uz: '1' },
+				order: 1,
+				lat: 40.388056,
+				lng: 71.770556,
+			},
+		});
+		expect(parsedTop.success).toBe(true);
+		if (parsedTop.success) {
+			expect(parsedTop.data.data.coordinates).toEqual({
+				lat: 40.388056,
+				lng: 71.770556,
+			});
+		}
+
 		const parsed = heritageObjectApiResponseSchema.safeParse({
 			success: true,
 			data: {
@@ -318,6 +338,71 @@ describe('heritageObjectApiResponseSchema', () => {
 		expect(parsed2.success).toBe(true);
 		if (parsed2.success) {
 			expect(parsed2.data.data.coordinates).toEqual({ lat: 41, lng: 72 });
+		}
+	});
+
+	it('maps backend snake_case blocks (audio, architecture, figures)', () => {
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: '53e01e3e-5d28-42c4-894a-41b03f18140a',
+				slug: 'zhenskaya-gimnaziya',
+				name: { ru: 'Здание', uz: 'Bino' },
+				address: { ru: 'ул', uz: 'k' },
+				order: 1,
+				year_built: 1877,
+				short_description: { ru: 's', uz: 's' },
+				current_purpose: { ru: 'a', uz: 'b' },
+				historical_purpose: { ru: 'c', uz: 'd' },
+				architectural_style: { ru: 'e', uz: 'f' },
+				architectural_description: { ru: 'g', uz: 'h' },
+				history: { ru: 'i', uz: 'j' },
+				cover: 'https://example.com/cover.jpg',
+				lat: 40.388056,
+				lng: 71.770556,
+				visual_style_notes: { ru: '', uz: '' },
+				architecture_details: [
+					{
+						title: { ru: 'Декор', uz: 'Bezak' },
+						description: { ru: 'Текст', uz: 'Matn' },
+						image: 'https://example.com/arch.jpg',
+						image_credit: { ru: 'Источник', uz: 'Manba' },
+					},
+				],
+				audio_guide: {
+					narrator_label: { ru: 'Аудиогид', uz: 'Audio gid' },
+					transcript: { ru: '', uz: '' },
+					atmosphere_description: { ru: '', uz: '' },
+					music_suggestion: { ru: '', uz: '' },
+					tracks: [
+						{
+							url: 'https://example.com/01.mp3',
+							short_title: { ru: 'Часть 1', uz: '1-qism' },
+							full_title: { ru: 'Полное', uz: "To'liq" },
+						},
+					],
+				},
+				historical_figures: [
+					{
+						name: { ru: 'Личность', uz: 'Shaxs' },
+						role: { ru: 'Роль', uz: 'Rol' },
+						bio: { ru: 'Био', uz: 'Bio' },
+						photo: 'https://example.com/figure.jpg',
+					},
+				],
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (parsed.success) {
+			const data = parsed.data.data;
+			expect(data.coordinates).toEqual({ lat: 40.388056, lng: 71.770556 });
+			expect(data.visualStyleNotes).toBeUndefined();
+			expect(data.architectureDetails[0].imageUrl).toBe('https://example.com/arch.jpg');
+			expect(data.architectureDetails[0].imageCredit?.ru).toBe('Источник');
+			expect(data.audioGuide.tracks[0].url).toBe('https://example.com/01.mp3');
+			expect(data.audioGuide.tracks[0].shortTitle.ru).toBe('Часть 1');
+			expect(data.historicalFigures[0].photoUrl).toBe('https://example.com/figure.jpg');
 		}
 	});
 

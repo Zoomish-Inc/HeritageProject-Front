@@ -31,6 +31,24 @@ const MAX_FIGURE_GALLERY = 5;
 function parseCoordinates(
 	row: Record<string, unknown>
 ): HeritageCoordinates | undefined {
+	const latDirect = row.lat ?? row.latitude;
+	const lngDirect = row.lng ?? row.longitude ?? row.lon;
+	const latFromTop =
+		typeof latDirect === 'number'
+			? latDirect
+			: typeof latDirect === 'string'
+				? Number(latDirect)
+				: Number.NaN;
+	const lngFromTop =
+		typeof lngDirect === 'number'
+			? lngDirect
+			: typeof lngDirect === 'string'
+				? Number(lngDirect)
+				: Number.NaN;
+	if (!Number.isNaN(latFromTop) && !Number.isNaN(lngFromTop)) {
+		return { lat: latFromTop, lng: lngFromTop };
+	}
+
 	const nested = coalesceKey(row, 'coordinates', 'coordinates');
 	if (nested && typeof nested === 'object') {
 		const o = nested as Record<string, unknown>;
@@ -141,20 +159,24 @@ export const heritageObjectApiDataSchema = z
 			),
 			architectureDetails: parseArrayFlexible(
 				architectureDetailSchema,
-				coalesceKey(r, 'architectureDetails', 'architecture_details')
+				coalesceKey(r, 'architectureDetails', 'architecture_details'),
+				'architectureDetails'
 			),
 			history: parseLocalizedFlexible(coalesceKey(r, 'history', 'history')),
 			historicalFigures: parseArrayFlexible(
 				historicalFigureSchema,
-				coalesceKey(r, 'historicalFigures', 'historical_figures')
+				coalesceKey(r, 'historicalFigures', 'historical_figures'),
+				'historicalFigures'
 			).map(clampFigureGallery),
 			photos: parseArrayFlexible(
 				photoItemSchema,
-				coalesceKey(r, 'photos', 'photos')
+				coalesceKey(r, 'photos', 'photos'),
+				'photos'
 			).slice(0, MAX_PHOTOS),
 			beforeAfterPairs: parseArrayFlexible(
 				beforeAfterPairSchema,
-				coalesceKey(r, 'beforeAfterPairs', 'before_after_pairs')
+				coalesceKey(r, 'beforeAfterPairs', 'before_after_pairs'),
+				'beforeAfterPairs'
 			).slice(0, MAX_BEFORE_AFTER_PAIRS),
 			audioGuide: audioParsed.success ? audioParsed.data : emptyAudioGuideParsed,
 			coverImageUrl: parseStringFlexible(coalesceKey(r, 'coverImageUrl', 'cover')),
@@ -171,7 +193,8 @@ export const heritageObjectApiDataSchema = z
 
 		const historyMediaRaw = parseArrayFlexible(
 			photoItemSchema,
-			coalesceKey(r, 'historyMedia', 'history_media')
+			coalesceKey(r, 'historyMedia', 'history_media'),
+			'historyMedia'
 		).slice(0, MAX_HISTORY_MEDIA);
 		if (historyMediaRaw.length > 0) core.historyMedia = historyMediaRaw;
 

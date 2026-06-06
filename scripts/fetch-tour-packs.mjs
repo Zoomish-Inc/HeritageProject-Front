@@ -21,12 +21,13 @@ function parseManifestPayload(raw) {
 }
 
 function loadManifestFromFile() {
-	const manifestPath =
-		process.env.TOUR_PACKS_MANIFEST?.trim() ||
-		path.join(repoRoot, 'tour-packs.manifest.json');
+	const manifestPath = process.env.TOUR_PACKS_MANIFEST?.trim();
+	if (!manifestPath) {
+		return [];
+	}
 
 	if (!fs.existsSync(manifestPath)) {
-		return [];
+		throw new Error(`[tour-packs:fetch] TOUR_PACKS_MANIFEST not found: ${manifestPath}`);
 	}
 
 	const raw = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -67,7 +68,9 @@ async function loadManifest() {
 
 	const packs = loadManifestFromFile();
 	if (packs.length === 0) {
-		console.log('[tour-packs:fetch] No manifest found, skipping.');
+		console.log(
+			'[tour-packs:fetch] No tour packs configured. Set TOUR_PACKS_API_URL or TOUR_PACKS_MANIFEST.'
+		);
 	} else {
 		console.log(
 			`[tour-packs:fetch] Loaded ${packs.length} pack(s) from local manifest`

@@ -24,23 +24,10 @@ const withPlaceholderImage = (url: string, seed: string) => {
 	return buildPlaceholderUrl(seed);
 };
 
-const TOUR_BY_SLUG: Partial<
-	Record<string, { tourPublished: true; tourEntryUrl: string }>
-> = {
-	'zhenskaya-gimnaziya': {
-		tourPublished: true,
-		tourEntryUrl: '/tour-packs/zhenskaya-gimnaziya/index.htm',
-	},
-};
-
 export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = sortHeritageListByOrder(
-	rawMockHeritageObjects.map((obj) => {
-		const tour = TOUR_BY_SLUG[obj.slug];
-		return {
-			...obj,
-			tourPublished: tour?.tourPublished ?? false,
-			tourEntryUrl: tour?.tourEntryUrl,
-			coverImageUrl: withPlaceholderImage(obj.coverImageUrl, `${obj.slug}-cover`),
+	rawMockHeritageObjects.map((obj) => ({
+		...obj,
+		coverImageUrl: withPlaceholderImage(obj.coverImageUrl, `${obj.slug}-cover`),
 			photos: obj.photos.map((photo, index) => ({
 				...photo,
 				url: withPlaceholderImage(photo.url, `${obj.slug}-photo-${index}`),
@@ -94,8 +81,7 @@ export const MOCK_HERITAGE_OBJECTS: HeritageObject[] = sortHeritageListByOrder(
 			audioGuide: {
 				...obj.audioGuide,
 			},
-		};
-	})
+	}))
 );
 
 function heritageObjectToListItem(obj: HeritageObject): HeritageListItem {

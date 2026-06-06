@@ -18,6 +18,15 @@ export interface BiographyMilestone {
 	event: LocalizedString;
 }
 
+export interface PhotoItem {
+	url: string;
+	caption?: LocalizedString;
+	isHistorical?: boolean;
+	year?: number;
+	sourceUrl?: string;
+	credit?: LocalizedString;
+}
+
 export interface HistoricalFigure {
 	name: LocalizedString;
 	role: LocalizedString;
@@ -27,15 +36,6 @@ export interface HistoricalFigure {
 	photoUrl?: string;
 	gallery?: PhotoItem[];
 	milestones?: BiographyMilestone[];
-}
-
-export interface PhotoItem {
-	url: string;
-	caption?: LocalizedString;
-	isHistorical?: boolean;
-	year?: number;
-	sourceUrl?: string;
-	credit?: LocalizedString;
 }
 
 export interface AudioGuideTrack {

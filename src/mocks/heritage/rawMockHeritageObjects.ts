@@ -5,8 +5,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 		id: '3',
 		slug: 'zhenskaya-gimnaziya',
 		order: 1,
-		coverImageUrl:
-			'/images/zhenskaya-gimnaziya/Фотография ДО.jpg',
+		coverImageUrl: '/images/zhenskaya-gimnaziya/Фотография ДО.jpg',
 		name: {
 			ru: 'Здание женской гимназии',
 			uz: 'Qizlar gimnaziyasi binosi',
@@ -108,8 +107,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 					ru: 'В отличие от столичных зданий того времени, здесь декор не лепился из гипса, а выкладывался непосредственно из кирпича.\n\nТехнология: Использовался местный жженый кирпич характерного песочно-желтого оттенка. Мастера применяли метод «подрезки» и лекального кирпича, создавая сложные карнизы, сухарики (дентикулы) и фризы.\n\nСимволика: Ритмичные повторения зубцов по карнизу здания символизировали порядок и дисциплину — идеальные качества для образовательного учреждения. Этот стиль также называли «кирпичным модерном», где честность материала подчеркивала надежность и долговечность знаний.',
 					uz: "Ramz: Binoning karniri bo'ylab tishlarning ritmik takrorlanishi tartib va intizomni anglatadi - ta'lim muassasasi uchun ideal fazilatlar. Ushbu uslub, shuningdek, \"g'isht modernizmi\" deb ataldi, bu erda materialning yaxlitligi bilimning ishonchliligi va uzoq umr ko'rishini ta'kidladi.",
 				},
-				imageUrl:
-					'/images/zhenskaya-gimnaziya/Фотография ДО.jpg'
+				imageUrl: '/images/zhenskaya-gimnaziya/Фотография ДО.jpg',
 			},
 			{
 				title: {
@@ -591,8 +589,7 @@ export const rawMockHeritageObjects: HeritageObject[] = [
 				uz: '',
 			},
 		},
-		coverImageUrl:
-			'/images/chasovnya-aleksandra-nevskogo/clocker.jpg',
+		coverImageUrl: '/images/chasovnya-aleksandra-nevskogo/clocker.jpg',
 	},
 	{
 		id: '6ab495cb-b13c-4f14-9c87-2ab87098407b',

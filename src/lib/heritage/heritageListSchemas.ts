@@ -55,7 +55,11 @@ const heritageListItemInputSchema = z
 export const heritageListItemApiSchema = heritageListItemInputSchema.transform(
 	(row): HeritageListItem => {
 		const rowRecord = row as Record<string, unknown>;
-		const shortDescRaw = coalesceKey(rowRecord, 'shortDescription', 'short_description');
+		const shortDescRaw = coalesceKey(
+			rowRecord,
+			'shortDescription',
+			'short_description'
+		);
 		const shortDescParsed = localizedStringSchema.parse(shortDescRaw);
 		const coverRaw = coalesceKey(rowRecord, 'coverImageUrl', 'cover');
 		const cover = parseStringFlexible(coverRaw);

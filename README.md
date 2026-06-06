@@ -123,6 +123,11 @@ src
 │   │   │   ├── HeritageDetailPageView.tsx
 │   │   │   └── NextHeritagePrefetch.tsx
 │   │   └── index.ts
+│   ├── heritageTour
+│   │   ├── ui
+│   │   │   ├── HeritageTourEmbed.tsx
+│   │   │   └── HeritageTourPageView.tsx
+│   │   └── index.ts
 │   └── home
 │       ├── model
 │       │   └── metadata.ts
@@ -140,6 +145,8 @@ src
 │   │   │   ├── index.ts
 │   │   │   ├── provider.tsx
 │   │   │   └── schema.ts
+│   │   ├── heritage
+│   │   │   └── resolveTourEmbedUrl.ts
 │   │   ├── i18n
 │   │   │   ├── DocumentLangSync.tsx
 │   │   │   └── index.ts
@@ -233,6 +240,8 @@ tests
 │   └── imageUrl.test.ts
 ├── shared
 │   └── lib
+│       ├── heritage
+│       │   └── resolveTourEmbedUrl.test.ts
 │       └── image
 │           └── wikimediaUrl.test.ts
 ├── widgets

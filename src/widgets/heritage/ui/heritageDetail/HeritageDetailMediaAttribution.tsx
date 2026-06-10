@@ -9,6 +9,18 @@ type Props = {
 	sourceLabel: string;
 };
 
+export function hasHeritageMediaAttribution({
+	locale,
+	sourceUrl,
+	credit,
+}: Pick<Props, 'locale' | 'sourceUrl' | 'credit'>): boolean {
+	const creditText = localizedTrim(credit, locale);
+	const hasSource = Boolean(sourceUrl?.trim());
+	const resourceLabel = getMediaSourceResourceLabel(sourceUrl, locale);
+	if (hasSource && resourceLabel) return true;
+	return Boolean(creditText || hasSource);
+}
+
 export function HeritageDetailMediaAttribution({
 	locale,
 	sourceUrl,

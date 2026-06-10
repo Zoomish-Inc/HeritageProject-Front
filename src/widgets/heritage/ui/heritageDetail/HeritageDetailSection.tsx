@@ -1,21 +1,20 @@
 import type { ReactNode } from 'react';
+import { OrnamentalDivider } from '@/shared/ui';
 
 export const HeritageDetailSection = ({
 	title,
 	children,
+	trailingDivider = false,
 }: {
-	title: string;
+	title?: string;
 	children: React.ReactNode;
+	trailingDivider?: boolean;
 }) => (
-	<section className="mb-16">
-		<div className="flex items-center gap-4 mb-6">
-			<div className="w-1 h-6 bg-gold-400" />
-			<h2 className="font-body text-gold-400 text-xs tracking-[0.3em] uppercase">
-				{title}
-			</h2>
-		</div>
-		{children}
-	</section>
+	<>
+		{title ? <OrnamentalDivider label={title} /> : null}
+		<section className="mb-16">{children}</section>
+		{trailingDivider ? <OrnamentalDivider /> : null}
+	</>
 );
 
 export const HeritageDetailInfoRow = ({
@@ -25,8 +24,8 @@ export const HeritageDetailInfoRow = ({
 	label: string;
 	value: ReactNode;
 }) => (
-	<div className="grid grid-cols-2 gap-4 py-3 border-b theme-content-panel-divider last:border-0">
-		<span className="theme-content-panel-heading font-body text-xs tracking-wider uppercase min-w-36 flex-shrink-0">
+	<div className="grid grid-cols-1 gap-1 py-3 border-b theme-content-panel-divider last:border-0 md:grid-cols-2 md:gap-4">
+		<span className="theme-content-panel-heading font-body text-xs tracking-wider uppercase md:min-w-36 flex-shrink-0 block mb-1 md:mb-0">
 			{label}
 		</span>
 		<div className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line">

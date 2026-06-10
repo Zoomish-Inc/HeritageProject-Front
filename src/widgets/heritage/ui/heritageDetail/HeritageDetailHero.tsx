@@ -72,13 +72,18 @@ export const HeritageDetailHero = ({
 					sizes="(max-width: 896px) 100vw, 896px"
 					className="object-cover [filter:sepia(0.3)]"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-sepia-900/60 to-transparent pointer-events-none" />
-				<div className="absolute bottom-4 left-4 right-4 z-10">
+				<div className="absolute inset-0 hidden md:block bg-gradient-to-t from-sepia-900/60 to-transparent pointer-events-none" />
+				<div className="absolute bottom-4 left-4 right-4 z-10 hidden md:block">
 					<p className="text-hero-media-caption font-body italic text-sm leading-relaxed">
 						{object.shortDescription[locale]}
 					</p>
 				</div>
 			</div>
+			{object.shortDescription[locale]?.trim() ? (
+				<p className="theme-content-panel-body font-body italic text-sm leading-relaxed mb-6 md:hidden">
+					{object.shortDescription[locale]}
+				</p>
+			) : null}
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent" />
 		</div>
 	</>

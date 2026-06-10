@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { OrnamentalDivider } from '@/shared/ui';
 import { HeritageDetailExpandableText } from './HeritageDetailExpandableText';
 import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
+import { HeritageDetailPhotoMeta } from './HeritageDetailPhotoMeta';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import {
@@ -12,7 +12,6 @@ import {
 	localizedTrim,
 	localizedTrimEither,
 } from '@/widgets/heritage/lib/heritageDetailLocale';
-import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 function hasArchitectBioBlock(object: HeritageObject): boolean {
 	const b = object.architectBio;
@@ -43,10 +42,8 @@ export const HeritageDetailArchitectBio = ({
 	const b = object.architectBio!;
 
 	return (
-		<>
-			<OrnamentalDivider label={title} />
-			<HeritageDetailSection title={title}>
-				<div className="theme-content-panel p-6 space-y-4">
+		<HeritageDetailSection title={title}>
+				<div className="theme-content-panel p-4 md:p-6 space-y-4">
 					<div className="flex flex-col md:flex-row gap-6">
 						{b.photoUrl ? (
 							<div className="relative w-full md:w-48 h-56 md:h-64 flex-shrink-0 rounded-lg overflow-hidden border border-gold-400/20">
@@ -115,29 +112,18 @@ export const HeritageDetailArchitectBio = ({
 											className="object-cover"
 										/>
 									</div>
-									<div className="p-3">
-										{photo.caption ? (
-											<p className="theme-content-panel-body font-body text-xs mb-1">
-												{photo.caption[locale]}
-											</p>
-										) : null}
-										<HeritageDetailMediaAttribution
-											locale={locale}
-											sourceUrl={resolvePhotoAttributionSourceUrl(
-												photo.sourceUrl,
-												photo.url,
-												locale
-											)}
-											credit={photo.credit}
-											sourceLabel={sourceLabel}
-										/>
-									</div>
+									<HeritageDetailPhotoMeta
+										photo={photo}
+										locale={locale}
+										sourceLabel={sourceLabel}
+										className="p-3"
+										captionClassName="theme-content-panel-body font-body text-xs mb-1"
+									/>
 								</div>
 							))}
 						</div>
 					) : null}
 				</div>
 			</HeritageDetailSection>
-		</>
 	);
 };

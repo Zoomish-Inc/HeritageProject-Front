@@ -21,6 +21,8 @@ type Props = {
 	afterAlt: string;
 	beforeLabel: string;
 	afterLabel: string;
+	beforeLabelShort: string;
+	afterLabelShort: string;
 	pairLabel: string;
 	ariaLabel: string;
 	hint: string;
@@ -33,6 +35,8 @@ export const BeforeAfterSlider = ({
 	afterAlt,
 	beforeLabel,
 	afterLabel,
+	beforeLabelShort,
+	afterLabelShort,
 	pairLabel,
 	ariaLabel,
 	hint,
@@ -177,8 +181,14 @@ export const BeforeAfterSlider = ({
 				</div>
 
 				<div className="absolute top-2 left-2 right-2 flex justify-between pointer-events-none z-[5]">
-					<UiBadge variant="mediaLabel">{beforeLabel}</UiBadge>
-					<UiBadge variant="mediaLabel">{afterLabel}</UiBadge>
+					<UiBadge variant="mediaLabel">
+						<span className="md:hidden">{beforeLabelShort}</span>
+						<span className="hidden md:inline">{beforeLabel}</span>
+					</UiBadge>
+					<UiBadge variant="mediaLabel">
+						<span className="md:hidden">{afterLabelShort}</span>
+						<span className="hidden md:inline">{afterLabel}</span>
+					</UiBadge>
 				</div>
 			</div>
 

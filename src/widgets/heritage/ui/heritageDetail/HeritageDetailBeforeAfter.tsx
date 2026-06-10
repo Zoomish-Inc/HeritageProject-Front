@@ -1,9 +1,6 @@
 import { BeforeAfterSlider } from '../BeforeAfterSlider';
-import { OrnamentalDivider } from '@/shared/ui';
-import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { BeforeAfterPair, Locale } from '@/entities/heritage';
-import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	slug: string;
@@ -12,9 +9,10 @@ type Props = {
 	title: string;
 	historicalPhotos: string;
 	modernPhotos: string;
+	historicalPhotosShort: string;
+	modernPhotosShort: string;
 	sliderAria: string;
 	compareHint: string;
-	sourceLabel: string;
 };
 
 export const HeritageDetailBeforeAfter = ({
@@ -24,66 +22,33 @@ export const HeritageDetailBeforeAfter = ({
 	title,
 	historicalPhotos,
 	modernPhotos,
+	historicalPhotosShort,
+	modernPhotosShort,
 	sliderAria,
 	compareHint,
-	sourceLabel,
 }: Props) => {
 	if (pairs.length === 0) return null;
 	return (
-		<>
-			<OrnamentalDivider label={title} />
-			<HeritageDetailSection title={title}>
-				<div className="space-y-14">
-					{pairs.map((pair) => (
-						<div key={`${slug}-ba-${pair.label.ru}`} className="space-y-3">
-							<BeforeAfterSlider
-								beforeSrc={pair.before.url}
-								afterSrc={pair.after.url}
-								beforeAlt={pair.before.caption?.[locale] ?? historicalPhotos}
-								afterAlt={pair.after.caption?.[locale] ?? modernPhotos}
-								beforeLabel={historicalPhotos}
-								afterLabel={modernPhotos}
-								pairLabel={pair.label[locale]}
-								ariaLabel={sliderAria}
-								hint={compareHint}
-							/>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left px-1">
-								<div>
-									<p className="theme-content-panel-heading font-body text-[10px] tracking-widest uppercase text-gold-400/40 mb-1">
-										{historicalPhotos}
-									</p>
-									<HeritageDetailMediaAttribution
-										locale={locale}
-										sourceUrl={resolvePhotoAttributionSourceUrl(
-											pair.before.sourceUrl,
-											pair.before.url,
-											locale
-										)}
-										credit={pair.before.credit}
-										sourceLabel={sourceLabel}
-									/>
-								</div>
-								<div>
-									<p className="theme-content-panel-heading font-body text-[10px] tracking-widest uppercase text-gold-400/40 mb-1">
-										{modernPhotos}
-									</p>
-									<HeritageDetailMediaAttribution
-										locale={locale}
-										sourceUrl={resolvePhotoAttributionSourceUrl(
-											pair.after.sourceUrl,
-											pair.after.url,
-											locale
-										)}
-										credit={pair.after.credit}
-										sourceLabel={sourceLabel}
-									/>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</HeritageDetailSection>
-			<OrnamentalDivider />
-		</>
+		<HeritageDetailSection title={title} trailingDivider>
+			<div className="space-y-14">
+				{pairs.map((pair) => (
+					<div key={`${slug}-ba-${pair.label.ru}`}>
+						<BeforeAfterSlider
+							beforeSrc={pair.before.url}
+							afterSrc={pair.after.url}
+							beforeAlt={pair.before.caption?.[locale] ?? historicalPhotos}
+							afterAlt={pair.after.caption?.[locale] ?? modernPhotos}
+							beforeLabel={historicalPhotos}
+							afterLabel={modernPhotos}
+							beforeLabelShort={historicalPhotosShort}
+							afterLabelShort={modernPhotosShort}
+							pairLabel={pair.label[locale]}
+							ariaLabel={sliderAria}
+							hint={compareHint}
+						/>
+					</div>
+				))}
+			</div>
+		</HeritageDetailSection>
 	);
 };

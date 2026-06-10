@@ -4,7 +4,7 @@ import type { HeritageObject, Locale } from '@/entities/heritage';
 import dynamic from 'next/dynamic';
 import { useLocale, useTranslations } from 'next-intl';
 import { heritageTourPath } from '@/shared/lib/seo/paths';
-import { LoadingSpinner, OrnamentalDivider, RenderOnView } from '@/shared/ui';
+import { LoadingSpinner, RenderOnView } from '@/shared/ui';
 import { HeritageDetailClosingRule } from './heritageDetail/HeritageDetailClosingRule';
 import { HeritageDetailHero } from './heritageDetail/HeritageDetailHero';
 import { HeritageDetailMap } from './heritageDetail/HeritageDetailMap';
@@ -90,7 +90,7 @@ export const HeritageDetail = ({ object }: Props) => {
 	const sourceLabel = t('photo_source');
 
 	return (
-		<article className="max-w-4xl mx-auto px-6 py-8">
+		<article className="max-w-4xl mx-auto px-4 py-6 md:px-6 md:py-8">
 			<HeritageDetailHero
 				object={object}
 				locale={locale}
@@ -127,9 +127,10 @@ export const HeritageDetail = ({ object }: Props) => {
 				title={t('before_after')}
 				historicalPhotos={t('historical_photos')}
 				modernPhotos={t('modern_photos')}
+				historicalPhotosShort={t('historical_photos_short')}
+				modernPhotosShort={t('modern_photos_short')}
 				sliderAria={t('compare_slider_aria')}
 				compareHint={t('compare_hint')}
-				sourceLabel={sourceLabel}
 			/>
 
 			<HeritageDetailPurpose
@@ -162,8 +163,6 @@ export const HeritageDetail = ({ object }: Props) => {
 				/>
 			</RenderOnView>
 
-			<OrnamentalDivider />
-
 			<RenderOnView fallback={sectionLoading()}>
 				<HeritageDetailArchitecture
 					object={object}
@@ -175,8 +174,6 @@ export const HeritageDetail = ({ object }: Props) => {
 					}}
 				/>
 			</RenderOnView>
-
-			<OrnamentalDivider />
 
 			<RenderOnView fallback={sectionLoading()}>
 				<HeritageDetailHistory

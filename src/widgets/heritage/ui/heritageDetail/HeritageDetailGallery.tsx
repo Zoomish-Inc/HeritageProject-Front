@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
+import { HeritageDetailPhotoMeta } from './HeritageDetailPhotoMeta';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { Locale, PhotoItem } from '@/entities/heritage';
 import {
@@ -7,7 +7,6 @@ import {
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
-import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	photos: PhotoItem[];
@@ -47,23 +46,11 @@ export const HeritageDetailGallery = ({
 									className="object-cover"
 								/>
 							</div>
-							<div className="p-4">
-								{photo.caption ? (
-									<p className="theme-content-panel-body font-body text-sm leading-relaxed mb-1">
-										{photo.caption[locale]}
-									</p>
-								) : null}
-								<HeritageDetailMediaAttribution
-									locale={locale}
-									sourceUrl={resolvePhotoAttributionSourceUrl(
-										photo.sourceUrl,
-										photo.url,
-										locale
-									)}
-									credit={photo.credit}
-									sourceLabel={sourceLabel}
-								/>
-							</div>
+							<HeritageDetailPhotoMeta
+								photo={photo}
+								locale={locale}
+								sourceLabel={sourceLabel}
+							/>
 						</div>
 					);
 				})}

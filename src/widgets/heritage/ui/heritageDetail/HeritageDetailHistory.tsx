@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { HeritageDetailExpandableText } from './HeritageDetailExpandableText';
-import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
+import { HeritageDetailPhotoMeta } from './HeritageDetailPhotoMeta';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import {
@@ -8,7 +8,6 @@ import {
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
-import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	object: HeritageObject;
@@ -30,7 +29,7 @@ export const HeritageDetailHistory = ({
 	return (
 		<HeritageDetailSection title={title}>
 			{body ? (
-				<div className="theme-content-panel p-6 mb-6">
+				<div className="theme-content-panel p-4 md:p-6 mb-6">
 					<blockquote className="m-0">
 						<HeritageDetailExpandableText
 							text={body}
@@ -62,23 +61,11 @@ export const HeritageDetailHistory = ({
 										className="object-cover"
 									/>
 								</div>
-								<div className="p-4">
-									{photo.caption ? (
-										<p className="theme-content-panel-body font-body text-sm leading-relaxed mb-1">
-											{photo.caption[locale]}
-										</p>
-									) : null}
-									<HeritageDetailMediaAttribution
-										locale={locale}
-										sourceUrl={resolvePhotoAttributionSourceUrl(
-											photo.sourceUrl,
-											photo.url,
-											locale
-										)}
-										credit={photo.credit}
-										sourceLabel={sourceLabel}
-									/>
-								</div>
+								<HeritageDetailPhotoMeta
+									photo={photo}
+									locale={locale}
+									sourceLabel={sourceLabel}
+								/>
 							</div>
 						);
 					})}

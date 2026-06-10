@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { OrnamentalDivider } from '@/shared/ui';
 import { HeritageDetailExpandableText } from './HeritageDetailExpandableText';
 import { HeritageDetailMediaAttribution } from './HeritageDetailMediaAttribution';
+import { HeritageDetailPhotoMeta } from './HeritageDetailPhotoMeta';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import {
@@ -9,7 +9,6 @@ import {
 	imageQuality,
 } from '@/shared/lib/image/placeholder';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
-import { resolvePhotoAttributionSourceUrl } from '@/widgets/heritage/lib/mediaSourceResourceLabel';
 
 type Props = {
 	object: HeritageObject;
@@ -26,13 +25,11 @@ export const HeritageDetailFigures = ({
 }: Props) => {
 	if (object.historicalFigures.length === 0) return null;
 	return (
-		<>
-			<OrnamentalDivider label={title} />
-			<HeritageDetailSection title={title}>
+		<HeritageDetailSection title={title}>
 				{object.historicalFigures.map((figure) => (
 					<div
 						key={`${object.slug}-figure-${figure.name.ru}`}
-						className="theme-content-panel p-6 mb-4"
+						className="theme-content-panel p-4 md:p-6 mb-4"
 					>
 						<div className="flex flex-col md:flex-row gap-6 mb-4">
 							{figure.photoUrl ? (
@@ -105,30 +102,19 @@ export const HeritageDetailFigures = ({
 												className="object-cover"
 											/>
 										</div>
-										<div className="p-3">
-											{photo.caption ? (
-												<p className="theme-content-panel-body font-body text-xs mb-1">
-													{photo.caption[locale]}
-												</p>
-											) : null}
-											<HeritageDetailMediaAttribution
-												locale={locale}
-												sourceUrl={resolvePhotoAttributionSourceUrl(
-													photo.sourceUrl,
-													photo.url,
-													locale
-												)}
-												credit={photo.credit}
-												sourceLabel={sourceLabel}
-											/>
-										</div>
+										<HeritageDetailPhotoMeta
+											photo={photo}
+											locale={locale}
+											sourceLabel={sourceLabel}
+											className="p-3"
+											captionClassName="theme-content-panel-body font-body text-xs mb-1"
+										/>
 									</div>
 								))}
 							</div>
 						) : null}
 					</div>
 				))}
-			</HeritageDetailSection>
-		</>
+		</HeritageDetailSection>
 	);
 };

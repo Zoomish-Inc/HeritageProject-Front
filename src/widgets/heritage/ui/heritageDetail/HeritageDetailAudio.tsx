@@ -1,4 +1,3 @@
-import { OrnamentalDivider } from '@/shared/ui';
 import { HeritageDetailSection } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
@@ -31,13 +30,10 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 
 	const ag = object.audioGuide;
 	const tracks = ag.tracks.filter((t) => t.url.trim());
-	const firstTrackUrl = tracks[0]?.url;
 
 	return (
-		<>
-			<OrnamentalDivider label={labels.title} />
-			<HeritageDetailSection title={labels.title}>
-				<div className="theme-content-panel p-6 space-y-4">
+		<HeritageDetailSection title={labels.title}>
+				<div className="theme-content-panel p-4 md:p-6 space-y-4">
 					{localizedTrim(ag.narratorLabel, locale) ? (
 						<div className="flex items-center gap-3 mb-4">
 							<div className="w-8 h-8 theme-content-panel-outline flex items-center justify-center">
@@ -74,7 +70,6 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 									<audio
 										controls
 										preload="metadata"
-										autoPlay={track.url === firstTrackUrl}
 										className="w-full h-9 mt-1"
 										src={track.url}
 									/>
@@ -120,7 +115,6 @@ export const HeritageDetailAudio = ({ object, locale, labels }: Props) => {
 						</div>
 					)}
 				</div>
-			</HeritageDetailSection>
-		</>
+		</HeritageDetailSection>
 	);
 };

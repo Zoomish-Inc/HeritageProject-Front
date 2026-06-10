@@ -50,7 +50,7 @@ export const HeritageDetailPurpose = ({ object, locale, labels }: Props) => {
 
 	return (
 		<HeritageDetailSection title={labels.sectionTitle}>
-			<div className="theme-content-panel p-6">
+			<div className="theme-content-panel p-4 md:p-6">
 				{rows.map((row) => (
 					<HeritageDetailInfoRow key={row.key} label={row.label} value={row.node} />
 				))}

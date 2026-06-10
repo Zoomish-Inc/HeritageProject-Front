@@ -203,6 +203,7 @@ src
 │       │   │   ├── HeritageDetailHistory.tsx
 │       │   │   ├── HeritageDetailMap.tsx
 │       │   │   ├── HeritageDetailMediaAttribution.tsx
+│       │   │   ├── HeritageDetailPhotoMeta.tsx
 │       │   │   ├── HeritageDetailPurpose.tsx
 │       │   │   ├── HeritageDetailSection.tsx
 │       │   │   └── HeritageDetailVisualNotes.tsx

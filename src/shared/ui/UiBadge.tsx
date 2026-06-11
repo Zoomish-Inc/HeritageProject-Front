@@ -7,7 +7,7 @@ type UiBadgeProps = HTMLAttributes<HTMLSpanElement> & {
 };
 
 const baseClassName =
-	'inline-flex items-center justify-center leading-none font-body uppercase';
+	'inline-flex items-center justify-center text-center leading-none font-body uppercase';
 
 const variantClassName: Record<UiBadgeVariant, string> = {
 	goldOutline:

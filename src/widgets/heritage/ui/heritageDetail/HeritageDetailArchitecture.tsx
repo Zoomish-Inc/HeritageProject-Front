@@ -46,7 +46,7 @@ export const HeritageDetailArchitecture = ({
 
 			{hasDetails ? (
 				<div className={hasMainText ? 'mt-8 space-y-6' : 'space-y-6'}>
-					<p className="theme-content-panel-heading font-body text-xs tracking-[0.3em] uppercase mb-4">
+					<p className="theme-content-panel-heading font-body text-xs tracking-[0.3em] uppercase mb-4 text-center text-balance">
 						{labels.architectureDetails}
 					</p>
 					{object.architectureDetails.map((detail) => (

@@ -81,7 +81,8 @@ jobs:
        - ${{ steps.readme_check.outputs.should_verify == 'true' && '🔍 README verified against generated tree' || '⏭️ README verify skipped' }}
 
  sast:
-  needs: [workflow_lint]
+  name: AppSec / SAST
+  needs: [quality, readme]
   runs-on: ubuntu-latest
   timeout-minutes: 20
   steps:
@@ -120,7 +121,8 @@ jobs:
        - Findings do not fail CI (scanner crash does)
 
  dast:
-  needs: [workflow_lint]
+  name: AppSec / DAST
+  needs: [quality, readme]
   runs-on: ubuntu-latest
   timeout-minutes: 30
   steps:

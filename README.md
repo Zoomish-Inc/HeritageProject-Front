@@ -306,4 +306,7 @@ npm run dev
 ## Тесты и CI
 
 - Unit-тесты лежат в `tests/`, окружение и cleanup — `tests/setup.ts`.
-- В CI (`.github/workflows/ci.yml`) выполняются `npm ci`, `npm run check:all`, `npm run docs:check`.
+- В CI (`.github/workflows/ci.yml`) после lint workflow параллельно идут quality (`npm run check:all` / `check:ci`), проверка README, SAST и DAST.
+- SAST: Semgrep (`p/javascript`, `p/owasp-top-ten`) и `npm audit`; отчёт — artifact `sast-reports`.
+- DAST: `next build` с `NEXT_PUBLIC_USE_MOCK=true`, затем OWASP ZAP baseline по `http://127.0.0.1:3000`; отчёт — artifact `dast-zap-baseline`.
+- Находки сканеров не валят pipeline; красный job значит, что упал инструмент или сборка. Deploy (CD) — Vercel.

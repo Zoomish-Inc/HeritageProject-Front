@@ -1,0 +1,67 @@
+name: SAST
+description: Semgrep + npm audit (findings do not fail the job)
+outputs:
+ semgrep_findings:
+  description: Number of Semgrep SARIF results
+  value: ${{ steps.count.outputs.semgrep_findings }}
+ audit_high:
+  description: npm audit high severity count
+  value: ${{ steps.count.outputs.audit_high }}
+ audit_critical:
+  description: npm audit critical severity count
+  value: ${{ steps.count.outputs.audit_critical }}
+runs:
+ using: composite
+ steps:
+  - name: Prepare SAST reports directory
+    shell: bash
+    run: mkdir -p reports/sast
+
+  - name: npm audit
+    shell: bash
+    run: |
+     set -u
+     npm audit --json > reports/sast/npm-audit.json || true
+     npm audit --audit-level=high > reports/sast/npm-audit.txt || true
+
+  - name: Semgrep
+    shell: bash
+    env:
+     SEMGREP_SEND_METRICS: 'off'
+    run: |
+     set -euo pipefail
+     docker run --rm \
+       -e SEMGREP_SEND_METRICS \
+       -v "$GITHUB_WORKSPACE:/src" \
+       -w /src \
+       semgrep/semgrep:latest \
+       semgrep scan \
+         --metrics=off \
+         --config p/javascript \
+         --config p/owasp-top-ten \
+         --exclude=node_modules \
+         --exclude=.next \
+         --sarif \
+         --output reports/sast/semgrep.sarif \
+         src scripts
+     sudo chown -R "$(id -u):$(id -g)" reports/sast || true
+
+  - name: Count findings
+    if: always()
+    id: count
+    shell: bash
+    run: |
+     set -euo pipefail
+     semgrep_n=0
+     audit_high=0
+     audit_critical=0
+     if [ -f reports/sast/semgrep.sarif ]; then
+       semgrep_n="$(jq '[.runs[]?.results[]?] | length' reports/sast/semgrep.sarif)"
+     fi
+     if [ -f reports/sast/npm-audit.json ]; then
+       audit_high="$(jq -r '.metadata.vulnerabilities.high // 0' reports/sast/npm-audit.json 2>/dev/null || echo 0)"
+       audit_critical="$(jq -r '.metadata.vulnerabilities.critical // 0' reports/sast/npm-audit.json 2>/dev/null || echo 0)"
+     fi
+     echo "semgrep_findings=${semgrep_n}" >> "$GITHUB_OUTPUT"
+     echo "audit_high=${audit_high}" >> "$GITHUB_OUTPUT"
+     echo "audit_critical=${audit_critical}" >> "$GITHUB_OUTPUT"

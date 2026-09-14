@@ -5,11 +5,19 @@ inputs:
   description: Summary section title
   required: true
  status:
-  description: status token (success|failure|skipped)
+  description: status token (success|failure|skipped|cancelled)
   required: false
   default: ''
+ format:
+  description: Body format (lines or table)
+  required: false
+  default: lines
  lines:
   description: Multiline markdown lines for the section body
+  required: false
+  default: ''
+ table:
+  description: Table rows as Label|status, one per line
   required: false
   default: ''
 runs:
@@ -17,27 +25,73 @@ runs:
  steps:
   - name: Write summary section
     shell: bash
+    env:
+     SUMMARY_TITLE: ${{ inputs.title }}
+     SUMMARY_STATUS: ${{ inputs.status }}
+     SUMMARY_FORMAT: ${{ inputs.format }}
+     SUMMARY_LINES: ${{ inputs.lines }}
+     SUMMARY_TABLE: ${{ inputs.table }}
     run: |
-     status="${{ inputs.status }}"
-     badge=""
-     if [ "$status" = "success" ]; then
-       badge="✅"
-     elif [ "$status" = "failure" ]; then
-       badge="❌"
-     elif [ "$status" = "skipped" ]; then
-       badge="⏭️"
-     fi
+     set -euo pipefail
+
+     status_badge() {
+       case "$1" in
+         success) printf '✅' ;;
+         failure) printf '❌' ;;
+         skipped) printf '⏭️' ;;
+         cancelled) printf '🚫' ;;
+         *) printf '▫️' ;;
+       esac
+     }
+
+     decorate_status_token() {
+       local token="$1"
+       printf '%s %s' "$(status_badge "$token")" "$token"
+     }
+
+     decorate_line() {
+       local line="$1"
+       if [[ "$line" =~ ^(.*:[[:space:]]*)(success|failure|skipped|cancelled)[[:space:]]*$ ]]; then
+         printf '%s%s\n' "${BASH_REMATCH[1]}" "$(decorate_status_token "${BASH_REMATCH[2]}")"
+       else
+         printf '%s\n' "$line"
+       fi
+     }
+
+     trim() {
+       local value="$1"
+       value="${value#"${value%%[![:space:]]*}"}"
+       value="${value%"${value##*[![:space:]]}"}"
+       printf '%s' "$value"
+     }
 
      {
-       if [ -n "$badge" ]; then
-         echo "## $badge ${{ inputs.title }}"
+       if [ -n "$SUMMARY_STATUS" ]; then
+         echo "## $(status_badge "$SUMMARY_STATUS") $SUMMARY_TITLE"
+         echo
+         echo "**Итог:** $(decorate_status_token "$SUMMARY_STATUS")"
+         echo
        else
-         echo "## ${{ inputs.title }}"
+         echo "## $SUMMARY_TITLE"
+         echo
        fi
-       if [ -n "$status" ]; then
-         echo "- status: $status"
+
+       if [ "$SUMMARY_FORMAT" = "table" ] && [ -n "$SUMMARY_TABLE" ]; then
+         echo "| Этап | Результат |"
+         echo "|------|-----------|"
+         while IFS= read -r row || [ -n "$row" ]; do
+           [ -z "$row" ] && continue
+           label="$(trim "${row%%|*}")"
+           token="$(trim "${row#*|}")"
+           echo "| $label | $(decorate_status_token "$token") |"
+         done <<< "$SUMMARY_TABLE"
+         echo
        fi
-       if [ -n "${{ inputs.lines }}" ]; then
-         printf '%s\n' "${{ inputs.lines }}"
+
+       if [ -n "$SUMMARY_LINES" ]; then
+         while IFS= read -r line || [ -n "$line" ]; do
+           [ -z "$line" ] && continue
+           decorate_line "$line"
+         done <<< "$SUMMARY_LINES"
        fi
      } >> "$GITHUB_STEP_SUMMARY"

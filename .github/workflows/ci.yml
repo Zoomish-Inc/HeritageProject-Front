@@ -7,6 +7,7 @@ on:
 
 permissions:
  contents: write
+ actions: write
 
 concurrency:
  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -36,7 +37,11 @@ jobs:
       title: Quality summary
       status: ${{ job.status }}
       lines: |
-       - check:ci executed (reserved-dirs, lint boundaries, import graph, unit tests)
+       - ${{ job.status == 'success' && '✅' || '❌' }} reserved-dirs
+       - ${{ job.status == 'success' && '✅' || '❌' }} lint boundaries
+       - ${{ job.status == 'success' && '✅' || '❌' }} import graph
+       - ${{ job.status == 'success' && '✅' || '❌' }} unit tests
+       - Command: `npm run check:ci`
 
  readme:
   needs: [workflow_lint]
@@ -72,14 +77,92 @@ jobs:
       title: README summary
       status: ${{ job.status }}
       lines: |
-       - should_run: ${{ steps.readme_check.outputs.should_run }}
-       - should_verify: ${{ steps.readme_check.outputs.should_verify }}
+       - ${{ steps.readme_check.outputs.should_run == 'true' && '📝 README structure update ran' || '⏭️ No structure-related file changes' }}
+       - ${{ steps.readme_check.outputs.should_verify == 'true' && '🔍 README verified against generated tree' || '⏭️ README verify skipped' }}
+
+ sast:
+  needs: [workflow_lint]
+  runs-on: ubuntu-latest
+  timeout-minutes: 20
+  steps:
+   - uses: actions/checkout@v4
+     with:
+      fetch-depth: 0
+
+   - uses: ./.github/actions/setup-node-npm
+
+   - name: Run SAST
+     id: sast
+     uses: ./.github/actions/sast
+
+   - name: Upload SAST reports
+     if: always()
+     uses: actions/upload-artifact@v7
+     with:
+      name: sast-reports
+      path: |
+       reports/sast/semgrep.sarif
+       reports/sast/npm-audit.json
+       reports/sast/npm-audit.txt
+      if-no-files-found: warn
+
+   - name: Write SAST summary
+     if: always()
+     uses: ./.github/actions/job-summary
+     with:
+      title: SAST summary
+      status: ${{ job.status }}
+      lines: |
+       - Semgrep findings: ${{ steps.sast.outputs.semgrep_findings }}
+       - npm audit high: ${{ steps.sast.outputs.audit_high }}
+       - npm audit critical: ${{ steps.sast.outputs.audit_critical }}
+       - 📎 Reports uploaded as artifact `sast-reports`
+       - Findings do not fail CI (scanner crash does)
+
+ dast:
+  needs: [workflow_lint]
+  runs-on: ubuntu-latest
+  timeout-minutes: 30
+  steps:
+   - uses: actions/checkout@v4
+     with:
+      fetch-depth: 0
+
+   - uses: ./.github/actions/setup-node-npm
+
+   - name: Run DAST
+     uses: ./.github/actions/dast
+
+   - name: Upload DAST reports
+     if: always()
+     uses: actions/upload-artifact@v7
+     with:
+      name: dast-zap-baseline
+      path: |
+       reports/dast/report_html.html
+       reports/dast/report_md.md
+       reports/dast/report_json.json
+      if-no-files-found: warn
+
+   - name: Write DAST summary
+     if: always()
+     uses: ./.github/actions/job-summary
+     with:
+      title: DAST summary
+      status: ${{ job.status }}
+      lines: |
+       - Target: `http://127.0.0.1:3000` (`NEXT_PUBLIC_USE_MOCK=true`)
+       - Scanner: OWASP ZAP baseline
+       - 📎 Report uploaded as artifact `dast-zap-baseline`
+       - Findings do not fail CI (scanner/build crash does)
 
  summary:
   if: always()
-  needs: [workflow_lint, quality, readme]
+  needs: [workflow_lint, quality, readme, sast, dast]
   uses: ./.github/workflows/ci-summary.yml
   with:
    workflow_lint_result: ${{ needs.workflow_lint.result }}
    quality_result: ${{ needs.quality.result }}
    readme_result: ${{ needs.readme.result }}
+   sast_result: ${{ needs.sast.result }}
+   dast_result: ${{ needs.dast.result }}

@@ -1,0 +1,60 @@
+name: DAST
+description: Build Next.js with mocks, serve, OWASP ZAP baseline (findings do not fail)
+runs:
+ using: composite
+ steps:
+  - name: Build Next.js (mock data)
+    shell: bash
+    env:
+     NEXT_PUBLIC_USE_MOCK: 'true'
+     NEXT_TELEMETRY_DISABLED: '1'
+    run: npm run build
+
+  - name: Start Next.js and run ZAP baseline
+    shell: bash
+    env:
+     NEXT_PUBLIC_USE_MOCK: 'true'
+     NEXT_TELEMETRY_DISABLED: '1'
+    run: |
+     set -euo pipefail
+     npm run start -- -H 0.0.0.0 -p 3000 > next-start.log 2>&1 &
+     next_pid=$!
+     cleanup() { kill "$next_pid" 2>/dev/null || true; }
+     trap cleanup EXIT
+
+     ready=0
+     for i in $(seq 1 60); do
+       if curl -sf http://127.0.0.1:3000 >/dev/null; then
+         echo "Next.js is up on :3000"
+         ready=1
+         break
+       fi
+       sleep 2
+     done
+     if [ "$ready" -ne 1 ]; then
+       echo "Next.js failed to start"
+       cat next-start.log
+       exit 1
+     fi
+
+     mkdir -p reports/dast
+     chmod a+w reports/dast "$GITHUB_WORKSPACE"
+
+     set +e
+     docker run --rm \
+       -v "$GITHUB_WORKSPACE:/zap/wrk/:rw" \
+       --network=host \
+       -t ghcr.io/zaproxy/zaproxy:stable \
+       zap-baseline.py -t http://127.0.0.1:3000 \
+         -J reports/dast/report_json.json \
+         -w reports/dast/report_md.md \
+         -r reports/dast/report_html.html \
+         -I
+     rc=$?
+     set -e
+
+     if [ "$rc" -eq 3 ] || [ "$rc" -gt 3 ]; then
+       echo "ZAP failed to scan (exit $rc)"
+       exit 1
+     fi
+     echo "ZAP finished with exit $rc (0=ok, 1=warn, 2=alerts; findings do not fail CI)"

@@ -12,6 +12,12 @@ on:
    readme_result:
     required: true
     type: string
+   sast_result:
+    required: true
+    type: string
+   dast_result:
+    required: true
+    type: string
 
 jobs:
  summary:
@@ -26,19 +32,27 @@ jobs:
       echo "workflow_lint: ${{ inputs.workflow_lint_result }}"
       echo "quality:       ${{ inputs.quality_result }}"
       echo "readme:        ${{ inputs.readme_result }}"
+      echo "sast:          ${{ inputs.sast_result }}"
+      echo "dast:          ${{ inputs.dast_result }}"
 
    - name: Write final CI summary
      uses: ./.github/actions/job-summary
      with:
-      title: CI final summary
-      status: ${{ job.status }}
+      title: CI pipeline
+      status: ${{ inputs.workflow_lint_result == 'success' && inputs.quality_result == 'success' && inputs.readme_result == 'success' && inputs.sast_result == 'success' && inputs.dast_result == 'success' && 'success' || 'failure' }}
+      format: table
+      table: |
+       Workflow lint|${{ inputs.workflow_lint_result }}
+       Quality gate|${{ inputs.quality_result }}
+       README|${{ inputs.readme_result }}
+       SAST|${{ inputs.sast_result }}
+       DAST|${{ inputs.dast_result }}
       lines: |
-       - workflow_lint: ${{ inputs.workflow_lint_result }}
-       - quality: ${{ inputs.quality_result }}
-       - readme: ${{ inputs.readme_result }}
+       - SAST/DAST findings are reported in artifacts and do not fail the pipeline
+       - A red stage means the tool or job crashed, not that a vulnerability was found
 
    - name: Fail if any stage failed
-     if: inputs.workflow_lint_result != 'success' || inputs.quality_result != 'success' || inputs.readme_result != 'success'
+     if: inputs.workflow_lint_result != 'success' || inputs.quality_result != 'success' || inputs.readme_result != 'success' || inputs.sast_result != 'success' || inputs.dast_result != 'success'
      run: |
-      echo "::error::CI failed. Results => workflow_lint=${{ inputs.workflow_lint_result }}, quality=${{ inputs.quality_result }}, readme=${{ inputs.readme_result }}"
+      echo "::error::CI failed. Results => workflow_lint=${{ inputs.workflow_lint_result }}, quality=${{ inputs.quality_result }}, readme=${{ inputs.readme_result }}, sast=${{ inputs.sast_result }}, dast=${{ inputs.dast_result }}"
       exit 1

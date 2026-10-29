@@ -1,10 +1,11 @@
-import Image from 'next/image';
+import type { HeritageObject, Locale } from '@/entities/heritage';
 import { Link } from '@/i18n/navigation';
 import {
-	imagePlaceholderDataUrl,
-	imageQuality,
+    imagePlaceholderDataUrl,
+    imageQuality,
 } from '@/shared/lib/image/placeholder';
-import type { HeritageObject, Locale } from '@/entities/heritage';
+import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
+import Image from 'next/image';
 
 type Props = {
 	object: HeritageObject;
@@ -20,7 +21,13 @@ export const HeritageDetailHero = ({
 	backLabel,
 	tourHref,
 	tourLabel,
-}: Props) => (
+}: Props) => {
+	const name = object.name[locale].trim();
+	const formerName = localizedTrim(object.formerName, locale);
+	const showFormerName =
+		Boolean(formerName) && formerName.toLocaleLowerCase() !== name.toLocaleLowerCase();
+
+	return (
 	<>
 		<Link
 			href="/"
@@ -36,19 +43,14 @@ export const HeritageDetailHero = ({
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent mb-6" />
 			<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
 				<div>
-					<p className="text-gold-400/60 font-body text-xs tracking-[0.3em] uppercase mb-2 whitespace-pre-line">
-						{object.yearBuiltLabel?.[locale]?.trim() ||
-							object.yearRange ||
-							object.yearBuilt}
-					</p>
 					<h1 className="font-display text-parchment-50 text-3xl md:text-4xl leading-tight">
-						{object.name[locale]}
+						{name}
 					</h1>
-					{object.formerName && (
+					{showFormerName ? (
 						<p className="text-theme-subtitle-italic font-body italic text-sm mt-2">
-							{object.formerName[locale]}
+							{formerName}
 						</p>
-					)}
+					) : null}
 				</div>
 				{tourHref && tourLabel ? (
 					<Link
@@ -87,4 +89,5 @@ export const HeritageDetailHero = ({
 			<div className="h-px bg-gradient-to-r from-gold-400 via-gold-400/40 to-transparent" />
 		</div>
 	</>
-);
+	);
+};

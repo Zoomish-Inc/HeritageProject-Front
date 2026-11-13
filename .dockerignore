@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.github
+.husky
+.cursor
+.idea
+.vscode
+coverage
+tests
+*.md
+npm-debug.log*
+.env
+.env.*
+!.env.local.example

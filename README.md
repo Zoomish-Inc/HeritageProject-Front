@@ -310,3 +310,17 @@ npm run dev
 - SAST: Semgrep (`p/javascript`, `p/owasp-top-ten`) и `npm audit`; отчёт — artifact `sast-reports`.
 - DAST: `next build` с `NEXT_PUBLIC_USE_MOCK=true`, затем OWASP ZAP baseline по `http://127.0.0.1:3000`; отчёт — artifact `dast-zap-baseline`.
 - Находки сканеров не валят pipeline; красный job значит, что упал инструмент или сборка. Deploy (CD) — Vercel.
+
+## Docker
+
+Production-образ: Next.js `output: standalone`, Node 20. `NEXT_PUBLIC_*` и tour-packs вшиваются на сборке, поэтому их задают как build-args, не только в runtime.
+
+```bash
+cp .env.local.example .env
+docker compose build
+docker compose up -d
+```
+
+Перед сборкой поправьте в `.env` `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL` и `TOUR_PACKS_API_URL`. Сайт слушает `http://localhost:3000`. Обратный прокси (nginx) — снаружи контейнера. Бэкенд Django в этот compose не входит.
+
+Без `TOUR_PACKS_API_URL` 3D-туры в образ не попадут: `npm run build` качает их до `next build`.

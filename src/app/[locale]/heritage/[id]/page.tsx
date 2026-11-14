@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getHeritageSlugsForStaticParams } from '@/lib/heritage/getHeritageSlugs';
 import { assertLocaleOrNotFound } from '@/i18n/locale';
 import {
 	getHeritageDetailPageMetadata,
@@ -8,6 +9,11 @@ import {
 type Props = {
 	params: { locale: string; id: string };
 };
+
+export async function generateStaticParams() {
+	const slugs = await getHeritageSlugsForStaticParams();
+	return slugs.map((id) => ({ id }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const locale = assertLocaleOrNotFound(params.locale);

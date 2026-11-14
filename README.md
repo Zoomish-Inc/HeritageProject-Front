@@ -313,14 +313,19 @@ npm run dev
 
 ## Docker
 
-Production-образ: Next.js `output: standalone`, Node 20. `NEXT_PUBLIC_*` и tour-packs вшиваются на сборке, поэтому их задают как build-args, не только в runtime.
+Образ для сервера: Next.js standalone, Node 20. Нужны Docker и Docker Compose. Nginx и Django в этот compose не входят.
+
+Рядом с `docker-compose.yml` создать `.env`:
 
 ```bash
-cp .env.local.example .env
-docker compose build
-docker compose up -d
+NEXT_PUBLIC_API_URL=https://адрес-бэкенда
+NEXT_PUBLIC_SITE_URL=https://адрес-сайта
 ```
 
-Перед сборкой поправьте в `.env` `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL` и `TOUR_PACKS_API_URL`. Сайт слушает `http://localhost:3000`. Обратный прокси (nginx) — снаружи контейнера. Бэкенд Django в этот compose не входит.
+`NEXT_PUBLIC_USE_MOCK` можно не указывать: по умолчанию `false`. 3D-туры качаются при сборке с `{NEXT_PUBLIC_API_URL}/api/v1/tour-packs/`.
 
-Без `TOUR_PACKS_API_URL` 3D-туры в образ не попадут: `npm run build` качает их до `next build`.
+```bash
+docker compose up -d --build
+```
+
+Сайт слушает порт `3000`. Снаружи его закрывает nginx на 80/443. Эти две строки вшиваются в образ: после смены снова `docker compose up -d --build`, одного restart мало.

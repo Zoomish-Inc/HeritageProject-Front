@@ -1,41 +1,26 @@
-import type {
-	ArchitectureDetail,
-	AudioGuide,
-	AudioGuideTrack,
-	BeforeAfterPair,
-	HeritageCoordinates,
-	HeritageObject,
-	HistoricalFigure,
-	LocalizedString,
-	PhotoItem,
-} from '@/entities/heritage';
+import type { HeritageCoordinates, HeritageObject, LocalizedString } from '@/entities/heritage';
 import {
-	biographyMilestoneSchema,
 	coalesceKey,
-	localizedStringSchema,
 	parseBooleanFlexible,
 	parseIsoDateOptional,
 	parseLocalizedFlexible,
 	parseLocalizedOptional,
 	parseNumberFlexible,
 	parseStringFlexible,
-	photoItemSchema,
 } from './heritageSchemaPrimitives';
+import { mapArrayFromApi } from './mapHeritageApiShared';
+import { coalesceAudioGuideRaw, mapAudioGuideFromApi } from './mapAudioGuideFromApi';
+import { clampFigureGallery, mapHistoricalFigureFromApi } from './mapHistoricalFigureFromApi';
+import {
+	MAX_BEFORE_AFTER_PAIRS,
+	MAX_HISTORY_MEDIA,
+	MAX_PHOTOS,
+	mapArchitectureDetailFromApi,
+	mapBeforeAfterPairFromApi,
+	mapPhotoItemFromApi,
+} from './mapHeritageMediaFromApi';
 
-const MAX_PHOTOS = 7;
-const MAX_BEFORE_AFTER_PAIRS = 5;
-const MAX_HISTORY_MEDIA = 7;
-const MAX_FIGURE_GALLERY = 5;
-
-const emptyLocalized = (): LocalizedString => ({ ru: '', uz: '' });
-
-export const emptyAudioGuide: AudioGuide = {
-	narratorLabel: emptyLocalized(),
-	tracks: [],
-	transcript: emptyLocalized(),
-	atmosphereDescription: emptyLocalized(),
-	musicSuggestion: emptyLocalized(),
-};
+export { emptyAudioGuide, mapAudioGuideFromApi } from './mapAudioGuideFromApi';
 
 export type HeritageDetailCore = {
 	id: string;
@@ -44,193 +29,6 @@ export type HeritageDetailCore = {
 	address: LocalizedString;
 	order: number;
 };
-
-function localizedNonEmpty(s: LocalizedString): boolean {
-	return s.ru.trim().length > 0 || s.uz.trim().length > 0;
-}
-
-function resolveOptionalImageUrl(
-	camel: unknown,
-	snake: unknown
-): string | undefined {
-	const raw = camel ?? snake;
-	if (typeof raw !== 'string') return undefined;
-	const trimmed = raw.trim();
-	return trimmed !== '' ? trimmed : undefined;
-}
-
-function mapArrayFromApi<T>(
-	value: unknown,
-	mapItem: (item: Record<string, unknown>) => T | null,
-	scope: string
-): T[] {
-	if (!Array.isArray(value)) {
-		if (value !== undefined && value !== null && process.env.NODE_ENV === 'development') {
-			console.warn(`[heritage] ${scope}: expected array`);
-		}
-		return [];
-	}
-
-	const mapped: T[] = [];
-	let skipped = 0;
-
-	for (const item of value) {
-		if (!item || typeof item !== 'object') {
-			skipped++;
-			continue;
-		}
-		const result = mapItem(item as Record<string, unknown>);
-		if (result) mapped.push(result);
-		else skipped++;
-	}
-
-	if (skipped > 0 && process.env.NODE_ENV === 'development') {
-		console.warn(`[heritage] ${scope}: skipped ${skipped} item(s)`);
-	}
-
-	return mapped;
-}
-
-function mapPhotoItemFromApi(row: Record<string, unknown>): PhotoItem | null {
-	const parsed = photoItemSchema.safeParse(row);
-	return parsed.success ? parsed.data : null;
-}
-
-function mapArchitectureDetailFromApi(
-	row: Record<string, unknown>
-): ArchitectureDetail | null {
-	const title = localizedStringSchema.safeParse(row.title);
-	const description = localizedStringSchema.safeParse(row.description);
-	if (!title.success || !description.success) return null;
-
-	return {
-		title: title.data,
-		description: description.data,
-		imageUrl: resolveOptionalImageUrl(row.imageUrl, row.image),
-		imageSourceUrl: parseStringFlexible(row.imageSourceUrl ?? row.image_source_url) || undefined,
-		imageCredit: parseLocalizedOptional(row.imageCredit ?? row.image_credit),
-	};
-}
-
-function mapBeforeAfterPairFromApi(row: Record<string, unknown>): BeforeAfterPair | null {
-	const labelParsed = localizedStringSchema.safeParse(row.label ?? row.title);
-	const label = labelParsed.success ? labelParsed.data : emptyLocalized();
-
-	const resolveSide = (
-		photo: unknown,
-		imageUrl: unknown
-	): PhotoItem | null => {
-		if (photo && typeof photo === 'object') {
-			const mapped = mapPhotoItemFromApi(photo as Record<string, unknown>);
-			if (mapped?.url.trim()) return mapped;
-		}
-		const url = resolveOptionalImageUrl(imageUrl, imageUrl);
-		return url ? { url } : null;
-	};
-
-	const before = resolveSide(row.before, row.before_image);
-	const after = resolveSide(row.after, row.after_image);
-	if (!before || !after) return null;
-
-	return { before, after, label };
-}
-
-function mapHistoricalFigureFromApi(
-	row: Record<string, unknown>
-): HistoricalFigure | null {
-	const name = localizedStringSchema.safeParse(row.name);
-	const role = localizedStringSchema.safeParse(row.role);
-	const bio = localizedStringSchema.safeParse(row.bio);
-	if (!name.success || !role.success || !bio.success) return null;
-
-	const milestones = mapArrayFromApi(
-		row.milestones,
-		(item) => {
-			const parsed = biographyMilestoneSchema.safeParse(item);
-			return parsed.success ? parsed.data : null;
-		},
-		'historicalFigure.milestones'
-	);
-
-	const gallery = mapArrayFromApi(
-		row.gallery,
-		mapPhotoItemFromApi,
-		'historicalFigure.gallery'
-	);
-
-	return {
-		name: name.data,
-		role: role.data,
-		bio: bio.data,
-		bioSourceUrl:
-			parseStringFlexible(row.bioSourceUrl ?? row.bio_source_url) || undefined,
-		bioSourceCredit: parseLocalizedOptional(
-			row.bioSourceCredit ?? row.bio_source_credit
-		),
-		photoUrl: resolveOptionalImageUrl(
-			row.photoUrl ?? row.photo_url,
-			row.photo
-		),
-		...(gallery.length > 0 ? { gallery } : {}),
-		...(milestones.length > 0 ? { milestones } : {}),
-	};
-}
-
-function mapAudioGuideTrackFromApi(row: Record<string, unknown>): AudioGuideTrack | null {
-	const url = parseStringFlexible(row.url).trim();
-	if (!url) return null;
-
-	const shortTitle = parseLocalizedFlexible(row.shortTitle ?? row.short_title);
-	const fullTitle = parseLocalizedOptional(row.fullTitle ?? row.full_title);
-
-	return {
-		url,
-		shortTitle: localizedNonEmpty(shortTitle)
-			? shortTitle
-			: { ru: 'Аудиозапись', uz: 'Audio yozuv' },
-		...(fullTitle ? { fullTitle } : {}),
-	};
-}
-
-function coalesceAudioGuideRaw(row: Record<string, unknown>): unknown {
-	const single = coalesceKey(row, 'audioGuide', 'audio_guide');
-	if (single !== undefined && single !== null) return single;
-	const guides = row.audio_guides;
-	if (Array.isArray(guides) && guides.length > 0) return guides[0];
-	return undefined;
-}
-
-export function mapAudioGuideFromApi(raw: unknown): AudioGuide {
-	if (!raw || typeof raw !== 'object') return emptyAudioGuide;
-
-	const row = raw as Record<string, unknown>;
-	let tracks = mapArrayFromApi(row.tracks, mapAudioGuideTrackFromApi, 'audioGuide.tracks');
-
-	const audioUrl = parseStringFlexible(row.audioUrl ?? row.audio_url).trim();
-	if (tracks.length === 0 && audioUrl) {
-		const narratorLabel = parseLocalizedFlexible(row.narratorLabel ?? row.narrator_label);
-		tracks = [
-			{
-				url: audioUrl,
-				shortTitle: localizedNonEmpty(narratorLabel)
-					? narratorLabel
-					: { ru: 'Аудиозапись', uz: 'Audio yozuv' },
-			},
-		];
-	}
-
-	return {
-		narratorLabel: parseLocalizedFlexible(row.narratorLabel ?? row.narrator_label),
-		tracks,
-		transcript: parseLocalizedFlexible(row.transcript),
-		atmosphereDescription: parseLocalizedFlexible(
-			row.atmosphereDescription ?? row.atmosphere_description
-		),
-		musicSuggestion: parseLocalizedFlexible(
-			row.musicSuggestion ?? row.music_suggestion
-		),
-	};
-}
 
 function mapCoordinatesFromApi(row: Record<string, unknown>): HeritageCoordinates | undefined {
 	const latDirect = row.lat ?? row.latitude;
@@ -287,11 +85,6 @@ function mapCoordinatesFromApi(row: Record<string, unknown>): HeritageCoordinate
 				: Number.NaN;
 	if (!Number.isNaN(lat) && !Number.isNaN(lng)) return { lat, lng };
 	return undefined;
-}
-
-function clampFigureGallery(fig: HistoricalFigure): HistoricalFigure {
-	if (!fig.gallery?.length || fig.gallery.length <= MAX_FIGURE_GALLERY) return fig;
-	return { ...fig, gallery: fig.gallery.slice(0, MAX_FIGURE_GALLERY) };
 }
 
 export function mapHeritageDetailFromApi(

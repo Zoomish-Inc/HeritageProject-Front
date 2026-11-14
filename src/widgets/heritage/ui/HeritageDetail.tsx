@@ -1,92 +1,26 @@
-'use client';
-
 import type { HeritageObject, Locale } from '@/entities/heritage';
-import dynamic from 'next/dynamic';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { heritageTourPath } from '@/shared/lib/seo/paths';
-import { LoadingSpinner, RenderOnView } from '@/shared/ui';
+import { HeritageDetailArchitectBio } from './heritageDetail/HeritageDetailArchitectBio';
+import { HeritageDetailArchitecture } from './heritageDetail/HeritageDetailArchitecture';
+import { HeritageDetailAudio } from './heritageDetail/HeritageDetailAudio';
+import { HeritageDetailBeforeAfter } from './heritageDetail/HeritageDetailBeforeAfter';
 import { HeritageDetailClosingRule } from './heritageDetail/HeritageDetailClosingRule';
+import { HeritageDetailFigures } from './heritageDetail/HeritageDetailFigures';
+import { HeritageDetailGallery } from './heritageDetail/HeritageDetailGallery';
 import { HeritageDetailHero } from './heritageDetail/HeritageDetailHero';
+import { HeritageDetailHistory } from './heritageDetail/HeritageDetailHistory';
 import { HeritageDetailMap } from './heritageDetail/HeritageDetailMap';
 import { HeritageDetailPurpose } from './heritageDetail/HeritageDetailPurpose';
-
-const sectionLoading = () => (
-	<div className="py-10 flex justify-center">
-		<LoadingSpinner />
-	</div>
-);
-
-const HeritageDetailBeforeAfter = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailBeforeAfter').then((m) => ({
-			default: m.HeritageDetailBeforeAfter,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailArchitectBio = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailArchitectBio').then((m) => ({
-			default: m.HeritageDetailArchitectBio,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailArchitecture = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailArchitecture').then((m) => ({
-			default: m.HeritageDetailArchitecture,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailHistory = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailHistory').then((m) => ({
-			default: m.HeritageDetailHistory,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailGallery = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailGallery').then((m) => ({
-			default: m.HeritageDetailGallery,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailAudio = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailAudio').then((m) => ({
-			default: m.HeritageDetailAudio,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailFigures = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailFigures').then((m) => ({
-			default: m.HeritageDetailFigures,
-		})),
-	{ loading: sectionLoading }
-);
-
-const HeritageDetailVisualNotes = dynamic(
-	() =>
-		import('./heritageDetail/HeritageDetailVisualNotes').then((m) => ({
-			default: m.HeritageDetailVisualNotes,
-		})),
-	{ loading: sectionLoading }
-);
+import { HeritageDetailVisualNotes } from './heritageDetail/HeritageDetailVisualNotes';
 
 interface Props {
 	object: HeritageObject;
 }
 
-export const HeritageDetail = ({ object }: Props) => {
-	const locale = useLocale() as Locale;
-	const t = useTranslations('heritage');
+export async function HeritageDetail({ object }: Props) {
+	const locale = (await getLocale()) as Locale;
+	const t = await getTranslations('heritage');
 	const sourceLabel = t('photo_source');
 
 	return (
@@ -105,20 +39,18 @@ export const HeritageDetail = ({ object }: Props) => {
 				}
 			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailAudio
-					object={object}
-					locale={locale}
-					labels={{
-						title: t('audio_guide'),
-						listen: t('listen'),
-						atmosphere: t('atmosphere'),
-						musicSuggestion: t('music_suggestion'),
-						audioTracks: t('audio_tracks'),
-						fullTitle: t('audio_full_title'),
-					}}
-				/>
-			</RenderOnView>
+			<HeritageDetailAudio
+				object={object}
+				locale={locale}
+				labels={{
+					title: t('audio_guide'),
+					listen: t('listen'),
+					atmosphere: t('atmosphere'),
+					musicSuggestion: t('music_suggestion'),
+					audioTracks: t('audio_tracks'),
+					fullTitle: t('audio_full_title'),
+				}}
+			/>
 
 			<HeritageDetailBeforeAfter
 				slug={object.slug}
@@ -154,63 +86,47 @@ export const HeritageDetail = ({ object }: Props) => {
 				openMapLabel={t('open_map')}
 			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailArchitectBio
-					object={object}
-					locale={locale}
-					title={t('architect_bio')}
-					sourceLabel={sourceLabel}
-				/>
-			</RenderOnView>
+			<HeritageDetailArchitectBio
+				object={object}
+				locale={locale}
+				title={t('architect_bio')}
+				sourceLabel={sourceLabel}
+			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailArchitecture
-					object={object}
-					locale={locale}
-					labels={{
-						title: t('architecture'),
-						architectureDetails: t('architecture_details'),
-						sourceLabel,
-					}}
-				/>
-			</RenderOnView>
+			<HeritageDetailArchitecture
+				object={object}
+				locale={locale}
+				labels={{
+					title: t('architecture'),
+					architectureDetails: t('architecture_details'),
+					sourceLabel,
+				}}
+			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailHistory
-					object={object}
-					locale={locale}
-					title={t('history')}
-					sourceLabel={sourceLabel}
-				/>
-			</RenderOnView>
+			<HeritageDetailHistory
+				object={object}
+				locale={locale}
+				title={t('history')}
+				sourceLabel={sourceLabel}
+			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailGallery
-					photos={object.photos}
-					locale={locale}
-					title={t('gallery')}
-					sourceLabel={sourceLabel}
-				/>
-			</RenderOnView>
+			<HeritageDetailGallery
+				photos={object.photos}
+				locale={locale}
+				title={t('gallery')}
+				sourceLabel={sourceLabel}
+			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailFigures
-					object={object}
-					locale={locale}
-					title={t('figures')}
-					sourceLabel={sourceLabel}
-				/>
-			</RenderOnView>
+			<HeritageDetailFigures
+				object={object}
+				locale={locale}
+				title={t('figures')}
+				sourceLabel={sourceLabel}
+			/>
 
-			<RenderOnView fallback={sectionLoading()}>
-				<HeritageDetailVisualNotes
-					object={object}
-					locale={locale}
-					title={t('visual_style')}
-				/>
-			</RenderOnView>
+			<HeritageDetailVisualNotes object={object} locale={locale} title={t('visual_style')} />
 
 			<HeritageDetailClosingRule />
 		</article>
 	);
-};
+}

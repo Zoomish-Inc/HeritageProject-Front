@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import type { HeritageListItem, Locale } from '@/entities/heritage';
 import { Link } from '@/i18n/navigation';
 import { trackLandmarkNavClick } from '@/shared/lib/analytics';
+import { formatHeritageYear } from '@/shared/lib/heritage/formatHeritageYear';
 
 type Props = {
 	items?: HeritageListItem[];
@@ -36,7 +37,9 @@ export function LandmarksNavList({
 
 	return (
 		<ul role={listRole} className="min-w-0">
-			{items?.map((item, idx) => (
+			{items?.map((item, idx) => {
+				const yearLabel = formatHeritageYear(item);
+				return (
 				<li
 					key={item.id}
 					role={itemRole}
@@ -58,13 +61,16 @@ export function LandmarksNavList({
 							<p className="text-theme-primary text-xs font-body leading-snug group-hover:text-theme-accent transition-colors">
 								{item.name[locale]}
 							</p>
-							<p className="text-theme-accent-soft text-xs font-body mt-0.5">
-								{item.yearRange ?? item.yearBuilt}
-							</p>
+							{yearLabel ? (
+								<p className="text-theme-accent-soft text-xs font-body mt-0.5">
+									{yearLabel}
+								</p>
+							) : null}
 						</div>
 					</Link>
 				</li>
-			))}
+				);
+			})}
 		</ul>
 	);
 }

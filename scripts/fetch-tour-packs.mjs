@@ -50,8 +50,17 @@ async function loadManifestFromApi(apiUrl) {
 	return parseManifestPayload(raw);
 }
 
+function resolveTourPacksApiUrl() {
+	const explicit = process.env.TOUR_PACKS_API_URL?.trim();
+	if (explicit) return explicit;
+
+	const apiBase = process.env.NEXT_PUBLIC_API_URL?.trim();
+	if (!apiBase) return "";
+	return `${apiBase.replace(/\/$/, "")}/api/v1/tour-packs/`;
+}
+
 async function loadManifest() {
-	const apiUrl = process.env.TOUR_PACKS_API_URL?.trim();
+	const apiUrl = resolveTourPacksApiUrl();
 	if (apiUrl) {
 		console.log(`[tour-packs:fetch] Loading manifest from API: ${apiUrl}`);
 		const packs = await loadManifestFromApi(apiUrl);
@@ -69,7 +78,7 @@ async function loadManifest() {
 	const packs = loadManifestFromFile();
 	if (packs.length === 0) {
 		console.log(
-			'[tour-packs:fetch] No tour packs configured. Set TOUR_PACKS_API_URL or TOUR_PACKS_MANIFEST.'
+			'[tour-packs:fetch] No tour packs configured. Set NEXT_PUBLIC_API_URL or TOUR_PACKS_MANIFEST.'
 		);
 	} else {
 		console.log(
@@ -93,7 +102,7 @@ function isPackInstalled(slug) {
 }
 
 async function main() {
-	const apiUrl = process.env.TOUR_PACKS_API_URL?.trim();
+	const apiUrl = resolveTourPacksApiUrl();
 	let packs;
 
 	try {

@@ -6,6 +6,7 @@ import {
 } from '@/shared/lib/image/placeholder';
 import { trackHeritageCardClick } from '@/shared/lib/analytics';
 import type { HeritageListItem, Locale } from '@/entities/heritage';
+import { formatHeritageYear } from '@/shared/lib/heritage/formatHeritageYear';
 
 interface Props {
 	item: HeritageListItem;
@@ -15,6 +16,9 @@ interface Props {
 }
 
 export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
+	const yearLabel = formatHeritageYear(item);
+	const summary = item.shortDescription[locale]?.trim() ?? '';
+
 	return (
 		<Link
 			href={`/heritage/${item.slug}`}
@@ -38,11 +42,13 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 						{String(index + 1).padStart(2, '0')}
 					</span>
 				</div>
-				<div className="absolute bottom-3 right-3 z-20 bg-theme-chip border border-theme-chip px-2 py-1 flex items-center justify-center">
-					<span className="inline-flex items-center leading-none text-theme-chip font-body text-xs tracking-widest">
-						{item.yearRange ?? item.yearBuilt}
-					</span>
-				</div>
+				{yearLabel ? (
+					<div className="absolute bottom-3 right-3 z-20 bg-theme-chip border border-theme-chip px-2 py-1 flex items-center justify-center">
+						<span className="inline-flex items-center leading-none text-theme-chip font-body text-xs tracking-widest">
+							{yearLabel}
+						</span>
+					</div>
+				) : null}
 			</div>
 
 			<div className="p-5 relative">
@@ -51,9 +57,11 @@ export const HeritageCard = ({ item, index, locale, readMoreLabel }: Props) => {
 				<h3 className="font-display text-parchment-100 text-base leading-snug mb-2 group-hover:text-gold-300 transition-colors duration-300">
 					{item.name[locale]}
 				</h3>
-				<p className="text-theme-muted font-body text-sm leading-relaxed line-clamp-2">
-					{item.shortDescription[locale]}
-				</p>
+				{summary ? (
+					<p className="text-theme-muted font-body text-sm leading-relaxed line-clamp-2">
+						{summary}
+					</p>
+				) : null}
 
 				<div className="mt-4 flex items-center gap-2 text-gold-400/50 group-hover:text-gold-400 transition-colors duration-300">
 					<span className="inline-flex items-center leading-none font-body text-[10px] tracking-[0.2em] uppercase">

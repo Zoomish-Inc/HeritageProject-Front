@@ -5,6 +5,7 @@ import {
 } from './HeritageDetailSection';
 import type { HeritageObject, Locale } from '@/entities/heritage';
 import { localizedTrim } from '@/widgets/heritage/lib/heritageDetailLocale';
+import { formatHeritageYear } from '@/shared/lib/heritage/formatHeritageYear';
 
 type Props = {
 	object: HeritageObject;
@@ -22,9 +23,7 @@ type Props = {
 
 export const HeritageDetailPurpose = ({ object, locale, labels }: Props) => {
 	const yearDisplay =
-		localizedTrim(object.yearBuiltLabel, locale) ||
-		object.yearRange ||
-		String(object.yearBuilt);
+		localizedTrim(object.yearBuiltLabel, locale) || formatHeritageYear(object);
 
 	const rows: Array<{ key: string; label: string; node: ReactNode }> = [];
 

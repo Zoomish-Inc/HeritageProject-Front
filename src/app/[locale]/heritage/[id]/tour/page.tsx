@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getHeritageSlugsForStaticParams } from '@/lib/heritage/getHeritageSlugs';
 import { notFound } from 'next/navigation';
 import {
 	assertLocaleOrNotFound,
@@ -12,6 +13,11 @@ import { getTranslations } from 'next-intl/server';
 type Props = {
 	params: { locale: string; id: string };
 };
+
+export async function generateStaticParams() {
+	const slugs = await getHeritageSlugsForStaticParams();
+	return slugs.map((id) => ({ id }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const { locale: localeParam, id } = params;

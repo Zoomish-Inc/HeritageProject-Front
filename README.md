@@ -2,7 +2,6 @@
 
 Виртуальный тур по историческим памятникам города, сохранившим изящество русской архитектуры в сердце Центральной Азии.
 
-
 ## Стек
 
 - **Next.js 14** (App Router)
@@ -107,7 +106,11 @@ src
 │   │   ├── listQuery.ts
 │   │   ├── listVisibility.ts
 │   │   ├── logHeritageParseFailure.ts
+│   │   ├── mapAudioGuideFromApi.ts
+│   │   ├── mapHeritageApiShared.ts
 │   │   ├── mapHeritageDetailFromApi.ts
+│   │   ├── mapHeritageMediaFromApi.ts
+│   │   ├── mapHistoricalFigureFromApi.ts
 │   │   ├── readModel.ts
 │   │   ├── schemas.ts
 │   │   └── sortHeritageList.ts
@@ -148,6 +151,7 @@ src
 │   │   │   ├── provider.tsx
 │   │   │   └── schema.ts
 │   │   ├── heritage
+│   │   │   ├── formatHeritageYear.ts
 │   │   │   └── resolveTourEmbedUrl.ts
 │   │   ├── i18n
 │   │   │   ├── DocumentLangSync.tsx

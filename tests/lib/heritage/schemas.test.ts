@@ -479,4 +479,51 @@ describe('heritageObjectApiResponseSchema', () => {
 			);
 		}
 	});
+
+	it('keeps a photo when year is null and drops a blank url', () => {
+		const photoUrl =
+			'https://thumb.cloud.mail.ru/weblink/thumb/xw1/Mo41/BihcnaP57';
+		const parsed = heritageObjectApiResponseSchema.safeParse({
+			success: true,
+			message: null,
+			data: {
+				id: 'ae6aadc3-5a1f-499e-ac6f-065dbfe53512',
+				slug: 'muzhskaya-gimnaziya',
+				name: { ru: 'Здание мужской гимназии', uz: 'Erkaklar gimnaziyasi binosi' },
+				address: { ru: 'Адрес', uz: 'Manzil' },
+				order: 6,
+				year_built: 1902,
+				short_description: { ru: 's', uz: 's' },
+				cover: 'https://example.com/c.jpg',
+				photos: [
+					{
+						url: photoUrl,
+						caption: { ru: '', uz: '' },
+						credit: null,
+						isHistorical: null,
+						year: null,
+						sourceUrl: null,
+						order: 0,
+					},
+					{
+						url: '',
+						caption: { ru: '', uz: '' },
+						credit: { ru: '', uz: '' },
+						isHistorical: false,
+						year: null,
+						order: 0,
+					},
+				],
+			},
+		});
+		expect(parsed.success).toBe(true);
+		if (!parsed.success) return;
+		expect(parsed.data.data.photos).toEqual([
+			{
+				url: photoUrl,
+				caption: { ru: '', uz: '' },
+			},
+		]);
+		expect(parsed.data.data.photos[0]?.year).toBeUndefined();
+	});
 });

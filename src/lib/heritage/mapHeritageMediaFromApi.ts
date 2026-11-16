@@ -8,7 +8,10 @@ export const MAX_HISTORY_MEDIA = 7;
 
 export function mapPhotoItemFromApi(row: Record<string, unknown>): PhotoItem | null {
 	const parsed = photoItemSchema.safeParse(row);
-	return parsed.success ? parsed.data : null;
+	if (!parsed.success) return null;
+	const url = parsed.data.url.trim();
+	if (!url) return null;
+	return url === parsed.data.url ? parsed.data : { ...parsed.data, url };
 }
 
 export function mapArchitectureDetailFromApi(

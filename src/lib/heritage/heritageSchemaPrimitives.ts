@@ -6,13 +6,27 @@ export const localizedStringSchema = z.object({
 	uz: z.string(),
 });
 
+const optionalLocalized = z.preprocess(
+	(value) => (value === null ? undefined : value),
+	localizedStringSchema.optional()
+);
+
 export const photoItemSchema = z.object({
 	url: z.string(),
-	caption: localizedStringSchema.optional(),
-	isHistorical: z.boolean().optional(),
-	year: z.number().optional(),
-	sourceUrl: z.string().optional(),
-	credit: localizedStringSchema.optional(),
+	caption: optionalLocalized,
+	isHistorical: z.preprocess(
+		(value) => (value === null ? undefined : value),
+		z.boolean().optional()
+	),
+	year: z.preprocess(
+		(value) => (value === null ? undefined : value),
+		z.number().optional()
+	),
+	sourceUrl: z.preprocess(
+		(value) => (value === null ? undefined : value),
+		z.string().optional()
+	),
+	credit: optionalLocalized,
 });
 
 export const biographyMilestoneSchema = z.object({

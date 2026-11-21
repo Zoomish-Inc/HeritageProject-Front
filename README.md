@@ -326,7 +326,7 @@ NEXT_PUBLIC_API_URL=https://адрес-бэкенда
 NEXT_PUBLIC_SITE_URL=https://адрес-сайта
 ```
 
-`NEXT_PUBLIC_USE_MOCK` можно не указывать: по умолчанию `false`. 3D-туры качаются при сборке с `{NEXT_PUBLIC_API_URL}/api/v1/tour-packs/`.
+`NEXT_PUBLIC_USE_MOCK` можно не указывать: по умолчанию `false`. На Vercel 3D-туры качаются при сборке. На сервере сборка идёт с `SKIP_TOUR_PACKS=1`, а туры читаются из общего volume `heritage_tourpacks`, его сначала создаёт бэкенд.
 
 ```bash
 docker compose up -d --build

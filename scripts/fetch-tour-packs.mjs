@@ -102,6 +102,11 @@ function isPackInstalled(slug) {
 }
 
 async function main() {
+	if (process.env.SKIP_TOUR_PACKS === '1') {
+		console.log('[tour-packs:fetch] SKIP_TOUR_PACKS=1, skipping');
+		return;
+	}
+
 	const apiUrl = resolveTourPacksApiUrl();
 	let packs;
 

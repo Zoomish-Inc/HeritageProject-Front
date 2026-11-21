@@ -6,8 +6,11 @@ services:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
         NEXT_PUBLIC_USE_MOCK: ${NEXT_PUBLIC_USE_MOCK:-false}
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        SKIP_TOUR_PACKS: "1"
     ports:
       - "3000:3000"
+    volumes:
+      - heritage_tourpacks:/app/public/tour-packs
     env_file:
       - path: .env
         required: false
@@ -16,3 +19,8 @@ services:
       HOSTNAME: 0.0.0.0
       PORT: 3000
     restart: unless-stopped
+
+volumes:
+  heritage_tourpacks:
+    name: heritage_tourpacks
+    external: true

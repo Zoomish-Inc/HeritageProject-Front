@@ -8,7 +8,9 @@ services:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
         SKIP_TOUR_PACKS: "1"
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - heritage_tourpacks:/app/public/tour-packs
     env_file:
@@ -18,9 +20,17 @@ services:
       NODE_ENV: production
       HOSTNAME: 0.0.0.0
       PORT: 3000
+      INTERNAL_API_URL: ${INTERNAL_API_URL:-http://heritage-api:8000}
+    networks:
+      - edge
     restart: unless-stopped
 
 volumes:
   heritage_tourpacks:
     name: heritage_tourpacks
+    external: true
+
+networks:
+  edge:
+    name: heritage_net
     external: true

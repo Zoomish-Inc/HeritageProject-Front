@@ -63,6 +63,12 @@ export const clientEnv: ClientEnv = parsed.success
 		})();
 
 export function getApiBaseUrl(): string {
+	if (typeof window === 'undefined') {
+		const internal = process.env['INTERNAL_API_URL']?.replace(/\/$/, '');
+		if (internal) {
+			return internal;
+		}
+	}
 	return (
 		clientEnv.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') ?? 'http://localhost:8000'
 	);

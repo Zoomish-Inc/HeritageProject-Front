@@ -193,7 +193,8 @@ src
 │       ├── lib
 │       │   ├── heritageDetailLocale.ts
 │       │   ├── mediaSourceResourceLabel.ts
-│       │   └── osmMapUrls.ts
+│       │   ├── osmMapUrls.ts
+│       │   └── splitProseParagraphs.ts
 │       ├── ui
 │       │   ├── heritageDetail
 │       │   │   ├── HeritageDetailArchitectBio.tsx
@@ -253,7 +254,8 @@ tests
 │           └── wikimediaUrl.test.ts
 ├── widgets
 │   └── heritage
-│       └── mediaSourceResourceLabel.test.ts
+│       ├── mediaSourceResourceLabel.test.ts
+│       └── splitProseParagraphs.test.ts
 └── setup.ts
 ```
 

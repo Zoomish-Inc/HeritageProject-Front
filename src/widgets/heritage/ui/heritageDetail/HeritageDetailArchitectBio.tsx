@@ -68,7 +68,6 @@ export const HeritageDetailArchitectBio = ({
 							</p>
 							<HeritageDetailExpandableText
 								text={b.bio[locale]}
-								className="theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line"
 								collapsedMaxHeight={160}
 							/>
 							<HeritageDetailMediaAttribution

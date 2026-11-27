@@ -19,12 +19,6 @@ type Props = {
 	};
 };
 
-const bodyTextClass =
-	'theme-content-panel-body font-body text-base leading-relaxed whitespace-pre-line';
-
-const detailTextClass =
-	'theme-content-panel-body font-body text-sm leading-relaxed whitespace-pre-line';
-
 export const HeritageDetailArchitecture = ({
 	object,
 	locale,
@@ -40,7 +34,7 @@ export const HeritageDetailArchitecture = ({
 		<HeritageDetailSection title={labels.title}>
 			{hasMainText ? (
 				<div className="relative pl-6 border-l-2 theme-content-panel-divider">
-					<HeritageDetailExpandableText text={mainText} className={bodyTextClass} />
+					<HeritageDetailExpandableText text={mainText} />
 				</div>
 			) : null}
 
@@ -83,7 +77,6 @@ export const HeritageDetailArchitecture = ({
 							</h4>
 							<HeritageDetailExpandableText
 								text={detail.description[locale]}
-								className={detailTextClass}
 								collapsedMaxHeight={160}
 							/>
 						</div>

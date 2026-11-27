@@ -31,10 +31,7 @@ export const HeritageDetailHistory = ({
 			{body ? (
 				<div className="theme-content-panel p-4 md:p-6 mb-6">
 					<blockquote className="m-0">
-						<HeritageDetailExpandableText
-							text={body}
-							className="theme-content-panel-body font-body text-base leading-loose whitespace-pre-line"
-						/>
+						<HeritageDetailExpandableText text={body} />
 					</blockquote>
 				</div>
 			) : null}
